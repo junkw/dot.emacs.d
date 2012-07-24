@@ -120,6 +120,21 @@
 (setq delete-old-versions t)
 (setq trim-versions-without-asking t)
 
+;; Lisp
+(defun jkw:lisp-mode-hooks ()
+  "My config for Lisp mode"
+  (setq eldoc-idle-delay 0.2)
+  (setq eldoc-echo-area-use-multiline-p t)
+  (turn-on-eldoc-mode)
+  (find-function-setup-keys)
+  (linum-mode t)
+  (setq indent-tabs-mode nil))
+
+(add-hook 'emacs-lisp-mode-hook 'jkw:lisp-mode-hooks)
+(add-hook 'lisp-interaction-mode-hook 'jkw:lisp-mode-hooks)
+(add-hook 'lisp-mode-hook 'jkw:lisp-mode-hooks)
+(add-hook 'ielm-mode-hook 'jkw:lisp-mode-hooks)
+
 ;; Global keymap
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
