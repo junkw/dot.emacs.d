@@ -65,6 +65,11 @@
   (set-exec-path-from-shell-PATH)
   (add-to-list 'exec-path "~/.emacs.d/bin"))
 
+;; ELPA
+(require 'package)
+(add-to-list 'package-archives '("tromey" . "http://tromey.com/elpa/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+
 ;; Character Encoding
 (set-language-environment 'Japanese)
 (prefer-coding-system 'utf-8)
