@@ -59,6 +59,38 @@
   (set-file-name-coding-system 'utf-8-hfs)
   (setq locale-coding-system 'utf-8-hfs))
 
+;; Window
+(setq inhibit-startup-screen t)
+(setq initial-scratch-message nil)
+
+;; Bar
+(when window-system
+  (setq frame-title-format "%f")
+  (tool-bar-mode 0)
+  (scroll-bar-mode 0))
+
+;; Mode line
+(setq eol-mnemonic-dos "(CR+LF)")
+(setq eol-mnemonic-mac "(CR)")
+(setq eol-mnemonic-unix "(LF)")
+
+(column-number-mode t)
+(size-indication-mode t)
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+(setq uniquify-ignore-buffers-re "*[^*]+*") ; ignore buffer with "*"
+
+;; TAB
+(setq-default tab-width 4)
+
+;; Highlight
+(global-hl-line-mode t)
+(setq show-paren-delay 0)
+(show-paren-mode t)
+
+(require 'generic-x)
+
 ;; Global keymap
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
