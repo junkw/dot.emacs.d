@@ -100,6 +100,26 @@
                     'japanese-jisx0208
                     (font-spec :family "Ricty")))
 
+;; Auto save file
+(setq auto-save-default t)
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "~/.emacs.d/var/tmp/") t)))
+(setq delete-auto-save-files t)
+(setq auto-save-timeout 300)            ; 5 min.
+(setq auto-save-interval 500)           ; 500 types
+
+;; Backup file
+(setq make-backup-files t)
+(add-to-list 'backup-directory-alist
+             (cons "." "~/.emacs.d/var/backup/"))
+(setq backup-by-copying t)
+(setq version-control t)
+(setq vc-make-backup-files t)
+(setq kept-new-versions 3)
+(setq kept-old-versions 3)
+(setq delete-old-versions t)
+(setq trim-versions-without-asking t)
+
 ;; Global keymap
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
