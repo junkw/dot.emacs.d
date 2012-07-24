@@ -35,6 +35,20 @@
 (setq user-full-name "Jumpei KAWAMI")
 (setq user-mail-address "don.t.be.trapped.by.dogma@gmail.com")
 
+;; System type predicates
+(defvar mac-p (eq system-type 'darwin)
+  "Return t if this system is Mac OS X.")
+(defvar cocoa-p (featurep 'ns)
+  "Return t if this Emacs is cocoa version.")
+(defvar linux-p (eq system-type 'gnu/linux)
+  "Return t if this system is Linux.")
+(defvar cygwin-p (eq system-type 'cygwin)
+  "Return t if this Emacs runs with Cygwin")
+(defvar nt-p (eq system-type 'windows-nt)
+  "Return t if this Emacs is NTEmacs.")
+(defvar windows-p (or cygwin-p nt-p)
+  "Return t if this system is Windows.")
+
 ;; Paths
 ;; https://github.com/purcell/emacs.d/blob/master/init-exec-path.el
 (defun set-exec-path-from-shell-PATH ()
@@ -47,14 +61,14 @@
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
 
-(when (featurep 'ns)
+(when cocoa-p
   (set-exec-path-from-shell-PATH)
   (add-to-list 'exec-path "~/.emacs.d/bin"))
 
 ;; Character Encoding
 (set-language-environment 'Japanese)
 (prefer-coding-system 'utf-8)
-(when (featurep 'ns)
+(when cocoa-p
   (require 'ucs-normalize)
   (set-file-name-coding-system 'utf-8-hfs)
   (setq locale-coding-system 'utf-8-hfs))
