@@ -91,6 +91,15 @@
 
 (require 'generic-x)
 
+;; Font
+(when (find-font (font-spec :name "Ricty"))
+  (set-face-attribute 'default nil
+                      :family "Ricty"
+                      :height 140)
+  (set-fontset-font nil
+                    'japanese-jisx0208
+                    (font-spec :family "Ricty")))
+
 ;; Global keymap
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
