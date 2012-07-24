@@ -1,0 +1,22 @@
+# -*- mode: org; coding: utf-8 -*-
+
+* My Emacs config
+
+** Structure
+
+#+BEGIN_EXAMPLE
+~/.emacs.d/
+  +-- bin/
+  +-- etc/
+  +-- init.d/
+  +-- init.el
+  +-- share/
+  |    +-- info/
+  |    `-- man/
+  +-- var/
+  |    +-- backup/
+  |    +-- cache/
+  |    +-- log/
+  |    `-- tmp/
+  `-- vendor/
+#+END_EXAMPLE
