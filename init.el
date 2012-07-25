@@ -75,15 +75,21 @@
 
 (setq el-get-recipe-path-emacswiki "~/.emacs.d/etc/el-get/emacswiki-recipes/")
 (setq el-get-recipe-path-elpa "~/.emacs.d/etc/el-get/elpa-recipes/")
+(setq el-get-user-package-directory "~/.emacs.d/init.d/")
 (setq el-get-verbose t)
 
-(unless (require 'el-get nil t)
+(setq el-get-sources
+      '((:name el-get :branch "master")))
+
+(if (require 'el-get nil t)
+    (el-get 'sync)
   (url-retrieve
    "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
    (lambda (s)
      (let (el-get-master-branch)
        (goto-char (point-max))
-       (eval-print-last-sexp)))))
+       (eval-print-last-sexp)
+       (el-get 'sync)))))
 
 ;; Character Encoding
 (set-language-environment 'Japanese)
