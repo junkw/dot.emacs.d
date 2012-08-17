@@ -7,7 +7,6 @@
 #+BEGIN_EXAMPLE
 ~/.emacs.d/
   +-- bin/
-  +-- el-get/
   +-- etc/
   |    `-- el-get/
   |         +-- elpa-recipes/
@@ -17,9 +16,10 @@
   +-- share/
   |    +-- info/
   |    `-- man/
-  `-- var/
-       +-- backup/
-       +-- cache/
-       +-- log/
-       `-- tmp/
+  +-- var/
+  |    +-- backup/
+  |    +-- cache/
+  |    +-- log/
+  |    `-- tmp/
+  `-- vendor/
 #+END_EXAMPLE

@@ -68,7 +68,8 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;; el-get
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(setq el-get-dir "~/.emacs.d/vendor/")
+(add-to-list 'load-path "~/.emacs.d/vendor/el-get")
 
 (setq el-get-recipe-path-emacswiki "~/.emacs.d/etc/el-get/emacswiki-recipes/")
 (setq el-get-recipe-path-elpa "~/.emacs.d/etc/el-get/elpa-recipes/")
