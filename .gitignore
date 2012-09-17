@@ -3,3 +3,7 @@
 *.elc
 *~
 \#*\#
+
+etc/el-get/
+var/
+vendor/

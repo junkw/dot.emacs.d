@@ -1,0 +1,54 @@
+;;; post-init-lisp.el --- Emacs init file
+
+;; Copyright (C) 2012  Jumpei KAWAMI
+
+;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
+;; Created: Sep. 15, 2012
+;; Keywords: .emacs
+
+;;; This file is NOT part of GNU Emacs.
+
+;;; License:
+;;
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+;;
+
+;;; Change Log:
+;;
+
+;;; Code:
+
+(defun jkw:lisp-mode-hooks ()
+  "My config for Lisp mode"
+  (setq eldoc-idle-delay 0.2)
+  (setq eldoc-echo-area-use-multiline-p t)
+  (turn-on-eldoc-mode)
+  (find-function-setup-keys)
+  (linum-mode t)
+  (setq indent-tabs-mode nil))
+
+(add-hook 'emacs-lisp-mode-hook 'jkw:lisp-mode-hooks)
+(add-hook 'lisp-interaction-mode-hook 'jkw:lisp-mode-hooks)
+(add-hook 'lisp-mode-hook 'jkw:lisp-mode-hooks)
+(add-hook 'ielm-mode-hook 'jkw:lisp-mode-hooks)
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; coding: utf-8-emacs-unix
+;; indent-tabs-mode: nil
+;; End:
+
+;;; post-init-lisp.el ends here

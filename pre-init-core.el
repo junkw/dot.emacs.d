@@ -1,0 +1,65 @@
+;;; pre-init-core.el --- Emacs init file
+
+;; Copyright (C) 2012  Jumpei KAWAMI
+
+;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
+;; Created: Sep. 15, 2012
+;; Keywords: .emacs
+
+;;; This file is NOT part of GNU Emacs.
+
+;;; License:
+;;
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+;;
+
+;;; Change Log:
+;;
+
+;;; Code:
+
+;; System type predicates
+(defvar mac-p (eq system-type 'darwin)
+  "Return t if this system is Mac OS X.")
+(defvar cocoa-p (featurep 'ns)
+  "Return t if this Emacs is cocoa version.")
+(defvar linux-p (eq system-type 'gnu/linux)
+  "Return t if this system is Linux.")
+(defvar cygwin-p (eq system-type 'cygwin)
+  "Return t if this Emacs runs with Cygwin")
+(defvar nt-p (eq system-type 'windows-nt)
+  "Return t if this Emacs is NTEmacs.")
+(defvar windows-p (or cygwin-p nt-p)
+  "Return t if this system is Windows.")
+
+;; Paths
+;; https://github.com/purcell/emacs.d/blob/master/init-exec-path.el
+(defun jkw:set-exec-path-from-shell ()
+  "Inherit the same value of PATH environment variable as on the user's shell."
+  (let ((path-from-shell
+         (substring (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'") 0 -1)))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(provide 'pre-init-core)
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; coding: utf-8-emacs-unix
+;; indent-tabs-mode: nil
+;; End:
+
+;;; pre-init-core.el ends here

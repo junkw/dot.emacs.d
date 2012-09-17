@@ -31,160 +31,32 @@
 
 ;;; Code:
 
-;; Profile
-(setq user-full-name "Jumpei KAWAMI")
-(setq user-mail-address "don.t.be.trapped.by.dogma@gmail.com")
+(eval-when-compile (require 'cl))
 
-;; System type predicates
-(defvar mac-p (eq system-type 'darwin)
-  "Return t if this system is Mac OS X.")
-(defvar cocoa-p (featurep 'ns)
-  "Return t if this Emacs is cocoa version.")
-(defvar linux-p (eq system-type 'gnu/linux)
-  "Return t if this system is Linux.")
-(defvar cygwin-p (eq system-type 'cygwin)
-  "Return t if this Emacs runs with Cygwin")
-(defvar nt-p (eq system-type 'windows-nt)
-  "Return t if this Emacs is NTEmacs.")
-(defvar windows-p (or cygwin-p nt-p)
-  "Return t if this system is Windows.")
+(add-to-list 'load-path user-emacs-directory)
 
-;; Paths
-;; https://github.com/purcell/emacs.d/blob/master/init-exec-path.el
-(defun jkw:set-exec-path-from-shell ()
-  "Inherit the same value of PATH environment variable as on the user's shell."
-  (let ((path-from-shell
-         (substring (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'") 0 -1)))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
+(defun jkw:init-module-list-files (regexp)
+  "Show init modules containing a match for REGEXP in `~/.emacs.d/'.
+If a elisp file has a byte-compiled file, show the byte-compiled file only."
+  (loop for el in (directory-files user-emacs-directory t)
+        when (and (string-match regexp (file-name-nondirectory el))
+                  (or (string-match "elc$" el)
+                      (and (string-match "el$" el)
+                           (not (locate-library (concat el "c"))))))
+        collect (file-name-nondirectory el)))
 
-(when cocoa-p
-  (jkw:set-exec-path-from-shell))
-(add-to-list 'exec-path "~/.emacs.d/bin")
+(defun jkw:init-module-load-files (prefix)
+  "Load init modules with PREFIX"
+  (loop for mod in (jkw:init-module-list-files prefix)
+        do (load (file-name-sans-extension mod))))
 
-;; ELPA
-(require 'package)
-(add-to-list 'package-archives '("tromey" . "http://tromey.com/elpa/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(defun jkw:init-module-initialize ()
+  "Initialize Emacs init files"
+  (jkw:init-module-load-files "^pre-init-")
+  (jkw:init-module-load-files "^opt-init-")
+  (jkw:init-module-load-files "^post-init-"))
 
-;; el-get
-(setq el-get-dir "~/.emacs.d/vendor/")
-(add-to-list 'load-path "~/.emacs.d/vendor/el-get")
-
-(setq el-get-recipe-path-emacswiki "~/.emacs.d/etc/el-get/emacswiki-recipes/")
-(setq el-get-recipe-path-elpa "~/.emacs.d/etc/el-get/elpa-recipes/")
-(setq el-get-user-package-directory "~/.emacs.d/init.d/")
-(setq el-get-verbose t)
-
-(setq el-get-sources
-      '((:name el-get
-               :website "https://github.com/dimitri/el-get#readme"
-               :description "Manage the external elisp bits and pieces you depend upon."
-               :type github
-               :branch "master"
-               :pkgname "dimitri/el-get"
-               :features el-get
-               :info    "el-get.info"
-               :load    "el-get.el")
-        ))
-
-(if (require 'el-get nil t)
-    (el-get 'sync)
-  (url-retrieve
-   "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
-   (lambda (s)
-     (let (el-get-master-branch)
-       (goto-char (point-max))
-       (eval-print-last-sexp)
-       (el-get 'sync)))))
-
-;; Character Encoding
-(set-language-environment 'Japanese)
-(prefer-coding-system 'utf-8)
-(when cocoa-p
-  (require 'ucs-normalize)
-  (set-file-name-coding-system 'utf-8-hfs)
-  (setq locale-coding-system 'utf-8-hfs))
-
-;; Window
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message nil)
-
-;; Bar
-(when window-system
-  (setq frame-title-format "%f")
-  (tool-bar-mode 0)
-  (scroll-bar-mode 0))
-
-;; Mode line
-(setq eol-mnemonic-dos "(CR+LF)")
-(setq eol-mnemonic-mac "(CR)")
-(setq eol-mnemonic-unix "(LF)")
-
-(column-number-mode t)
-(size-indication-mode t)
-
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-(setq uniquify-ignore-buffers-re "*[^*]+*") ; ignore buffer with "*"
-
-;; TAB
-(setq-default tab-width 4)
-
-;; Highlight
-(global-hl-line-mode t)
-(setq show-paren-delay 0)
-(show-paren-mode t)
-
-(require 'generic-x)
-
-;; Font
-(when (find-font (font-spec :name "Ricty"))
-  (set-face-attribute 'default nil
-                      :family "Ricty"
-                      :height 140)
-  (set-fontset-font nil
-                    'japanese-jisx0208
-                    (font-spec :family "Ricty")))
-
-;; Auto save file
-(setq auto-save-default t)
-(setq auto-save-file-name-transforms
-      `((".*" ,(expand-file-name "~/.emacs.d/var/tmp/") t)))
-(setq delete-auto-save-files t)
-(setq auto-save-timeout 300)            ; 5 min.
-(setq auto-save-interval 500)           ; 500 types
-
-;; Backup file
-(setq make-backup-files t)
-(add-to-list 'backup-directory-alist
-             (cons "." "~/.emacs.d/var/backup/"))
-(setq backup-by-copying t)
-(setq version-control t)
-(setq vc-make-backup-files t)
-(setq kept-new-versions 3)
-(setq kept-old-versions 3)
-(setq delete-old-versions t)
-(setq trim-versions-without-asking t)
-
-;; Lisp
-(defun jkw:lisp-mode-hooks ()
-  "My config for Lisp mode"
-  (setq eldoc-idle-delay 0.2)
-  (setq eldoc-echo-area-use-multiline-p t)
-  (turn-on-eldoc-mode)
-  (find-function-setup-keys)
-  (linum-mode t)
-  (setq indent-tabs-mode nil))
-
-(add-hook 'emacs-lisp-mode-hook 'jkw:lisp-mode-hooks)
-(add-hook 'lisp-interaction-mode-hook 'jkw:lisp-mode-hooks)
-(add-hook 'lisp-mode-hook 'jkw:lisp-mode-hooks)
-(add-hook 'ielm-mode-hook 'jkw:lisp-mode-hooks)
-
-;; Global keymap
-(keyboard-translate ?\C-h ?\C-?)
-(global-set-key (kbd "C-S-k") 'kill-whole-line)
+(jkw:init-module-initialize)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
