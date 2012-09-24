@@ -48,7 +48,13 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 (defun jkw:init-module-load-files (prefix)
   "Load init modules with PREFIX"
   (loop for mod in (jkw:init-module-list-files prefix)
-        do (load (file-name-sans-extension mod))))
+        do (condition-case err
+               (load (file-name-sans-extension mod))
+             (error
+              (message (format "Error in init-module %s. %s"
+                               (file-name-sans-extension mod)
+                               (error-message-string err)))))
+        ))
 
 (defun jkw:init-module-initialize ()
   "Initialize Emacs init files"
