@@ -35,6 +35,12 @@
 
 (add-to-list 'load-path user-emacs-directory)
 
+(defvar jkw:init-module-load-only-pre-init-files nil
+  "If this variable is non-nil, startup with minimum Emacs config.")
+
+(defvar jkw:init-module-opt-init-file-regexp "^opt-init-"
+  "Regexp matching opt-init filename")
+
 (defun jkw:init-module-list-files (regexp)
   "Show init modules containing a match for REGEXP in `~/.emacs.d/'.
 If a elisp file has a byte-compiled file, show the byte-compiled file only."
@@ -45,9 +51,9 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
                            (not (locate-library (concat el "c"))))))
         collect (file-name-nondirectory el)))
 
-(defun jkw:init-module-load-files (prefix)
-  "Load init modules with PREFIX"
-  (loop for mod in (jkw:init-module-list-files prefix)
+(defun jkw:init-module-load-files (regexp)
+  "Load init modules matching the REGEXP specified."
+  (loop for mod in (jkw:init-module-list-files regexp)
         do (condition-case err
                (load (file-name-sans-extension mod))
              (error
@@ -59,8 +65,9 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 (defun jkw:init-module-initialize ()
   "Initialize Emacs init files"
   (jkw:init-module-load-files "^pre-init-")
-  (jkw:init-module-load-files "^opt-init-")
-  (jkw:init-module-load-files "^post-init-"))
+  (unless jkw:init-module-load-only-pre-init-files
+    (jkw:init-module-load-files jkw:init-module-opt-init-file-regexp)
+    (jkw:init-module-load-files "^post-init-")))
 
 (jkw:init-module-initialize)
 
