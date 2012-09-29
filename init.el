@@ -35,6 +35,10 @@
 
 (add-to-list 'load-path user-emacs-directory)
 
+(setq custom-file "~/.emacs.d/etc/custom.el")
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 (defvar jkw:init-module-load-only-pre-init-files nil
   "If this variable is non-nil, startup with minimum Emacs config.")
 

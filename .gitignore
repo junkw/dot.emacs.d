@@ -4,6 +4,7 @@
 *~
 \#*\#
 
+etc/custom.el
 etc/el-get/
 var/
 vendor/
