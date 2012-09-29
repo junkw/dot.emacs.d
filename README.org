@@ -8,11 +8,15 @@
 ~/.emacs.d/
   +-- bin/
   +-- etc/
+  |    +-- custom.el
   |    `-- el-get/
   |         +-- elpa-recipes/
   |         `-- emacswiki-recipes/
   +-- init.d/
   +-- init.el
+  +-- opt-init-*.el
+  +-- post-init-*.el
+  +-- pre-init-*.el
   +-- share/
   |    +-- info/
   |    `-- man/
