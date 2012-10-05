@@ -48,6 +48,9 @@
   (set-file-name-coding-system 'utf-8-hfs)
   (setq locale-coding-system 'utf-8-hfs))
 
+;; Locales
+(setq system-time-locale "C")
+
 ;; Keymap
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
