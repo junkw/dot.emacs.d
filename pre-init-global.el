@@ -51,6 +51,15 @@
 ;; Locales
 (setq system-time-locale "C")
 
+;; Minibuffer Edit
+(fset 'yes-or-no-p 'y-or-n-p)
+(setq enable-recursive-minibuffers t)
+
+;; Add last command to minibuffer history when excute `C-]'
+(defadvice abort-recursive-edit (before minibuffer-save activate)
+  (when (eq (selected-window) (active-minibuffer-window))
+    (add-to-history minibuffer-history-variable (minibuffer-contents))))
+
 ;; Keymap
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)

@@ -31,6 +31,19 @@
 
 ;;; Code:
 
+;; Emacsclient
+(server-start)
+
+;; Garbage collection
+(setq gc-cons-threshold (* 10 gc-cons-threshold))
+
+;; Opening a file larger than 25 MB, asks for confirmation first.
+(setq large-file-warning-threshold (* 50 1024 1024))
+
+;; History size
+(setq message-log-max 5000)             ; Message log buffer
+(setq history-length 1000)              ; Minibuffer
+
 ;; Auto save file
 (setq auto-save-default t)
 (setq auto-save-file-name-transforms
@@ -38,6 +51,8 @@
 (setq delete-auto-save-files t)
 (setq auto-save-timeout 300)            ; 5 min.
 (setq auto-save-interval 500)           ; 500 types
+
+(setq auto-save-list-file-prefix "~/.emacs.d/var/tmp/auto-saves-")
 
 ;; Backup file
 (setq make-backup-files t)

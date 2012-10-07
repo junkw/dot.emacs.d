@@ -34,6 +34,7 @@
 ;; Window
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message nil)
+(setq use-dialog-box nil)
 
 ;; Bar
 (when window-system
@@ -52,6 +53,9 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+*") ; ignore buffer with "*"
+
+;; Echo line
+(setq echo-keystrokes 0.1)              ; display rate (sec.)
 
 ;; TAB
 (setq-default tab-width 4)
