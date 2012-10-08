@@ -1,9 +1,9 @@
-;;; post-init-lisp.el --- Emacs init file
+;;; init-auto-async-byte-compile.el --- el-get init file for package auto-async-byte-compile
 
 ;; Copyright (C) 2012  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Sep. 15, 2012
+;; Created: Oct. 8, 2012
 ;; Keywords: .emacs
 
 ;;; This file is NOT part of GNU Emacs.
@@ -31,20 +31,8 @@
 
 ;;; Code:
 
-(defun jkw:lisp-mode-hooks ()
-  "My config for Lisp mode"
-  (setq eldoc-idle-delay 0.2)
-  (setq eldoc-minor-mode-string "")
-  (setq eldoc-echo-area-use-multiline-p t)
-  (turn-on-eldoc-mode)
-  (find-function-setup-keys)
-  (linum-mode t)
-  (setq indent-tabs-mode nil))
-
-(add-hook 'emacs-lisp-mode-hook 'jkw:lisp-mode-hooks)
-(add-hook 'lisp-interaction-mode-hook 'jkw:lisp-mode-hooks)
-(add-hook 'lisp-mode-hook 'jkw:lisp-mode-hooks)
-(add-hook 'ielm-mode-hook 'jkw:lisp-mode-hooks)
+(setq auto-async-byte-compile-init-file "~/.emacs.d/pre-init-core.el")
+(setq auto-async-byte-compile-exclude-files-regexp "/vendor/")
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -52,4 +40,4 @@
 ;; indent-tabs-mode: nil
 ;; End:
 
-;;; post-init-lisp.el ends here
+;;; init-auto-async-byte-compile.el ends here

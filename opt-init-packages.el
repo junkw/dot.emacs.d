@@ -33,6 +33,7 @@
 
 ;; ELPA
 (require 'package)
+(setq package-user-dir "~/.emacs.d/vendor/package/elpa")
 (add-to-list 'package-archives '("tromey" . "http://tromey.com/elpa/"))
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
@@ -55,22 +56,37 @@
                :features el-get
                :info    "el-get.info"
                :load    "el-get.el")
+        (:name eldoc-extension
+               :website "http://emacswiki.org/emacs/eldoc-extension.el"
+               :description "Some extension for eldoc"
+               :type emacswiki
+               :features eldoc-extension)
         ))
 
+(setq jkw:el-get-package-list-from-recipe
+      '(auto-async-byte-compile paredit))
+
+(defun jkw:el-get-sync-packages ()
+  "Install or update packages via el-get, and init them as needed."
+  (let* ((src (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources)))
+         (pkg (append src jkw:el-get-package-list-from-recipe)))
+    (el-get 'sync pkg)))
+
 (if (require 'el-get nil t)
-    (el-get 'sync)
+    (jkw:el-get-sync-packages)
   (url-retrieve
    "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
    (lambda (s)
-     (let (el-get-master-branch)
+     (let (el-get-master-branch el-get-install-skip-emacswiki-recipes)
        (goto-char (point-max))
        (eval-print-last-sexp)
-       (el-get 'sync)))))
+       (jkw:el-get-sync-packages)))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
 ;; indent-tabs-mode: nil
+;; byte-compile-warnings: (not free-vars unresolved cl-functions mapcar constants)
 ;; End:
 
 ;;; opt-init-packages.el ends here
