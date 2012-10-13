@@ -61,6 +61,12 @@
                :description "Some extension for eldoc"
                :type        emacswiki
                :features    eldoc-extension)
+        (:name info+
+               :description "Extensions for `info.el'."
+               :website     "http://emacswiki.org/emacs/info+.el"
+               :type        emacswiki
+               :library     info
+               :after       (require 'info+))
         ))
 
 (setq jkw:el-get-package-list-from-recipe
