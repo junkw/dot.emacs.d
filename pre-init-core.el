@@ -45,6 +45,13 @@
 (defvar windows-p (or cygwin-p nt-p)
   "Return t if this system is Windows.")
 
+;; Loading
+(defmacro eval-after-load-q (file &rest form)
+  "Macro for simple `eval-after-load' RORM."
+  (declare (indent 1))
+  `(eval-after-load ,file
+     '(progn ,@form)))
+
 ;; Paths
 (defun get-env-var-from-shell (variable)
   "Get the value of environment variable VARIABLE from the user's shell."
