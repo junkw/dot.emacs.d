@@ -46,13 +46,19 @@
   "Return t if this system is Windows.")
 
 ;; Paths
-;; https://github.com/purcell/emacs.d/blob/master/init-exec-path.el
-(defun jkw:set-exec-path-from-shell ()
-  "Inherit the same value of PATH environment variable as on the user's shell."
-  (let ((path-from-shell
-         (substring (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'") 0 -1)))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
+(defun get-env-var-from-shell (variable)
+  "Get the value of environment variable VARIABLE from the user's shell."
+  (let ((command (format "$SHELL --login -i -c 'echo $%s'" variable)))
+    (substring (shell-command-to-string command) 0 -1)))
+
+(defun jkw:set-env-path-from-shell (path)
+  "Inherit the same value of environment variable PATH as on the user's shell.
+
+If argument PATH is environment variable $PATH, set `exec-path' dynamically."
+  (let ((path-from-shell (get-env-var-from-shell path)))
+    (setenv path path-from-shell)
+    (when (string-equal path "PATH")
+      (setq exec-path (split-string path-from-shell path-separator)))))
 
 (provide 'pre-init-core)
 

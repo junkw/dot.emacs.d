@@ -37,7 +37,7 @@
 
 ;; Paths
 (when cocoa-p
-  (jkw:set-exec-path-from-shell))
+  (jkw:set-env-path-from-shell "PATH"))
 (add-to-list 'exec-path "~/.emacs.d/bin")
 
 ;; Character Encoding
