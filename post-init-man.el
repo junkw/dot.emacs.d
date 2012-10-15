@@ -1,0 +1,79 @@
+;;; post-init-man.el --- Emacs init file
+
+;; Copyright (C) 2012  Jumpei KAWAMI
+
+;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
+;; Created: Oct. 13, 2012
+;; Keywords: .emacs, man, woman
+
+;;; This file is NOT part of GNU Emacs.
+
+;;; License:
+;;
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+;;
+
+;;; Change Log:
+;;
+
+;;; Code:
+
+(autoload 'woman "woman" "Decode and browse a UN*X man page." t)
+(autoload 'woman-find-file "woman" "Find, decode and browse a specific UN*X man-page file." t)
+
+(eval-after-load-q "woman"
+  (add-to-list 'woman-manpath "~/.emacs.d/share/man")
+
+  ;; Make cache
+  (setq woman-cache-filename "~/.emacs.d/var/cache/woman") ; update: C-u M-x woman
+
+  ;; Doesn't make new frame
+  (setq woman-use-own-frame nil)
+
+  ;; For imenu
+  (setq woman-imenu-generic-expression
+        '((nil "^\\(   \\)?\\([ぁ-んァ-ヴー一-龠ａ-ｚＡ-Ｚ０-９a-zA-Z0-9]+\\)" 2)))
+
+  ;; Jump to SEE ALSO by <r>
+  (setq Man-see-also-regexp "SEE ALSO\\|関連項目")
+
+  ;; Jump to heading by <n> and <p>
+  (setq Man-first-heading-regexp
+        "^[ \t]*NAME$\\|^[ \t]*名[前称]$\\|^[ \t]*No manual entry fo.*$")
+  (setq Man-heading-regexp "^\\([A-Zーぁ-んァ-ヶ亜-瑤][A-Zーぁ-んァ-ヶ亜-瑤 \t]+\\)$")
+  )
+
+(defun jkw:woman-mode-hooks ()
+  "My config for woman."
+  ;; Keymap
+  (define-key woman-mode-map (kbd "j") 'next-line)
+  (define-key woman-mode-map (kbd "k") 'previous-line)
+  (define-key woman-mode-map (kbd "J") '(lambda () (interactive) (scroll-up 1)))
+  (define-key woman-mode-map (kbd "K") '(lambda () (interactive) (scroll-down 1)))
+  (define-key woman-mode-map (kbd "b") 'scroll-down)
+  (define-key woman-mode-map (kbd "l") 'forward-char)
+  (define-key woman-mode-map (kbd "h") 'backward-char))
+
+(add-hook 'woman-post-format-hook 'jkw:woman-mode-hooks)
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; coding: utf-8-emacs-unix
+;; indent-tabs-mode: nil
+;; byte-compile-warnings: (not free-vars unresolved cl-functions mapcar constants)
+;; End:
+
+;;; post-init-man.el ends here
