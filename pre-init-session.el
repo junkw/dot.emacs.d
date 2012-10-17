@@ -37,9 +37,6 @@
 ;; Garbage collection
 (setq gc-cons-threshold (* 10 gc-cons-threshold))
 
-;; Opening a file larger than 25 MB, asks for confirmation first.
-(setq large-file-warning-threshold (* 50 1024 1024))
-
 ;; History size
 (setq message-log-max 5000)             ; Message log buffer
 (setq history-length 1000)              ; Minibuffer

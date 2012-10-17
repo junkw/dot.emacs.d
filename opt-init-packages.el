@@ -70,7 +70,7 @@
         ))
 
 (setq jkw:el-get-package-list-from-recipe
-      '(auto-async-byte-compile paredit))
+      '(auto-async-byte-compile dired+ paredit))
 
 (defun jkw:el-get-sync-packages ()
   "Install or update packages via el-get, and init them as needed."
