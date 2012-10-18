@@ -61,7 +61,31 @@
 (setq kept-new-versions 3)
 (setq kept-old-versions 3)
 (setq delete-old-versions t)
-(setq trim-versions-without-asking t)
+
+;; Save mini buffer historys
+(require 'savehist)
+(setq savehist-file "~/.emacs.d/var/cache/savehist")
+(setq savehist-additional-variables '(search-ring regexp-search-ring))
+(setq savehist-autosave-interval (* 10 60)) ; sec.
+(savehist-mode 1)
+
+;; Recently used file
+(require 'recentf)
+(setq recentf-save-file "~/.emacs.d/var/cache/recentf")
+(setq recentf-max-menu-items 25)
+(setq recentf-max-saved-items 100)
+(setq recentf-exclude '("^/[^/:]+:" "/TAGS$" "/var/" "/tmp/"))
+(recentf-mode 1)
+
+;; Save cursor's place
+(require 'saveplace)
+(setq save-place-file "~/.emacs.d/var/cache/saveplace")
+(setq-default save-place t)
+
+;; Bookmark
+(require 'bookmark)
+(setq bookmark-default-file "~/.emacs.d/var/bookmark")
+(setq bookmark-save-flag 1)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
