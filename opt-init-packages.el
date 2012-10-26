@@ -67,10 +67,31 @@
                :type        emacswiki
                :library     info
                :after       (require 'info+))
+        (:name scratch-ext
+               :website     "https://github.com/kyanagi/scratch-ext-el#readme"
+               :description "Extensions for *scratch*"
+               :type        github
+               :branch      "master"
+               :pkgname     "kyanagi/scratch-ext-el"
+               :features    scratch-ext)
+        (:name sequential-command
+               :website     "http://www.emacswiki.org/SequentialCommand"
+               :description "Many commands into one command"
+               :type        github
+               :branch      "master"
+               :pkgname     "emacsmirror/sequential-command"
+               :features    sequential-command)
+        (:name undo-tree
+               :website     "http://www.dr-qubit.org/emacs.php#undo-tree"
+               :description "Treat undo history as a tree"
+               :type        git
+               :url         "http://www.dr-qubit.org/git/undo-tree.git"
+               :features    undo-tree
+               :after       (global-undo-tree-mode))
         ))
 
 (setq jkw:el-get-package-list-from-recipe
-      '(auto-async-byte-compile dired+ paredit recentf-ext))
+      '(ace-jump-mode auto-async-byte-compile dired+ expand-region goto-chg paredit recentf-ext))
 
 (defun jkw:el-get-sync-packages ()
   "Install or update packages via el-get, and init them as needed."

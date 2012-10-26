@@ -63,10 +63,6 @@
   (when (eq (selected-window) (active-minibuffer-window))
     (add-to-history minibuffer-history-variable (minibuffer-contents))))
 
-;; Keymap
-(keyboard-translate ?\C-h ?\C-?)
-(global-set-key (kbd "C-S-k") 'kill-whole-line)
-
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
