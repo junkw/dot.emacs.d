@@ -55,8 +55,9 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq enable-recursive-minibuffers t)
 
-;; Add last command to minibuffer history when excute `C-]'
+;; http://d.hatena.ne.jp/rubikitch/20091216/minibuffer
 (defadvice abort-recursive-edit (before minibuffer-save activate)
+  "Add last command to minibuffer history when type C-]"
   (when (eq (selected-window) (active-minibuffer-window))
     (add-to-history minibuffer-history-variable (minibuffer-contents))))
 
