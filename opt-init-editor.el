@@ -79,6 +79,22 @@
       (backward-kill-word 1)
     ad-do-it))
 
+(defun kill-word-dwim (arg)
+  "Call the `kill-word' command you want (Do What I Mean)."
+  (interactive "p")
+  (if (eolp)
+      (backward-kill-word arg)
+    (let ((char (char-to-string (char-after (point)))))
+      (cond
+       ((string= " " char)
+        (delete-horizontal-space))
+       ((string-match "\B" char)
+        (forward-char)
+        (backward-word)
+        (kill-word arg))
+       (t
+        (kill-word arg))))))
+
 ;; Keyboad Macro
 (defvar jkw:kmacro-save-file "~/.emacs.d/etc/kmacro.el"
   "Keyboard macro is saved in this file")
@@ -95,6 +111,7 @@
 ;; Keymap
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
+(global-set-key (kbd "M-d")   'kill-word-dwim)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
