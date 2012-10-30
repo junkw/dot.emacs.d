@@ -71,6 +71,14 @@
 ;; Remove unneeded whitespace when saving a file
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Deletion and Killing
+;; http://dev.ariel-networks.com/wp/documents/aritcles/emacs/part16
+(defadvice kill-region (around kill-word-or-kill-region activate)
+  "Typing C-w without mark, kill the previous word."
+  (if (and (interactive-p) transient-mark-mode (not mark-active))
+      (backward-kill-word 1)
+    ad-do-it))
+
 ;; Keyboad Macro
 (defvar jkw:kmacro-save-file "~/.emacs.d/etc/kmacro.el"
   "Keyboard macro is saved in this file")
