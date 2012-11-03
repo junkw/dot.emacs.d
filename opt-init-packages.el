@@ -48,19 +48,19 @@
 
 (setq el-get-sources
       '((:name el-get
-               :website "https://github.com/dimitri/el-get#readme"
+               :website     "https://github.com/dimitri/el-get#readme"
                :description "Manage the external elisp bits and pieces you depend upon."
-               :type github
-               :branch "master"
-               :pkgname "dimitri/el-get"
-               :features el-get
-               :info    "el-get.info"
-               :load    "el-get.el")
+               :type        github
+               :branch      "master"
+               :pkgname     "dimitri/el-get"
+               :features    el-get
+               :info        "el-get.info"
+               :load        "el-get.el")
         (:name eldoc-extension
-               :website "http://emacswiki.org/emacs/eldoc-extension.el"
+               :website     "http://emacswiki.org/emacs/eldoc-extension.el"
                :description "Some extension for eldoc"
-               :type emacswiki
-               :features eldoc-extension)
+               :type        emacswiki
+               :features    eldoc-extension)
         ))
 
 (setq jkw:el-get-package-list-from-recipe
