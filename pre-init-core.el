@@ -53,16 +53,20 @@
      '(progn ,@form)))
 
 ;; Paths
-(defun get-env-var-from-shell (variable)
+(defun getenv-from-shell (variable)
   "Get the value of environment variable VARIABLE from the user's shell."
-  (let ((command (format "$SHELL --login -i -c 'echo $%s'" variable)))
-    (substring (shell-command-to-string command) 0 -1)))
+  (interactive (list (read-envvar-name "Get environment variable: " t)))
+  (let* ((command (format "$SHELL --login -i -c 'echo $%s'" variable))
+         (value (substring (shell-command-to-string command) 0 -1)))
+    (when (called-interactively-p 'interactive)
+      (message "%s" (if value value "Not set")))
+    value))
 
 (defun jkw:set-env-path-from-shell (path)
   "Inherit the same value of environment variable PATH as on the user's shell.
 
 If argument PATH is environment variable $PATH, set `exec-path' dynamically."
-  (let ((path-from-shell (get-env-var-from-shell path)))
+  (let ((path-from-shell (getenv-from-shell path)))
     (setenv path path-from-shell)
     (when (string-equal path "PATH")
       (setq exec-path (split-string path-from-shell path-separator)))))
