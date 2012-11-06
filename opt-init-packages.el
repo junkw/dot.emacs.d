@@ -88,6 +88,11 @@
                :url         "http://www.dr-qubit.org/git/undo-tree.git"
                :features    undo-tree
                :after       (global-undo-tree-mode))
+        (:name viewer
+               :website     "http://emacswiki.org/emacs/viewer.el"
+               :description "View-mode extension"
+               :type        emacswiki
+               :features    viewer)
         ))
 
 (setq jkw:el-get-package-list-from-recipe
