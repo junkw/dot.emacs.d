@@ -79,7 +79,7 @@
                :description "Many commands into one command"
                :type        github
                :branch      "master"
-               :pkgname     "emacsmirror/sequential-command"
+               :pkgname     "HKey/sequential-command"
                :features    sequential-command)
         (:name undo-tree
                :website     "http://www.dr-qubit.org/emacs.php#undo-tree"

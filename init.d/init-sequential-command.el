@@ -34,20 +34,30 @@
 (require 'sequential-command-config)
 (sequential-command-setup-keys)
 
+(seq-define-cursor-command back-to-indentation)
+(seq-define-cursor-command org-beginning-of-line)
+(seq-define-cursor-command org-end-of-line)
+
 (define-sequential-command jkw:seq-home
-  back-to-indentation
-  beginning-of-line
-  beginning-of-buffer
+  seq-back-to-indentation
+  seq-beginning-of-line
+  seq-beginning-of-buffer
   seq-return)
 
 (define-sequential-command jkw:org-seq-home
-  back-to-indentation
-  org-beginning-of-line
-  beginning-of-buffer
+  seq-back-to-indentation
+  seq-org-beginning-of-line
+  seq-beginning-of-buffer
+  seq-return)
+
+(define-sequential-command jkw:org-seq-end
+  seq-org-end-of-line
+  seq-end-of-buffer
   seq-return)
 
 (global-set-key (kbd "C-a") 'jkw:seq-home)
 (define-key org-mode-map (kbd "C-a") 'jkw:org-seq-home)
+(define-key org-mode-map (kbd "C-e") 'jkw:org-seq-end)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
