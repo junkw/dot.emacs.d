@@ -53,8 +53,10 @@
 
 ;; Backup file
 (setq make-backup-files t)
-(add-to-list 'backup-directory-alist
-             (cons "." "~/.emacs.d/var/backup/"))
+(setq backup-directory-alist
+      `((,tramp-file-name-regexp nil)
+        ("~/\\(Code\\|Documents\\|Docs\\)/" . "~/.emacs.d/var/backup/")
+        ("." . ,temporary-file-directory)))
 (setq backup-by-copying t)
 (setq version-control t)
 (setq vc-make-backup-files t)
