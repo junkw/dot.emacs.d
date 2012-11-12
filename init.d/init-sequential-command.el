@@ -32,32 +32,37 @@
 ;;; Code:
 
 (require 'sequential-command-config)
-(sequential-command-setup-keys)
 
 (seq-define-cursor-command back-to-indentation)
 (seq-define-cursor-command org-beginning-of-line)
 (seq-define-cursor-command org-end-of-line)
 
-(define-sequential-command jkw:seq-home
+(define-sequential-command seq-beginnings
   seq-back-to-indentation
   seq-beginning-of-line
   seq-beginning-of-buffer
   seq-return)
 
-(define-sequential-command jkw:org-seq-home
+(define-sequential-command org-seq-beginnings
   seq-back-to-indentation
   seq-org-beginning-of-line
   seq-beginning-of-buffer
   seq-return)
 
-(define-sequential-command jkw:org-seq-end
+(define-sequential-command org-seq-ends
   seq-org-end-of-line
   seq-end-of-buffer
   seq-return)
 
-(global-set-key (kbd "C-a") 'jkw:seq-home)
-(define-key org-mode-map (kbd "C-a") 'jkw:org-seq-home)
-(define-key org-mode-map (kbd "C-e") 'jkw:org-seq-end)
+(defadvice sequential-command-setup-keys (after seq-remap activate)
+  "Replace original seq-home and org-seq-* with my commands."
+  (global-set-key (kbd "C-a") 'seq-beginnings)
+  (define-key org-mode-map (kbd "C-a") 'org-seq-beginnings)
+  (define-key org-mode-map (kbd "C-e") 'org-seq-ends))
+
+;; (ad-disable-advice 'sequential-command-setup-keys 'after 'seq-remap)
+;; (ad-activate 'sequential-command-setup-keys)
+(sequential-command-setup-keys)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
