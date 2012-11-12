@@ -47,6 +47,7 @@
 
 (defun jkw:init-module-list-files (regexp)
   "Show init modules containing a match for REGEXP in `~/.emacs.d/'.
+
 If a elisp file has a byte-compiled file, show the byte-compiled file only."
   (loop for el in (directory-files user-emacs-directory t)
         when (and (string-match regexp (file-name-nondirectory el))
@@ -66,14 +67,15 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
                                (error-message-string err)))))
         ))
 
-(defun jkw:init-module-initialize ()
-  "Initialize Emacs init files"
+(defun init-module-initialize ()
+  "Initialize Emacs init files."
+  (interactive)
   (jkw:init-module-load-files "^pre-init-")
   (unless jkw:init-module-load-only-pre-init-files
     (jkw:init-module-load-files jkw:init-module-opt-init-file-regexp)
     (jkw:init-module-load-files "^post-init-")))
 
-(jkw:init-module-initialize)
+(init-module-initialize)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
