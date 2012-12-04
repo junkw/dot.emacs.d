@@ -61,6 +61,13 @@
                :description "Some extension for eldoc"
                :type        emacswiki
                :features    eldoc-extension)
+        (:name html5
+               :website     "http://github.com/hober/html5-el#readme"
+               :description "Umbrella project for projects adding HTML5 support to Emacs."
+               :type        github
+               :branch      "patch-1"
+               :pkgname     "purcell/html5-el"
+               :build       (("make" "relaxng")))
         (:name info+
                :website     "http://www.emacswiki.org/emacs/InfoPlus"
                :description "Extensions for `info.el'."
@@ -96,7 +103,8 @@
         ))
 
 (setq jkw:el-get-package-list-from-recipe
-      '(ace-jump-mode auto-async-byte-compile dired+ expand-region goto-chg lispxmp paredit recentf-ext))
+      '(ace-jump-mode auto-async-byte-compile dired+ expand-region flymake-html-validator
+                      goto-chg lispxmp paredit recentf-ext))
 
 (defun jkw:el-get-sync-packages ()
   "Install or update packages via el-get, and init them as needed."
