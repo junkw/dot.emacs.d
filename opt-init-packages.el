@@ -56,6 +56,12 @@
                :features    el-get
                :info        "el-get.info"
                :load        "el-get.el")
+        (:name cssm-mode
+               :website     "http://www.garshol.priv.no/"
+               :description "A major mode for editing CSS."
+               :type        http
+               :url         "http://www.garshol.priv.no/download/software/css-mode/css-mode.el"
+               :autoloads   "css-mode")
         (:name eldoc-extension
                :website     "http://emacswiki.org/emacs/eldoc-extension.el"
                :description "Some extension for eldoc"
@@ -103,8 +109,8 @@
         ))
 
 (setq jkw:el-get-package-list-from-recipe
-      '(ace-jump-mode auto-async-byte-compile dired+ expand-region flymake-html-validator
-                      goto-chg lispxmp paredit recentf-ext))
+      '(ace-jump-mode auto-async-byte-compile dired+ expand-region flymake-csslint
+                      flymake-html-validator goto-chg lispxmp paredit recentf-ext))
 
 (defun jkw:el-get-sync-packages ()
   "Install or update packages via el-get, and init them as needed."
