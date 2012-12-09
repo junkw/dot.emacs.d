@@ -96,7 +96,7 @@
         ))
 
 (setq jkw:el-get-package-list-from-recipe
-      '(ace-jump-mode auto-async-byte-compile dired+ expand-region goto-chg paredit recentf-ext))
+      '(ace-jump-mode auto-async-byte-compile dired+ expand-region goto-chg lispxmp paredit recentf-ext))
 
 (defun jkw:el-get-sync-packages ()
   "Install or update packages via el-get, and init them as needed."
