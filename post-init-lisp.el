@@ -31,6 +31,10 @@
 
 ;;; Code:
 
+(font-lock-add-keywords
+ 'emacs-lisp-mode
+ `((,(regexp-opt '("nil" "setq" "eval-after-load-q") 'words) . font-lock-keyword-face)))
+
 (defun jkw:lisp-mode-hooks ()
   "My config for Lisp mode"
   (setq eldoc-idle-delay 0.2)
