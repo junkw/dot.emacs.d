@@ -34,6 +34,7 @@
 ;; Window
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message nil)
+(setq initial-major-mode 'emacs-lisp-mode)
 (setq use-dialog-box nil)
 
 ;; Bar

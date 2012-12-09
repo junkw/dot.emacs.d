@@ -42,7 +42,6 @@
   (setq indent-tabs-mode nil))
 
 (add-hook 'emacs-lisp-mode-hook 'jkw:lisp-mode-hooks)
-(add-hook 'lisp-interaction-mode-hook 'jkw:lisp-mode-hooks)
 (add-hook 'lisp-mode-hook 'jkw:lisp-mode-hooks)
 (add-hook 'ielm-mode-hook 'jkw:lisp-mode-hooks)
 
