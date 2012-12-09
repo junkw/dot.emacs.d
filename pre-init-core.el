@@ -56,8 +56,10 @@
 (defun getenv-from-shell (variable)
   "Get the value of environment variable VARIABLE from the user's shell."
   (interactive (list (read-envvar-name "Get environment variable: " t)))
-  (let* ((command (format "$SHELL --login -i -c 'echo $%s'" variable))
-         (value (substring (shell-command-to-string command) 0 -1)))
+  (let* ((command (format "$SHELL --login -i -c 'echo __RESULT=$%s'" variable))
+         (result  (substring (shell-command-to-string command) 0 -1))
+         (value   (when (string-match "__RESULT=\\(.*\\)" result)
+                    (match-string 1 result))))
     (when (called-interactively-p 'interactive)
       (message "%s" (if value value "Not set")))
     value))
