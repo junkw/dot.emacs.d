@@ -80,6 +80,35 @@
                :type        emacswiki
                :library     info
                :after       (require 'info+))
+        (:name js2-mode
+               :website     "https://github.com/mooz/js2-mode#readme"
+               :description "An improved JavaScript editing mode"
+               :type        github
+               :branch      "emacs24"
+               :pkgname     "mooz/js2-mode")
+        (:name jshint-mode
+               :website     "https://github.com/daleharvey/jshint-mode#readme"
+               :description "Integrate JSHint into Emacs via a node.js server."
+               :type        github
+               :branch      "master"
+               :pkgname     "daleharvey/jshint-mode"
+               :features    flymake-jshint)
+        (:name php-mode
+               :website     "https://github.com/ejmr/php-mode#readme"
+               :description "Major mode for editing PHP code"
+               :type        github
+               :branch      "master"
+               :pkgname     "ejmr/php-mode"
+               :features    php-mode)
+        (:name php-align
+               :website     "https://github.com/tetsujin/emacs-php-align#readme"
+               :description "Alignment configuration for PHP."
+               :depends     php-mode
+               :type        github
+               :branch      "master"
+               :pkgname     "tetsujin/emacs-php-align"
+               :features    php-align
+               :after       (php-align-setup))
         (:name scratch-ext
                :website     "https://github.com/kyanagi/scratch-ext-el#readme"
                :description "Extensions for *scratch*"
