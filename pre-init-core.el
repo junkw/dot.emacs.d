@@ -56,13 +56,14 @@
 (defun getenv-from-shell (variable)
   "Get the value of environment variable VARIABLE from the user's shell."
   (interactive (list (read-envvar-name "Get environment variable: " t)))
-  (let* ((command (format "$SHELL --login -i -c 'echo __RESULT=$%s'" variable))
-         (result  (substring (shell-command-to-string command) 0 -1))
-         (value   (when (string-match "__RESULT=\\(.*\\)" result)
-                    (match-string 1 result))))
-    (when (called-interactively-p 'interactive)
-      (message "%s" (if value value "Not set")))
-    value))
+  (with-temp-buffer
+    (call-process (getenv "SHELL") nil (current-buffer) nil
+                  "--login" "-i" "-c" (concat "echo __RESULT=$" variable))
+    (re-search-backward "__RESULT=\\(.*\\)" nil t)
+    (let ((result (match-string 1)))
+      (when (called-interactively-p 'interactive)
+        (message "%s" (if result result "Not set")))
+      result)))
 
 (defun jkw:set-env-path-from-shell (path)
   "Inherit the same value of environment variable PATH as on the user's shell.
