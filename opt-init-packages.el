@@ -67,6 +67,15 @@
                :description "Some extension for eldoc"
                :type        emacswiki
                :features    eldoc-extension)
+        (:name flymake-phpcs
+               :website     "https://github.com/illusori/emacs-flymake-phpcs#readme"
+               :description "Flymake handler for PHP to invoke PHP-CodeSniffer"
+               :depends     php-mode
+               :type        github
+               :branch      "master"
+               :pkgname     "illusori/emacs-flymake-phpcs"
+               :before      (setq flymake-phpcs-show-rule t)
+               :features    flymake-phpcs)
         (:name html5
                :website     "http://github.com/hober/html5-el#readme"
                :description "Umbrella project for projects adding HTML5 support to Emacs."
@@ -139,8 +148,8 @@
 
 (setq jkw:el-get-package-list-from-recipe
       '(ace-jump-mode auto-async-byte-compile dired+ expand-region flymake-csslint
-                      flymake-html-validator goto-chg lispxmp paredit rainbow-mode
-                      recentf-ext))
+                      flymake-html-validator geben goto-chg lispxmp paredit
+                      rainbow-mode recentf-ext))
 
 (defun jkw:el-get-sync-packages ()
   "Install or update packages via el-get, and init them as needed."
