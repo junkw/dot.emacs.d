@@ -62,8 +62,8 @@
                :type        emacswiki
                :features    eldoc-extension)
         (:name info+
+               :website     "http://www.emacswiki.org/emacs/InfoPlus"
                :description "Extensions for `info.el'."
-               :website     "http://emacswiki.org/emacs/info+.el"
                :type        emacswiki
                :library     info
                :after       (require 'info+))
@@ -75,7 +75,7 @@
                :pkgname     "kyanagi/scratch-ext-el"
                :features    scratch-ext)
         (:name sequential-command
-               :website     "http://www.emacswiki.org/SequentialCommand"
+               :website     "http://www.emacswiki.org/emacs/SequentialCommand"
                :description "Many commands into one command"
                :type        github
                :branch      "master"
