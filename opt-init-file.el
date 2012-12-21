@@ -50,6 +50,10 @@
 (setq wdired-allow-to-change-permissions t)
 (define-key dired-mode-map (kbd "r") 'wdired-change-to-wdired-mode)
 
+(require 'ls-lisp)
+(setq ls-lisp-use-insert-directory-program nil)
+(setq ls-lisp-dirs-first t)
+
 ;; Compression and uncompression with atool
 ;; http://d.hatena.ne.jp/mooz/20110911/p1
 (defvar jkw:dired-additional-compression-suffixes
@@ -57,7 +61,7 @@
     ".jar" ".lha" ".lrz" ".lz" ".lzh" ".lzma" ".lzo" ".rar" ".rpm" ".rz" ".t7z" ".tZ"
     ".tar" ".tbz" ".tbz2" ".tgz" ".tlz" ".txz" ".tzo" ".war" ".xz" ".zip")
   "Suffixes for compression and uncompression adding in `dired-compress-file-suffixes'.")
-     
+
 (eval-after-load-q "dired-aux"
   (when (executable-find "atool")
     (loop for suffix in jkw:dired-additional-compression-suffixes
