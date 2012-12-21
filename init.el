@@ -81,6 +81,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
 ;; indent-tabs-mode: nil
+;; byte-compile-warnings: (not free-vars unresolved cl-functions mapcar constants)
 ;; End:
 
 ;;; init.el ends here

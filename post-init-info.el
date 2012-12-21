@@ -57,6 +57,7 @@
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
 ;; indent-tabs-mode: nil
+;; byte-compile-warnings: (not free-vars unresolved cl-functions mapcar constants)
 ;; End:
 
 ;;; post-init-info.el ends here
