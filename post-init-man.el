@@ -54,10 +54,7 @@
   (setq Man-first-heading-regexp
         "^[ \t]*NAME$\\|^[ \t]*名[前称]$\\|^[ \t]*No manual entry fo.*$")
   (setq Man-heading-regexp "^\\([A-Zーぁ-んァ-ヶ亜-瑤][A-Zーぁ-んァ-ヶ亜-瑤 \t]+\\)$")
-  )
 
-(defun jkw:woman-mode-hooks ()
-  "My config for woman."
   ;; Keymap
   (define-key woman-mode-map (kbd "j") 'next-line)
   (define-key woman-mode-map (kbd "k") 'previous-line)
@@ -65,9 +62,8 @@
   (define-key woman-mode-map (kbd "K") '(lambda () (interactive) (scroll-down 1)))
   (define-key woman-mode-map (kbd "b") 'scroll-down)
   (define-key woman-mode-map (kbd "l") 'forward-char)
-  (define-key woman-mode-map (kbd "h") 'backward-char))
-
-(add-hook 'woman-post-format-hook 'jkw:woman-mode-hooks)
+  (define-key woman-mode-map (kbd "h") 'backward-char)
+  )
 
 ;; Local Variables:
 ;; mode: emacs-lisp
