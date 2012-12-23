@@ -73,7 +73,7 @@
 
 ;; Deletion and Killing
 ;; http://dev.ariel-networks.com/wp/documents/aritcles/emacs/part16
-(defadvice kill-region (around kill-word-or-kill-region activate)
+(defadvice kill-region (around kill-region-or-kill-word (beg end) activate)
   "Typing C-w without mark, kill the previous word."
   (if (and (called-interactively-p 'any) transient-mark-mode (not mark-active))
       (backward-kill-word 1)
