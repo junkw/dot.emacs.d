@@ -102,6 +102,15 @@
                :branch      "master"
                :pkgname     "daleharvey/jshint-mode"
                :features    flymake-jshint)
+        (:name mmm-mode
+               :website     "http://mmm-mode.sourceforge.net/"
+               :description "Allow Multiple Major Modes in a buffer"
+               :type        github
+               :branch      "master"
+               :pkgname     "purcell/mmm-mode"
+               :build       ("./autogen.sh" "./configure" "make")
+               :features    mmm-auto
+               :info        "mmm.info")
         (:name php-mode
                :website     "https://github.com/ejmr/php-mode#readme"
                :description "Major mode for editing PHP code"
