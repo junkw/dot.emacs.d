@@ -108,6 +108,11 @@
     (insert-kbd-macro symbol)
     (basic-save-buffer)))
 
+;; Spell check
+(require 'ispell)
+(setq-default ispell-program-name "aspell")
+(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
+
 ;; Keymap
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
