@@ -32,7 +32,7 @@
 ;;; Code:
 
 (global-set-key (kbd "M-g SPC") 'ace-jump-mode)
-(global-set-key (kbd "M-g p")   'ace-jump-mode-pop-mark)
+(global-set-key (kbd "M-g m")   'ace-jump-mode-pop-mark)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

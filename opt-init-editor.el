@@ -117,6 +117,8 @@
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "M-d")   'kill-word-dwim)
+(global-set-key (kbd "M-g p") 'flymake-goto-prev-error)
+(global-set-key (kbd "M-g n") 'flymake-goto-next-error)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
