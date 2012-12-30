@@ -77,7 +77,7 @@
   "Typing C-w without mark, kill the previous word."
   (if (and (called-interactively-p 'any) transient-mark-mode (not mark-active))
       (backward-kill-word 1)
-    ad-do-it))
+    (with-no-warnings ad-do-it)))
 
 (defun kill-word-dwim (arg)
   "Call the `kill-word' command you want (Do What I Mean)."
