@@ -47,7 +47,7 @@
 
 ;; Loading
 (defmacro eval-after-load-q (file &rest form)
-  "Macro for simple `eval-after-load' RORM."
+  "Macro for simple `eval-after-load' FORM."
   (declare (indent 1))
   `(eval-after-load ,file
      '(progn ,@form)))
