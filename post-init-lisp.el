@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(eval-when-compile (require 'cl))
+
 (font-lock-add-keywords
  'emacs-lisp-mode
  `((,(regexp-opt '("nil" "setq" "eval-after-load-q") 'words) . font-lock-keyword-face)))
@@ -49,8 +51,8 @@
   (linum-mode t)
   (setq indent-tabs-mode nil))
 
-(add-hook 'emacs-lisp-mode-hook 'jkw:lisp-mode-hooks)
-(add-hook 'lisp-mode-hook 'jkw:lisp-mode-hooks)
+(loop for hook in '(emacs-lisp-mode-hook lisp-mode-hook lisp-interaction-mode)
+      do (add-hook hook 'jkw:lisp-mode-hooks))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

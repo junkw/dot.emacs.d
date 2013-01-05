@@ -31,9 +31,10 @@
 
 ;;; Code:
 
-(add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
-(add-hook 'css-mode-hook  'rainbow-mode)
-(add-hook 'nxml-mode-hook 'rainbow-mode)
+(eval-when-compile (require 'cl))
+
+(loop for hook in '(nxml-mode-hook css-mode-hook)
+      do (add-hook hook 'rainbow-mode))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
