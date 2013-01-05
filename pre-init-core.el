@@ -65,7 +65,7 @@
         (message "%s" (if result result "Not set")))
       result)))
 
-(defun jkw:set-env-path-from-shell (path)
+(defun setenv-path-from-shell (path)
   "Inherit the same value of environment variable PATH as on the user's shell.
 
 If argument PATH is environment variable $PATH, set `exec-path' dynamically."

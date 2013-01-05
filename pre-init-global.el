@@ -31,15 +31,16 @@
 
 ;;; Code:
 
+(eval-when-compile (require 'cl))
+
 ;; Profile
 (setq user-full-name "Jumpei KAWAMI")
 (setq user-mail-address "don.t.be.trapped.by.dogma@gmail.com")
 
 ;; Paths
 (when cocoa-p
-  (jkw:set-env-path-from-shell "PATH")
-  (jkw:set-env-path-from-shell "INFOPATH")
-  (jkw:set-env-path-from-shell "MANPATH"))
+  (loop for path in '("PATH" "INFOPATH" "MANPATH")
+        do (setenv-path-from-shell path)))
 (add-to-list 'exec-path "~/.emacs.d/bin")
 
 ;; Character Encoding
