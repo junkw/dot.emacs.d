@@ -35,25 +35,26 @@
 (autoload 'woman-find-file "woman" "Find, decode and browse a specific UN*X man-page file." t)
 
 (eval-after-load-q "woman"
+  ;; Paths
   (add-to-list 'woman-manpath "~/.emacs.d/share/man")
-
-  ;; Make cache
-  (setq woman-cache-filename "~/.emacs.d/var/cache/woman") ; update: C-u M-x woman
+  (setq woman-cache-filename "~/.emacs.d/var/cache/woman") ; Update cache: C-u M-x woman
 
   ;; Doesn't make new frame
   (setq woman-use-own-frame nil)
 
   ;; For imenu
+  (setq woman-imenu t)
   (setq woman-imenu-generic-expression
-        '((nil "^\\(   \\)?\\([ぁ-んァ-ヴー一-龠ａ-ｚＡ-Ｚ０-９a-zA-Z0-9]+\\)" 2)))
+        '((nil "\n\\([A-Z].*\\|\\cj.*\\)" 1)
+          ("*Subsections*" "^ \\{3,4\\}\\([A-Z].*\\|\\cj.*\\)" 1)))
 
   ;; Jump to SEE ALSO by <r>
-  (setq Man-see-also-regexp "SEE ALSO\\|関連項目")
+  (setq Man-see-also-regexp "\\(SEE ALSO\\|関連項目\\)")
 
   ;; Jump to heading by <n> and <p>
   (setq Man-first-heading-regexp
-        "^[ \t]*NAME$\\|^[ \t]*名[前称]$\\|^[ \t]*No manual entry fo.*$")
-  (setq Man-heading-regexp "^\\([A-Zーぁ-んァ-ヶ亜-瑤][A-Zーぁ-んァ-ヶ亜-瑤 \t]+\\)$")
+        "^\\(NAME\\|名[前称]\\|[ \t]*No manual entry fo.*\\)$")
+  (setq Man-heading-regexp "^\\([A-Z][A-Z0-9 /-]+\\|\\cj+\\)$")
 
   ;; Keymap
   (define-key woman-mode-map (kbd "j") 'next-line)
@@ -62,8 +63,7 @@
   (define-key woman-mode-map (kbd "K") '(lambda () (interactive) (scroll-down 1)))
   (define-key woman-mode-map (kbd "b") 'scroll-down)
   (define-key woman-mode-map (kbd "l") 'forward-char)
-  (define-key woman-mode-map (kbd "h") 'backward-char)
-  )
+  (define-key woman-mode-map (kbd "h") 'backward-char))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
