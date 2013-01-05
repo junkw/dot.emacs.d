@@ -35,19 +35,22 @@
  'emacs-lisp-mode
  `((,(regexp-opt '("nil" "setq" "eval-after-load-q") 'words) . font-lock-keyword-face)))
 
+(find-function-setup-keys)
+
+(require 'eldoc)
+(setq eldoc-idle-delay 0.2)
+(setq eldoc-minor-mode-string "")
+(setq eldoc-echo-area-use-multiline-p t)
+(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+
 (defun jkw:lisp-mode-hooks ()
-  "My config for Lisp mode"
-  (setq eldoc-idle-delay 0.2)
-  (setq eldoc-minor-mode-string "")
-  (setq eldoc-echo-area-use-multiline-p t)
+  "My config for (Emacs) Lisp mode"
   (turn-on-eldoc-mode)
-  (find-function-setup-keys)
   (linum-mode t)
   (setq indent-tabs-mode nil))
 
 (add-hook 'emacs-lisp-mode-hook 'jkw:lisp-mode-hooks)
 (add-hook 'lisp-mode-hook 'jkw:lisp-mode-hooks)
-(add-hook 'ielm-mode-hook 'jkw:lisp-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
