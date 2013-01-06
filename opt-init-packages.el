@@ -4,7 +4,7 @@
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Sep. 15, 2012
-;; Keywords: .emacs
+;; Keywords: .emacs, el-get, ELPA
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,149 +31,52 @@
 
 ;;; Code:
 
-;; ELPA
-(require 'package)
-(setq package-user-dir "~/.emacs.d/vendor/package/elpa")
-(add-to-list 'package-archives '("tromey" . "http://tromey.com/elpa/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-
-;; el-get
+;; Init before loading el-get
 (setq el-get-dir "~/.emacs.d/vendor/")
-(add-to-list 'load-path "~/.emacs.d/vendor/el-get")
+(add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get")))
 
 (setq el-get-recipe-path-emacswiki "~/.emacs.d/etc/el-get/emacswiki-recipes/")
 (setq el-get-recipe-path-elpa "~/.emacs.d/etc/el-get/elpa-recipes/")
-(setq el-get-user-package-directory "~/.emacs.d/init.d/")
-(setq el-get-verbose t)
 
+(require 'package)
+(add-to-list 'package-archives '("tromey" . "http://tromey.com/elpa/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+;; Fix original recipes
 (setq el-get-sources
-      '((:name el-get
-               :website     "https://github.com/dimitri/el-get#readme"
-               :description "Manage the external elisp bits and pieces you depend upon."
-               :type        github
-               :branch      "master"
-               :pkgname     "dimitri/el-get"
-               :features    el-get
-               :info        "el-get.info"
-               :load        "el-get.el")
-        (:name cssm-mode
-               :website     "http://www.garshol.priv.no/"
-               :description "A major mode for editing CSS."
-               :type        http
-               :url         "http://www.garshol.priv.no/download/software/css-mode/css-mode.el"
-               :autoloads   "css-mode")
-        (:name eldoc-extension
-               :website     "http://emacswiki.org/emacs/eldoc-extension.el"
-               :description "Some extension for eldoc"
-               :type        emacswiki
-               :features    eldoc-extension)
-        (:name flymake-phpcs
-               :website     "https://github.com/illusori/emacs-flymake-phpcs#readme"
-               :description "Flymake handler for PHP to invoke PHP-CodeSniffer"
-               :depends     php-mode
-               :type        github
-               :branch      "master"
-               :pkgname     "illusori/emacs-flymake-phpcs"
-               :before      (setq flymake-phpcs-show-rule t)
-               :features    flymake-phpcs)
-        (:name html5
-               :website     "http://github.com/hober/html5-el#readme"
-               :description "Umbrella project for projects adding HTML5 support to Emacs."
-               :type        github
-               :branch      "patch-1"
-               :pkgname     "purcell/html5-el"
-               :build       (("make" "relaxng")))
-        (:name info+
-               :website     "http://www.emacswiki.org/emacs/InfoPlus"
-               :description "Extensions for `info.el'."
-               :type        emacswiki
-               :library     info
-               :after       (require 'info+))
-        (:name js2-mode
-               :website     "https://github.com/mooz/js2-mode#readme"
-               :description "An improved JavaScript editing mode"
-               :type        github
-               :branch      "emacs24"
-               :pkgname     "mooz/js2-mode")
-        (:name jshint-mode
-               :website     "https://github.com/daleharvey/jshint-mode#readme"
-               :description "Integrate JSHint into Emacs via a node.js server."
-               :type        github
-               :branch      "master"
-               :pkgname     "daleharvey/jshint-mode"
-               :features    flymake-jshint)
-        (:name mmm-mode
-               :website     "http://mmm-mode.sourceforge.net/"
-               :description "Allow Multiple Major Modes in a buffer"
-               :type        github
-               :branch      "master"
-               :pkgname     "purcell/mmm-mode"
-               :build       ("./autogen.sh" "./configure" "make")
-               :features    mmm-auto
-               :info        "mmm.info")
-        (:name php-mode
-               :website     "https://github.com/ejmr/php-mode#readme"
-               :description "Major mode for editing PHP code"
-               :type        github
-               :branch      "master"
-               :pkgname     "ejmr/php-mode"
-               :features    php-mode)
-        (:name php-align
-               :website     "https://github.com/tetsujin/emacs-php-align#readme"
-               :description "Alignment configuration for PHP."
-               :depends     php-mode
-               :type        github
-               :branch      "master"
-               :pkgname     "tetsujin/emacs-php-align"
-               :features    php-align
-               :after       (php-align-setup))
-        (:name scratch-ext
-               :website     "https://github.com/kyanagi/scratch-ext-el#readme"
-               :description "Extensions for *scratch*"
-               :type        github
-               :branch      "master"
-               :pkgname     "kyanagi/scratch-ext-el"
-               :features    scratch-ext)
-        (:name sequential-command
-               :website     "http://www.emacswiki.org/emacs/SequentialCommand"
-               :description "Many commands into one command"
-               :type        github
-               :branch      "master"
-               :pkgname     "HKey/sequential-command"
-               :features    sequential-command)
-        (:name undo-tree
-               :website     "http://www.dr-qubit.org/emacs.php#undo-tree"
-               :description "Treat undo history as a tree"
-               :type        git
-               :url         "http://www.dr-qubit.org/git/undo-tree.git"
-               :features    undo-tree
-               :after       (global-undo-tree-mode))
-        (:name viewer
-               :website     "http://emacswiki.org/emacs/viewer.el"
-               :description "View-mode extension"
-               :type        emacswiki
-               :features    viewer)
+      '((:name el-get :branch "master")
+        (:name js2-mode :branch "emacs24")
+        (:name jshint-mode :features flymake-jshint)
+        (:name php-mode :features php-mode)
         ))
 
-(setq jkw:el-get-package-list-from-recipe
-      '(ace-jump-mode auto-async-byte-compile dired+ expand-region flymake-csslint
-                      flymake-html-validator geben goto-chg lispxmp paredit
-                      rainbow-mode recentf-ext))
+(defvar jkw:el-get-package-list-from-recipe
+  '(ace-jump-mode auto-async-byte-compile cssm-mode dired+ eldoc-extension expand-region
+                  flymake-csslint flymake-html-validator flymake-phpcs geben goto-chg
+                  html5 info+ lispxmp mmm-mode paredit php-align rainbow-mode recentf-ext
+                  scratch-ext sequential-command undo-tree viewer)
+  "List of packages I use straight from recipe files")
 
+;; Init after loading el-get
 (defun jkw:el-get-sync-packages ()
   "Install or update packages via el-get, and init them as needed."
+  (setq el-get-verbose t)
+  (add-to-list 'el-get-recipe-path "~/.emacs.d/etc/el-get/local-recipes/")
+  (setq el-get-user-package-directory "~/.emacs.d/init.d/")
   (let* ((src (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources)))
          (pkg (append src jkw:el-get-package-list-from-recipe)))
     (el-get 'sync pkg)))
 
+;; el-get bootstrap
 (if (require 'el-get nil t)
     (jkw:el-get-sync-packages)
   (url-retrieve
    "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
    (lambda (s)
-     (let (el-get-master-branch el-get-install-skip-emacswiki-recipes)
+     (let (el-get-master-branch)
        (goto-char (point-max))
        (eval-print-last-sexp)
+       (el-get-elpa-build-local-recipes)
        (jkw:el-get-sync-packages)))))
 
 ;; Local Variables:

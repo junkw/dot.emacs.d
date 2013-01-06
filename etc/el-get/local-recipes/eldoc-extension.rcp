@@ -1,0 +1,5 @@
+(:name eldoc-extension
+       :description "Some extension for eldoc."
+       :website     "http://emacswiki.org/emacs/eldoc-extension.el"
+       :type        emacswiki
+       :features    eldoc-extension)

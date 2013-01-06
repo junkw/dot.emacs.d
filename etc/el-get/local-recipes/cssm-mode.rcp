@@ -1,0 +1,6 @@
+(:name cssm-mode
+       :description "A major mode for editing CSS."
+       :website     "http://www.garshol.priv.no/"
+       :type        http
+       :url         "http://www.garshol.priv.no/download/software/css-mode/css-mode.el"
+       :prepare     (autoload 'css-mode "css-mode"))

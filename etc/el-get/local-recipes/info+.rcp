@@ -1,0 +1,6 @@
+(:name info+
+       :description "Extensions for `info.el'."
+       :website     "http://www.emacswiki.org/emacs/InfoPlus"
+       :type        emacswiki
+       :library     info
+       :post-init   (require 'info+))

@@ -11,7 +11,8 @@
   |    +-- custom.el
   |    `-- el-get/
   |         +-- elpa-recipes/
-  |         `-- emacswiki-recipes/
+  |         +-- emacswiki-recipes/
+  |         `-- local-recipes/
   +-- init.d/
   +-- init.el
   +-- opt-init-*.el

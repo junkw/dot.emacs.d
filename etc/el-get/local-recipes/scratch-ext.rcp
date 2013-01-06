@@ -1,0 +1,6 @@
+(:name scratch-ext
+       :description "Extensions for *scratch*."
+       :website     "https://github.com/kyanagi/scratch-ext-el#readme"
+       :type        github
+       :pkgname     "kyanagi/scratch-ext-el"
+       :features    scratch-ext)

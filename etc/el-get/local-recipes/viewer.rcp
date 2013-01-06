@@ -1,0 +1,5 @@
+(:name viewer
+       :description "View-mode extension."
+       :website     "http://emacswiki.org/emacs/viewer.el"
+       :type        emacswiki
+       :features    viewer)

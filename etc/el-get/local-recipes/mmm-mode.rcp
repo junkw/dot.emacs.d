@@ -1,0 +1,8 @@
+(:name mmm-mode
+       :description "Allow Multiple Major Modes in a buffer."
+       :website     "http://mmm-mode.sourceforge.net/"
+       :type        github
+       :pkgname     "purcell/mmm-mode"
+       :info        "mmm.info"
+       :build       ("./autogen.sh" "./configure" "make")
+       :features    mmm-auto)

@@ -5,6 +5,7 @@
 \#*\#
 
 etc/custom.el
-etc/el-get/
+etc/el-get/elpa-recipes
+etc/el-get/emacswiki-recipes
 var/
 vendor/

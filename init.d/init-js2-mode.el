@@ -31,7 +31,6 @@
 
 ;;; Code:
 
-(autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|json\\)\\'" . js2-mode))
 
 (defun jkw:js2-mode-hooks ()
