@@ -53,6 +53,8 @@
 
 ;; Locales
 (setq system-time-locale "C")
+(setenv "LC_ALL" "en_US.UTF-8")
+(setenv "LANG" "en_US.UTF-8")
 
 ;; Minibuffer Edit
 (fset 'yes-or-no-p 'y-or-n-p)
