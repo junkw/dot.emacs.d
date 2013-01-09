@@ -55,6 +55,18 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+*") ; ignore buffer with "*"
 
+;; Show the function in the header line
+;; http://www.emacswiki.org/emacs/WhichFuncMode
+(require 'which-func)
+(which-function-mode)
+(delete (assoc 'which-func-mode mode-line-format) mode-line-format)
+(setq which-func-header-line-format
+              '(which-func-mode ("" which-func-format)))
+(defadvice which-func-ff-hook (after header-line activate)
+  (when which-func-mode
+    (delete (assoc 'which-func-mode mode-line-format) mode-line-format)
+    (setq header-line-format which-func-header-line-format)))
+
 ;; Echo line
 (setq echo-keystrokes 0.1)              ; display rate (sec.)
 
