@@ -3,6 +3,7 @@
 *.elc
 *~
 \#*\#
+TAGS
 
 etc/custom.el
 etc/el-get/elpa-recipes

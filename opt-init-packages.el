@@ -51,7 +51,7 @@
         ))
 
 (defvar jkw:el-get-package-list-from-recipe
-  '(ace-jump-mode auto-async-byte-compile cssm-mode dired+ eldoc-extension expand-region
+  '(ace-jump-mode auto-async-byte-compile cssm-mode ctags dired+ eldoc-extension expand-region
                   flymake-csslint flymake-html-validator flymake-phpcs geben goto-chg
                   html5 info+ lispxmp mmm-mode paredit php-align psvn rainbow-mode recentf-ext
                   scratch-ext sequential-command undo-tree viewer)
