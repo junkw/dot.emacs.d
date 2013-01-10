@@ -1,0 +1,5 @@
+(:name migemo
+       :description "Japanese incremental search trough dynamic pattern expansion."
+       :website     "http://0xcc.net/migemo/"
+       :type        git
+       :url         "https://gist.github.com/457761.git")
