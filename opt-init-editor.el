@@ -82,19 +82,20 @@
 (defun kill-word-dwim (arg)
   "Call the `kill-word' command you want (Do What I Mean)."
   (interactive "p")
-  (let ((char (char-to-string (char-after (point)))))
-    (cond
-     ((string-match "\n" char)
-      (delete-char 1)
-      (delete-horizontal-space))
-     ((string-match "[\t ]" char)
-      (delete-horizontal-space))
-     ((string-match "[-@\[-`{-~]" char)
-      (kill-word arg))
-     (t
-      (forward-char)
-      (backward-word)
-      (kill-word arg)))))
+  (cond ((and (called-interactively-p 'any) transient-mark-mode mark-active)
+         (kill-region (region-beginning) (region-end)))
+        ((eobp)
+         (backward-kill-word arg))
+        (t
+         (let ((char (char-to-string (char-after (point)))))
+           (cond ((string-match "\n" char)
+                  (delete-char 1) (delete-horizontal-space))
+                 ((string-match "[\t ]" char)
+                  (delete-horizontal-space))
+                 ((string-match "[-@\[-`{-~]" char)
+                  (kill-word arg))
+                 (t
+                  (forward-char) (backward-word) (kill-word arg)))))))
 
 ;; Keyboad Macro
 (defvar jkw:kmacro-save-file "~/.emacs.d/etc/kmacro.el"
