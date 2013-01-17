@@ -38,10 +38,6 @@
 (setq el-get-recipe-path-emacswiki "~/.emacs.d/etc/el-get/emacswiki-recipes/")
 (setq el-get-recipe-path-elpa "~/.emacs.d/etc/el-get/elpa-recipes/")
 
-(require 'package)
-(add-to-list 'package-archives '("tromey" . "http://tromey.com/elpa/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-
 ;; Fix original recipes
 (setq el-get-sources
       '((:name el-get :branch "master")
@@ -59,26 +55,30 @@
   "List of packages I use straight from recipe files")
 
 ;; Init after loading el-get
-(defun jkw:el-get-sync-packages ()
+(defun el-get-sync-packages ()
   "Install or update packages via el-get, and init them as needed."
-  (setq el-get-verbose t)
-  (add-to-list 'el-get-recipe-path "~/.emacs.d/etc/el-get/local-recipes/")
-  (setq el-get-user-package-directory "~/.emacs.d/init.d/")
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    ;; Eval in the el-get bootstrap.
+    (setq el-get-verbose t)
+    (add-to-list 'el-get-recipe-path "~/.emacs.d/etc/el-get/local-recipes/")
+    (setq el-get-user-package-directory "~/.emacs.d/init.d/"))
   (let* ((src (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources)))
          (pkg (append src jkw:el-get-package-list-from-recipe)))
     (el-get 'sync pkg)))
 
 ;; el-get bootstrap
 (if (require 'el-get nil t)
-    (jkw:el-get-sync-packages)
+    (el-get-sync-packages)
   (url-retrieve
    "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
    (lambda (s)
      (let (el-get-master-branch)
-       (goto-char (point-max))
-       (eval-print-last-sexp)
-       (el-get-elpa-build-local-recipes)
-       (jkw:el-get-sync-packages)))))
+       (goto-char (point-max)) (eval-print-last-sexp)
+       ;; After el-get is installed, inits ELPA and builds its recipe files,
+       ;; finally installes all packages I use.
+       (el-get 'sync 'package) (el-get-elpa-build-local-recipes)
+       (el-get-sync-packages)))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
