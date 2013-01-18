@@ -95,7 +95,7 @@
                  ((string-match "[-@\[-`{-~]" char)
                   (kill-word arg))
                  (t
-                  (forward-char) (backward-word) (kill-word arg)))))))
+                  (beginning-of-thing 'word) (kill-word arg)))))))
 
 ;; Keyboad Macro
 (defvar jkw:kmacro-save-file "~/.emacs.d/etc/kmacro.el"
