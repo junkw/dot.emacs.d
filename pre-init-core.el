@@ -74,6 +74,23 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
     (when (string-equal path "PATH")
       (setq exec-path (split-string path-from-shell path-separator)))))
 
+;; Notify
+(defvar terminal-notifier-app-path
+  "/Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier"
+  "Absolute path of the terminal-notifier.app binary.")
+
+(when (and mac-p (file-executable-p terminal-notifier-app-path))
+  (defun terminal-notifier-notify (title message)
+    "Send a MESSAGE with TITLE in Mac OS X Notification Center using terminal-notify.app."
+    (let* ((name "*terminal-notifier*")
+           (proc
+            (start-process name name
+                           terminal-notifier-app-path
+                           "-title" title
+                           "-message" message
+                           "-activate" "org.gnu.Emacs")))
+      (process-send-eof proc))))
+
 (provide 'pre-init-core)
 
 ;; Local Variables:
