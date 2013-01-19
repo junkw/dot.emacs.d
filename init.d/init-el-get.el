@@ -31,10 +31,18 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
 (require 'el-get)
 (require 'el-get-core)
 (require 'el-get-list-packages)
+(require 'el-get-notify)
 (require 'el-get-recipes)
+
+;; Notify
+(when (and (not (executable-find "growlnotify")) (fboundp 'el-get-growl))
+  (defadvice el-get-growl (around el-get-terminal-notifier (title message) activate)
+    "Use function terminal-notifier-notify, when Mac OS X has terminal-notifier.app."
+    (terminal-notifier-notify title message)))
 
 ;; el-get package menu
 (defun el-get-package-menu-open-recipe ()
