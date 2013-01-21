@@ -55,8 +55,8 @@
 (defvar jkw:el-get-package-list-from-recipe
   '(ace-jump-mode auto-async-byte-compile color-moccur cssm-mode ctags dired+ eldoc-extension
                   expand-region flymake-csslint flymake-html-validator flymake-phpcs geben
-                  goto-chg grep-a-lot html5 info+ lispxmp migemo mmm-mode moccur-edit paredit
-                  php-align psvn rainbow-mode recentf-ext scratch-ext sequential-command
+                  goto-chg grep-a-lot html5 info+ lispxmp magit migemo mmm-mode moccur-edit
+                  paredit php-align psvn rainbow-mode recentf-ext scratch-ext sequential-command
                   undo-tree viewer wgrep)
   "List of packages I use straight from recipe files")
 
