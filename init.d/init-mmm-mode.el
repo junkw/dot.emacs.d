@@ -31,66 +31,68 @@
 
 ;;; Code:
 
+(require 'mmm-vars)
+
 (setq mmm-global-mode 'maybe)
 
-(eval-after-load-q "mmm-vars"
-  (when (require 'js2-mode nil t)
-    (mmm-add-group
-     'embedded-js
-     '((js-code
-        :submode js2-mode
-        :face    mmm-code-submode-face
-        :delimiter-mode nil
-        :front   "<script[^>]*>[ \t]*\n?"
-        :back    "[ \t]*</script>"
-        :insert  ((?j js-tag nil @ "<script type=\"text/javascript\">\n"
-                      @ "" _ "" @ "\n</script>" @)))
-       (js-inline
-        :submode js2-mode
-        :face    mmm-code-submode-face
-        :delimiter-mode nil
-        :front   "\\bon\\w+=\""
-        :back    "\"")))
-    (mmm-add-mode-ext-class 'nxml-mode "\\.[sx]?html?\\'" 'embedded-js))
+;; Javascript in HTML
+(mmm-add-group
+ 'embedded-js
+ '((js-code
+    :submode js2-mode
+    :face    mmm-code-submode-face
+    :delimiter-mode nil
+    :front   "<script[^>]*>[ \t]*\n?"
+    :back    "[ \t]*</script>"
+    :insert  ((?j js-tag nil @ "<script type=\"text/javascript\">\n"
+                  @ "" _ "" @ "\n</script>" @)))
+   (js-inline
+    :submode js2-mode
+    :face    mmm-code-submode-face
+    :delimiter-mode nil
+    :front   "\\bon\\w+=\""
+    :back    "\"")))
+(mmm-add-mode-ext-class 'nxml-mode "\\.[sx]?html?\\'" 'embedded-js)
 
-  (mmm-add-group
-   'embedded-css
-   '((css-code
-      :submode css-mode
-      :face    mmm-declaration-submode-face
-      :delimiter-mode nil
-      :front   "<style[^>]*>[ \t]*\n?"
-      :back    "[ \t]*</style>"
-      :insert  ((?c css-tag nil @ "<style type=\"text/css\">\n"
-                    @ "" _ "" @ "\n</style>" @)))
-     (css-inline
-      :submode css-mode
-      :face    mmm-declaration-submode-face
-      :delimiter-mode nil
-      :front   "\\bstyle=\\s-*\""
-      :back    "\"")))
-  (mmm-add-mode-ext-class 'nxml-mode "\\.[sx]?html?\\'" 'embedded-css)
+;; CSS in HTML
+(mmm-add-group
+ 'embedded-css
+ '((css-code
+    :submode css-mode
+    :face    mmm-declaration-submode-face
+    :delimiter-mode nil
+    :front   "<style[^>]*>[ \t]*\n?"
+    :back    "[ \t]*</style>"
+    :insert  ((?c css-tag nil @ "<style type=\"text/css\">\n"
+                  @ "" _ "" @ "\n</style>" @)))
+   (css-inline
+    :submode css-mode
+    :face    mmm-declaration-submode-face
+    :delimiter-mode nil
+    :front   "\\bstyle=\\s-*\""
+    :back    "\"")))
+(mmm-add-mode-ext-class 'nxml-mode "\\.[sx]?html?\\'" 'embedded-css)
 
-  (when (require 'php-mode nil t)
-    (mmm-add-group
-     'php-view
-     '((php-code
-        :submode php-mode
-        :face    mmm-code-submode-face
-        :front   "<\\?\\(php\\)?"
-        :back    "\\?>"
-        :insert  ((?p php-section nil @ "<?php" @ " " _ " " @ "?>" @)
-                  (?b php-block nil @ "<?php" @ "\n" _ "\n" @ "?>" @)))
-       (php-output
-        :submode php-mode
-        :face    mmm-output-submode-face
-        :front   "<\\?php *echo "
-        :back    "\\?>"
-        :include-front t
-        :front-offset  5
-        :insert  ((?e php-echo nil @ "<?php" @ " echo " _ " " @ "?>" @)))))
-    (mmm-add-mode-ext-class 'nxml-mode "\\.html\\.php\\'" 'php-view)
-    (add-to-list 'auto-mode-alist '("\\.html\\.php\\'" . nxml-mode))))
+;; PHP View file
+(mmm-add-group
+ 'php-view
+ '((php-code
+    :submode php-mode
+    :face    mmm-code-submode-face
+    :front   "<\\?\\(php\\)?"
+    :back    "\\?>"
+    :insert  ((?p php-section nil @ "<?php" @ " " _ " " @ "?>" @)
+              (?b php-block nil @ "<?php" @ "\n" _ "\n" @ "?>" @)))
+   (php-output
+    :submode php-mode
+    :face    mmm-output-submode-face
+    :front   "<\\?php *echo "
+    :back    "\\?>"
+    :include-front t
+    :front-offset  5
+    :insert  ((?e php-echo nil @ "<?php" @ " echo " _ " " @ "?>" @)))))
+(mmm-add-mode-ext-class 'nxml-mode "\\.html\\.php\\'" 'php-view)
+(add-to-list 'auto-mode-alist '("\\.html\\.php\\'" . nxml-mode))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

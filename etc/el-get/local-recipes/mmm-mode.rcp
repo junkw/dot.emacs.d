@@ -1,6 +1,7 @@
 (:name mmm-mode
        :description "Allow Multiple Major Modes in a buffer."
        :website     "http://mmm-mode.sourceforge.net/"
+       :depends     (js2-mode php-mode)
        :type        github
        :pkgname     "purcell/mmm-mode"
        :info        "mmm.info"
