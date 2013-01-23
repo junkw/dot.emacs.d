@@ -70,6 +70,13 @@
 ;; Echo line
 (setq echo-keystrokes 0.1)              ; display rate (sec.)
 
+;; Line number
+;; http://d.hatena.ne.jp/daimatz/20120215/1329248780
+(setq linum-delay t)
+(defadvice linum-schedule (around linum-schedule-delayed activate)
+  "Delay updating line numbers."
+  (run-with-idle-timer 0.2 nil #'linum-update-current))
+
 ;; TAB
 (setq-default tab-width 4)
 
