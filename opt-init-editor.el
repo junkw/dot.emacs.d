@@ -97,6 +97,18 @@
                  (t
                   (beginning-of-thing 'word) (kill-word arg)))))))
 
+;;; Expand
+(setq hippie-expand-try-functions-list
+      '(try-expand-dabbrev
+        try-expand-dabbrev-all-buffers
+        try-complete-file-name-partially
+        try-complete-file-name
+        try-expand-all-abbrevs
+        try-expand-dabbrev-from-kill
+        try-expand-list try-expand-line
+        try-complete-lisp-symbol-partially
+        try-complete-lisp-symbol))
+
 ;; Keyboad Macro
 (defvar jkw:kmacro-save-file "~/.emacs.d/etc/kmacro.el"
   "Keyboard macro is saved in this file")
@@ -117,10 +129,11 @@
 
 ;; Keymap
 (keyboard-translate ?\C-h ?\C-?)
-(global-set-key (kbd "C-S-k") 'kill-whole-line)
-(global-set-key (kbd "M-d")   'kill-word-dwim)
 (global-set-key (kbd "M-g p") 'flymake-goto-prev-error)
 (global-set-key (kbd "M-g n") 'flymake-goto-next-error)
+(global-set-key (kbd "M-/")   'hippie-expand) ; replace `dabbrev-expand'
+(global-set-key (kbd "C-S-k") 'kill-whole-line)
+(global-set-key (kbd "M-d")   'kill-word-dwim)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
