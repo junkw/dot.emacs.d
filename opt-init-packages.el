@@ -31,18 +31,12 @@
 
 ;;; Code:
 
-(require 'pre-init-core)
-
 ;; Init before loading el-get
 (setq el-get-dir "~/.emacs.d/vendor/")
 (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get")))
 
 (setq el-get-recipe-path-emacswiki "~/.emacs.d/etc/el-get/emacswiki-recipes/")
 (setq el-get-recipe-path-elpa "~/.emacs.d/etc/el-get/elpa-recipes/")
-
-(when (and (file-executable-p terminal-notifier-app-path)
-           (not (executable-find "growlnotify")))
-  (setq el-get-growl-notify-path terminal-notifier-app-path)) ; Use terminal-notifier.app
 
 ;; Fix original recipes
 (setq el-get-sources
