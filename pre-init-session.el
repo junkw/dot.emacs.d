@@ -57,7 +57,7 @@
 (setq make-backup-files t)
 (setq backup-directory-alist
       `((,tramp-file-name-regexp nil)
-        ("~/\\(Code\\|Documents\\|Docs\\)/" . "~/.emacs.d/var/backup/")
+        ("/\\(Code\\|Documents\\|Docs\\)/" . "~/.emacs.d/var/backup/")
         ("." . ,temporary-file-directory)))
 (setq backup-by-copying t)
 (setq version-control t)
