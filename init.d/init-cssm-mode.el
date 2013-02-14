@@ -37,8 +37,8 @@
   (setq cssm-indent-function #'cssm-c-style-indenter)
   (setq cssm-indent-level 4)
   (setq cssm-newline-before-closing-bracket t)
-  (linum-mode t)
-  (flymake-mode t))
+  (linum-mode 1)
+  (flymake-mode 1))
 
 (add-hook 'css-mode-hook 'jkw:css-mode-hooks)
 

@@ -41,8 +41,8 @@
   (c-set-offset 'case-label '+)
   (c-set-offset 'arglist-intro '+)
   (c-set-offset 'arglist-close 0)
-  (linum-mode t)
-  (flymake-mode t))
+  (linum-mode 1)
+  (flymake-mode 1))
 
 (add-hook 'php-mode-hook 'jkw:php-mode-hooks)
 

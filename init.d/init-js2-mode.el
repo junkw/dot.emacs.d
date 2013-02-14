@@ -36,8 +36,8 @@
 (defun jkw:js2-mode-hooks ()
   "My config for js2-mode"
   (setq indent-tabs-mode nil)
-  (linum-mode t)
-  (flymake-mode t))
+  (linum-mode 1)
+  (flymake-mode 1))
 
 (add-hook 'js2-mode-hook 'jkw:js2-mode-hooks)
 

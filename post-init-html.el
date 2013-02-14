@@ -46,8 +46,8 @@
 
 (defun jkw:nxml-mode-hooks ()
   "My config for nxml mode"
-  (linum-mode t)
-  (flymake-mode t))
+  (linum-mode 1)
+  (flymake-mode 1))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

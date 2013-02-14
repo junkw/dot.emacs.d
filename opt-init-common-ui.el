@@ -48,8 +48,8 @@
 (setq eol-mnemonic-mac "(CR)")
 (setq eol-mnemonic-unix "(LF)")
 
-(column-number-mode t)
-(size-indication-mode t)
+(column-number-mode 1)
+(size-indication-mode 1)
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
@@ -81,9 +81,9 @@
 (setq-default tab-width 4)
 
 ;; Highlight
-(global-hl-line-mode t)
+(global-hl-line-mode 1)
 (setq show-paren-delay 0)
-(show-paren-mode t)
+(show-paren-mode 1)
 
 (require 'generic-x)
 
