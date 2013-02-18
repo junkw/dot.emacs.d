@@ -31,7 +31,13 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
+
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|json\\)\\'" . js2-mode))
+
+(eval-after-load-q "js2-mode"
+  (require 'js2-imenu-extras)
+  (js2-imenu-extras-setup))
 
 (defun jkw:js2-mode-hooks ()
   "My config for js2-mode"
