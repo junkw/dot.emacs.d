@@ -54,8 +54,8 @@
   "List of packages I use straight from recipe files")
 
 ;; Init after loading el-get
-(defun el-get-sync-packages ()
-  "Install or update packages via el-get, and init them as needed."
+(defun el-get-initialize-packages ()
+  "Install packages via el-get, and initializes them."
   (interactive)
   (unless (called-interactively-p 'interactive)
     ;; Eval in the el-get bootstrap.
@@ -68,7 +68,7 @@
 
 ;; el-get bootstrap
 (if (require 'el-get nil t)
-    (el-get-sync-packages)
+    (el-get-initialize-packages)
   (url-retrieve
    "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
    (lambda (s)
@@ -77,7 +77,7 @@
        ;; After el-get is installed, inits ELPA and builds its recipe files,
        ;; finally installes all packages I use.
        (el-get 'sync 'package) (el-get-elpa-build-local-recipes)
-       (el-get-sync-packages)))))
+       (el-get-initialize-packages)))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
