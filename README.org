@@ -2,6 +2,18 @@
 
 * My Emacs config
 
+** Installation
+
+#+BEGIN_SRC sh-mode
+$ brew install https://gist.github.com/junkw/5037634/raw/986c4e74443247fd99276826bdb42a0dcfc9e069/emacs.rb --cocoa --srgb --env=std
+$ ln -s /usr/local/Cellar/emacs/24.2/Emacs.app/ /Applications/Emacs.app
+$ git clone git@github.com:junkw/dot.emacs.d.git path/to/local/repo
+$ ln -s path/to/local/repo ~/.emacs.d
+$ cd ~/.emacs.d
+$ emacs -batch -L . -f batch-byte-compile *.el
+$ open -a Emacs
+#+END_SRC
+
 ** Structure
 
 #+BEGIN_EXAMPLE
