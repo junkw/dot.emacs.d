@@ -66,6 +66,14 @@
   (when (eq (selected-window) (active-minibuffer-window))
     (add-to-history minibuffer-history-variable (minibuffer-contents))))
 
+;; Input Method
+(when (and mac-p (fboundp 'mac-input-method-mode))
+  (setq default-input-method "MacOSX")
+  (setq mac-use-input-method-on-system t)
+  (mac-translate-from-yen-to-backslash)
+  (add-hook 'after-init-hook 'mac-change-language-to-us)
+  (add-hook 'minibuffer-setup-hook 'mac-change-language-to-us))
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
