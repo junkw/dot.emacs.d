@@ -82,6 +82,10 @@
   "Delay updating line numbers."
   (run-with-idle-timer 0.2 nil #'linum-update-current))
 
+;; Disable BiDi
+(setq-default bidi-display-reordering nil)
+(setq-default bidi-paragraph-direction 'left-to-right)
+
 ;; TAB
 (setq-default tab-width 4)
 
