@@ -70,8 +70,15 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 (defun init-module-initialize ()
   "Initialize Emacs init files."
   (interactive)
+  ;; Minimum config
   (jkw:init-module-load-files "^pre-init-")
+
   (unless jkw:init-module-load-only-pre-init-files
+    ;; Environment-dependent config
+    (if (null window-system)
+        (jkw:init-module-load-files "^cui-init-")
+      (jkw:init-module-load-files "^gui-init-"))
+    ;; Advanced config
     (jkw:init-module-load-files jkw:init-module-opt-init-file-regexp)
     (jkw:init-module-load-files "^post-init-")))
 

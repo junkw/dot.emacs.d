@@ -20,16 +20,14 @@ $ open -a Emacs
 ~/.emacs.d/
   +-- bin/
   +-- etc/
+  |    +-- el-get/
+  |    |    +-- elpa-recipes/
+  |    |    +-- emacswiki-recipes/
+  |    |    `-- local-recipes/
   |    +-- custom.el
-  |    `-- el-get/
-  |         +-- elpa-recipes/
-  |         +-- emacswiki-recipes/
-  |         `-- local-recipes/
+  |    `-- kmacro.el
   +-- init.d/
-  +-- init.el
-  +-- opt-init-*.el
-  +-- post-init-*.el
-  +-- pre-init-*.el
+  |    `-- init-PACKAGE.el
   +-- share/
   |    +-- info/
   |    `-- man/
@@ -38,5 +36,11 @@ $ open -a Emacs
   |    +-- cache/
   |    +-- log/
   |    `-- tmp/
-  `-- vendor/
+  +-- vendor/
+  +-- cui-init-*.el
+  +-- gui-init-*.el
+  +-- init.el
+  +-- opt-init-*.el
+  +-- post-init-*.el
+  `-- pre-init-*.el
 #+END_EXAMPLE
