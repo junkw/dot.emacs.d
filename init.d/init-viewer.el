@@ -38,7 +38,7 @@
   (viewer-stay-in-setup)
 
   ;; Open log and README files as read only
-  (setq view-mode-by-default-regexp "\\(^ChangeLog\\|README\\|.log$\\)")
+  (setq view-mode-by-default-regexp "\\(ChangeLog\\|NEWS\\|README\\|\\.log\\'\\)")
 
   ;; Mode line color
   (setq viewer-modeline-color-unwritable "DarkOrange1")
