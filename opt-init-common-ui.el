@@ -37,12 +37,6 @@
 (setq initial-major-mode 'emacs-lisp-mode)
 (setq use-dialog-box nil)
 
-;; Bar
-(when window-system
-  (setq frame-title-format "%f")
-  (tool-bar-mode 0)
-  (scroll-bar-mode 0))
-
 ;; Mode line
 (setq eol-mnemonic-dos "(CR+LF)")
 (setq eol-mnemonic-mac "(CR)")
