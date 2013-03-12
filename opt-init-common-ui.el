@@ -59,12 +59,17 @@
 ;; http://www.emacswiki.org/emacs/WhichFuncMode
 (require 'which-func)
 (which-function-mode)
-(delete (assoc 'which-func-mode mode-line-format) mode-line-format)
+
+(setq mode-line-format
+      (delete (assoc 'which-func-mode mode-line-format) mode-line-format))
 (setq which-func-header-line-format
               '(which-func-mode ("" which-func-format)))
-(defadvice which-func-ff-hook (after header-line activate)
+
+(defadvice which-func-ff-hook (after which-func-ff-hook-header-line activate)
+  "File find hook to use Which Function mode in header line."
   (when which-func-mode
-    (delete (assoc 'which-func-mode mode-line-format) mode-line-format)
+    (setq mode-line-format
+          (delete (assoc 'which-func-mode mode-line-format) mode-line-format))
     (setq header-line-format which-func-header-line-format)))
 
 ;; Echo line

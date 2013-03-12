@@ -54,13 +54,13 @@
   seq-end-of-buffer
   seq-return)
 
-(defadvice sequential-command-setup-keys (after seq-remap activate)
+(defadvice sequential-command-setup-keys (after seq-setup-keys-remap activate)
   "Replace original seq-home and org-seq-* with my commands."
   (global-set-key (kbd "C-a") 'seq-beginnings)
   (define-key org-mode-map (kbd "C-a") 'org-seq-beginnings)
   (define-key org-mode-map (kbd "C-e") 'org-seq-ends))
 
-;; (ad-disable-advice 'sequential-command-setup-keys 'after 'seq-remap)
+;; (ad-disable-advice 'sequential-command-setup-keys 'after 'seq-setup-keys-remap)
 ;; (ad-activate 'sequential-command-setup-keys)
 (sequential-command-setup-keys)
 

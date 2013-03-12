@@ -31,7 +31,8 @@
 
 ;;; Code:
 
-(defadvice moccur-edit-change-file (after save-after-moccur-edit-buffer activate)
+(defadvice moccur-edit-change-file
+  (after moccur-edit-change-file-and-save activate)
   "Modified buffers are saved automatically."
   (save-buffer))
 
