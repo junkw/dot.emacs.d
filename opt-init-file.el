@@ -40,6 +40,13 @@
 ;; Opening a file larger than 25 MB, asks for confirmation first.
 (setq large-file-warning-threshold (* 25 1024 1024))
 
+;; Opening Emacs NEWS with org-mode
+;; http://pastebin.com/kvW9qZX4
+(defadvice view-emacs-news (after view-emacs-news-with-org activate)
+  "Enable `org-mode' for reading Emacs NEWS."
+  (if (fboundp 'org-mode)
+      (org-mode)))
+
 ;; File deletion makes use of the Trash.
 (when mac-p
   (setq trash-directory "~/.Trash"))
