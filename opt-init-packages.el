@@ -76,7 +76,7 @@
        (goto-char (point-max)) (eval-print-last-sexp)
        ;; After el-get is installed, inits ELPA and builds its recipe files,
        ;; finally installes all packages I use.
-       (el-get 'sync 'package) (el-get-elpa-build-local-recipes)
+       (el-get 'sync 'package) (package-initialize) (el-get-elpa-build-local-recipes)
        (el-get-initialize-packages)))))
 
 ;; Local Variables:
