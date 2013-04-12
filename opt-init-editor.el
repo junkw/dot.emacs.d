@@ -41,6 +41,9 @@
 ;; Highlight region
 (setq transient-mark-mode t)
 
+;; If mark is active, any typed text replaces the selection.
+(delete-selection-mode 1)
+
 ;; Enable to pop `mark-ring' repeatedly like C-u C-SPC C-SPC...
 (setq set-mark-command-repeat-pop t)
 
