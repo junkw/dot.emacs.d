@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(add-to-list 'auto-mode-alist '("\\.inc\\'" . php-mode))
+
 (setq php-search-url "http://jp.php.net/ja/")
 (setq php-manual-url "http://jp.php.net/manual/ja/")
 
