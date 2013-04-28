@@ -44,10 +44,7 @@
   (setq nxml-child-indent 2)
   (setq nxml-attribute-indent 4))
 
-(defun jkw:nxml-mode-hooks ()
-  "My config for nxml mode"
-  (linum-mode 1)
-  (flymake-mode 1))
+(add-hook 'nxml-mode-hook 'linum-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
