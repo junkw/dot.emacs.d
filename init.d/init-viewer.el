@@ -38,7 +38,13 @@
   (viewer-stay-in-setup)
 
   ;; Open log and README files as read only
-  (setq view-mode-by-default-regexp "\\(ChangeLog\\|NEWS\\|README\\|\\.log\\'\\)")
+  (setq view-mode-by-default-regexp "\\/\\(ChangeLog\\|NEWS\\|README\\)\\|\\.log\\'")
+
+  (defadvice view-mode-by-default-setup
+    (around view-mode-by-default-setup-with-case-sensitive activate)
+    "Use view-mode-by-default-regexp as a case sensitive"
+    (let ((case-fold-search nil))
+      ad-do-it))
 
   ;; Mode line color
   (setq viewer-modeline-color-unwritable "DarkOrange1")
