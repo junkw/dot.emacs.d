@@ -31,29 +31,27 @@
 
 ;;; Code:
 
-(require 'pre-init-core)
+(require 'viewer)
 
-(eval-after-load-q "view"
-  ;; Keep read-only
-  (viewer-stay-in-setup)
+;; Keep read-only
+(viewer-stay-in-setup)
 
-  ;; Open log and README files as read only
-  (setq view-mode-by-default-regexp "\\/\\(ChangeLog\\|NEWS\\|README\\)\\|\\.log\\'")
+;; Open log and README files as read only
+(setq view-mode-by-default-regexp "\\/\\(ChangeLog\\|NEWS\\|README\\)\\|\\.log\\'")
 
-  (defadvice view-mode-by-default-setup
-    (around view-mode-by-default-setup-with-case-sensitive activate)
-    "Use view-mode-by-default-regexp as a case sensitive"
-    (let ((case-fold-search nil))
-      ad-do-it))
+(defadvice view-mode-by-default-setup
+  (around view-mode-by-default-setup-with-case-sensitive activate)
+  "Use view-mode-by-default-regexp as a case sensitive"
+  (let ((case-fold-search nil))
+    ad-do-it))
 
-  ;; Mode line color
-  (setq viewer-modeline-color-unwritable "DarkOrange1")
-  (setq viewer-modeline-color-view "OrangeRed1")
-  (viewer-change-modeline-color-setup)
+;; Mode line color
+(setq viewer-modeline-color-unwritable "DarkOrange1")
+(setq viewer-modeline-color-view "OrangeRed1")
+(viewer-change-modeline-color-setup)
 
-  ;; Integrate command for jumping to function definition
-  (define-overriding-view-mode-map emacs-lisp-mode ("RET" . find-function-at-point))
-  )
+;; Integrate command for jumping to function definition
+(define-overriding-view-mode-map emacs-lisp-mode ("RET" . find-function-at-point))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
