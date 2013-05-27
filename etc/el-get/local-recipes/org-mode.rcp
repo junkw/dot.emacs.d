@@ -1,0 +1,11 @@
+(:name org-mode
+       :description "Outline-based notes management and organizer."
+       :website     "http://orgmode.org/"
+       :type        git
+       :url         "git://orgmode.org/org-mode.git"
+       :info        "doc"
+       :build       `(("make all" "oldorg" ,(concat "EMACS=" el-get-emacs))
+                      ("make card"))
+       :load-path   ("." "lisp" "contrib/lisp")
+       :autoloads   nil
+       :features    org)
