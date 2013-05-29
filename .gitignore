@@ -6,6 +6,7 @@
 TAGS
 
 etc/custom.el
+etc/*.gpg
 etc/el-get/elpa-recipes
 etc/el-get/emacswiki-recipes
 var/
