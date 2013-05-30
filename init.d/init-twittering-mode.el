@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
+
 ;; OAuth
 (setq twittering-use-master-password t)
 (setq twittering-private-info-file "~/.emacs.d/etc/twittering-mode.gpg")
@@ -40,7 +42,7 @@
 
 (when (executable-find "convert")
   (setq twittering-convert-fix-size 25)
-  (eval-after-load-q "twittering-mode" (twittering-icon-mode 1)))
+  (eval-after-load-q 'twittering-mode (twittering-icon-mode 1)))
 
 (setq twittering-timer-interval 60)
 (setq twittering-number-of-tweets-on-retrieval 100)

@@ -33,7 +33,7 @@
 
 (require 'pre-init-core)
 
-(eval-after-load-q "magit"
+(eval-after-load-q 'magit
   (set-face-foreground 'magit-diff-add "#b9ca4a")
   (set-face-foreground 'magit-diff-del "#d54e53"))
 

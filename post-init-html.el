@@ -35,7 +35,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|atom\\|[sx]?html?\\)\\'" . nxml-mode))
 
-(eval-after-load-q "nxml-mode"
+(eval-after-load-q 'nxml-mode
   ;; Autocompletion
   (setq nxml-slash-auto-complete-flag t)
   (setq nxml-bind-meta-tab-to-complete-flag t)

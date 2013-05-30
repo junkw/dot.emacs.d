@@ -34,7 +34,7 @@
 (require 'pre-init-core)
 (require 'el-get-core)
 
-(eval-after-load-q "rng-loc"
+(eval-after-load-q 'rng-loc
   (require 'whattf-dt)
   (add-to-list 'rng-schema-locating-files
                (concat (el-get-package-directory 'html5) "schemas.xml")))

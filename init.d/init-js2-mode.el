@@ -35,7 +35,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|json\\)\\'" . js2-mode))
 
-(eval-after-load-q "js2-mode"
+(eval-after-load-q 'js2-mode
   (require 'js2-imenu-extras)
   (js2-imenu-extras-setup))
 

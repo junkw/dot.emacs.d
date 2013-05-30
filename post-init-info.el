@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(eval-after-load-q "info"
+(eval-after-load-q 'info
   ;; In addition to INFOPATH
   (add-to-list 'Info-additional-directory-list "~/.emacs.d/share/info")
   ;; Keymap
