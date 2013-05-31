@@ -49,6 +49,7 @@
 
 ;; Tweet
 (setq twittering-use-native-retweet t)
+(setq twittering-retweet-format '(nil _ " RT @%s: %t"))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
