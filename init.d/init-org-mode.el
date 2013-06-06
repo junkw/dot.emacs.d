@@ -1,6 +1,6 @@
 ;;; init-org-mode.el --- el-get init file for package org-mode
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Apr. 2, 2013
@@ -36,15 +36,15 @@
 (setq org-directory "~/Documents/org/")
 (setq org-default-notes-file (expand-file-name "inbox.org" org-directory))
 
-;; Misc
+;; General
 (setq org-startup-truncated nil)        ; Don't display continuation lines
-(setq org-return-follows-link t)        ; Open URL with RET
-(setq org-activate-links '(date bracket radio tag date footnote angle))
+(setq org-activate-links '(date bracket radio tag date footnote angle)) ; Fix link face with multibyte chars
 (setq calendar-week-start-day 1)        ; Beginning of week is Mon.
 
-(setq org-special-ctrl-a/e t)
+(setq org-special-ctrl-a/e t)           ; conflict with sequential-command?
 (setq org-special-ctrl-k t)
-(setq org-catch-invisible-edits 'show-and-error)
+(setq org-catch-invisible-edits 'show-and-error) ; Editing invisible region, expands it and warns
+(setq org-return-follows-link t)        ; Open URL with RET
 
 ;; ToDo
 (setq org-use-fast-todo-selection t)
