@@ -50,10 +50,10 @@
 ;; ToDo
 (setq org-use-fast-todo-selection t)
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "STARTED(s!)" "PENDING(p@)" "MAYBE(m)"
-                  "|" "DONE(x)" "NOTTODO(n@)")))
+      '((sequence "TODO(t)" "STARTED(s!)" "PENDING(p@/!)" "|" "DONE(x)" "NOTTODO(n@)")))
 
 (setq org-log-done 'time)               ; Logging completion time
+(setq org-log-into-drawer t)            ; Logging into :LOGBOOK:
 
 ;; Tags
 (setq org-tag-alist
@@ -63,15 +63,20 @@
 
 ;; Capture
 (setq org-capture-templates
-      '(("t" "Todo" entry
-         (file+headline nil "Tasks")
-         "** TODO %?\n   %i\n   %a\n   %t")
-        ("f" "Fix" entry
-         (file+headline nil "Tasks")
-         "** TODO %?\n   %i\n   %a\n   %t")
-        ("n" "Note" entry
-         (file+headline nil "Notes")
-         "** %?\n   %i\n   %u")))
+      '(("s" "Stuffs such as tasks, ideas, or other information" entry (file nil)
+         "* %?\n  %i"
+         :empty-lines-before 1
+         :clock-keep t
+         :kill-buffer t)
+        ("c" "Code annotaion" entry (file nil)
+         "* %?%^G\n  %u\n  %a\n  %i"
+         :empty-lines-before 1
+         :clock-keep t
+         :kill-buffer t)))
+
+;; Agenda
+(setq org-agenda-restore-windows-after-quit t)
+(setq org-agenda-files `(,org-directory "~/Dropbox/org/"))
 
 ;; Keymap
 (global-set-key (kbd "C-c a") 'org-agenda)
