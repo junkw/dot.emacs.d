@@ -39,6 +39,7 @@
 ;; General
 (setq org-startup-truncated nil)        ; Don't display continuation lines
 (setq org-activate-links '(date bracket radio tag date footnote angle)) ; Fix link face with multibyte chars
+(setq org-src-fontify-natively t)       ; Syntax highlight in code blocks
 (setq calendar-week-start-day 1)        ; Beginning of week is Mon.
 
 (setq org-special-ctrl-a/e t)           ; conflict with sequential-command?
