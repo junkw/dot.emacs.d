@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(add-to-list 'org-modules 'org-man)
+
 ;; Org file
 (setq org-insert-mode-line-in-empty-file t)
 (setq org-directory "~/Documents/org/")
