@@ -87,6 +87,22 @@
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 (global-set-key (kbd "C-c l") 'org-store-link)
 
+(org-defkey org-mode-map (kbd "C-c C-x d") nil)
+(org-defkey org-mode-map (kbd "C-c C-x I") 'org-insert-drawer)
+
+(org-defkey org-mode-map (kbd "C-c C-x l") 'org-metaleft)
+(org-defkey org-mode-map (kbd "C-c C-x r") 'org-metaright)
+(org-defkey org-mode-map (kbd "C-c C-x u") 'org-metaup)
+(org-defkey org-mode-map (kbd "C-c C-x d") 'org-metadown)
+(org-defkey org-mode-map (kbd "C-c C-x L") 'org-shiftmetaleft)
+(org-defkey org-mode-map (kbd "C-c C-x R") 'org-shiftmetaright)
+(org-defkey org-mode-map (kbd "C-c C-x U") 'org-shiftmetaup)
+(org-defkey org-mode-map (kbd "C-c C-x D") 'org-shiftmetadown)
+(org-defkey org-mode-map (kbd "C-c U")     'org-shiftup)
+(org-defkey org-mode-map (kbd "C-c D")     'org-shiftdown)
+(org-defkey org-mode-map (kbd "C-c L")     'org-shiftleft)
+(org-defkey org-mode-map (kbd "C-c R")     'org-shiftright)
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
