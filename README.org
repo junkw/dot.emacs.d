@@ -9,10 +9,13 @@ $ brew install https://gist.github.com/junkw/5037634/raw/f135c26d4ab5d55f9f3f9ce
 $ ln -s /usr/local/Cellar/emacs/24.3/Emacs.app/ /Applications/Emacs.app
 $ git clone https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
 $ ln -s /path/to/local/repo ~/.emacs.d
-$ cd ~/.emacs.d
+$ cd ~/.emacs.d/
+$ mkdir -p bin etc/el-get/elpa-recipes etc/el-get/emacswiki-recipes share/info share/man var/backup var/cache var/log var/tmp vendor
 $ emacs -batch -L . -f batch-byte-compile *.el
 $ open -a Emacs
 #+END_SRC
+
+M-x =crags-create-or-update-tags-table= (<F7>)
 
 ** Structure
 
