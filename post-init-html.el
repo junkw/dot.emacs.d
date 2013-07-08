@@ -36,15 +36,20 @@
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|atom\\|[sx]?html?\\)\\'" . nxml-mode))
 
 (eval-after-load-q 'nxml-mode
-  ;; Autocompletion
+  (setq nxml-child-indent 2)
+  (setq nxml-attribute-indent 4)
+  (setq nxml-char-ref-display-glyph-flag nil)
+
   (setq nxml-slash-auto-complete-flag t)
   (setq nxml-bind-meta-tab-to-complete-flag t)
+  (setq nxml-sexp-element-flag t))
 
-  ;; Indentation
-  (setq nxml-child-indent 2)
-  (setq nxml-attribute-indent 4))
+(defun jkw:nxml-mode-hooks ()
+  "My config for nxml mode"
+  (setq indent-tabs-mode nil)
+  (linum-mode 1))
 
-(add-hook 'nxml-mode-hook 'linum-mode)
+(add-hook 'nxml-mode-hook 'jkw:nxml-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
