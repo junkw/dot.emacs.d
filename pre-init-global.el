@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(eval-when-compile (require 'cl))
+(require 'cl-lib)
 
 ;; Profile
 (setq user-full-name "Jumpei KAWAMI")
@@ -39,8 +39,8 @@
 
 ;; Paths
 (when cocoa-p
-  (loop for path in '("PATH" "INFOPATH" "MANPATH")
-        do (setenv-path-from-shell path)))
+  (cl-loop for path in '("PATH" "INFOPATH" "MANPATH")
+           do (setenv-path-from-shell path)))
 (add-to-list 'exec-path "~/.emacs.d/bin")
 
 ;; Character Encoding
@@ -79,7 +79,7 @@
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
 ;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved cl-functions mapcar constants)
+;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
 ;;; pre-init-global.el ends here

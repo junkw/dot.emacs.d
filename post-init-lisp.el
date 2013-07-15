@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(eval-when-compile (require 'cl))
+(require 'cl-lib)
 
 (font-lock-add-keywords
  'emacs-lisp-mode
@@ -51,14 +51,14 @@
   (linum-mode t)
   (setq indent-tabs-mode nil))
 
-(loop for hook in '(emacs-lisp-mode-hook lisp-mode-hook lisp-interaction-mode)
-      do (add-hook hook 'jkw:lisp-mode-hooks))
+(cl-loop for hook in '(emacs-lisp-mode-hook lisp-mode-hook lisp-interaction-mode)
+         do (add-hook hook 'jkw:lisp-mode-hooks))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
 ;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved cl-functions mapcar constants)
+;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
 ;;; post-init-lisp.el ends here

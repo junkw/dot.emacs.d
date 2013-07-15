@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(eval-when-compile (require 'cl))
+(require 'cl-lib)
 
 ;; Emacsclient
 (server-start)
@@ -96,14 +96,14 @@
   (before save-buffers-kill-terminal-and-process activate)
   "Kill all process, when Emacs is exited."
   (when (process-list)
-    (loop for proc in (process-list)
-          do (set-process-query-on-exit-flag proc nil))))
+    (cl-loop for proc in (process-list)
+             do (set-process-query-on-exit-flag proc nil))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
 ;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved cl-functions mapcar constants)
+;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
 ;;; pre-init-session.el ends here

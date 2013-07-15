@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(eval-when-compile (require 'cl))
+(require 'cl-lib)
 
 (add-to-list 'load-path user-emacs-directory)
 
@@ -49,23 +49,22 @@
   "Show init modules containing a match for REGEXP in `~/.emacs.d/'.
 
 If a elisp file has a byte-compiled file, show the byte-compiled file only."
-  (loop for el in (directory-files user-emacs-directory t)
-        when (and (string-match regexp (file-name-nondirectory el))
-                  (or (string-match "elc$" el)
-                      (and (string-match "el$" el)
-                           (not (locate-library (concat el "c"))))))
-        collect (file-name-nondirectory el)))
+  (cl-loop for el in (directory-files user-emacs-directory t)
+           when (and (string-match regexp (file-name-nondirectory el))
+                     (or (string-match "elc$" el)
+                         (and (string-match "el$" el)
+                              (not (locate-library (concat el "c"))))))
+           collect (file-name-nondirectory el)))
 
 (defun jkw:init-module-load-files (regexp)
   "Load init modules matching the REGEXP specified."
-  (loop for mod in (jkw:init-module-list-files regexp)
-        do (condition-case err
-               (load (file-name-sans-extension mod))
-             (error
-              (message (format "Error in init-module %s. %s"
-                               (file-name-sans-extension mod)
-                               (error-message-string err)))))
-        ))
+  (cl-loop for mod in (jkw:init-module-list-files regexp)
+           do (condition-case err
+                  (load (file-name-sans-extension mod))
+                (error
+                 (message (format "Error in init-module %s. %s"
+                                  (file-name-sans-extension mod)
+                                  (error-message-string err)))))))
 
 (defun init-module-initialize ()
   "Initialize Emacs init files."
@@ -88,7 +87,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
 ;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved cl-functions mapcar constants)
+;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
 ;;; init.el ends here

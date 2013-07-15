@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(eval-when-compile (require 'cl))
+(require 'cl-lib)
 (require 'pre-init-core)
 
 ;; Find file at point
@@ -64,15 +64,15 @@
 
 (eval-after-load-q 'dired-aux
   (when (executable-find "atool")
-    (loop for suffix in jkw:dired-additional-compression-suffixes
-          do (add-to-list 'dired-compress-file-suffixes
-                          `(,(concat "\\" suffix "\\'") "" "aunpack")))))
+    (cl-loop for suffix in jkw:dired-additional-compression-suffixes
+             do (add-to-list 'dired-compress-file-suffixes
+                             `(,(concat "\\" suffix "\\'") "" "aunpack")))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
 ;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved cl-functions mapcar constants)
+;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
 ;;; opt-init-file.el ends here

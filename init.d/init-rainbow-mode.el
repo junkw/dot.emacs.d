@@ -31,16 +31,16 @@
 
 ;;; Code:
 
-(eval-when-compile (require 'cl))
+(require 'cl-lib)
 
-(loop for hook in '(nxml-mode-hook css-mode-hook)
-      do (add-hook hook 'rainbow-mode))
+(cl-loop for hook in '(nxml-mode-hook css-mode-hook)
+         do (add-hook hook 'rainbow-mode))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
 ;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved cl-functions mapcar constants)
+;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
 ;;; init-rainbow-mode.el ends here
