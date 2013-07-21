@@ -43,7 +43,7 @@
   "If this variable is non-nil, startup with minimum Emacs config.")
 
 (defvar jkw:init-module-opt-init-file-regexp "^opt-init-"
-  "Regexp matching opt-init filename")
+  "Regexp matching opt-init filename.")
 
 (defun jkw:init-module-list-files (regexp)
   "Show init modules containing a match for REGEXP in `~/.emacs.d/'.

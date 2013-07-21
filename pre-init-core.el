@@ -39,7 +39,7 @@
 (defvar linux-p (eq system-type 'gnu/linux)
   "Return t if this system is Linux.")
 (defvar cygwin-p (eq system-type 'cygwin)
-  "Return t if this Emacs runs with Cygwin")
+  "Return t if this Emacs runs with Cygwin.")
 (defvar nt-p (eq system-type 'windows-nt)
   "Return t if this Emacs is NTEmacs.")
 (defvar windows-p (or cygwin-p nt-p)
@@ -47,7 +47,12 @@
 
 ;; Loading
 (defmacro eval-after-load-q (file &rest form)
-  "Macro for simple `eval-after-load' FORM."
+  "Macro for simple `eval-after-load'.
+
+ * FILE is a symbol or a string.
+ * FORM allows for multiple body forms.
+
+See `eval-after-load'."
   (declare (indent 1))
   `(eval-after-load ,file
      '(progn ,@form)))

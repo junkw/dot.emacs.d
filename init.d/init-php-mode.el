@@ -37,7 +37,7 @@
 (setq php-manual-url "http://jp.php.net/manual/ja/")
 
 (defun jkw:php-mode-hooks ()
-  "My config for PHP mode"
+  "My config for PHP mode."
   (setq indent-tabs-mode nil)
   (setq c-basic-offset 4)
   (c-set-offset 'case-label '+)

@@ -77,13 +77,15 @@
 ;; Deletion and Killing
 ;; http://dev.ariel-networks.com/wp/documents/aritcles/emacs/part16
 (defadvice kill-region (around kill-region-or-kill-word (beg end) activate)
-  "Typing C-w without mark, kill the previous word."
+  "Typing `\\[kill-region]' without mark, kill the previous word."
   (if (and (called-interactively-p 'any) transient-mark-mode (not mark-active))
       (backward-kill-word 1)
     ad-do-it))
 
 (defun kill-word-dwim (arg)
-  "Call the `kill-word' command you want (Do What I Mean)."
+  "Call the `kill-word' command you want (Do What I Mean).
+
+With argument ARG, do kill commands that many times."
   (interactive "p")
   (cond ((and (called-interactively-p 'any) transient-mark-mode mark-active)
          (kill-region (region-beginning) (region-end)))
@@ -114,10 +116,10 @@
 
 ;; Keyboad Macro
 (defvar jkw:kmacro-save-file "~/.emacs.d/etc/kmacro.el"
-  "Keyboard macro is saved in this file")
+  "Keyboard macro is saved in this file.")
 
 (defun kmacro-save (symbol)
-  "Save keyboard macro in kmacro.el"
+  "Save keyboard macro in kmacro.el."
   (interactive "Name for last kbd macro: ")
   (name-last-kbd-macro symbol)
   (with-current-buffer (find-file-noselect jkw:kmacro-save-file)

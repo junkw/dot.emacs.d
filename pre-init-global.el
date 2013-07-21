@@ -63,7 +63,7 @@
 ;; http://d.hatena.ne.jp/rubikitch/20091216/minibuffer
 (defadvice abort-recursive-edit
   (before abort-recursive-edit-and-save-minibuffer activate)
-  "Save last command to minibuffer history when type C-]"
+  "Save last command to minibuffer history when type `\\[abort-recursive-edit]'."
   (when (eq (selected-window) (active-minibuffer-window))
     (add-to-history minibuffer-history-variable (minibuffer-contents))))
 

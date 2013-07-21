@@ -46,7 +46,7 @@
 (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 
 (defun jkw:lisp-mode-hooks ()
-  "My config for (Emacs) Lisp mode"
+  "My config for (Emacs) Lisp mode."
   (turn-on-eldoc-mode)
   (linum-mode t)
   (setq indent-tabs-mode nil))

@@ -32,7 +32,7 @@
 ;;; Code:
 
 (defun jkw:css-mode-hooks ()
-  "My config for CSS mode"
+  "My config for CSS mode."
   (setq indent-tabs-mode nil)
   (setq cssm-indent-function #'cssm-c-style-indenter)
   (setq cssm-indent-level 4)

@@ -45,7 +45,7 @@
   (setq nxml-sexp-element-flag t))
 
 (defun jkw:nxml-mode-hooks ()
-  "My config for nxml mode"
+  "My config for nxml mode."
   (setq indent-tabs-mode nil)
   (linum-mode 1))
 

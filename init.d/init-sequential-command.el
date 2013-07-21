@@ -55,7 +55,7 @@
   seq-return)
 
 (defadvice sequential-command-setup-keys (after seq-setup-keys-remap activate)
-  "Replace original seq-home and org-seq-* with my commands."
+  "Use my commands in `sequential-command-setup-keys'."
   (global-set-key (kbd "C-a") 'seq-beginnings)
   (define-key org-mode-map (kbd "C-a") 'org-seq-beginnings)
   (define-key org-mode-map (kbd "C-e") 'org-seq-ends))

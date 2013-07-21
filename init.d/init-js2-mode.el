@@ -40,7 +40,7 @@
   (js2-imenu-extras-setup))
 
 (defun jkw:js2-mode-hooks ()
-  "My config for js2-mode"
+  "My config for js2 mode."
   (setq indent-tabs-mode nil)
   (linum-mode 1))
 

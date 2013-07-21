@@ -35,7 +35,7 @@
 (defadvice isearch-mode (around isearch-mode-default-string
                                 (forward &optional regexp op-fun recursive-edit word-p)
                                 activate)
-  "isearch with mark-set keywords."
+  "Start isearch with mark-set keywords."
   (if (and transient-mark-mode mark-active (not (eq (mark) (point))))
       (progn
         (isearch-update-ring (buffer-substring-no-properties (mark) (point)))

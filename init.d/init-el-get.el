@@ -44,13 +44,13 @@
 
 ;; el-get package menu
 (defun el-get-package-menu-open-recipe ()
-  "Open recipe file on package menu"
+  "Open recipe file on package menu."
   (interactive)
   (let ((package (el-get-package-menu-get-package-name)))
     (el-get-find-recipe-file package)))
 
 (defun el-get-package-menu-open-init-file ()
-  "Open el-get init file for PACKAGE on package menu"
+  "Open `el-get' init file for PACKAGE on package menu."
   (interactive)
   (let* ((package        (el-get-package-menu-get-package-name))
          (init-file-name (format "init-%s.el" package))

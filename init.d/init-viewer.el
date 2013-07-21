@@ -41,7 +41,7 @@
 
 (defadvice view-mode-by-default-setup
   (around view-mode-by-default-setup-with-case-sensitive activate)
-  "Use view-mode-by-default-regexp as a case sensitive"
+  "Use `view-mode-by-default-regexp' as a case sensitive."
   (let ((case-fold-search nil))
     ad-do-it))
 
