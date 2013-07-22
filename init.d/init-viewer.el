@@ -46,9 +46,10 @@
     ad-do-it))
 
 ;; Mode line color
-(setq viewer-modeline-color-default    (face-foreground 'mode-line-buffer-id))
-(setq viewer-modeline-color-unwritable "DarkOrange1")
-(setq viewer-modeline-color-view       "OrangeRed1")
+(setq viewer-modeline-color-default (face-foreground 'mode-line-buffer-id))
+(when (custom-theme-enabled-p 'monokai)
+  (setq viewer-modeline-color-unwritable "#F92672")
+  (setq viewer-modeline-color-view       "#FD971F"))
 
 (defadvice viewer-change-modeline-color
   (around viewer-change-modeline-color-buffer-id activate)

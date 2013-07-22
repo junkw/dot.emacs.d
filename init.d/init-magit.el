@@ -33,10 +33,6 @@
 
 (require 'pre-init-core)
 
-(eval-after-load-q 'magit
-  (set-face-foreground 'magit-diff-add "#b9ca4a")
-  (set-face-foreground 'magit-diff-del "#d54e53"))
-
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
