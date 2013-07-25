@@ -50,6 +50,15 @@
 ;; Comment style
 (setq-default comment-style 'multi-line)
 
+;; http://emacsredux.com/blog/2013/07/24/highlight-comment-annotations/
+(defun jkw:font-lock-comment-annotations ()
+  "Highlight keywords TODO, FIXME and XXX in the comment."
+  (font-lock-add-keywords
+   nil
+   '(("\\<\\(TODO\\|FIX\\(ME\\)?\\|XXX\\):?" 1 font-lock-warning-face t))))
+
+(add-hook 'prog-mode-hook 'jkw:font-lock-comment-annotations)
+
 ;; Make the file executable if it is a shell script
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
