@@ -33,6 +33,9 @@
 
 (require 'thingatpt)
 
+;; TAB
+(setq-default tab-width 4)
+
 ;; Trun at EOL
 (setq truncate-lines nil)
 (setq truncate-partial-width-windows nil)
@@ -40,8 +43,13 @@
 ;; Scroll without moving cursor
 (setq scroll-preserve-screen-position t)
 
-;; Highlight region
+;; Highlight
 (setq transient-mark-mode t)
+(global-hl-line-mode 1)
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+
+(require 'generic-x)
 
 ;; If mark is active, any typed text replaces the selection.
 (delete-selection-mode 1)
@@ -61,19 +69,21 @@
 
 (add-hook 'prog-mode-hook 'jkw:font-lock-comment-annotations)
 
-;; Make the file executable if it is a shell script
-(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+;; Highlight
+(setq transient-mark-mode t)
+(global-hl-line-mode 1)
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+
+(require 'generic-x)
 
 ;; Whitespace
 (require 'whitespace)
-
-;; Style
 (setq whitespace-space-regexp "\\( +\\|\x3000+\\)") ; mono and multi-byte space
 (setq whitespace-style
       '(face tabs spaces trailing newline empty space-mark tab-mark newline-mark))
 (setq whitespace-display-mappings
-      '(;; (space-mark   ?\      [?\u00B7]      [?.])
-        (space-mark   ?\xA0   [?\u00A4]      [?_])
+      '((space-mark   ?\xA0   [?\u00A4]      [?_])
         (space-mark   ?\x8A0  [?\x8A4]       [?_])
         (space-mark   ?\x920  [?\x924]       [?_])
         (space-mark   ?\xE20  [?\xE24]       [?_])
@@ -85,7 +95,24 @@
 ;; Remove unneeded whitespace when saving a file
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Deletion and Killing
+;; Expand
+(setq hippie-expand-try-functions-list
+      '(try-expand-dabbrev
+        try-expand-dabbrev-all-buffers
+        try-complete-file-name-partially
+        try-complete-file-name
+        try-expand-all-abbrevs
+        try-expand-dabbrev-from-kill
+        try-expand-list try-expand-line
+        try-complete-lisp-symbol-partially
+        try-complete-lisp-symbol))
+
+;; Spell check
+(require 'ispell)
+(setq-default ispell-program-name "aspell")
+(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
+
+;; Killing
 ;; http://dev.ariel-networks.com/wp/documents/aritcles/emacs/part16
 (defadvice kill-region (around kill-region-or-kill-word (beg end) activate)
   "Typing `\\[kill-region]' without mark, kill the previous word."
@@ -176,19 +203,7 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
   (interactive "p")
   (increment-integer-at-point (- (or dec 1))))
 
-;;; Expand
-(setq hippie-expand-try-functions-list
-      '(try-expand-dabbrev
-        try-expand-dabbrev-all-buffers
-        try-complete-file-name-partially
-        try-complete-file-name
-        try-expand-all-abbrevs
-        try-expand-dabbrev-from-kill
-        try-expand-list try-expand-line
-        try-complete-lisp-symbol-partially
-        try-complete-lisp-symbol))
-
-;; Keyboad Macro
+;; Keyboad macro
 (defvar jkw:kmacro-save-file "~/.emacs.d/etc/kmacro.el"
   "Keyboard macro is saved in this file.")
 
@@ -200,11 +215,6 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
     (goto-char (point-max))
     (insert-kbd-macro symbol)
     (basic-save-buffer)))
-
-;; Spell check
-(require 'ispell)
-(setq-default ispell-program-name "aspell")
-(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 
 ;; Keymap
 (keyboard-translate ?\C-h ?\C-?)

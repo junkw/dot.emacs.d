@@ -80,16 +80,6 @@
 (setq-default bidi-display-reordering nil)
 (setq-default bidi-paragraph-direction 'left-to-right)
 
-;; TAB
-(setq-default tab-width 4)
-
-;; Highlight
-(global-hl-line-mode 1)
-(setq show-paren-delay 0)
-(show-paren-mode 1)
-
-(require 'generic-x)
-
 ;; Font
 (when (find-font (font-spec :name "Ricty"))
   (set-face-attribute 'default nil

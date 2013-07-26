@@ -40,6 +40,9 @@
 ;; Opening a file larger than 25 MB, asks for confirmation first.
 (setq large-file-warning-threshold (* 25 1024 1024))
 
+;; Make the file executable if it is a shell script
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
 ;; File deletion makes use of the Trash.
 (when mac-p
   (setq trash-directory "~/.Trash"))
