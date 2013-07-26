@@ -49,10 +49,10 @@
   '(ace-jump-mode ag auto-async-byte-compile color-moccur cssm-mode ctags dired+
                   eldoc-extension expand-region flymake-csslint flymake-html-validator
                   flymake-phpcs foreign-regexp geben gist goto-chg grep-a-lot html5
-                  highlight-symbol info+ js2-mode lispxmp magit migemo mmm-mode
-                  moccur-edit monokai-emacs org-mode paredit php-align php-mode psvn
-                  rainbow-mode recentf-ext scratch-ext sequential-command twittering-mode
-                  undo-tree viewer wgrep)
+                  highlight-symbol info+ js2-mode linum-relative lispxmp magit migemo
+                  mmm-mode moccur-edit monokai-emacs org-mode paredit php-align php-mode
+                  psvn rainbow-mode recentf-ext scratch-ext sequential-command
+                  twittering-mode undo-tree viewer wgrep)
   "List of packages I use straight from recipe files.")
 
 ;; Init after loading el-get
