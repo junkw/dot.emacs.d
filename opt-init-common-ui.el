@@ -38,9 +38,10 @@
 (setq use-dialog-box nil)
 
 ;; Mode line
-(setq eol-mnemonic-dos "(CR+LF)")
-(setq eol-mnemonic-mac "(CR)")
-(setq eol-mnemonic-unix "(LF)")
+(setq eol-mnemonic-dos  "+CR/LF")
+(setq eol-mnemonic-mac  "+CR")
+(setq eol-mnemonic-unix "+LF")
+(setq eol-mnemonic-undecided "")
 
 (column-number-mode 1)
 (size-indication-mode 1)
