@@ -44,6 +44,7 @@
         (:name highlight-indentation :features highlight-indentation)
         (:name jshint-mode :features flymake-jshint)
         (:name minimap :after (setq minimap-window-location 'right))
+        (:name popwin :features popwin)
         ))
 
 (defvar jkw:el-get-package-list-from-recipe
