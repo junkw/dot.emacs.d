@@ -43,6 +43,7 @@
       '((:name el-get :branch "master")
         (:name highlight-indentation :features highlight-indentation)
         (:name jshint-mode :features flymake-jshint)
+        (:name minimap :after (setq minimap-window-location 'right))
         ))
 
 (defvar jkw:el-get-package-list-from-recipe
