@@ -1,10 +1,10 @@
-;;; init-popwin.el --- el-get init file for package popwin
+;;; init-direx.el --- el-get init file for package direx
 
 ;; Copyright (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Aug. 7, 2013
-;; Keywords: .emacs, window manager
+;; Keywords: .emacs, filer, dired
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,14 +31,33 @@
 
 ;;; Code:
 
-(popwin-mode 1)
+(require 'direx)
+(require 'direx-project)
 
-;; Display config
-(push '("*el-get packages*" :position bottom) popwin:special-display-config)
-(push '(direx:direx-mode :position left :width 30 :dedicated t) popwin:special-display-config)
+;; Icon
+(setq direx:leaf-icon   "  ")
+(setq direx:open-icon   "- ")
+(setq direx:closed-icon "+ ")
+
+;; http://d.hatena.ne.jp/syohex/20130202/1359814263
+(defun direx:dired-jump ()
+  "Jump and display the directory tree corresponding to current buffer.
+
+With prefix argument, execute `dired-jump'."
+  (interactive)
+  (cond (current-prefix-arg
+         (dired-jump))
+        ((not (one-window-p))
+         (or (ignore-errors
+               (direx-project:jump-to-project-root) t)
+             (direx:jump-to-directory)))
+        (t
+         (or (ignore-errors
+               (direx-project:jump-to-project-root-other-window) t)
+             (direx:jump-to-directory-other-window)))))
 
 ;; Keymap
-(global-set-key (kbd "C-z") popwin:keymap)
+(global-set-key (kbd "C-x C-j") 'direx:dired-jump)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -47,4 +66,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-popwin.el ends here
+;;; init-direx.el ends here
