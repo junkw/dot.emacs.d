@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
+
 (autoload 'woman "woman" "Decode and browse a UN*X man page." t)
 (autoload 'woman-find-file "woman" "Find, decode and browse a specific UN*X man-page file." t)
 
@@ -57,13 +59,16 @@
   (setq Man-heading-regexp "^\\([A-Z][A-Z0-9 /-]+\\|\\cj+\\)$")
 
   ;; Keymap
-  (define-key woman-mode-map (kbd "j") 'next-line)
-  (define-key woman-mode-map (kbd "k") 'previous-line)
-  (define-key woman-mode-map (kbd "J") '(lambda () (interactive) (scroll-up 1)))
-  (define-key woman-mode-map (kbd "K") '(lambda () (interactive) (scroll-down 1)))
-  (define-key woman-mode-map (kbd "b") 'scroll-down)
-  (define-key woman-mode-map (kbd "l") 'forward-char)
-  (define-key woman-mode-map (kbd "h") 'backward-char))
+  (defvar jkw:woman-pager-keybinds
+    '(("j" . next-line)
+      ("k" . previous-line)
+      ("J" . (lambda () (interactive) (scroll-up 1)))
+      ("K" . (lambda () (interactive) (scroll-down 1)))
+      ("b" . scroll-down)
+      ("l" . forward-char)
+      ("h" . backward-char))
+    "My keybinds for WoMan mode.")
+  (jkw:define-keys woman-mode-map jkw:woman-pager-keybinds))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(require 'cl-lib)
+
 ;; System type predicates
 (defvar mac-p (eq system-type 'darwin)
   "Return t if this system is Mac OS X.")
@@ -78,6 +80,12 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
     (setenv path path-from-shell)
     (when (string-equal path "PATH")
       (setq exec-path (split-string path-from-shell path-separator)))))
+
+;; Keymap
+(defun jkw:define-keys (keymap key-bindings)
+  "`define-key' extension for KEY-BINDINGS batch definition in KEYMAP."
+  (cl-loop for (key . command) in key-bindings
+           do (define-key keymap (read-kbd-macro key) command)))
 
 ;; Notify
 (defvar terminal-notifier-app-path
