@@ -51,7 +51,7 @@
 ;; Dired mode
 (require 'wdired)
 (setq wdired-allow-to-change-permissions t)
-(define-key dired-mode-map (kbd "r") 'wdired-change-to-wdired-mode)
+(define-key dired-mode-map (kbd "R") 'wdired-change-to-wdired-mode)
 
 (require 'ls-lisp)
 (setq ls-lisp-use-insert-directory-program nil)

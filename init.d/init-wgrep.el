@@ -32,7 +32,7 @@
 ;;; Code:
 
 (setq wgrep-auto-save-buffer t)
-(setq wgrep-enable-key "r")
+(setq wgrep-enable-key "R")
 (setq wgrep-change-readonly-file t)
 
 ;; Local Variables:
