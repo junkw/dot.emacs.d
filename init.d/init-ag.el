@@ -1,10 +1,10 @@
-;;; init-wgrep.el --- el-get init file for package wgrep
+;;; init-ag.el --- el-get init file for package ag
 
 ;; Copyright (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Jan. 16, 2013
-;; Keywords: .emacs, grep
+;; Created: Sep. 4, 2013
+;; Keywords: .emacs, ag
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,12 +31,9 @@
 
 ;;; Code:
 
-(require 'pre-init-core)
+(setq ag-highlight-search t)
 
-(setq wgrep-auto-save-buffer t)
-(setq wgrep-enable-key "R")
-(setq wgrep-change-readonly-file t)
-(eval-after-load-q 'ag (require 'wgrep-ag))
+(global-set-key (kbd "<f5>") 'ag-project-at-point)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -45,4 +42,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-wgrep.el ends here
+;;; init-ag.el ends here
