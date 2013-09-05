@@ -34,9 +34,6 @@
 (require 'cl-lib)
 (require 'pre-init-core)
 
-;; Find file at point
-(ffap-bindings)
-
 ;; Opening a file larger than 25 MB, asks for confirmation first.
 (setq large-file-warning-threshold (* 25 1024 1024))
 
