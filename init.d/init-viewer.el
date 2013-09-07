@@ -46,8 +46,27 @@
     ad-do-it))
 
 ;; Mode line color
+(setq viewer-modeline-color-default    (face-foreground 'mode-line-buffer-id))
 (setq viewer-modeline-color-unwritable "DarkOrange1")
-(setq viewer-modeline-color-view "OrangeRed1")
+(setq viewer-modeline-color-view       "OrangeRed1")
+
+(defadvice viewer-change-modeline-color
+  (around viewer-change-modeline-color-buffer-id activate)
+  "Change `mode-line-buffer-id' color."
+  (interactive)
+  (when (eq (selected-window)
+            (get-buffer-window (current-buffer)))
+    (set-face-foreground
+     'mode-line-buffer-id
+     (cond ((and buffer-file-name view-mode
+                 (not (file-writable-p buffer-file-name)))
+            viewer-modeline-color-unwritable)
+           (view-mode
+            viewer-modeline-color-view)
+           (t
+            viewer-modeline-color-default)))
+    (force-mode-line-update)))
+
 (viewer-change-modeline-color-setup)
 
 ;; Integrate command for jumping to function definition
