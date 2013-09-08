@@ -1,0 +1,6 @@
+(:name foreign-regexp
+       :description "search and replace by foreign regexp."
+       :website     "https://github.com/k-talo/foreign-regexp.el"
+       :type        github
+       :pkgname     "k-talo/foreign-regexp.el"
+       :features    foreign-regexp)
