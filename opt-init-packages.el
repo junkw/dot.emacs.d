@@ -42,15 +42,14 @@
 (setq el-get-sources
       '((:name el-get :branch "master")
         (:name jshint-mode :features flymake-jshint)
-        (:name php-mode :features php-mode)
         ))
 
 (defvar jkw:el-get-package-list-from-recipe
   '(ace-jump-mode ag auto-async-byte-compile color-moccur cssm-mode ctags dired+ eldoc-extension
                   expand-region flymake-csslint flymake-html-validator flymake-phpcs foreign-regexp
                   geben gist goto-chg grep-a-lot html5 info+ js2-mode lispxmp magit migemo mmm-mode
-                  moccur-edit org-mode paredit php-align psvn rainbow-mode recentf-ext scratch-ext
-                  sequential-command twittering-mode undo-tree viewer wgrep)
+                  moccur-edit org-mode paredit php-align php-mode psvn rainbow-mode recentf-ext
+                  scratch-ext sequential-command twittering-mode undo-tree viewer wgrep)
   "List of packages I use straight from recipe files.")
 
 ;; Init after loading el-get
