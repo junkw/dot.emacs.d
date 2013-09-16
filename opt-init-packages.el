@@ -48,6 +48,7 @@
         (:name jshint-mode :features flymake-jshint)
         (:name minimap :after (setq minimap-window-location 'right))
         (:name popwin :features popwin)
+        (:name powerline :autoloads nil)
         ))
 
 (defvar jkw:el-get-package-list-from-recipe
