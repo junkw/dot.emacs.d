@@ -1,7 +1,7 @@
 (:name grep-a-lot
        :description "manages multiple search results buffers for grep.el."
-       :website     "https://github.com/ZungBang/emacs-grep-a-lot"
+       :website     "https://github.com/jdufresne/emacs-grep-a-lot"
        :type        github
-       :pkgname     "ZungBang/emacs-grep-a-lot"
+       :pkgname     "jdufresne/emacs-grep-a-lot"
        :features    grep-a-lot
        :post-init   (grep-a-lot-setup-keys))
