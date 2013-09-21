@@ -1,0 +1,9 @@
+(:name cl-lib-highlight
+       :description "full cl-lib font-lock highlighting."
+       :website     "https://github.com/skeeto/cl-lib-highlight"
+       :depends     cl-lib
+       :type        github
+       :pkgname     "skeeto/cl-lib-highlight"
+       :features    cl-lib-highlight
+       :post-init   (progn (cl-lib-highlight-initialize)
+                           (cl-lib-highlight-warn-cl-initialize)))
