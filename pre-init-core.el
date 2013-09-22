@@ -81,6 +81,15 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
     (when (string-equal path "PATH")
       (setq exec-path (split-string path-from-shell path-separator)))))
 
+;; Theme
+(defsubst custom-active-theme ()
+  "Get current theme name as string."
+  (symbol-name (car custom-enabled-themes)))
+
+(defun custom-theme-active-p (theme)
+  "Return t if THEME is active."
+  (equal (custom-active-theme) theme))
+
 ;; Keymap
 (defun jkw:define-keys (keymap key-bindings)
   "`define-key' extension for KEY-BINDINGS batch definition in KEYMAP."
