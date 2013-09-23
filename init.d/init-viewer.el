@@ -47,7 +47,7 @@
 
 ;; Mode line color
 (setq viewer-modeline-color-default (face-foreground 'mode-line-buffer-id))
-(when (custom-theme-enabled-p 'monokai)
+(eval-after-load-q 'monokai-theme
   (setq viewer-modeline-color-unwritable "#F92672")
   (setq viewer-modeline-color-view       "#FD971F"))
 

@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(when (custom-theme-enabled-p 'monokai)
+(eval-after-load-q 'monokai-theme
   (set-face-background 'highlight-indentation-face "#49483E")
   (set-face-background 'highlight-indentation-current-column-face "#3E3D31"))
 
