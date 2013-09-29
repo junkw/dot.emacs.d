@@ -1,0 +1,6 @@
+(:name anzu
+       :description "Show number of matches in mode-line while searching."
+       :website     "https://github.com/syohex/emacs-anzu"
+       :type        github
+       :pkgname     "syohex/emacs-anzu"
+       :features    anzu)
