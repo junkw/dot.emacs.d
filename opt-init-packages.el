@@ -44,6 +44,7 @@
         (:name direx :depends popwin)
         (:name helm :autoloads nil)
         (:name helm-c-moccur :features helm-c-moccur)
+        (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
         (:name jshint-mode :features flymake-jshint)
         (:name minimap :after (setq minimap-window-location 'right))
@@ -56,10 +57,10 @@
   '(ace-jump-mode ag anzu auto-async-byte-compile cl-lib-highlight color-moccur cssm-mode
                   ctags dired+ eldoc-extension expand-region flymake-csslint
                   flymake-html-validator flymake-phpcs foreign-regexp geben gist
-                  git-gutter-fringe goto-chg grep-a-lot html5 helm-descbinds helm-ls-git
-                  helm-migemo highlight-symbol info+ js2-mode linum-relative lispxmp magit
-                  migemo mmm-mode moccur-edit monokai-emacs org-mode paredit php-align
-                  php-mode psvn rainbow-mode recentf-ext scratch-ext sequential-command
+                  git-gutter-fringe goto-chg grep-a-lot html5 helm-descbinds helm-migemo
+                  highlight-symbol info+ js2-mode linum-relative lispxmp magit migemo
+                  mmm-mode moccur-edit monokai-emacs org-mode paredit php-align php-mode
+                  psvn rainbow-mode recentf-ext scratch-ext sequential-command
                   twittering-mode viewer wgrep)
   "List of packages I use straight from recipe files.")
 
