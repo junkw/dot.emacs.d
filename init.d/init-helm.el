@@ -49,6 +49,7 @@
           helm-source-mac-spotlight)))
 
 (helm-mode 1)
+
 (setq helm-completion-mode-string "")
 
 ;; Keymap

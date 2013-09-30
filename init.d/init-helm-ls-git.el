@@ -33,26 +33,6 @@
 
 (setq helm-ls-git-status-command 'magit-status)
 
-(eval-after-load-q 'monokai-theme
-  (custom-theme-set-faces
-   'monokai
-   `(helm-ls-git-modified-not-staged-face
-     ((t :foreground "#E6DB74")))       ; monokai-yellow
-   `(helm-ls-git-modified-and-staged-face
-     ((t :foreground "#FD971F")))       ; monokai-orange
-   `(helm-ls-git-renamed-modified-face
-     ((t :foreground "#FD971F")))       ; monokai-orange
-   `(helm-ls-git-untracked-face
-     ((t :foreground "#F92672")))       ; monokai-red
-   `(helm-ls-git-added-copied-face
-     ((t :foreground "#A6E22E")))       ; monokai-green
-   `(helm-ls-git-deleted-not-staged-face
-     ((t :foreground "#968B26")))       ; monokai-yellow-1
-   `(helm-ls-git-deleted-and-staged-face
-     ((t :foreground "#49483E")))       ; monokai-bg+2
-   `(helm-ls-git-conflict-face
-     ((t :foreground "#AE81FF")))))     ; monokai-purple
-
 ;; Keymap
 (global-set-key (kbd "C-x c g") 'helm-ls-git-ls)
 
