@@ -43,8 +43,9 @@
 (setq org-activate-links '(date bracket radio tag date footnote angle)) ; Fix link face with multibyte chars
 (setq org-src-fontify-natively t)       ; Syntax highlight in code blocks
 (setq calendar-week-start-day 1)        ; Beginning of week is Mon.
+(setq org-list-allow-alphabetical t)    ; XXX avoid error by typing C-e
 
-(setq org-special-ctrl-a/e t)           ; conflict with sequential-command?
+(setq org-special-ctrl-a/e t)
 (setq org-special-ctrl-k t)
 (setq org-catch-invisible-edits 'show-and-error) ; Editing invisible region, expands it and warns
 (setq org-return-follows-link t)        ; Open URL with RET
