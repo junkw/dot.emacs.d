@@ -33,10 +33,6 @@
 
 (require 'cl-lib)
 
-;; Profile
-(setq user-full-name "Jumpei KAWAMI")
-(setq user-mail-address "don.t.be.trapped.by.dogma@gmail.com")
-
 ;; Paths
 (when cocoa-p
   (cl-loop for path in '("PATH" "INFOPATH" "MANPATH")

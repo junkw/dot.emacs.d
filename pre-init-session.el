@@ -43,6 +43,12 @@
 (setq message-log-max 5000)             ; Message log buffer
 (setq history-length 1000)              ; Minibuffer
 
+;; Auth
+(require 'auth-source)
+(when mac-p
+  (add-to-list 'auth-sources 'macos-keychain-generic)
+  (add-to-list 'auth-sources 'macos-keychain-internet))
+
 ;; Auto save file
 (setq auto-save-default t)
 (setq auto-save-file-name-transforms
