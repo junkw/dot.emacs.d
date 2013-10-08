@@ -54,8 +54,8 @@
         ))
 
 (defvar jkw:el-get-package-list-from-recipe
-  '(ace-jump-mode ag anzu auto-async-byte-compile cl-lib-highlight color-moccur cssm-mode
-                  ctags dired+ eldoc-extension expand-region flymake-csslint
+  '(ace-jump-mode ag all-ext anzu auto-async-byte-compile cl-lib-highlight color-moccur
+                  cssm-mode ctags dired+ eldoc-extension expand-region flymake-csslint
                   flymake-html-validator flymake-phpcs foreign-regexp geben gist
                   git-gutter-fringe goto-chg grep-a-lot html5 helm-descbinds helm-migemo
                   highlight-symbol info+ js2-mode linum-relative lispxmp magit migemo

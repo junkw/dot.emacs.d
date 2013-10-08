@@ -1,0 +1,6 @@
+(:name all-ext
+       :description "Extension of M-x all."
+       :website     "http://www.emacswiki.org/emacs/download/all-ext.el"
+       :depends     (all helm helm-c-moccur)
+       :type        emacswiki
+       :features    all-ext)
