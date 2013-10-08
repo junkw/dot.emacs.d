@@ -1,9 +1,9 @@
-;;; init-paredit.el --- el-get init file for package paredit
+;;; init-smartparens.el --- el-get init file for package smartparens
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Oct. 8, 2012
+;; Created: Oct. 9, 2013
 ;; Keywords: .emacs
 
 ;;; This file is NOT part of GNU Emacs.
@@ -31,10 +31,27 @@
 
 ;;; Code:
 
-(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
-(add-hook 'lisp-mode-hook 'enable-paredit-mode)
-(add-hook 'ielm-mode-hook 'enable-paredit-mode)
+(require 'pre-init-core)
+(require 'smartparens)
+
+;; Enable in global, but work as strict in every lisp mode
+(smartparens-global-mode 1)
+(jkw:add-hooks sp--lisp-modes 'smartparens-strict-mode)
+
+;; Highlight matching pairs
+(setq sp-show-pair-delay 0)
+(setq sp-show-pair-from-inside t)
+(show-smartparens-global-mode 1)
+
+;; Pair management
+(sp-with-modes 'nxml-mode
+  (sp-local-pair "<" ">")
+  (sp-local-tag  "<" "<_>" "</_>"
+                 :transform 'sp-match-sgml-tags
+                 :post-handlers '(sp-html-post-handler)))
+
+;; Keymap
+(sp-use-paredit-bindings)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -43,4 +60,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-paredit.el ends here
+;;; init-smartparens.el ends here

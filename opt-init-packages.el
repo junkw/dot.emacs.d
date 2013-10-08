@@ -48,6 +48,7 @@
         (:name highlight-indentation :features highlight-indentation)
         (:name jshint-mode :features flymake-jshint)
         (:name minimap :after (setq minimap-window-location 'right))
+        (:name smartparens :features smartparens-config)
         (:name popwin :features popwin)
         (:name powerline :autoloads nil)
         (:name undo-tree :features undo-tree)
@@ -59,9 +60,9 @@
                   flymake-html-validator flymake-phpcs foreign-regexp geben gist
                   git-gutter-fringe goto-chg grep-a-lot html5 helm-descbinds helm-migemo
                   highlight-symbol info+ js2-mode linum-relative lispxmp magit migemo
-                  mmm-mode moccur-edit monokai-emacs org-mode paredit php-align php-mode
-                  psvn rainbow-mode recentf-ext scratch-ext sequential-command
-                  twittering-mode viewer wgrep)
+                  mmm-mode moccur-edit monokai-emacs org-mode php-align php-mode psvn
+                  rainbow-mode recentf-ext scratch-ext sequential-command twittering-mode
+                  viewer wgrep)
   "List of packages I use straight from recipe files.")
 
 ;; Init after loading el-get
