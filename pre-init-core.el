@@ -52,12 +52,12 @@
   "Macro for simple `eval-after-load'.
 
  * FILE is a symbol or a string.
- * FORM allows for multiple body forms.
+ * FORM allows for multiple body forms and is byte-compiled.
 
 See `eval-after-load'."
   (declare (indent 1))
   `(eval-after-load ,file
-     '(progn ,@form)))
+     `(funcall #',(lambda () ,@form))))
 
 ;; Paths
 (defun getenv-from-shell (variable)
