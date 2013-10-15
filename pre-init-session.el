@@ -84,7 +84,7 @@
 (setq recentf-save-file "~/.emacs.d/var/cache/recentf")
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 100)
-(setq recentf-exclude '("^/[^/:]+:" "/TAGS$" "/var/" "/tmp/"))
+(setq recentf-exclude '("^/[^/:]+:" "/var/" "/tmp/" "/Drafts/" "/TAGS$" "/\.loaddefs.elc?$"))
 (recentf-mode 1)
 
 ;; Save cursor's place
