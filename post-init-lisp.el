@@ -32,6 +32,7 @@
 ;;; Code:
 
 (require 'cl-lib)
+(require 'pre-init-core)
 
 (font-lock-add-keywords
  'emacs-lisp-mode
@@ -51,8 +52,7 @@
   (linum-mode t)
   (setq indent-tabs-mode nil))
 
-(cl-loop for hook in '(emacs-lisp-mode-hook lisp-mode-hook lisp-interaction-mode)
-         do (add-hook hook 'jkw:lisp-mode-hooks))
+(jkw:add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction) 'jkw:lisp-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

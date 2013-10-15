@@ -31,10 +31,9 @@
 
 ;;; Code:
 
-(require 'cl-lib)
+(require 'pre-init-core)
 
-(cl-loop for hook in '(nxml-mode-hook css-mode-hook)
-         do (add-hook hook 'rainbow-mode))
+(jkw:add-hooks '(nxml-mode css-mode) 'rainbow-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

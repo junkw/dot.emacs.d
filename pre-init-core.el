@@ -59,6 +59,11 @@ See `eval-after-load'."
   `(eval-after-load ,file
      `(funcall #',(lambda () ,@form))))
 
+(defun jkw:add-hooks (modes function)
+  "`add-hook' extension for batch adding FUNCTION into the list of MODES."
+  (cl-loop for mode in modes
+           do (add-hook (intern (concat (symbol-name mode) "-hook")) function)))
+
 ;; Paths
 (defun getenv-from-shell (variable)
   "Get the value of environment variable VARIABLE from the user's shell."
