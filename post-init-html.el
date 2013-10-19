@@ -35,7 +35,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|atom\\|[sx]?html?\\)\\'" . nxml-mode))
 
-(eval-after-load-q 'nxml-mode
+(eval-after-load* 'nxml-mode
   (setq nxml-child-indent 2)
   (setq nxml-attribute-indent 4)
   (setq nxml-char-ref-display-glyph-flag nil)

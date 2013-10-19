@@ -36,7 +36,7 @@
 ;; Opening read-only file, enable view mode.
 (setq view-read-only t)
 
-(eval-after-load-q 'view
+(eval-after-load* 'view
   ;; Keymap
   (defvar jkw:view-pager-keybinds
     '(("j" . next-line)
@@ -51,7 +51,7 @@
       ("w" . forward-word)
       ("W" . backward-word))
     "My keybinds for View mode.")
-  (jkw:define-keys view-mode-map jkw:view-pager-keybinds))
+  (define-keys view-mode-map jkw:view-pager-keybinds))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

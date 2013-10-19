@@ -36,7 +36,7 @@
 
 ;; Enable in global, but work as strict in every lisp mode
 (smartparens-global-mode 1)
-(jkw:add-hooks sp--lisp-modes 'smartparens-strict-mode)
+(add-hooks sp--lisp-modes 'smartparens-strict-mode)
 
 ;; Highlight matching pairs
 (setq sp-show-pair-delay 0)

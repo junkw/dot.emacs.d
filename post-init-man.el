@@ -36,7 +36,7 @@
 (autoload 'woman "woman" "Decode and browse a UN*X man page." t)
 (autoload 'woman-find-file "woman" "Find, decode and browse a specific UN*X man-page file." t)
 
-(eval-after-load-q 'woman
+(eval-after-load* 'woman
   ;; Paths
   (add-to-list 'woman-manpath "~/.emacs.d/share/man")
   (setq woman-cache-filename "~/.emacs.d/var/cache/woman") ; Update cache: C-u M-x woman
@@ -68,7 +68,7 @@
       ("l" . forward-char)
       ("h" . backward-char))
     "My keybinds for WoMan mode.")
-  (jkw:define-keys woman-mode-map jkw:woman-pager-keybinds))
+  (define-keys woman-mode-map jkw:woman-pager-keybinds))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

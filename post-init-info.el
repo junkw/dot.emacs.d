@@ -33,7 +33,7 @@
 
 (require 'pre-init-core)
 
-(eval-after-load-q 'info
+(eval-after-load* 'info
   ;; In addition to INFOPATH
   (add-to-list 'Info-additional-directory-list "~/.emacs.d/share/info")
   ;; Keymap
@@ -55,7 +55,7 @@
       ("B"   . Info-history-back)
       ("F"   . Info-history-forward))
     "My keybinds for Info mode.")
-  (jkw:define-keys Info-mode-map jkw:Info-pager-keybinds))
+  (define-keys Info-mode-map jkw:Info-pager-keybinds))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

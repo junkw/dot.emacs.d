@@ -33,7 +33,7 @@
 
 (setq diff-switches "-u")               ; unified diff format
 
-(eval-after-load-q 'ediff
+(eval-after-load* 'ediff
   (setq ediff-window-setup-function 'ediff-setup-windows-plain) ; don't make 'Ediff Control Panel' frame
   (setq ediff-split-window-function 'split-window-horizontally) ; split ediff window, side by side
   (setq ediff-keep-variants nil))       ; remove unmodified buffers

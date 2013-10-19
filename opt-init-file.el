@@ -62,7 +62,7 @@
     ".tar" ".tbz" ".tbz2" ".tgz" ".tlz" ".txz" ".tzo" ".war" ".xz" ".zip")
   "Suffixes for compression and uncompression adding in `dired-compress-file-suffixes'.")
 
-(eval-after-load-q 'dired-aux
+(eval-after-load* 'dired-aux
   (when (executable-find "atool")
     (cl-loop for suffix in jkw:dired-additional-compression-suffixes
              do (add-to-list 'dired-compress-file-suffixes

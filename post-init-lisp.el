@@ -36,7 +36,7 @@
 
 (font-lock-add-keywords
  'emacs-lisp-mode
- `((,(regexp-opt '("nil" "setq" "eval-after-load-q") 'words) . font-lock-keyword-face)))
+ `((,(regexp-opt '("nil" "setq" "eval-after-load*") 'words) . font-lock-keyword-face)))
 
 (find-function-setup-keys)
 
@@ -52,7 +52,7 @@
   (linum-mode t)
   (setq indent-tabs-mode nil))
 
-(jkw:add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction) 'jkw:lisp-mode-hooks)
+(add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) 'jkw:lisp-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

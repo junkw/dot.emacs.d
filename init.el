@@ -39,13 +39,13 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(defvar jkw:init-module-load-only-pre-init-files nil
+(defvar init-module-load-only-pre-init-files nil
   "If this variable is non-nil, startup with minimum Emacs config.")
 
-(defvar jkw:init-module-opt-init-file-regexp "^opt-init-"
+(defvar init-module-opt-init-file-regexp "^opt-init-"
   "Regexp matching opt-init filename.")
 
-(defun jkw:init-module-list-files (regexp)
+(defun init-module-list-files (regexp)
   "Show init modules containing a match for REGEXP in `~/.emacs.d/'.
 
 If a elisp file has a byte-compiled file, show the byte-compiled file only."
@@ -56,9 +56,9 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
                               (not (locate-library (concat el "c"))))))
            collect (file-name-nondirectory el)))
 
-(defun jkw:init-module-load-files (regexp)
+(defun init-module-load-files (regexp)
   "Load init modules matching the REGEXP specified."
-  (cl-loop for mod in (jkw:init-module-list-files regexp)
+  (cl-loop for mod in (init-module-list-files regexp)
            do (condition-case err
                   (load (file-name-sans-extension mod))
                 (error
@@ -70,16 +70,16 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
   "Initialize Emacs init files."
   (interactive)
   ;; Minimum config
-  (jkw:init-module-load-files "^pre-init-")
+  (init-module-load-files "^pre-init-")
 
-  (unless jkw:init-module-load-only-pre-init-files
+  (unless init-module-load-only-pre-init-files
     ;; Environment-dependent config
     (if (null window-system)
-        (jkw:init-module-load-files "^cui-init-")
-      (jkw:init-module-load-files "^gui-init-"))
+        (init-module-load-files "^cui-init-")
+      (init-module-load-files "^gui-init-"))
     ;; Advanced config
-    (jkw:init-module-load-files jkw:init-module-opt-init-file-regexp)
-    (jkw:init-module-load-files "^post-init-")))
+    (init-module-load-files init-module-opt-init-file-regexp)
+    (init-module-load-files "^post-init-")))
 
 (init-module-initialize)
 

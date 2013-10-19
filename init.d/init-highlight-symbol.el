@@ -32,7 +32,7 @@
 ;;; Code:
 
 ;; Color
-(eval-after-load-q 'monokai-theme
+(eval-after-load* 'monokai-theme
   (setq highlight-symbol-colors
         '("#FC87B0" "#CDF187" "#FEB257" "#F3ECB0" "#A9EBF7" "#D2BAFF" "#FEA7F7" "#CBF7F1")))
 

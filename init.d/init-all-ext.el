@@ -40,7 +40,7 @@
    'all-from-anything-occur-internal "helm-moccur"
    helm-c-moccur-buffer helm-current-buffer))
 
-(eval-after-load-q 'helm-c-moccur
+(eval-after-load* 'helm-c-moccur
   (define-key helm-c-moccur-helm-map (kbd "C-c C-a") 'all-from-helm-c-moccur))
 
 ;; Local Variables:

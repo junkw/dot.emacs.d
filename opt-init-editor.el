@@ -46,7 +46,7 @@
 ;; Highlight
 (setq transient-mark-mode t)
 (global-hl-line-mode 1)
-(when jkw:init-module-load-only-pre-init-files ; Use `show-smartparens-mode' commonly
+(when init-module-load-only-pre-init-files ; Use `show-smartparens-mode' commonly
   (setq show-paren-delay 0)
   (show-paren-mode 1))
 

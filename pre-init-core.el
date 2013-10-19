@@ -48,7 +48,7 @@
   "Return t if this system is Windows.")
 
 ;; Loading
-(defmacro eval-after-load-q (file &rest form)
+(defmacro eval-after-load* (file &rest form)
   "Macro for simple `eval-after-load'.
 
  * FILE is a symbol or a string.
@@ -59,7 +59,7 @@ See `eval-after-load'."
   `(eval-after-load ,file
      `(funcall #',(lambda () ,@form))))
 
-(defun jkw:add-hooks (modes function)
+(defun add-hooks (modes function)
   "`add-hook' extension for batch adding FUNCTION into the list of MODES."
   (cl-loop for mode in modes
            do (add-hook (intern (concat (symbol-name mode) "-hook")) function)))
@@ -96,7 +96,7 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
   (equal (custom-active-theme) theme))
 
 ;; Keymap
-(defun jkw:define-keys (keymap key-bindings)
+(defun define-keys (keymap key-bindings)
   "`define-key' extension for KEY-BINDINGS batch definition in KEYMAP."
   (cl-loop for (key . command) in key-bindings
            do (define-key keymap (read-kbd-macro key) command)))
