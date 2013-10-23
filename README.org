@@ -15,7 +15,7 @@ $ emacs -batch -L . -f batch-byte-compile *.el
 $ open -a Emacs
 #+END_SRC
 
-M-x =crags-create-or-update-tags-table= (<F7>)
+=M-x crags-create-or-update-tags-table= (=<F7>=)
 
 ** Structure
 
@@ -23,6 +23,8 @@ M-x =crags-create-or-update-tags-table= (<F7>)
 ~/.emacs.d/
   +-- bin/
   +-- etc/
+  |    +-- auto-complete/
+  |         `-- dict
   |    +-- el-get/
   |    |    +-- elpa-recipes/
   |    |    +-- emacswiki-recipes/

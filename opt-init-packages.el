@@ -41,6 +41,7 @@
 ;; Fix original recipes
 (setq el-get-sources
       '((:name el-get :branch "master")
+        (:name auto-complete :submodule nil :features auto-complete-config)
         (:name direx :depends popwin)
         (:name helm :autoloads nil)
         (:name helm-c-moccur :features helm-c-moccur)
