@@ -45,7 +45,6 @@
 
 ;; Pair management
 (sp-with-modes 'nxml-mode
-  (sp-local-pair "<" ">")
   (sp-local-tag  "<" "<_>" "</_>"
                  :transform 'sp-match-sgml-tags
                  :post-handlers '(sp-html-post-handler)))
