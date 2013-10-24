@@ -49,6 +49,11 @@
                  :transform 'sp-match-sgml-tags
                  :post-handlers '(sp-html-post-handler)))
 
+(sp-with-modes '(text-mode org-mode nxml-mode)
+  (sp-local-pair "（" "）")
+  (sp-local-pair "「" "」")
+  (sp-local-pair "『" "』"))
+
 ;; Keymap
 (sp-use-paredit-bindings)
 
