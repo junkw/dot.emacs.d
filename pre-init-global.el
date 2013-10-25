@@ -72,6 +72,9 @@
   (add-hook 'after-init-hook 'mac-change-language-to-us)
   (add-hook 'minibuffer-setup-hook 'mac-change-language-to-us))
 
+;; Keymap
+(global-set-key (kbd "C-M-g") 'keyboard-escape-quit)
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
