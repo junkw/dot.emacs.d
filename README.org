@@ -29,6 +29,8 @@ $ open -a Emacs
   |    |    +-- elpa-recipes/
   |    |    +-- emacswiki-recipes/
   |    |    `-- local-recipes/
+  |    +-- mu4e/
+  |         `-- signature
   |    +-- custom.el
   |    `-- kmacro.el
   +-- init.d/

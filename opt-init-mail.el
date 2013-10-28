@@ -52,6 +52,7 @@
   ;; Compose
   (setq mu4e-sent-messages-behavior 'delete)
   (setq org-mu4e-convert-to-html t)
+  (setq message-signature-file "~/.emacs.d/etc/mu4e/signature")
 
   ;; SMTP
   (require 'smtpmail)

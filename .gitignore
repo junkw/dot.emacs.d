@@ -10,5 +10,6 @@ etc/*.gpg
 etc/auto-complete/dict
 etc/el-get/elpa-recipes
 etc/el-get/emacswiki-recipes
+etc/mu4e
 var/
 vendor/
