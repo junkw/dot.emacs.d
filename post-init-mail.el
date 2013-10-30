@@ -1,4 +1,4 @@
-;;; opt-init-mail.el --- Emacs init file
+;;; post-init-mail.el --- Emacs init file
 
 ;; Copyright (C) 2013  Jumpei KAWAMI
 
@@ -40,14 +40,16 @@
   ;; Mail directories
   (setq mu4e-maildir        "~/Mail")
   (setq mu4e-attachment-dir "~/Downloads")
-  (setq mu4e-sent-folder    "/Sent Mail")
+  (setq mu4e-refile-folder  "/Archive")
   (setq mu4e-drafts-folder  "/Drafts")
+  (setq mu4e-sent-folder    "/Sent")
   (setq mu4e-trash-folder   "/Trash")
 
   ;; External command
   (setq mu4e-get-mail-command  (executable-find "offlineimap"))
-  (setq mu4e-html2text-command (concat (executable-find "html2text") " -utf8 -width 72"))
   (setq mu4e-update-interval 3600)      ; 60 mins.
+
+  (setq mu4e-html2text-command (concat (executable-find "html2text") " -utf8 -width 72"))
 
   ;; Compose
   (setq mu4e-sent-messages-behavior 'delete)
@@ -74,10 +76,11 @@
 
   ;; Keymap
   (setq mu4e-maildir-shortcuts
-        '(("/Drafts"    . ?d)
-          ("/INBOX"     . ?i)
-          ("/Sent Mail" . ?t)
-          ("/Starred"   . ?s))))
+        '(("/Archive" . ?a)
+          ("/Drafts"  . ?d)
+          ("/INBOX"   . ?i)
+          ("/Sent"    . ?t)
+          ("/Starred" . ?s))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -86,4 +89,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; opt-init-mail.el ends here
+;;; post-init-mail.el ends here
