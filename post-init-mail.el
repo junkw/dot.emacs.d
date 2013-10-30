@@ -34,6 +34,7 @@
 ;; mu4e
 (when (and (executable-find "mu") (require 'mu4e nil t))
   (require 'org-mu4e)
+  (require 'org-contacts)
 
   (setq mail-user-agent 'mu4e-user-agent)
 
@@ -66,6 +67,13 @@
   (setq smtpmail-smtp-server         "smtp.gmail.com")
   (setq smtpmail-smtp-service 465)
   (setq message-kill-buffer-on-exit t)
+
+  ;; Contacts
+  (setq mu4e-org-contacts-file (expand-file-name "contacts.org" org-directory))
+  (add-to-list 'mu4e-headers-actions
+               '("org-contact-add" . mu4e-action-add-org-contact) t)
+  (add-to-list 'mu4e-view-actions
+               '("org-contact-add" . mu4e-action-add-org-contact) t)
 
   ;; View
   (setq mu4e-split-view 'vertical)
