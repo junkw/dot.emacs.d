@@ -31,64 +31,69 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
+
 ;; mu4e
-(when (and (executable-find "mu") (require 'mu4e nil t))
-  (require 'org-mu4e)
-  (require 'org-contacts)
+(autoload 'mu4e "mu4e" "Start mu4e." t nil)
 
-  (setq mail-user-agent 'mu4e-user-agent)
+(when (executable-find "mu")
+  (eval-after-load* 'mu4e
+    (require 'org-mu4e)
 
-  ;; Mail directories
-  (setq mu4e-maildir        "~/Mail")
-  (setq mu4e-attachment-dir "~/Downloads")
-  (setq mu4e-refile-folder  "/Archive")
-  (setq mu4e-drafts-folder  "/Drafts")
-  (setq mu4e-sent-folder    "/Sent")
-  (setq mu4e-trash-folder   "/Trash")
+    (setq mail-user-agent 'mu4e-user-agent)
 
-  ;; External command
-  (setq mu4e-get-mail-command  (executable-find "offlineimap"))
-  (setq mu4e-update-interval 3600)      ; 60 mins.
+    ;; Mail directories
+    (setq mu4e-maildir        "~/Mail")
+    (setq mu4e-attachment-dir "~/Downloads")
+    (setq mu4e-refile-folder  "/Archive")
+    (setq mu4e-drafts-folder  "/Drafts")
+    (setq mu4e-sent-folder    "/Sent")
+    (setq mu4e-trash-folder   "/Trash")
 
-  (setq mu4e-html2text-command (concat (executable-find "html2text") " -utf8 -width 72"))
+    ;; External command
+    (setq mu4e-get-mail-command  (executable-find "offlineimap"))
+    (setq mu4e-update-interval 3600)      ; 60 mins.
 
-  ;; Compose
-  (setq mu4e-sent-messages-behavior 'delete)
-  (setq org-mu4e-convert-to-html t)
-  (setq message-signature-file "~/.emacs.d/etc/mu4e/signature")
+    (setq mu4e-html2text-command (concat (executable-find "html2text") " -utf8 -width 72"))
 
-  ;; SMTP
-  (require 'smtpmail)
+    ;; Compose
+    (setq mu4e-sent-messages-behavior 'delete)
+    (setq org-mu4e-convert-to-html t)
+    (setq message-signature-file "~/.emacs.d/etc/mu4e/signature")
 
-  (setq message-send-mail-function 'smtpmail-send-it)
-  (when (executable-find "gnutls-cli")
-    (setq smtpmail-stream-type 'ssl))
-  (setq smtpmail-default-smtp-server "smtp.gmail.com")
-  (setq smtpmail-smtp-server         "smtp.gmail.com")
-  (setq smtpmail-smtp-service 465)
-  (setq message-kill-buffer-on-exit t)
+    ;; SMTP
+    (require 'smtpmail)
 
-  ;; Contacts
-  (setq mu4e-org-contacts-file (expand-file-name "contacts.org" org-directory))
-  (add-to-list 'mu4e-headers-actions
-               '("org-contact-add" . mu4e-action-add-org-contact) t)
-  (add-to-list 'mu4e-view-actions
-               '("org-contact-add" . mu4e-action-add-org-contact) t)
+    (setq message-send-mail-function 'smtpmail-send-it)
+    (when (executable-find "gnutls-cli")
+      (setq smtpmail-stream-type 'ssl))
+    (setq smtpmail-default-smtp-server "smtp.gmail.com")
+    (setq smtpmail-smtp-server         "smtp.gmail.com")
+    (setq smtpmail-smtp-service 465)
+    (setq message-kill-buffer-on-exit t)
 
-  ;; View
-  (setq mu4e-split-view 'vertical)
-  (setq mu4e-headers-visible-columns 90)
-  (setq mu4e-view-show-images t)
-  (when (fboundp 'imagemagick-register-types)
-    (imagemagick-register-types))
+    ;; Contacts
+    (when (require 'org-contacts nil t)
+      (setq mu4e-org-contacts-file (expand-file-name "contacts.org" org-directory))
+      (add-to-list 'mu4e-headers-actions
+                   '("org-contact-add" . mu4e-action-add-org-contact) t)
+      (add-to-list 'mu4e-view-actions
+                   '("org-contact-add" . mu4e-action-add-org-contact) t))
 
-  ;; Keymap
-  (setq mu4e-maildir-shortcuts
-        '(("/Archive" . ?a)
-          ("/Drafts"  . ?d)
-          ("/INBOX"   . ?i)
-          ("/Sent"    . ?t)
-          ("/Starred" . ?s))))
+    ;; View
+    (setq mu4e-split-view 'vertical)
+    (setq mu4e-headers-visible-columns 90)
+    (setq mu4e-view-show-images t)
+    (when (fboundp 'imagemagick-register-types)
+      (imagemagick-register-types))
+
+    ;; Keymap
+    (setq mu4e-maildir-shortcuts
+          '(("/Archive" . ?a)
+            ("/Drafts"  . ?d)
+            ("/INBOX"   . ?i)
+            ("/Sent"    . ?t)
+            ("/Starred" . ?s)))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
