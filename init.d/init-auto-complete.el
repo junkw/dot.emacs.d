@@ -38,8 +38,6 @@
 (setq ac-comphist-file "~/.emacs.d/var/cache/ac-comphist.dat")
 
 ;; Initialize
-(add-to-list 'ac-modes 'org-mode)
-
 (setq ac-auto-start 3)
 (setq ac-use-menu-map t)
 (when (custom-theme-active-p "monokai")
