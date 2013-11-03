@@ -44,6 +44,14 @@
 (show-smartparens-global-mode 1)
 
 ;; Pair management
+(sp-with-modes 'org-mode
+  (sp-local-tag "*" "*" "*")
+  (sp-local-tag "/" "/" "/")
+  ;; (sp-local-tag "_" "_" "_")            ; doesn't work because char _ is replaced with inserted text
+  (sp-local-tag "=" "=" "=")
+  (sp-local-tag "~" "~" "~")
+  (sp-local-tag "+" "+" "+"))
+
 (sp-with-modes 'nxml-mode
   (sp-local-tag  "<" "<_>" "</_>"
                  :transform 'sp-match-sgml-tags
