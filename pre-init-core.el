@@ -59,6 +59,29 @@ See `eval-after-load'."
   `(eval-after-load ,file
      `(funcall #',(lambda () ,@form))))
 
+;; https://gist.github.com/10sr/4159369
+(defmacro lazyload (feature &optional functions &rest form)
+  "Define each FUNCTIONS to lazyload from FEATURE.
+
+FEATURE is a symbol. FUNCTIONS is a list of symbols. If FUNCTIONS is nil, the function
+same as FEATURE is defined as autoloaded function. FORM is passed to `eval-after-load*'.
+When this macro is evaluated, returns the package path, otherwise returns nil."
+  (declare (indent 2))
+  (let* ((pkg  (symbol-name (eval feature)))
+         (path (locate-library pkg)))
+    (and path
+         `(progn
+            ,@(mapcar (lambda (func)
+                        (or (fboundp func)
+                            `(autoload ',func ,pkg
+                               ,(format "Lazyloaded function defined in \"%s\"." path)
+                               t)))
+                      (or (eval functions)
+                          `(,(eval feature))))
+            (eval-after-load* ,feature
+              ,@form)
+            ,path))))
+
 (defun add-hooks (modes function)
   "`add-hook' extension for batch adding FUNCTION into the list of MODES."
   (cl-loop for mode in modes
