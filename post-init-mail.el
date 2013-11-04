@@ -34,10 +34,8 @@
 (require 'pre-init-core)
 
 ;; mu4e
-(autoload 'mu4e "mu4e" "Start mu4e." t nil)
-
 (when (executable-find "mu")
-  (eval-after-load* 'mu4e
+  (lazyload 'mu4e nil
     (require 'org-mu4e)
 
     (setq mail-user-agent 'mu4e-user-agent)
