@@ -30,9 +30,10 @@ $ open -a Emacs
   |    |    +-- emacswiki-recipes/
   |    |    `-- local-recipes/
   |    +-- mu4e/
-  |         `-- signature
+  |    |    `-- signature
   |    +-- custom.el
-  |    `-- kmacro.el
+  |    +-- kmacro.el
+  |    `-- multiple-cursors-list.el
   +-- init.d/
   |    `-- init-PACKAGE.el
   +-- share/
