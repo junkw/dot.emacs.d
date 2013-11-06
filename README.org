@@ -5,7 +5,7 @@
 ** Installation
 
 #+BEGIN_SRC sh-mode
-$ brew install https://gist.github.com/junkw/5037634/raw/f135c26d4ab5d55f9f3f9ce7a638a6cda8b58b57/emacs.rb --cocoa --srgb
+$ brew install https://gist.github.com/junkw/5037634/raw/8b53482f64e7658d047753b2a020f3b6b66c1964/emacs.rb --cocoa --srgb --with-gnutls
 $ ln -s /usr/local/Cellar/emacs/24.3/Emacs.app/ /Applications/Emacs.app
 $ git clone https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
 $ ln -s /path/to/local/repo ~/.emacs.d
