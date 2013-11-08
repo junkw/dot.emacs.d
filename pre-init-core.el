@@ -125,17 +125,13 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
            do (define-key keymap (read-kbd-macro key) command)))
 
 ;; Notify
-(defvar terminal-notifier-app-path
-  "/Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier"
-  "Absolute path of the terminal-notifier.app binary.")
-
-(when (and mac-p (file-executable-p terminal-notifier-app-path))
+(when mac-p
   (defun terminal-notifier-notify (title message)
     "Send a MESSAGE with TITLE in Mac OS X Notification Center using terminal-notify.app."
     (let* ((name "*terminal-notifier*")
            (proc
             (start-process name name
-                           terminal-notifier-app-path
+                           (executable-find "terminal-notifier")
                            "-title" title
                            "-message" message
                            "-activate" "org.gnu.Emacs")))

@@ -37,9 +37,8 @@
 (require 'el-get-list-packages)
 (require 'el-get-recipes)
 
-;; Use function terminal-notifier-notify, when Mac OS X has terminal-notifier.app.
-(when (and (file-executable-p terminal-notifier-app-path)
-           (not (executable-find "growlnotify")))
+;; Use function `terminal-notifier-notify' as `el-get-growl' on Mac OS X.
+(when (executable-find "terminal-notifier")
   (fset 'el-get-growl 'terminal-notifier-notify))
 
 ;; el-get package menu
