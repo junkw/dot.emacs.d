@@ -37,6 +37,11 @@
   '(("M-n" . 'next-error)
     ("M-p" . 'previous-error)))
 
+(eval-after-load* 'flycheck
+  (smartrep-define-key flycheck-mode-map "C-c !"
+    '(("n" . 'flycheck-next-error)
+      ("p" . flycheck-previous-error))))
+
 (eval-after-load* 'org
   (smartrep-define-key org-mode-map "C-c"
     '(("C-n" . 'outline-next-visible-heading)
