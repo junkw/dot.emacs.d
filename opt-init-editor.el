@@ -219,8 +219,6 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 
 ;; Keymap
 (keyboard-translate ?\C-h ?\C-?)
-(global-set-key (kbd "M-g p") 'flymake-goto-prev-error)
-(global-set-key (kbd "M-g n") 'flymake-goto-next-error)
 (global-set-key (kbd "M-/")   'hippie-expand) ; replace `dabbrev-expand'
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "M-d")   'kill-word-dwim)

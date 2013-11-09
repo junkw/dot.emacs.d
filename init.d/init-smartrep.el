@@ -34,30 +34,28 @@
 (require 'pre-init-core)
 
 (smartrep-define-key prog-mode-map "M-g"
-                     '(("n"   . 'flymake-goto-next-error)
-                       ("p"   . 'flymake-goto-prev-error)
-                       ("M-n" . 'next-error)
-                       ("M-p" . 'previous-error)))
+  '(("M-n" . 'next-error)
+    ("M-p" . 'previous-error)))
 
 (eval-after-load* 'org
   (smartrep-define-key org-mode-map "C-c"
-                       '(("C-n" . 'outline-next-visible-heading)
-                         ("C-p" . 'outline-previous-visible-heading))))
+    '(("C-n" . 'outline-next-visible-heading)
+      ("C-p" . 'outline-previous-visible-heading))))
 
 (eval-after-load* 'multiple-cursors
   (smartrep-define-key global-map "C-S-c"
-                       '(("n" . 'mc/mark-next-like-this)
-                         ("p" . 'mc/mark-previous-like-this)
-                         ("m" . 'mc/mark-more-like-this-extended)
-                         ("u" . 'mc/unmark-next-like-this)
-                         ("U" . 'mc/unmark-previous-like-this)
-                         ("s" . 'mc/skip-to-next-like-this)
-                         ("S" . 'mc/skip-to-previous-like-this)
-                         ("*" . 'mc/mark-all-like-this)
-                         ("d" . 'mc/mark-all-like-this-dwim)
-                         ("i" . 'mc/insert-numbers)
-                         ("o" . 'mc/sort-regions)
-                         ("O" . 'mc/reverse-regions))))
+    '(("n" . 'mc/mark-next-like-this)
+      ("p" . 'mc/mark-previous-like-this)
+      ("m" . 'mc/mark-more-like-this-extended)
+      ("u" . 'mc/unmark-next-like-this)
+      ("U" . 'mc/unmark-previous-like-this)
+      ("s" . 'mc/skip-to-next-like-this)
+      ("S" . 'mc/skip-to-previous-like-this)
+      ("*" . 'mc/mark-all-like-this)
+      ("d" . 'mc/mark-all-like-this-dwim)
+      ("i" . 'mc/insert-numbers)
+      ("o" . 'mc/sort-regions)
+      ("O" . 'mc/reverse-regions))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
