@@ -57,12 +57,13 @@
 
 (defvar jkw:el-get-package-list-from-recipe
   '(ace-jump-mode ag all-ext anzu auto-async-byte-compile cl-lib-highlight color-moccur
-                  cssm-mode ctags dired+ eldoc-extension expand-region foreign-regexp geben
-                  gist git-gutter-fringe goto-chg grep-a-lot html5 helm-c-yasnippet
-                  helm-descbinds helm-migemo highlight-symbol info+ js2-mode linum-relative
-                  lispxmp magit migemo mmm-mode moccur-edit monokai-emacs multiple-cursors
-                  org-mode php-align php-mode psvn rainbow-mode recentf-ext scratch-ext
-                  sequential-command smartrep tern twittering-mode viewer wgrep)
+                  cssm-mode ctags dired+ eldoc-extension expand-region foreign-regexp
+                  flycheck geben gist git-gutter-fringe goto-chg grep-a-lot html5
+                  helm-c-yasnippet helm-descbinds helm-migemo highlight-symbol info+
+                  js2-mode linum-relative lispxmp magit migemo mmm-mode moccur-edit
+                  monokai-emacs multiple-cursors org-mode php-align php-mode psvn
+                  rainbow-mode recentf-ext scratch-ext sequential-command smartrep tern
+                  twittering-mode viewer wgrep)
   "List of packages I use straight from recipe files.")
 
 ;; Init after loading el-get
