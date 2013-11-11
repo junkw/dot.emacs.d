@@ -32,11 +32,25 @@
 ;;; Code:
 
 ;; Frame size and position
-(add-to-list 'default-frame-alist '(top    . 110))
-(add-to-list 'default-frame-alist '(left   . 200))
-(add-to-list 'default-frame-alist '(height .  50))
-(add-to-list 'default-frame-alist '(width  . 120))
-(add-to-list 'default-frame-alist '(alpha  . (92 82)))
+(cond
+ ((>= (display-pixel-height) 1080)       ; 27ich
+  (add-to-list 'default-frame-alist '(top    . 110))
+  (add-to-list 'default-frame-alist '(left   . 150))
+  (add-to-list 'default-frame-alist '(height .  55))
+  (add-to-list 'default-frame-alist '(width  . 230)))
+ ((= (display-pixel-height) 1050)       ; 20ich
+  (add-to-list 'default-frame-alist '(top    . 110))
+  (add-to-list 'default-frame-alist '(left   . 180))
+  (add-to-list 'default-frame-alist '(height .  50))
+  (add-to-list 'default-frame-alist '(width  . 185)))
+ (t
+  (add-to-list 'default-frame-alist '(top    . 110))
+  (add-to-list 'default-frame-alist '(left   . 200))
+  (add-to-list 'default-frame-alist '(height .  50))
+  (add-to-list 'default-frame-alist '(width  . 120))))
+
+;; Transparent
+(add-to-list 'default-frame-alist '(alpha . (92 82)))
 
 ;; Bar
 (setq frame-title-format "%f")
