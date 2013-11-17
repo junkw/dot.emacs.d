@@ -31,6 +31,7 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
 (require 'thingatpt)
 
 ;; TAB
@@ -219,11 +220,16 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 
 ;; Keymap
 (keyboard-translate ?\C-h ?\C-?)
-(global-set-key (kbd "M-/")   'hippie-expand) ; replace `dabbrev-expand'
-(global-set-key (kbd "C-S-k") 'kill-whole-line)
-(global-set-key (kbd "M-d")   'kill-word-dwim)
-(global-set-key (kbd "C-c +") 'increment-integer-at-point)
-(global-set-key (kbd "C-c -") 'decrement-integer-at-point)
+
+(defvar jkw:global-editor-keybinds
+  '(("M-/"   . 'hippie-expand) ; replace `dabbrev-expand'
+    ("C-S-k" . 'kill-whole-line)
+    ("M-d"   . 'kill-word-dwim)
+    ("C-c +" . 'increment-integer-at-point)
+    ("C-c -" . 'decrement-integer-at-point))
+  "My global keybinds for editing.")
+
+(global-set-keys jkw:global-editor-keybinds)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
