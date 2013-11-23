@@ -1,10 +1,10 @@
-;;; init-html5.el --- el-get init file for package html5
+;;; init-web-mode.el --- el-get init file for package web-mode
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Dec. 21, 2012
-;; Keywords: .emacs, HTML5
+;; Created: Nov. 23, 2013
+;; Keywords: .emacs, css, html, javascript, php
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -32,12 +32,24 @@
 ;;; Code:
 
 (require 'pre-init-core)
-(require 'el-get-core)
 
-(eval-after-load* 'rng-loc
-  (require 'whattf-dt)
-  (add-to-list 'rng-schema-locating-files
-               (concat (el-get-package-directory 'html5) "schemas.xml")))
+(add-to-list 'auto-mode-alist '("\\.html?\\'"      . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\.php\\'" . web-mode))
+
+(eval-after-load* 'web-mode
+  (setq web-mode-enable-comment-keywords t)
+  (setq web-mode-enable-current-element-highlight t)
+  (setq web-mode-enable-heredoc-fontification t))
+
+(defun jkw:web-mode-hooks ()
+  "My config for web-mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset    2)
+  (setq web-mode-code-indent-offset   4)
+  (setq indent-tabs-mode nil)
+  (linum-mode 1))
+
+(add-hook 'web-mode-hook 'jkw:web-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -46,4 +58,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-html5.el ends here
+;;; init-web-mode.el ends here

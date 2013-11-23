@@ -33,7 +33,7 @@
 
 (require 'pre-init-core)
 
-(add-hooks '(nxml-mode css-mode) 'rainbow-mode)
+(add-hooks '(web-mode nxml-mode css-mode) 'rainbow-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

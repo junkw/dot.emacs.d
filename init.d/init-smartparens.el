@@ -52,12 +52,12 @@
   (sp-local-tag "~" "~" "~")
   (sp-local-tag "+" "+" "+"))
 
-(sp-with-modes 'nxml-mode
+(sp-with-modes '(nxml-mode web-mode)
   (sp-local-tag  "<" "<_>" "</_>"
                  :transform 'sp-match-sgml-tags
                  :post-handlers '(sp-html-post-handler)))
 
-(sp-with-modes '(text-mode org-mode nxml-mode)
+(sp-with-modes '(text-mode org-mode web-mode)
   (sp-local-pair "（" "）")
   (sp-local-pair "「" "」")
   (sp-local-pair "『" "』"))

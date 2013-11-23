@@ -4,7 +4,7 @@
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Nov. 21, 2012
-;; Keywords: .emacs, nxml
+;; Keywords: .emacs, html, xml
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -33,7 +33,7 @@
 
 (require 'pre-init-core)
 
-(add-to-list 'auto-mode-alist '("\\.\\(xml\\|atom\\|[sx]?html?\\)\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(xml\\|atom\\)\\'" . nxml-mode))
 
 (eval-after-load* 'nxml-mode
   (setq nxml-child-indent 2)
