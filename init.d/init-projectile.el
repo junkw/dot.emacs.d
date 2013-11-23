@@ -1,10 +1,10 @@
-;;; init-ctags.el --- el-get init file for package ctags
+;;; init-projectile.el --- el-get init file for package projectile
 
 ;; Copyright (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Jan. 10, 2013
-;; Keywords: .emacs, ctags
+;; Created: Nov. 23, 2013
+;; Keywords: .emacs, project
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,12 +31,17 @@
 
 ;;; Code:
 
-(let ((ctags-path (executable-find "ctags")))
-  (when ctags-path
-    (require 'ctags)
-    (setq tags-revert-without-query t)
-    (setq ctags-command (concat ctags-path " -e -R "))
-    (global-set-key (kbd "<f7>") 'ctags-create-or-update-tags-table)))
+(setq projectile-enable-caching t)
+(setq projectile-cache-file "~/.emacs.d/var/cache/projectile")
+(setq projectile-known-projects-file "~/.emacs.d/var/projectile-bookmarks.eld")
+(when (locate-library "grizzl")
+  (setq projectile-completion-system 'grizzl))
+
+(add-hook 'prog-mode-hook 'projectile-on)
+
+;; Keymap
+(when (locate-library "helm")
+  (global-set-key (kbd "C-x c P") 'helm-projectile))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -45,4 +50,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-ctags.el ends here
+;;; init-projectile.el ends here

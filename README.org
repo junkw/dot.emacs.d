@@ -15,8 +15,6 @@ $ emacs -batch -L . -f batch-byte-compile *.el
 $ open -a Emacs
 #+END_SRC
 
-=M-x crags-create-or-update-tags-table= (=<F7>=)
-
 ** Structure
 
 #+BEGIN_EXAMPLE
