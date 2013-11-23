@@ -33,7 +33,7 @@
 
 (setq projectile-enable-caching t)
 (setq projectile-cache-file "~/.emacs.d/var/cache/projectile")
-(setq projectile-known-projects-file "~/.emacs.d/var/projectile-bookmarks.eld")
+(setq projectile-known-projects-file "~/.emacs.d/var/bookmark/projectile.eld")
 (when (locate-library "grizzl")
   (setq projectile-completion-system 'grizzl))
 

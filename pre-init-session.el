@@ -94,7 +94,7 @@
 
 ;; Bookmark
 (require 'bookmark)
-(setq bookmark-default-file "~/.emacs.d/var/bookmark")
+(setq bookmark-default-file "~/.emacs.d/var/bookmark/bookmarks")
 (setq bookmark-save-flag 1)
 
 ;; Exit
