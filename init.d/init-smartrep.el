@@ -47,6 +47,19 @@
     '(("C-n" . 'outline-next-visible-heading)
       ("C-p" . 'outline-previous-visible-heading))))
 
+(eval-after-load* 'web-mode
+  (smartrep-define-key web-mode-map "C-c C-b"
+    '(("n" . web-mode-block-next)
+      ("p" . web-mode-block-previous)))
+
+  (smartrep-define-key web-mode-map "C-c C-e"
+    '(("n" . web-mode-element-next)
+      ("p" . web-mode-element-previous)))
+
+  (smartrep-define-key web-mode-map "C-c e"
+    '(("n" . web-mode-tag-next)
+      ("p" . web-mode-tag-previous))))
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
