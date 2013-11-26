@@ -1,0 +1,6 @@
+(:name e2wm-bookmark
+       :description "Bookmark plugin for e2wm.el."
+       :website     "https://github.com/myuhe/e2wm-bookmark.el"
+       :depends     e2wm
+       :type        github
+       :pkgname     "myuhe/e2wm-bookmark.el")
