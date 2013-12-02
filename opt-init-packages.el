@@ -49,6 +49,7 @@
                :features helm-c-moccur)
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
+        (:name minimap :type elpa :after (setq minimap-window-location 'right))
         (:name smartparens :features smartparens-config)
         (:name popwin :features popwin)
         (:name powerline :autoloads nil)
