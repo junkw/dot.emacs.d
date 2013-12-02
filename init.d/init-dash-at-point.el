@@ -31,6 +31,13 @@
 
 ;;; Code:
 
+;; Dash docset tags
+(add-to-list 'dash-at-point-mode-alist '(js2-mode  . "js"))
+(add-to-list 'dash-at-point-mode-alist '(objc-mode . "ios"))
+(add-to-list 'dash-at-point-mode-alist '(nxml-mode . "html"))
+(add-to-list 'dash-at-point-mode-alist '(web-mode  . "html"))
+
+;; Keymap
 (global-set-key (kbd "C-c d") 'dash-at-point)
 
 ;; Local Variables:
