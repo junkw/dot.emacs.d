@@ -44,10 +44,11 @@
         (:name auto-complete :submodule nil :features auto-complete-config)
         (:name direx :depends popwin)
         (:name helm :autoloads nil)
-        (:name helm-c-moccur :features helm-c-moccur)
+        (:name helm-c-moccur
+               :pkgname "emacsmirror/helm-c-moccur"
+               :features helm-c-moccur)
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
-        (:name minimap :after (setq minimap-window-location 'right))
         (:name smartparens :features smartparens-config)
         (:name popwin :features popwin)
         (:name powerline :autoloads nil)
