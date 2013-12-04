@@ -41,15 +41,25 @@
 
   (when (require 'e2wm-bookmark nil t)
     (setq e2wm:c-code-recipe
-          '(| (:left-max-size 45)
-              (- (:upper-size-ratio 0.5)
-                 files
-                 (- (:upper-size-ratio 0.5)
-                    bookmarks history))
-              (- (:upper-size-ratio 0.7)
-                 (| (:right-max-size 40)
-                    main imenu)
-                 sub)))
+          ;; for laptop
+          (if (<= (display-pixel-height) 800)
+              '(| (:left-max-size 42)
+                  (- (:upper-size-ratio 0.5)
+                     imenu
+                     (- (:upper-size-ratio 0.6)
+                        files bookmarks))
+                  (- (:upper-size-ratio 0.7)
+                     main sub))
+            ;; for desktop
+            '(| (:left-max-size 45)
+                (- (:upper-size-ratio 0.5)
+                   files
+                   (- (:upper-size-ratio 0.5)
+                      bookmarks history))
+                (- (:upper-size-ratio 0.7)
+                   (| (:right-max-size 40)
+                      main imenu)
+                   sub))))
 
     (setq e2wm:c-code-winfo
           '((:name main)
