@@ -1,5 +1,5 @@
 (:name cl-lib-highlight
-       :description "full cl-lib font-lock highlighting."
+       :description "Full cl-lib font-lock highlighting."
        :website     "https://github.com/skeeto/cl-lib-highlight"
        :depends     cl-lib
        :type        github

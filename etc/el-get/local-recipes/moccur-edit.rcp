@@ -1,5 +1,5 @@
 (:name moccur-edit
-       :description "apply replaces to multiple files."
+       :description "Apply replaces to multiple files."
        :website     "http://www.emacswiki.org/emacs/moccur-edit.el"
        :depends     color-moccur
        :type        emacswiki
