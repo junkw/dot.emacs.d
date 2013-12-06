@@ -224,8 +224,7 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
   (setq mac-command-modifier 'control))
 
 (defvar jkw:global-editor-keybinds
-  '(("M-/"   . 'hippie-expand) ; replace `dabbrev-expand'
-    ("C-S-k" . 'kill-whole-line)
+  '(("M-/"   . 'hippie-expand)          ; replace `dabbrev-expand'
     ("M-d"   . 'kill-word-dwim)
     ("C-c +" . 'increment-integer-at-point)
     ("C-c -" . 'decrement-integer-at-point))
