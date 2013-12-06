@@ -220,6 +220,8 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 
 ;; Keymap
 (keyboard-translate ?\C-h ?\C-?)
+(when mac-p
+  (setq mac-command-modifier 'control))
 
 (defvar jkw:global-editor-keybinds
   '(("M-/"   . 'hippie-expand) ; replace `dabbrev-expand'
