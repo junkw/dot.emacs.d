@@ -1,0 +1,5 @@
+(:name smart-newline
+       :description "Provide smart newline for one keybind."
+       :website     "https://github.com/ainame/smart-newline.el"
+       :type        github
+       :pkgname     "ainame/smart-newline.el")
