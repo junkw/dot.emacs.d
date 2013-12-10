@@ -1,4 +1,4 @@
-;;; opt-init-view.el --- Emacs init file
+;;; post-init-view.el --- Emacs init file
 
 ;; Copyright (C) 2012  Jumpei KAWAMI
 
@@ -60,4 +60,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; opt-init-view.el ends here
+;;; post-init-view.el ends here

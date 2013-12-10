@@ -61,11 +61,12 @@ See `eval-after-load'."
 
 ;; https://gist.github.com/10sr/4159369
 (defmacro lazyload (feature &optional functions &rest form)
-  "Define each FUNCTIONS to lazyload from FEATURE.
+  "Macro for delay loading package.
 
-FEATURE is a symbol. FUNCTIONS is a list of symbols. If FUNCTIONS is nil, the function
-same as FEATURE is defined as autoloaded function. FORM is passed to `eval-after-load*'.
-When this macro is evaluated, returns the package path, otherwise returns nil."
+FEATURE is a symbol.  FUNCTIONS is a list of symbols.  If FUNCTIONS is nil,
+the function same as FEATURE is defined as autoloaded function.  FORM is passed
+to `eval-after-load*'.  When this macro is evaluated, returns the package path,
+otherwise returns nil."
   (declare (indent 2))
   (let* ((pkg  (symbol-name (eval feature)))
          (path (locate-library pkg)))
@@ -83,7 +84,7 @@ When this macro is evaluated, returns the package path, otherwise returns nil."
             ,path))))
 
 (defun add-hooks (modes function)
-  "`add-hook' extension for batch adding FUNCTION into the list of MODES."
+  "`add-hook' extension for batch adding to the list of MODES the function FUNCTION."
   (cl-loop for mode in modes
            do (add-hook (intern (concat (symbol-name mode) "-hook")) function)))
 
@@ -120,7 +121,7 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
 
 ;; Keymap
 (defun define-keys (keymap key-bindings)
-  "`define-key' extension for KEY-BINDINGS batch definition in KEYMAP."
+  "`define-key' extension for batch definition KEYMAP with KEY-BINDINGS."
   (cl-loop for (key . command) in key-bindings
            do (define-key keymap (read-kbd-macro key) command)))
 

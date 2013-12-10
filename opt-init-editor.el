@@ -210,7 +210,7 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
   "Keyboard macro is saved in this file.")
 
 (defun kmacro-save (symbol)
-  "Save keyboard macro in kmacro.el."
+  "Save keyboard macro as SYMBOL in kmacro.el."
   (interactive "Name for last kbd macro: ")
   (name-last-kbd-macro symbol)
   (with-current-buffer (find-file-noselect jkw:kmacro-save-file)
