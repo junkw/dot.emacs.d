@@ -33,7 +33,10 @@
 
 (require 'pre-init-core)
 
+;; Loading my snippets
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/etc/yasnippet")
+(yas-reload-all)
+
 (add-hooks '(prog-mode org-mode mu4e-compose-mode) 'yas-minor-mode)
 
 ;; Local Variables:
