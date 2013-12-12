@@ -36,8 +36,6 @@
   (setq flycheck-completion-system 'grizzl))
 (setq-default flycheck-emacs-lisp-load-path `(,user-emacs-directory))
 
-(add-hook 'prog-mode-hook 'flycheck-mode)
-
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
