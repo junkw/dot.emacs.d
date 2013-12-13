@@ -33,11 +33,11 @@
 
 ;; Frame size and position
 (cond
- ((>= (display-pixel-height) 1080)      ; 27ich
+ ((>= (display-pixel-height) 1440)      ; 27ich
   (add-to-list 'default-frame-alist '(top    . 110))
   (add-to-list 'default-frame-alist '(left   . 150))
-  (add-to-list 'default-frame-alist '(height .  55))
-  (add-to-list 'default-frame-alist '(width  . 230)))
+  (add-to-list 'default-frame-alist '(height .  75))
+  (add-to-list 'default-frame-alist '(width  . 320)))
  ((= (display-pixel-height) 1050)       ; 20ich
   (add-to-list 'default-frame-alist '(top    . 110))
   (add-to-list 'default-frame-alist '(left   . 180))
