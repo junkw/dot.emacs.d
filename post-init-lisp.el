@@ -50,7 +50,9 @@
   "My config for (Emacs) Lisp mode."
   (turn-on-eldoc-mode)
   (linum-mode t)
-  (setq indent-tabs-mode nil))
+  (setq indent-tabs-mode nil)
+  (setq imenu-prev-index-position-function nil)
+  (add-to-list 'imenu-generic-expression '("Sections" "^;;;; \\(.+\\)$" 1) t))
 
 (add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) 'jkw:lisp-mode-hooks)
 
