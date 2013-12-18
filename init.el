@@ -39,11 +39,20 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(defvar init-module-load-only-pre-init-files nil
-  "If this variable is non-nil, startup with minimum Emacs config.")
+(defgroup init-module nil
+  "Init module."
+  :group  'initialization
+  :prefix "init-module-")
 
-(defvar init-module-opt-init-file-regexp "^opt-init-"
-  "Regexp matching opt-init filename.")
+(defcustom init-module-load-only-pre-init-files nil
+  "If this variable is non-nil, startup with minimum Emacs config."
+  :type  'boolean
+  :group 'init-module)
+
+(defcustom init-module-opt-init-file-regexp "^opt-init-"
+  "Regexp matching opt-init filename."
+  :type  'string
+  :group 'init-module)
 
 (defun init-module-list-files (regexp)
   "Show init modules containing a match for REGEXP in `~/.emacs.d/'.
