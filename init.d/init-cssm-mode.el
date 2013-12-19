@@ -31,6 +31,7 @@
 
 ;;; Code:
 
+;;;; Hooks
 (defun jkw:css-mode-hooks ()
   "My config for CSS mode."
   (setq indent-tabs-mode nil)

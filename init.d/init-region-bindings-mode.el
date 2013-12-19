@@ -35,7 +35,7 @@
 
 (region-bindings-mode-enable)
 
-;; Keymap
+;;;; Keymap
 (define-key region-bindings-mode-map "g" 'keyboard-quit)
 
 (eval-after-load* 'multiple-cursors

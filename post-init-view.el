@@ -37,7 +37,7 @@
 (setq view-read-only t)
 
 (eval-after-load* 'view
-  ;; Keymap
+;;;; Keymap
   (defvar jkw:view-pager-keybinds
     '(("j" . next-line)
       ("k" . previous-line)
@@ -51,6 +51,7 @@
       ("w" . forward-word)
       ("W" . backward-word))
     "My keybinds for View mode.")
+
   (define-keys view-mode-map jkw:view-pager-keybinds))
 
 ;; Local Variables:

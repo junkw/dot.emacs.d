@@ -33,14 +33,14 @@
 
 (require 'pre-init-core)
 
-;; mu4e
+;;;; mu4e
 (when (executable-find "mu")
   (lazyload 'mu4e nil
     (require 'org-mu4e)
 
     (setq mail-user-agent 'mu4e-user-agent)
 
-    ;; Mail directories
+    ;; Maildir
     (setq mu4e-maildir        "~/Mail")
     (setq mu4e-attachment-dir "~/Downloads")
     (setq mu4e-refile-folder  "/Archive")
@@ -85,7 +85,7 @@
     (when (fboundp 'imagemagick-register-types)
       (imagemagick-register-types))
 
-    ;; Keymap
+;;;; Keymap
     (setq mu4e-maildir-shortcuts
           '(("/Archive" . ?a)
             ("/Drafts"  . ?d)

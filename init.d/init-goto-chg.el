@@ -31,6 +31,7 @@
 
 ;;; Code:
 
+;;;; Keymap
 (global-set-key (kbd "<f6>")   'goto-last-change)
 (global-set-key (kbd "S-<f6>") 'goto-last-change-reverse)
 

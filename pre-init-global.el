@@ -33,13 +33,13 @@
 
 (require 'cl-lib)
 
-;; Paths
+;;;; Paths
 (when cocoa-p
   (cl-loop for path in '("PATH" "INFOPATH" "MANPATH")
            do (setenv-path-from-shell path)))
 (add-to-list 'exec-path "~/.emacs.d/bin")
 
-;; Character Encoding
+;;;; Character Encoding
 (set-language-environment 'Japanese)
 (prefer-coding-system 'utf-8)
 (when cocoa-p
@@ -47,12 +47,12 @@
   (set-file-name-coding-system 'utf-8-hfs)
   (setq locale-coding-system 'utf-8-hfs))
 
-;; Locales
+;;;; Locales
 (setq system-time-locale "C")
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LANG" "en_US.UTF-8")
 
-;; Minibuffer Edit
+;;;; Minibuffer Edit
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq enable-recursive-minibuffers t)
 (minibuffer-depth-indicate-mode 1)
@@ -64,7 +64,7 @@
   (when (eq (selected-window) (active-minibuffer-window))
     (add-to-history minibuffer-history-variable (minibuffer-contents))))
 
-;; Input Method
+;;;; Input Method
 (when (and mac-p (fboundp 'mac-input-method-mode))
   (setq default-input-method "MacOSX")
   (setq mac-use-input-method-on-system t)
@@ -72,7 +72,7 @@
   (add-hook 'after-init-hook 'mac-change-language-to-us)
   (add-hook 'minibuffer-setup-hook 'mac-change-language-to-us))
 
-;; Keymap
+;;;; Keymap
 (global-set-key (kbd "C-M-g") 'keyboard-escape-quit)
 
 ;; Local Variables:

@@ -37,6 +37,7 @@
   (setq emmet-preview-default nil)
   (setq emmet-move-cursor-between-quotes t))
 
+;;;; Hooks
 (defun jkw:emmet-mode-hooks ()
   "My config for emmet mode."
   (setq emmet-indentation 2)

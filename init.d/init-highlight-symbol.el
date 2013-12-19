@@ -38,7 +38,7 @@
   (setq highlight-symbol-colors
         '("#FC87B0" "#CDF187" "#FEB257" "#F3ECB0" "#A9EBF7" "#D2BAFF" "#FEA7F7" "#CBF7F1")))
 
-;; Keymap
+;;;; Keymap
 (defvar jkw:global-highlight-symbol-keybinds
   '(("C-x w ." . 'highlight-symbol-at-point)
     ("M-s h ." . 'highlight-symbol-at-point)

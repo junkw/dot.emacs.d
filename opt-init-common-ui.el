@@ -31,13 +31,13 @@
 
 ;;; Code:
 
-;; Window
+;;;; Window
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message nil)
 (setq initial-major-mode 'emacs-lisp-mode)
 (setq use-dialog-box nil)
 
-;; Mode line
+;;;; Mode line
 (setq eol-mnemonic-dos  "+CR/LF")
 (setq eol-mnemonic-mac  "+CR")
 (setq eol-mnemonic-unix "+LF")
@@ -67,10 +67,10 @@
           (delete (assoc 'which-func-mode mode-line-misc-info) mode-line-misc-info))
     (setq header-line-format which-func-header-line-format)))
 
-;; Echo line
+;;;; Echo line
 (setq echo-keystrokes 0.1)              ; display rate (sec.)
 
-;; Line number
+;;;; Line number
 ;; http://d.hatena.ne.jp/daimatz/20120215/1329248780
 (setq linum-delay t)
 (defadvice linum-schedule (around linum-schedule-delayed activate)
@@ -81,7 +81,7 @@
 (setq-default bidi-display-reordering nil)
 (setq-default bidi-paragraph-direction 'left-to-right)
 
-;; Font
+;;;; Font
 (when (find-font (font-spec :name "Ricty"))
   (set-face-attribute 'default nil
                       :family "Ricty"

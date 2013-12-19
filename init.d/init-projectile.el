@@ -39,7 +39,7 @@
 
 (add-hook 'prog-mode-hook 'projectile-on)
 
-;; Keymap
+;;;; Keymap
 (when (locate-library "helm")
   (global-set-key (kbd "C-x c P") 'helm-projectile))
 

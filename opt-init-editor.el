@@ -34,6 +34,7 @@
 (require 'pre-init-core)
 (require 'thingatpt)
 
+;;;; General
 ;; TAB
 (setq-default tab-width 4)
 
@@ -44,15 +45,6 @@
 ;; Scroll without moving cursor
 (setq scroll-preserve-screen-position t)
 
-;; Highlight
-(setq transient-mark-mode t)
-(global-hl-line-mode 1)
-(when init-module-load-only-pre-init-files ; Use `show-smartparens-mode' commonly
-  (setq show-paren-delay 0)
-  (show-paren-mode 1))
-
-(require 'generic-x)
-
 ;; If mark is active, any typed text replaces the selection.
 (delete-selection-mode 1)
 
@@ -61,6 +53,20 @@
 
 ;; Comment style
 (setq-default comment-style 'multi-line)
+
+;; Spell check
+(require 'ispell)
+(setq-default ispell-program-name (executable-find "aspell"))
+(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
+
+;;;; Highlight
+(setq transient-mark-mode t)
+(global-hl-line-mode 1)
+(when init-module-load-only-pre-init-files ; Use `show-smartparens-mode' commonly
+  (setq show-paren-delay 0)
+  (show-paren-mode 1))
+
+(require 'generic-x)
 
 ;; http://emacsredux.com/blog/2013/07/24/highlight-comment-annotations/
 (defun jkw:font-lock-comment-annotations ()
@@ -89,24 +95,7 @@
 ;; Remove unneeded whitespace when saving a file
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Expand
-(setq hippie-expand-try-functions-list
-      '(try-expand-dabbrev
-        try-expand-dabbrev-all-buffers
-        try-complete-file-name-partially
-        try-complete-file-name
-        try-expand-all-abbrevs
-        try-expand-dabbrev-from-kill
-        try-expand-list try-expand-line
-        try-complete-lisp-symbol-partially
-        try-complete-lisp-symbol))
-
-;; Spell check
-(require 'ispell)
-(setq-default ispell-program-name "aspell")
-(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
-
-;; Killing
+;;;; Killing
 ;; http://dev.ariel-networks.com/wp/documents/aritcles/emacs/part16
 (defadvice kill-region (around kill-region-or-kill-word (beg end) activate)
   "Typing `\\[kill-region]' without mark, kill the previous word."
@@ -210,7 +199,7 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
     (insert-kbd-macro symbol)
     (basic-save-buffer)))
 
-;; Keymap
+;;;; Keymap
 (keyboard-translate ?\C-h ?\C-?)
 (when mac-p
   (setq mac-command-modifier 'control))

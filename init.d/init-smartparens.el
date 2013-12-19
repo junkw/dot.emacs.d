@@ -43,7 +43,7 @@
 (setq sp-show-pair-from-inside t)
 (show-smartparens-global-mode 1)
 
-;; Pair management
+;;;; Pair management
 (sp-with-modes 'org-mode
   (sp-local-tag "*" "*" "*")
   (sp-local-tag "/" "/" "/")
@@ -62,7 +62,7 @@
   (sp-local-pair "「" "」")
   (sp-local-pair "『" "』"))
 
-;; Keymap
+;;;; Keymap
 (sp-use-paredit-bindings)
 
 ;; Local Variables:

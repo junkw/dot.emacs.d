@@ -55,7 +55,7 @@
         "^\\(NAME\\|名[前称]\\|[ \t]*No manual entry fo.*\\)$")
   (setq Man-heading-regexp "^\\([A-Z][A-Z0-9 /-]+\\|\\cj+\\)$")
 
-  ;; Keymap
+;;;; Keymap
   (defvar jkw:woman-pager-keybinds
     '(("j" . next-line)
       ("k" . previous-line)
@@ -65,6 +65,7 @@
       ("l" . forward-char)
       ("h" . backward-char))
     "My keybinds for WoMan mode.")
+
   (define-keys woman-mode-map jkw:woman-pager-keybinds))
 
 ;; Local Variables:

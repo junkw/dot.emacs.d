@@ -39,6 +39,7 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+;;;; Customization
 (defgroup init-module nil
   "Init module."
   :group  'initialization
@@ -54,6 +55,7 @@
   :type  'string
   :group 'init-module)
 
+;;;; Internal functions
 (defun init-module-list-files (regexp)
   "Show init modules containing a match for REGEXP in `~/.emacs.d/'.
 
@@ -75,6 +77,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
                                   (file-name-sans-extension mod)
                                   (error-message-string err)))))))
 
+;;;; Command
 (defun init-module-initialize ()
   "Initialize Emacs init files."
   (interactive)

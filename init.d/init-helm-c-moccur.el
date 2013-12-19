@@ -38,7 +38,7 @@
 (setq helm-c-moccur-enable-auto-look-flag t)
 (setq helm-c-moccur-enable-initial-pattern t)
 
-;; Keymap
+;;;; Keymap
 (global-set-key (kbd "C-x c M-s o") 'helm-c-moccur-occur-by-moccur)
 (global-set-key (kbd "C-x c M-s O") 'helm-c-moccur-dmoccur)
 

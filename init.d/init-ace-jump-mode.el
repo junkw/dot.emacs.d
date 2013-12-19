@@ -31,6 +31,7 @@
 
 ;;; Code:
 
+;;;; Keymap
 (global-set-key (kbd "M-g SPC") 'ace-jump-mode)
 (global-set-key (kbd "M-g m")   'ace-jump-mode-pop-mark)
 

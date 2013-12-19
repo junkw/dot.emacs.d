@@ -36,7 +36,7 @@
 ;; Preferences for running commands
 (setq mc/list-file "~/.emacs.d/etc/multiple-cursors-list.el")
 
-;; Keymap
+;;;; Keymap
 (defvar jkw:global-multiple-cursors-keybinds
   '(("C-S-e"   . 'mc/edit-lines)
     ("C-S-r"   . 'mc/mark-all-in-region)

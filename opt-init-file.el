@@ -45,7 +45,7 @@
   (setq trash-directory "~/.Trash"))
 (setq delete-by-moving-to-trash t)
 
-;; Dired mode
+;;;; Dired
 (require 'wdired)
 (setq wdired-allow-to-change-permissions t)
 
@@ -105,7 +105,7 @@ ARG is like in `dired-map-over-marks'."
   (dired-map-over-marks-check
    (function dired-convert-coding-system) arg 'convert-coding-system t))
 
-;; Keymap
+;;;; Keymap
 (defvar jkw:dired-mode-map
   '(("R" . wdired-change-to-wdired-mode)
     ("E" . dired-do-convert-coding-system))

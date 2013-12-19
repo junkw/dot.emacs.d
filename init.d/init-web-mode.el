@@ -41,6 +41,7 @@
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-heredoc-fontification t))
 
+;;;; Hooks
 (defun jkw:web-mode-hooks ()
   "My config for web-mode."
   (setq web-mode-markup-indent-offset 2)

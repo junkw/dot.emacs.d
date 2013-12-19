@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-;; Initialize
+;;;; Init
 (setq helm-candidate-number-limit 300)
 (setq helm-idle-delay 0.01)
 (setq helm-input-idle-delay 0.01)
@@ -52,7 +52,7 @@
 
 (setq helm-completion-mode-string "")
 
-;; Keymap
+;;;; Keymap
 (global-set-key [remap list-buffers] 'helm-buffers-list)
 (global-set-key (kbd "C-;")          'helm-for-files)
 (global-set-key (kbd "C-M-y")        'helm-show-kill-ring)

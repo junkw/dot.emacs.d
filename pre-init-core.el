@@ -33,7 +33,7 @@
 
 (require 'cl-lib)
 
-;; System type predicates
+;;;; System type predicates
 (defvar mac-p (eq system-type 'darwin)
   "Return t if this system is Mac OS X.")
 (defvar cocoa-p (featurep 'ns)
@@ -47,7 +47,7 @@
 (defvar windows-p (or cygwin-p nt-p)
   "Return t if this system is Windows.")
 
-;; Loading
+;;;; Loading
 (defmacro eval-after-load* (file &rest form)
   "Macro for simple `eval-after-load'.
 
@@ -88,7 +88,7 @@ otherwise returns nil."
   (cl-loop for mode in modes
            do (add-hook (intern (concat (symbol-name mode) "-hook")) function)))
 
-;; Paths
+;;;; Paths
 (defun getenv-from-shell (variable)
   "Get the value of environment variable VARIABLE from the user's shell."
   (interactive (list (read-envvar-name "Get environment variable: " t)))
@@ -110,7 +110,7 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
     (when (string-equal path "PATH")
       (setq exec-path (split-string path-from-shell path-separator)))))
 
-;; Theme
+;;;; Theme
 (defsubst custom-active-theme ()
   "Get current theme name as string."
   (symbol-name (car custom-enabled-themes)))
@@ -119,7 +119,7 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
   "Return t if THEME is active."
   (equal (custom-active-theme) theme))
 
-;; Keymap
+;;;; Keymap
 (defun define-keys (keymap key-bindings)
   "`define-key' extension for batch definition KEYMAP with KEY-BINDINGS."
   (cl-loop for (key . command) in key-bindings
@@ -130,7 +130,7 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
   (cl-loop for (key . command) in key-bindings
            do (global-set-key (read-kbd-macro key) command)))
 
-;; Notify
+;;;; Notify
 (when mac-p
   (defun terminal-notifier-notify (title message)
     "Send a MESSAGE with TITLE in Mac OS X Notification Center using terminal-notify.app."

@@ -37,7 +37,7 @@
 (add-to-list 'dash-at-point-mode-alist '(nxml-mode . "html"))
 (add-to-list 'dash-at-point-mode-alist '(web-mode  . "html"))
 
-;; Keymap
+;;;; Keymap
 (global-set-key (kbd "C-c d") 'dash-at-point)
 
 ;; Local Variables:

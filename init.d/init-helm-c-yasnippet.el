@@ -33,7 +33,7 @@
 
 (setq helm-c-yas-space-match-any-greedy t)
 
-;; Keymap
+;;;; Keymap
 (global-set-key (kbd "C-x c y") 'helm-c-yas-complete)
 
 ;; Local Variables:

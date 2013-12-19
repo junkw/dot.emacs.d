@@ -33,6 +33,7 @@
 
 (setq ag-highlight-search t)
 
+;;;; Keymap
 (global-set-key (kbd "<f5>") 'ag-project-at-point)
 
 ;; Local Variables:

@@ -34,18 +34,21 @@
 (require 'cl-lib)
 (require 'pre-init-core)
 
+(find-function-setup-keys)
+
+;;;; Hightlight
 (font-lock-add-keywords
  'emacs-lisp-mode
  `((,(regexp-opt '("nil" "setq" "eval-after-load*") 'words) . font-lock-keyword-face)))
 
-(find-function-setup-keys)
-
+;;;; Documentation
 (require 'eldoc)
 (setq eldoc-idle-delay 0.2)
 (setq eldoc-minor-mode-string "")
 (setq eldoc-echo-area-use-multiline-p t)
 (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 
+;;;; Hooks
 (defun jkw:lisp-mode-hooks ()
   "My config for (Emacs) Lisp mode."
   (turn-on-eldoc-mode)

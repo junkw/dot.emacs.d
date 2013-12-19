@@ -37,7 +37,7 @@
 (setq ac-user-dictionary-files "~/.emacs.d/etc/auto-complete/dict")
 (setq ac-comphist-file "~/.emacs.d/var/cache/ac-comphist.dat")
 
-;; Initialize
+;; Enable default settings
 (setq ac-auto-start 3)
 (setq ac-use-menu-map t)
 (when (custom-theme-active-p "monokai")
@@ -46,7 +46,7 @@
 (ac-config-default)
 (ac-flyspell-workaround)
 
-;; Keymap
+;;;; Keymap
 (ac-set-trigger-key "TAB")
 (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
 (define-key ac-completing-map (kbd "C-M-g") 'ac-stop)

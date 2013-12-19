@@ -41,6 +41,7 @@
 (when (executable-find "terminal-notifier")
   (fset 'el-get-growl 'terminal-notifier-notify))
 
+;;;; Commands
 ;; el-get package menu
 (defun el-get-package-menu-open-recipe ()
   "Open recipe file on package menu."
@@ -60,7 +61,7 @@
       (when (y-or-n-p (format "Do you want to make init file for `%s'? " package))
         (find-file package-init-file)))))
 
-;; Keymap
+;;;; Keymap
 (define-key el-get-package-menu-mode-map "o" 'el-get-package-menu-open-recipe)
 (define-key el-get-package-menu-mode-map "O" 'el-get-package-menu-open-init-file)
 

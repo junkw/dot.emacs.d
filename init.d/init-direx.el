@@ -39,6 +39,7 @@
 (setq direx:open-icon   "- ")
 (setq direx:closed-icon "+ ")
 
+;;;; Command
 ;; http://d.hatena.ne.jp/syohex/20130202/1359814263
 (defun direx:dired-jump ()
   "Jump and display the directory tree corresponding to current buffer.
@@ -56,7 +57,7 @@ With prefix argument, execute `dired-jump'."
                (direx-project:jump-to-project-root-other-window) t)
              (direx:jump-to-directory-other-window)))))
 
-;; Keymap
+;;;; Keymap
 (global-set-key (kbd "C-x C-j") 'direx:dired-jump)
 
 ;; Local Variables:

@@ -31,13 +31,15 @@
 
 ;;; Code:
 
-;; Init before loading el-get
+;;;; Init
+;; Need to init before loading el-get
 (setq el-get-dir "~/.emacs.d/vendor/")
 (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get")))
 
 (setq el-get-recipe-path-emacswiki "~/.emacs.d/etc/el-get/emacswiki-recipes/")
 (setq el-get-recipe-path-elpa "~/.emacs.d/etc/el-get/elpa-recipes/")
 
+;;;; Installed packages
 ;; Fix original recipes
 (setq el-get-sources
       '((:name el-get :branch "master")
@@ -70,7 +72,8 @@
                   web-mode wgrep)
   "List of packages I use straight from recipe files.")
 
-;; Init after loading el-get
+;;;; Bootstrap
+;; Need to init after loading el-get
 (defun el-get-initialize-packages ()
   "Install packages via `el-get', and initialize them."
   (interactive)
@@ -83,7 +86,7 @@
          (pkg (append src jkw:el-get-package-list-from-recipe)))
     (el-get 'sync pkg)))
 
-;; el-get bootstrap
+;; el-get installer
 (if (require 'el-get nil t)
     (el-get-initialize-packages)
   (url-retrieve

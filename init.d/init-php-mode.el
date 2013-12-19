@@ -36,6 +36,7 @@
 (setq php-search-url "http://jp.php.net/ja/")
 (setq php-manual-url "http://jp.php.net/manual/ja/")
 
+;;;; Hooks
 (defun jkw:php-mode-hooks ()
   "My config for PHP mode."
   (setq indent-tabs-mode nil)

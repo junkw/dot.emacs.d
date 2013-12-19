@@ -41,7 +41,7 @@
 (setq org-directory "~/Documents/org/")
 (setq org-default-notes-file (expand-file-name "inbox.org" org-directory))
 
-;; General
+;;;; General
 (setq org-startup-truncated nil)        ; Don't display continuation lines
 (setq org-activate-links '(date bracket radio tag date footnote angle)) ; Fix link face with multibyte chars
 (setq org-src-fontify-natively t)       ; Syntax highlight in code blocks
@@ -54,7 +54,7 @@
 (setq org-return-follows-link t)        ; Open URL with RET
 (setq org-use-speed-commands t)
 
-;; ToDo
+;;;; ToDo
 (setq org-use-fast-todo-selection t)
 (setq org-todo-keywords
       '((sequence "TODO(t)" "STARTED(s!)" "PENDING(p@/!)" "|" "DONE(x)" "NOTTODO(n@)")))
@@ -62,13 +62,13 @@
 (setq org-log-done 'time)               ; Logging completion time
 (setq org-log-into-drawer t)            ; Logging into :LOGBOOK:
 
-;; Tags
+;;;; Tags
 (setq org-tag-alist
       '(("@worksite" . ?w) ("@home" . ?h) ("@away" . ?a) ; context on place
         ("@MITs" . ?m) ("@idle" . ?i) ("@batch" . ?b) ; context on time
         ("@PC" . ?p) ("@contact" . ?c))) ; context on method
 
-;; Capture
+;;;; Capture
 (setq org-capture-templates
       '(("s" "Stuffs such as tasks, ideas, or other information" entry (file nil)
          "* %?\n  %i"
@@ -81,11 +81,11 @@
          :clock-keep t
          :kill-buffer t)))
 
-;; Agenda
+;;;; Agenda
 (setq org-agenda-restore-windows-after-quit t)
 (setq org-agenda-files `(,org-directory "~/Dropbox/org/"))
 
-;; Keymap
+;;;; Keymap
 (defvar jkw:global-org-keybinds
   '(("C-c a" . 'org-agenda)
     ("C-c c" . 'org-capture)

@@ -36,7 +36,8 @@
 (eval-after-load* 'info
   ;; In addition to INFOPATH
   (add-to-list 'Info-additional-directory-list "~/.emacs.d/share/info")
-  ;; Keymap
+
+;;;; Keymap
   (defvar jkw:Info-pager-keybinds
     '(("!"   . Info-help)
       ("j"   . next-line)

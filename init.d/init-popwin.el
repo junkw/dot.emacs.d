@@ -33,7 +33,7 @@
 
 (popwin-mode 1)
 
-;; Display config
+;;;; Display config
 (push '(all-mode :noselect t) popwin:special-display-config)
 (push 'apropos-mode popwin:special-display-config)
 (push '(" *auto-async-byte-compile*" :noselect t) popwin:special-display-config)
@@ -43,7 +43,7 @@
 (push '("*el-get packages*" :position bottom) popwin:special-display-config)
 (push '("*vc-log*" :stick t) popwin:special-display-config)
 
-;; Keymap
+;;;; Keymap
 (global-set-key (kbd "C-z") popwin:keymap)
 
 ;; Local Variables:

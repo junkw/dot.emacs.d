@@ -33,6 +33,7 @@
 
 (require 'pre-init-core)
 
+;;;; Init
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|atom\\)\\'" . nxml-mode))
 
 (eval-after-load* 'nxml-mode
@@ -44,6 +45,7 @@
   (setq nxml-bind-meta-tab-to-complete-flag t)
   (setq nxml-sexp-element-flag t))
 
+;;;; Hooks
 (defun jkw:nxml-mode-hooks ()
   "My config for nxml mode."
   (setq indent-tabs-mode nil)
