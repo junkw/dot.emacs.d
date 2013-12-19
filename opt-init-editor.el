@@ -71,14 +71,6 @@
 
 (add-hook 'prog-mode-hook 'jkw:font-lock-comment-annotations)
 
-;; Highlight
-(setq transient-mark-mode t)
-(global-hl-line-mode 1)
-(setq show-paren-delay 0)
-(show-paren-mode 1)
-
-(require 'generic-x)
-
 ;; Whitespace
 (require 'whitespace)
 (setq whitespace-space-regexp "\\( +\\|\x3000+\\)") ; mono and multi-byte space
