@@ -57,7 +57,7 @@
         (:name powerline :autoloads nil)
         (:name projectile :depends (dash grizzl helm s pkg-info))
         (:name undo-tree :features undo-tree)
-        (:name yasnippet :compile "yasnippet.el")
+        (:name yasnippet :compile "yasnippet.el" :submodule nil)
         ))
 
 (defvar jkw:el-get-package-list-from-recipe
