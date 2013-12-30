@@ -39,7 +39,10 @@
 (eval-after-load* 'web-mode
   (setq web-mode-enable-comment-keywords t)
   (setq web-mode-enable-current-element-highlight t)
-  (setq web-mode-enable-heredoc-fontification t))
+  (setq web-mode-enable-heredoc-fontification t)
+
+;;;; Keymap
+  (define-key web-mode-map (kbd "C-;") nil))
 
 ;;;; Hooks
 (defun jkw:web-mode-hooks ()
