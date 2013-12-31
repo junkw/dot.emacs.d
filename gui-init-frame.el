@@ -54,6 +54,13 @@
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 
+;;;; Keymap
+(global-set-key (kbd "<f10>") nil)
+(global-set-key (kbd "<f11>") nil)
+
+(global-set-key (kbd "<f8>") 'toggle-frame-fullscreen)
+
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
