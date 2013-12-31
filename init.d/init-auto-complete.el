@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
+
 ;; Candidates
 (add-to-list 'ac-dictionary-directories
              (concat (el-get-package-directory "auto-complete") "dict"))
@@ -43,6 +45,7 @@
 (when (custom-theme-active-p "monokai")
   (setq ac-fuzzy-cursor-color "#F92672"))
 
+(add-to-list 'ac-modes 'web-mode)
 (ac-config-default)
 (ac-flyspell-workaround)
 
