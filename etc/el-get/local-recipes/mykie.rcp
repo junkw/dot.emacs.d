@@ -1,0 +1,7 @@
+(:name mykie
+       :description "Command multiplexer: Register multiple functions to a keybind."
+       :website     "https://github.com/yuutayamada/mykie-el"
+       :type        github
+       :pkgname     "yuutayamada/mykie-el"
+       :load-path   "lisp"
+       :features    mykie)
