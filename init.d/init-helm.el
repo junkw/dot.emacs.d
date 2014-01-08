@@ -53,6 +53,15 @@
 
 (setq helm-completion-mode-string "")
 
+;; Emulate `kill-line' in helm minibuffer
+;; http://d.hatena.ne.jp/a_bicky/20140104/1388822688
+(setq helm-delete-minibuffer-contents-from-point t)
+
+(defadvice helm-delete-minibuffer-contents
+  (before helm-delete-minibuffer-contents-emulate-kill-line activate)
+  "Emulate `kill-line' in helm minibuffer."
+  (kill-new (buffer-substring (point) (field-end))))
+
 ;;;; Keymap
 (global-set-key [remap execute-extended-command] 'helm-M-x)
 (global-set-key [remap find-file]    'helm-find-files)
