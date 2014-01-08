@@ -40,15 +40,6 @@
 (setq helm-persistent-action-use-special-display t)
 (setq helm-yank-symbol-first t)
 
-(when mac-p
-  (setq helm-for-files-preferred-list
-        '(helm-source-buffers-list
-          helm-source-recentf
-          helm-source-bookmarks
-          helm-source-file-cache
-          helm-source-files-in-current-dir
-          helm-source-mac-spotlight)))
-
 (helm-mode 1)
 
 (setq helm-completion-mode-string "")
@@ -61,6 +52,35 @@
   (before helm-delete-minibuffer-contents-emulate-kill-line activate)
   "Emulate `kill-line' in helm minibuffer."
   (kill-new (buffer-substring (point) (field-end))))
+
+;;;; Sources
+(when mac-p
+  (setq helm-for-files-preferred-list
+        '(helm-source-buffers-list
+          helm-source-recentf
+          helm-source-bookmarks
+          helm-source-file-cache
+          helm-source-files-in-current-dir
+          helm-source-mac-spotlight)))
+
+;; Fix matching method in `helm-buffers-list'.
+;; http://d.hatena.ne.jp/a_bicky/20140104/1388822688
+(defun helm-buffers-list-pattern-transformer (pattern)
+  "Match function to transform the PATTERN."
+  (if (equal pattern "")
+      pattern
+    ;; Escape '.' to match '.' instead of an arbitrary character
+    (setq pattern (replace-regexp-in-string "\\." "\\\\." pattern))
+    (let ((first-char (substring pattern 0 1)))
+      (cond ((equal first-char "*")
+             (concat " " pattern))
+            ((equal first-char "=")
+             (concat "*" (substring pattern 1)))
+            (t
+             pattern)))))
+
+(add-to-list 'helm-source-buffers-list
+             '(pattern-transformer helm-buffers-list-pattern-transformer))
 
 ;;;; Keymap
 (global-set-key [remap execute-extended-command] 'helm-M-x)
