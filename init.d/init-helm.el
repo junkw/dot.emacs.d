@@ -54,6 +54,8 @@
 (setq helm-completion-mode-string "")
 
 ;;;; Keymap
+(global-set-key [remap execute-extended-command] 'helm-M-x)
+(global-set-key [remap find-file]    'helm-find-files)
 (global-set-key [remap list-buffers] 'helm-buffers-list)
 (global-set-key (kbd "C-;")          'helm-for-files)
 (global-set-key (kbd "C-M-y")        'helm-show-kill-ring)
