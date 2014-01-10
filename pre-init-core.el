@@ -47,6 +47,10 @@
 (defvar windows-p (or cygwin-p nt-p)
   "Return t if this system is Windows.")
 
+;;;; Display size predicates
+(defvar laptop-screen-p (<= (display-pixel-height) 900)
+  "Return t if this display size is 15ich or less.")
+
 ;;;; Loading
 (defmacro eval-after-load* (file &rest form)
   "Macro for simple `eval-after-load'.

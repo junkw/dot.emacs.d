@@ -79,8 +79,9 @@
                    '("org-contact-add" . mu4e-action-add-org-contact) t))
 
     ;; View
-    (setq mu4e-split-view 'vertical)
-    (setq mu4e-headers-visible-columns 90)
+    (when desktop-screen-p
+      (setq mu4e-split-view 'vertical)
+      (setq mu4e-headers-visible-columns 90))
     (setq mu4e-view-show-images t)
     (when (fboundp 'imagemagick-register-types)
       (imagemagick-register-types))

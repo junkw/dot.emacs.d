@@ -41,8 +41,7 @@
 
   (when (require 'e2wm-bookmark nil t)
     (setq e2wm:c-code-recipe
-          ;; for laptop
-          (if (<= (display-pixel-height) 800)
+          (if laptop-screen-p
               '(| (:left-max-size 42)
                   (- (:upper-size-ratio 0.5)
                      imenu

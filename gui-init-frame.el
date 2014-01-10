@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
+
 ;; Frame size and position
 (cond
  ((>= (display-pixel-height) 1440)      ; 27ich
