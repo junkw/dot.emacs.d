@@ -47,7 +47,7 @@
         (:name direx :depends popwin)
         (:name helm :autoloads nil)
         (:name helm-c-moccur
-               :pkgname "emacsmirror/helm-c-moccur"
+               :pkgname "myuhe/helm-c-moccur.el"
                :features helm-c-moccur)
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
