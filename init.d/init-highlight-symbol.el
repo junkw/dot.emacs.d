@@ -39,15 +39,11 @@
         '("#FC87B0" "#CDF187" "#FEB257" "#F3ECB0" "#A9EBF7" "#D2BAFF" "#FEA7F7" "#CBF7F1")))
 
 ;;;; Keymap
-(defvar jkw:global-highlight-symbol-keybinds
-  '(("C-x w ." . 'highlight-symbol-at-point)
-    ("M-s h ." . 'highlight-symbol-at-point)
-    ("M-s M-n" . 'highlight-symbol-next)
-    ("M-s M-p" . 'highlight-symbol-prev)
-    ("M-s h %" . 'highlight-symbol-query-replace))
-  "My global keybinds for highlight-symbol.")
-
-(global-set-keys jkw:global-editor-keybinds)
+(global-set-key (kbd "C-x w .") 'highlight-symbol-at-point)
+(global-set-key (kbd "M-s h .") 'highlight-symbol-at-point)
+(global-set-key (kbd "M-s M-n") 'highlight-symbol-next)
+(global-set-key (kbd "M-s M-p") 'highlight-symbol-prev)
+(global-set-key (kbd "M-s h %") 'highlight-symbol-query-replace)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

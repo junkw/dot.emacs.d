@@ -31,22 +31,15 @@
 
 ;;; Code:
 
-(require 'pre-init-core)
-
-;; Preferences for running commands
 (setq mc/list-file "~/.emacs.d/etc/multiple-cursors-list.el")
 
 ;;;; Keymap
-(defvar jkw:global-multiple-cursors-keybinds
-  '(("C-S-e"   . 'mc/edit-lines)
-    ("C-S-r"   . 'mc/mark-all-in-region)
-    ("C-c C-<" . 'mc/mark-all-like-this)
-    ("C-c C-d" . 'mc/mark-all-like-this-dwim)
-    ("C->"     . 'mc/mark-next-like-this)
-    ("C-<"     . 'mc/mark-previous-like-this))
-  "My global keybinds for multiple-cursors.")
-
-(global-set-keys jkw:global-multiple-cursors-keybinds)
+(global-set-key (kbd "C-S-e")   'mc/edit-lines)
+(global-set-key (kbd "C-S-r")   'mc/mark-all-in-region)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C-d") 'mc/mark-all-like-this-dwim)
+(global-set-key (kbd "C->")     'mc/mark-next-like-this)
+(global-set-key (kbd "C-<")     'mc/mark-previous-like-this)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

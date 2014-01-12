@@ -86,14 +86,10 @@
 (setq org-agenda-files `(,org-directory "~/Dropbox/org/"))
 
 ;;;; Keymap
-(defvar jkw:global-org-keybinds
-  '(("C-c a" . 'org-agenda)
-    ("C-c c" . 'org-capture)
-    ("C-c b" . 'org-iswitchb)
-    ("C-c l" . 'org-store-link))
-  "My global keybinds for org-mode.")
-
-(global-set-keys jkw:global-org-keybinds)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c b") 'org-iswitchb)
+(global-set-key (kbd "C-c l") 'org-store-link)
 
 (org-defkey org-mode-map (kbd "C-c C-x d") nil)
 (org-defkey org-mode-map (kbd "C-c C-x I") 'org-insert-drawer)

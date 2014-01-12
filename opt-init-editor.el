@@ -204,14 +204,10 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 (when mac-p
   (setq mac-command-modifier 'control))
 
-(defvar jkw:global-editor-keybinds
-  '(("M-/"   . 'hippie-expand)          ; replace `dabbrev-expand'
-    ("M-d"   . 'kill-word-dwim)
-    ("C-c +" . 'increment-integer-at-point)
-    ("C-c -" . 'decrement-integer-at-point))
-  "My global keybinds for editing.")
-
-(global-set-keys jkw:global-editor-keybinds)
+(global-set-key (kbd "M-/")   'hippie-expand) ; replace `dabbrev-expand'
+(global-set-key (kbd "M-d")   'kill-word-dwim)
+(global-set-key (kbd "C-c +") 'increment-integer-at-point)
+(global-set-key (kbd "C-c -") 'decrement-integer-at-point)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

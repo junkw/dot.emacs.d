@@ -129,11 +129,6 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
   (cl-loop for (key . command) in key-bindings
            do (define-key keymap (read-kbd-macro key) command)))
 
-(defun global-set-keys (key-bindings)
-  "`global-set-key' extension for global KEY-BINDINGS batch definition."
-  (cl-loop for (key . command) in key-bindings
-           do (global-set-key (read-kbd-macro key) command)))
-
 ;;;; Notify
 (when mac-p
   (defun terminal-notifier-notify (title message)
