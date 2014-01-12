@@ -65,6 +65,11 @@
    ((t :foreground "#49483E")))         ; monokai-bg+2
  `(helm-ls-git-conflict-face
    ((t :foreground "#AE81FF")))         ; monokai-purple
+ ;; highlight-indentation
+ `(highlight-indentation-face
+   ((t :background "#49483E")))         ; monokai-bg+2
+ `(highlight-indentation-current-column-face
+   ((t :background "#3E3D31")))         ; monokai-bg+1
  ;; smartparens
  `(sp-show-pair-mismatch-face
    ((t :foreground "#171A0B"            ; monokai-bg-1

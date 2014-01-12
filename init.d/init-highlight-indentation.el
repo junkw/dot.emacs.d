@@ -31,10 +31,6 @@
 
 ;;; Code:
 
-(eval-after-load* 'monokai-theme
-  (set-face-background 'highlight-indentation-face "#49483E")
-  (set-face-background 'highlight-indentation-current-column-face "#3E3D31"))
-
 (add-hook 'prog-mode 'highlight-indentation-current-column-mode)
 
 ;; Local Variables:
