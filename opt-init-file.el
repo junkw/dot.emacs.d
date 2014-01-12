@@ -106,12 +106,8 @@ ARG is like in `dired-map-over-marks'."
    (function dired-convert-coding-system) arg 'convert-coding-system t))
 
 ;;;; Keymap
-(defvar jkw:dired-mode-map
-  '(("R" . wdired-change-to-wdired-mode)
-    ("E" . dired-do-convert-coding-system))
-  "My keybinds for dired mode.")
-
-(define-keys dired-mode-map jkw:dired-mode-map)
+(define-key dired-mode-map (kbd "R") 'wdired-change-to-wdired-mode)
+(define-key dired-mode-map (kbd "E") 'dired-do-convert-coding-system)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
