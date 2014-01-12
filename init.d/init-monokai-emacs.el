@@ -79,7 +79,14 @@
    ((t :foreground "#171A0B"            ; monokai-bg-1
        :background "#FD971F"            ; monokai-orange
        :weight bold)))
- )
+ ;; web-mode
+ `(web-mode-symbol-face
+   ((t :inherit font-lock-keyword-face)))
+ `(web-mode-current-element-highlight-face
+   ((t :background "#171A0B")))         ; monokai-bg-1
+ `(web-mode-comment-keyword-face
+   ((t :weight bold :box nil)))
+)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
