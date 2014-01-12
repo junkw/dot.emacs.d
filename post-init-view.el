@@ -31,28 +31,23 @@
 
 ;;; Code:
 
-(require 'pre-init-core)
-
+;; View mode
 ;; Opening read-only file, enable view mode.
 (setq view-read-only t)
 
 (eval-after-load* 'view
 ;;;; Keymap
-  (defvar jkw:view-pager-keybinds
-    '(("j" . next-line)
-      ("k" . previous-line)
-      ("J" . View-scroll-line-forward)
-      ("K" . View-scroll-line-forward)
-      ("b" . View-scroll-page-backward)
-      ("g" . beginning-of-buffer)
-      ("G" . end-of-buffer)
-      ("l" . forward-char)
-      ("h" . backward-char)
-      ("w" . forward-word)
-      ("W" . backward-word))
-    "My keybinds for View mode.")
-
-  (define-keys view-mode-map jkw:view-pager-keybinds))
+  (define-key view-mode-map (kbd "j") 'next-line)
+  (define-key view-mode-map (kbd "k") 'previous-line)
+  (define-key view-mode-map (kbd "J") 'View-scroll-line-forward)
+  (define-key view-mode-map (kbd "K") 'View-scroll-line-forward)
+  (define-key view-mode-map (kbd "b") 'View-scroll-page-backward)
+  (define-key view-mode-map (kbd "g") 'beginning-of-buffer)
+  (define-key view-mode-map (kbd "G") 'end-of-buffer)
+  (define-key view-mode-map (kbd "l") 'forward-char)
+  (define-key view-mode-map (kbd "h") 'backward-char)
+  (define-key view-mode-map (kbd "w") 'forward-word)
+  (define-key view-mode-map (kbd "W") 'backward-word))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

@@ -123,12 +123,6 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
   "Return t if THEME is active."
   (equal (custom-active-theme) theme))
 
-;;;; Keymap
-(defun define-keys (keymap key-bindings)
-  "`define-key' extension for batch definition KEYMAP with KEY-BINDINGS."
-  (cl-loop for (key . command) in key-bindings
-           do (define-key keymap (read-kbd-macro key) command)))
-
 ;;;; Notify
 (when mac-p
   (defun terminal-notifier-notify (title message)
