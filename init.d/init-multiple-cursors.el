@@ -35,7 +35,7 @@
 
 ;;;; Keymap
 (global-set-key (kbd "C-S-e")   'mc/edit-lines)
-(global-set-key (kbd "C-S-r")   'mc/mark-all-in-region)
+(global-set-key (kbd "C-c C-r") 'mc/mark-all-in-region)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-c C-d") 'mc/mark-all-like-this-dwim)
 (global-set-key (kbd "C->")     'mc/mark-next-like-this)
