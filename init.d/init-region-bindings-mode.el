@@ -38,16 +38,11 @@
 ;;;; Keymap
 (define-key region-bindings-mode-map "g" 'keyboard-quit)
 
-(eval-after-load* 'multiple-cursors
-  (defvar jkw:rk-multiple-cursors-keybinds
-    '(("n" . 'mc/mark-next-like-this)
-      ("p" . 'mc/mark-previous-like-this)
-      ("m" . 'mc/mark-more-like-this-extended)
-      ("a" . 'mc/mark-all-like-this)
-      ("d" . 'mc/mark-all-like-this-dwim))
-    "My keybinds for multiple-cursors on region-bindings-mode.")
-
-  (define-keys region-bindings-mode-map jkw:rk-multiple-cursors-keybinds))
+(define-key region-bindings-mode-map (kbd "n") 'mc/mark-next-like-this)
+(define-key region-bindings-mode-map (kbd "p") 'mc/mark-previous-like-this)
+(define-key region-bindings-mode-map (kbd "m") 'mc/mark-more-like-this-extended)
+(define-key region-bindings-mode-map (kbd "a") 'mc/mark-all-like-this)
+(define-key region-bindings-mode-map (kbd "d") 'mc/mark-all-like-this-dwim)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
