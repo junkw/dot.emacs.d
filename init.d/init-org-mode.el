@@ -43,6 +43,7 @@
 
 ;;;; General
 (setq org-startup-truncated nil)        ; Don't display continuation lines
+(setq org-startup-folded 'content)      ; Show all headlines at startup of org mode
 (setq org-activate-links '(date bracket radio tag date footnote angle)) ; Fix link face with multibyte chars
 (setq org-src-fontify-natively t)       ; Syntax highlight in code blocks
 (setq calendar-week-start-day 1)        ; Beginning of week is Mon.
