@@ -31,6 +31,7 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
 (require 'direx)
 (require 'direx-project)
 
@@ -58,7 +59,9 @@ With prefix argument, execute `dired-jump'."
              (direx:jump-to-directory-other-window)))))
 
 ;;;; Keymap
-(global-set-key (kbd "C-x C-j") 'direx:dired-jump)
+(eval-after-load* 'dired-x
+  (setq dired-bind-jump nil)
+  (global-set-key (kbd "C-x C-j") 'direx:dired-jump))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
