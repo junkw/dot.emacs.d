@@ -54,11 +54,6 @@
 ;; Comment style
 (setq-default comment-style 'multi-line)
 
-;; Spell check
-(require 'ispell)
-(setq-default ispell-program-name (executable-find "aspell"))
-(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
-
 ;;;; Highlight
 (setq transient-mark-mode t)
 (global-hl-line-mode 1)
