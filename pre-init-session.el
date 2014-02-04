@@ -49,6 +49,9 @@
   (add-to-list 'auth-sources 'macos-keychain-generic)
   (add-to-list 'auth-sources 'macos-keychain-internet))
 
+;; Lock file
+(setq create-lockfiles nil)
+
 ;; Auto save file
 (setq auto-save-default t)
 (setq auto-save-file-name-transforms
