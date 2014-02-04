@@ -31,63 +31,6 @@
 
 ;;; Code:
 
-(custom-theme-set-faces
- 'monokai
- ;; Basic coloring for Built-in package
- `(header-line
-   ((t :foreground "#75715E"            ; monokai-fg-1
-       :background "#171A0B"            ; monokai-bg-1
-       :box nil)))
- ;; helm
- `(helm-header
-   ((t :foreground "#A6E22E"            ; monokai-green
-       :background "#171A0B"            ; monokai-bg-1
-       :underline nil :box nil)))
- `(helm-source-header
-   ((t :foreground "#E6DB74"            ; monokai-yellow
-       :background "#3E3D31"            ; monokai-bg+1
-       :height 180 :weight bold
-       :underline t :box nil)))
- ;; helm-ls-git
- `(helm-ls-git-modified-not-staged-face
-   ((t :foreground "#E6DB74")))         ; monokai-yellow
- `(helm-ls-git-modified-and-staged-face
-   ((t :foreground "#FD971F")))         ; monokai-orange
- `(helm-ls-git-renamed-modified-face
-   ((t :foreground "#FD971F")))         ; monokai-orange
- `(helm-ls-git-untracked-face
-   ((t :foreground "#F92672")))         ; monokai-red
- `(helm-ls-git-added-copied-face
-   ((t :foreground "#A6E22E")))         ; monokai-green
- `(helm-ls-git-deleted-not-staged-face
-   ((t :foreground "#968B26")))         ; monokai-yellow-1
- `(helm-ls-git-deleted-and-staged-face
-   ((t :foreground "#49483E")))         ; monokai-bg+2
- `(helm-ls-git-conflict-face
-   ((t :foreground "#AE81FF")))         ; monokai-purple
- ;; highlight-indentation
- `(highlight-indentation-face
-   ((t :background "#49483E")))         ; monokai-bg+2
- `(highlight-indentation-current-column-face
-   ((t :background "#3E3D31")))         ; monokai-bg+1
- ;; smartparens
- `(sp-show-pair-mismatch-face
-   ((t :foreground "#171A0B"            ; monokai-bg-1
-       :background "#F92672"            ; monokai-red
-       :weight bold)))
- `(sp-show-pair-match-face
-   ((t :foreground "#171A0B"            ; monokai-bg-1
-       :background "#FD971F"            ; monokai-orange
-       :weight bold)))
- ;; web-mode
- `(web-mode-symbol-face
-   ((t :inherit font-lock-keyword-face)))
- `(web-mode-current-element-highlight-face
-   ((t :background "#171A0B")))         ; monokai-bg-1
- `(web-mode-comment-keyword-face
-   ((t :weight bold :box nil)))
-)
-
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
