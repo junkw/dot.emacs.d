@@ -35,18 +35,6 @@
 
 (defun jkw:powerline-theme-initialize ()
   "My powerline theme."
-
-  ;; Face
-  (set-face-background 'powerline-active1   "grey28")
-  (set-face-background 'powerline-active2   "gray42")
-  (set-face-background 'powerline-inactive1 "grey14")
-  (set-face-background 'powerline-inactive2 "grey28")
-
-  ;; Disable 3D-style mode line
-  (set-face-attribute 'mode-line nil :box nil)
-  (set-face-attribute 'mode-line-inactive nil :box nil)
-
-  ;; Format
   (setq-default mode-line-format
                 '("%e"
                   (:eval
