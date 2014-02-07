@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(load-theme 'monokai t)
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
