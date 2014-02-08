@@ -36,7 +36,7 @@
 ;; Color
 (eval-after-load* 'monokai-theme
   (setq highlight-symbol-colors
-        '("#FC87B0" "#CDF187" "#FEB257" "#F3ECB0" "#A9EBF7" "#D2BAFF" "#FEA7F7" "#CBF7F1")))
+        '("#FC5C94" "#FEB257" "#F3EA98" "#C1F161" "#BBF7EF" "#C2A1FF" "#FE87F4")))
 
 ;;;; Keymap
 (global-set-key (kbd "C-x w .") 'highlight-symbol-at-point)
