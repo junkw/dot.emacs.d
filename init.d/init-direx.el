@@ -56,7 +56,9 @@ With prefix argument, execute `dired-jump'."
         (t
          (or (ignore-errors
                (direx-project:jump-to-project-root-other-window) t)
-             (direx:jump-to-directory-other-window)))))
+             (direx:jump-to-directory-other-window))))
+  (when (eq major-mode 'direx:direx-mode)
+    (setq-local mode-line-format '("- " mode-line-buffer-identification "-%-"))))
 
 ;;;; Keymap
 (eval-after-load* 'dired-x
