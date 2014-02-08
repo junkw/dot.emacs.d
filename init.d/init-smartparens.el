@@ -63,7 +63,7 @@
   (sp-local-pair "『" "』"))
 
 ;;;; Keymap
-(sp-use-paredit-bindings)
+(sp-use-smartparens-bindings)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
