@@ -36,6 +36,30 @@
 (lazyload 'e2wm '(e2wm:start-management)
   (require 'e2wm-config)
 
+  ;; plugin
+  (when (and (require 'direx nil t)
+             (require 'direx-project nil t))
+    ;; https://gist.github.com/kiwanami/1998307
+    (defun e2wm:def-plugin-direx (frame wm winfo)
+      "e2wm plugin for direx file list."
+      (let* ((buf (e2wm:history-get-main-buffer))
+             (dbuf (with-current-buffer buf
+                     (or
+                      (ignore-errors
+                        (direx-project:jump-to-project-root-noselect))
+                      (direx:find-directory-noselect
+                       (or default-directory "."))))))
+        (with-current-buffer dbuf
+          (direx:item-expand direx:root-item)
+          (setq header-line-format "DireX file list")
+          (setq mode-line-format
+                '("-" mode-line-mule-info
+                  " " mode-line-position "-%-")))
+        (wlf:set-buffer wm (wlf:window-name winfo) dbuf)))
+
+    (e2wm:plugin-register 'direx
+                          "DireX"
+                          'e2wm:def-plugin-direx))
   ;; code
   (require 'e2wm-vcs)
 
@@ -63,7 +87,7 @@
     (setq e2wm:c-code-winfo
           '((:name main)
             (:name bookmarks :plugin bookmarks-list)
-            (:name files :plugin files)
+            (:name files :plugin direx)
             (:name history :plugin history-list)
             (:name sub :buffer "*info*" :default-hide t)
             (:name imenu :plugin imenu :default-hide nil))))
