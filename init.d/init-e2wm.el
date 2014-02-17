@@ -35,6 +35,7 @@
 
 (lazyload 'e2wm '(e2wm:start-management)
   (require 'e2wm-config)
+  (require 'e2wm-vcs)
 
   ;; plugin
   (when (and (require 'direx nil t)
@@ -60,10 +61,19 @@
     (e2wm:plugin-register 'direx
                           "DireX"
                           'e2wm:def-plugin-direx))
-  ;; code
-  (require 'e2wm-vcs)
 
-  (when (require 'e2wm-bookmark nil t)
+  ;; code
+  (when (and (require 'e2wm-bookmark nil t)
+             (ignore-errors (e2wm:plugin-get 'direx)))
+
+    (setq e2wm:c-code-winfo
+          '((:name main)
+            (:name bookmarks :plugin bookmarks-list)
+            (:name files :plugin direx)
+            (:name history :plugin history-list)
+            (:name sub :buffer "*info*" :default-hide t)
+            (:name imenu :plugin imenu :default-hide nil)))
+
     (setq e2wm:c-code-recipe
           (if laptop-screen-p
               '(| (:left-max-size 42)
@@ -82,15 +92,7 @@
                 (- (:upper-size-ratio 0.7)
                    (| (:right-max-size 40)
                       main imenu)
-                   sub))))
-
-    (setq e2wm:c-code-winfo
-          '((:name main)
-            (:name bookmarks :plugin bookmarks-list)
-            (:name files :plugin direx)
-            (:name history :plugin history-list)
-            (:name sub :buffer "*info*" :default-hide t)
-            (:name imenu :plugin imenu :default-hide nil))))
+                   sub)))))
 
   ;; two
   (setq e2wm:c-two-right-default 'prev))
