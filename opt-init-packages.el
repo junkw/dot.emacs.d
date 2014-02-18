@@ -45,7 +45,7 @@
       '((:name el-get :branch "master")
         (:name auto-complete :submodule nil :features auto-complete-config)
         (:name direx :depends popwin)
-        (:name helm :autoloads nil)
+        (:name helm :autoloads nil :prepare (setq dired-bind-jump nil))
         (:name helm-c-moccur
                :pkgname "myuhe/helm-c-moccur.el"
                :features helm-c-moccur)

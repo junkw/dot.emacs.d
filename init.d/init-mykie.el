@@ -35,6 +35,10 @@
 (setq mykie:major-mode-ignore-list '(magit-status-mode))
 (mykie:initialize)
 
+(mykie:global-set-key "C-x C-j"
+  :default direx:direx-jump
+  :C-u     dired-jump)
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix

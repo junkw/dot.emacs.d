@@ -31,7 +31,6 @@
 
 ;;; Code:
 
-(require 'pre-init-core)
 (require 'direx)
 (require 'direx-project)
 
@@ -41,29 +40,17 @@
 (setq direx:closed-icon "+ ")
 
 ;;;; Command
-;; http://d.hatena.ne.jp/syohex/20130202/1359814263
-(defun direx:dired-jump ()
-  "Jump and display the directory tree corresponding to current buffer.
-
-With prefix argument, execute `dired-jump'."
+(defun direx:direx-jump ()
+  "Jump and display the directory tree corresponding to current buffer."
   (interactive)
-  (cond (current-prefix-arg
-         (dired-jump))
-        ((not (one-window-p))
-         (or (ignore-errors
-               (direx-project:jump-to-project-root) t)
-             (direx:jump-to-directory)))
-        (t
-         (or (ignore-errors
-               (direx-project:jump-to-project-root-other-window) t)
-             (direx:jump-to-directory-other-window))))
-  (when (eq major-mode 'direx:direx-mode)
+  (let ((buffer (or (ignore-errors
+                      (direx-project:jump-to-project-root-noselect))
+                    (direx:jump-to-directory-noselect))))
+    (switch-to-buffer-other-window buffer)
     (setq-local mode-line-format '("- " mode-line-buffer-identification "-%-"))))
 
 ;;;; Keymap
-(eval-after-load* 'dired-x
-  (setq dired-bind-jump nil)
-  (global-set-key (kbd "C-x C-j") 'direx:dired-jump))
+(global-set-key (kbd "C-x C-j") 'direx:direx-jump)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
