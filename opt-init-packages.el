@@ -46,9 +46,6 @@
         (:name auto-complete :submodule nil :features auto-complete-config)
         (:name direx :depends popwin)
         (:name helm :autoloads nil :prepare (setq dired-bind-jump nil))
-        (:name helm-c-moccur
-               :pkgname "myuhe/helm-c-moccur.el"
-               :features helm-c-moccur)
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
         (:name smartparens :features smartparens-config)
@@ -60,15 +57,15 @@
         ))
 
 (defvar jkw:el-get-package-list-from-recipe
-  '(ace-jump-mode ag all-ext anzu auto-async-byte-compile cl-lib-highlight color-moccur
-                  cssm-mode dash-at-point dired+ e2wm e2wm-bookmark eldoc-extension
-                  emmet-mode expand-region foreign-regexp flycheck geben gist
-                  git-gutter-fringe goto-chg grep-a-lot helm-c-yasnippet helm-descbinds
-                  helm-migemo helm-swoop highlight-symbol info+ js2-mode linum-relative
-                  lispxmp magit markdown-mode migemo moccur-edit monokai-emacs
-                  multiple-cursors mykie org-mode php-align php-mode psvn rainbow-mode
-                  recentf-ext scratch-ext sequential-command smart-newline smartrep tern
-                  twittering-mode viewer web-mode wgrep)
+  '(ace-jump-mode ag all-ext anzu auto-async-byte-compile cl-lib-highlight cssm-mode
+                  dash-at-point dired+ e2wm e2wm-bookmark eldoc-extension emmet-mode
+                  expand-region foreign-regexp flycheck geben gist git-gutter-fringe
+                  goto-chg grep-a-lot helm-c-yasnippet helm-descbinds helm-migemo
+                  helm-swoop highlight-symbol info+ js2-mode linum-relative lispxmp
+                  magit markdown-mode migemo monokai-emacs multiple-cursors mykie
+                  org-mode php-align php-mode psvn rainbow-mode recentf-ext scratch-ext
+                  sequential-command smart-newline smartrep tern twittering-mode viewer
+                  web-mode wgrep)
   "List of packages I use straight from recipe files.")
 
 ;;;; Bootstrap
