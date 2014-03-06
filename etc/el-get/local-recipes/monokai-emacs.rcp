@@ -3,4 +3,5 @@
        :website     "https://github.com/oneKelvinSmith/monokai-emacs#readme"
        :type        github
        :pkgname     "junkw/monokai-emacs"
+       :branch      "customize"
        :prepare     (add-to-list 'custom-theme-load-path default-directory))
