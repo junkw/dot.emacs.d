@@ -5,13 +5,11 @@
 ** Installation
 
 #+BEGIN_SRC sh
-$ brew install https://gist.github.com/junkw/5037634/raw/bbcef91af32b8998c32fec96bdff6e87aedc5f04/emacs.rb --cocoa --srgb --with-gnutls
-$ ln -s /usr/local/Cellar/emacs/24.3/Emacs.app/ /Applications/Emacs.app
+$ brew install https://gist.github.com/junkw/5037634/raw/ea3fce204bbf63c5c262192d41a40cd3b599ad63/emacs.rb --cocoa --srgb --with-gnutls
+$ ln -s $(brew --prefix emacs)/Emacs.app /Applications/
 $ git clone https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
-$ ln -s /path/to/local/repo ~/.emacs.d
-$ cd ~/.emacs.d/
-$ mkdir -p bin etc/el-get/elpa-recipes etc/el-get/emacswiki-recipes share/info share/man var/backup var/bookmark var/cache var/log var/tmp vendor
-$ emacs -batch -L . -f batch-byte-compile *.el
+$ cd /path/to/local/repo
+$ rake
 $ open -a Emacs
 #+END_SRC
 
