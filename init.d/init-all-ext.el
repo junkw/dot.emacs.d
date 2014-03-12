@@ -33,17 +33,6 @@
 
 (require 'pre-init-core)
 
-(defun all-from-helm-c-moccur ()
-  "Call `all' from `helm' content."
-  (interactive)
-  (helm-run-after-quit
-   'all-from-anything-occur-internal "helm-moccur"
-   helm-c-moccur-buffer helm-current-buffer))
-
-;;;; Keymap
-(eval-after-load* 'helm-c-moccur
-  (define-key helm-c-moccur-helm-map (kbd "C-c C-a") 'all-from-helm-c-moccur))
-
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
