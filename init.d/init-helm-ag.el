@@ -1,10 +1,10 @@
-;;; init-all-ext.el --- el-get init file for package all-ext
+;;; init-helm-ag.el --- el-get init file for package helm-ag
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; Copyright (C) 2014  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Oct. 7, 2013
-;; Keywords: .emacs, all mode, helm, occur
+;; Created: Mar. 12, 2014
+;; Keywords: .emacs
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -30,19 +30,11 @@
 ;;
 
 ;;; Code:
-
-(require 'pre-init-core)
-
-(defun all-from-helm-ag ()
-  "Call `all' from `helm' content."
-  (interactive)
-  (helm-run-after-quit
-   'all-from-anything-occur-internal "helm-ag"
-   helm-buffer helm-current-buffer))
+(setq helm-ag-base-command "ag -S --nocolor --nogroup")
+(setq helm-ag-thing-at-point 'symbol)
 
 ;;;; Keymap
-(eval-after-load* 'helm-ag
-  (define-key helm-map (kbd "C-c C-a") 'all-from-helm-ag))
+(global-set-key (kbd "C-x c M-g a") 'helm-ag)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -51,4 +43,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-all-ext.el ends here
+;;; init-helm-ag.el ends here

@@ -1,0 +1,7 @@
+(:name helm-ag
+       :description "the silver search with helm interface."
+       :website     "https://github.com/syohex/emacs-helm-ag"
+       :depends     helm
+       :type        github
+       :pkgname     "syohex/emacs-helm-ag"
+       :features    helm-ag)
