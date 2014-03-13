@@ -34,7 +34,8 @@
 (require 'pre-init-core)
 
 ;; Loading my snippets
-(add-to-list 'yas-snippet-dirs "~/.emacs.d/etc/yasnippet")
+(setq yas-snippet-dirs `("~/.emacs.d/etc/yasnippet"
+                         ,(concat (el-get-package-directory "yasnippet") "snippets")))
 (yas-reload-all)
 
 (add-hooks '(prog-mode mu4e-compose-mode) 'yas-minor-mode)
