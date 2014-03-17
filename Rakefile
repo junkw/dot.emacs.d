@@ -6,7 +6,7 @@ task :make_dir do
 end
 
 task :compile do
-  sh "emacs -batch -Q -L #{Dir.pwd} -f batch-byte-compile *.el"
+  sh "emacs -batch -L #{Dir.pwd} -f batch-byte-compile *.el"
 end
 
 task :tags do
