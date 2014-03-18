@@ -41,9 +41,9 @@
 
 ;;;; Character Encoding
 (set-language-environment 'Japanese)
-(prefer-coding-system 'utf-8)
 (when cocoa-p
   (require 'ucs-normalize)
+  (prefer-coding-system 'utf-8-hfs)
   (set-file-name-coding-system 'utf-8-hfs)
   (setq locale-coding-system 'utf-8-hfs))
 
