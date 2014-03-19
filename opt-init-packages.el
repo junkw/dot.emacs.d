@@ -49,6 +49,7 @@
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
         (:name smartparens :features smartparens-config)
+        (:name pcache :before (setq pcache-directory "~/.emacs.d/var/cache/pcache/"))
         (:name popwin :features popwin)
         (:name powerline :autoloads nil)
         (:name projectile :depends (dash grizzl helm s pkg-info))
