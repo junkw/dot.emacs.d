@@ -49,6 +49,9 @@
   (add-to-list 'auth-sources 'macos-keychain-generic)
   (add-to-list 'auth-sources 'macos-keychain-internet))
 
+;; Remote access
+(setq tramp-persistency-file-name "~/.emacs.d/var/cache/tramp")
+
 ;; Lock file
 (setq create-lockfiles nil)
 
