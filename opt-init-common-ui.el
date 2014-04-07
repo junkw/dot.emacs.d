@@ -67,7 +67,7 @@
           (assq-delete-all 'which-func-mode mode-line-misc-info))
     (setq header-line-format which-func-header-line-format)))
 
-(add-to-list 'which-func-modes prog-mode)
+(add-to-list 'which-func-modes 'prog-mode)
 
 ;;;; Echo line
 (setq echo-keystrokes 0.1)              ; display rate (sec.)
