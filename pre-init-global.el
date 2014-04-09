@@ -39,18 +39,19 @@
            do (setenv-path-from-shell path)))
 (add-to-list 'exec-path "~/.emacs.d/bin")
 
+;;;; Locales
+(setenv "LC_ALL" "ja_JP.UTF-8")
+(setenv "LANG" "ja_JP.UTF-8")
+(setq system-time-locale "C")
+
 ;;;; Character Encoding
-(set-language-environment 'Japanese)
+(set-language-environment 'utf-8)
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8-unix)
 (when cocoa-p
   (require 'ucs-normalize)
-  (prefer-coding-system 'utf-8-hfs)
   (set-file-name-coding-system 'utf-8-hfs)
   (setq locale-coding-system 'utf-8-hfs))
-
-;;;; Locales
-(setq system-time-locale "C")
-(setenv "LC_ALL" "en_US.UTF-8")
-(setenv "LANG" "en_US.UTF-8")
 
 ;;;; Minibuffer Edit
 (fset 'yes-or-no-p 'y-or-n-p)
