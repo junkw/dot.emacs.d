@@ -51,7 +51,8 @@
 (when cocoa-p
   (require 'ucs-normalize)
   (set-file-name-coding-system 'utf-8-hfs)
-  (setq locale-coding-system 'utf-8-hfs))
+  (setq locale-coding-system 'utf-8-hfs)
+  (add-to-list 'process-coding-system-alist '("mdfind" . utf-8-hfs)))
 
 ;;;; Minibuffer Edit
 (fset 'yes-or-no-p 'y-or-n-p)
