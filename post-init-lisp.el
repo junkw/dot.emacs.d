@@ -35,6 +35,7 @@
 (require 'pre-init-core)
 
 (find-function-setup-keys)
+(add-to-list 'which-func-modes 'emacs-lisp-mode)
 
 ;;;; Hightlight
 (font-lock-add-keywords

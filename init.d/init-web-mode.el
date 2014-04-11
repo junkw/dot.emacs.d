@@ -37,6 +37,7 @@
 (add-to-list 'auto-mode-alist '("\\.html\\.php\\'" . web-mode))
 
 (eval-after-load* 'web-mode
+  (add-to-list 'which-func-modes 'web-mode)
   (setq web-mode-enable-comment-keywords t)
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-heredoc-fontification t)

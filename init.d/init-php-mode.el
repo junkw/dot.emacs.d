@@ -31,10 +31,14 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
+
 (add-to-list 'auto-mode-alist '("\\.inc\\'" . php-mode))
 
-(setq php-search-url "http://jp.php.net/ja/")
-(setq php-manual-url "http://jp.php.net/manual/ja/")
+(eval-after-load* 'php-mode
+  (add-to-list 'which-func-modes 'php-mode)
+  (setq php-search-url "http://jp.php.net/ja/")
+  (setq php-manual-url "http://jp.php.net/manual/ja/"))
 
 ;;;; Hooks
 (defun jkw:php-mode-hooks ()
