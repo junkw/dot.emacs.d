@@ -41,7 +41,7 @@
     (setq mail-user-agent 'mu4e-user-agent)
 
     ;; Maildir
-    (setq mu4e-maildir        "~/Mail")
+    (setq mu4e-maildir        "~/.mail")
     (setq mu4e-attachment-dir "~/Downloads")
     (setq mu4e-refile-folder  "/Archive")
     (setq mu4e-drafts-folder  "/Drafts")
