@@ -36,6 +36,9 @@
     (require 'tern-auto-complete)
     (tern-ac-setup)))
 
+;;;; Hooks
+(add-hook 'js2-mode-hook 'tern-mode)
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
