@@ -4,5 +4,4 @@
        :depends     php-mode
        :type        github
        :pkgname     "tetsujin/emacs-php-align"
-       :features    php-align
-       :post-init   (php-align-setup))
+       :post-init   (add-hook 'php-mode-hook 'php-align-setup))
