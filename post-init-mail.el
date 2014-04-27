@@ -92,7 +92,9 @@
             ("/Drafts"  . ?d)
             ("/INBOX"   . ?i)
             ("/Sent"    . ?t)
-            ("/Starred" . ?s)))))
+            ("/Starred" . ?s)))
+
+    (define-key message-mode-map (kbd "C-x C-s") 'message-dont-send)))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
