@@ -4,8 +4,10 @@
        :type        git
        :url         "git://orgmode.org/org-mode.git"
        :info        "doc"
-       :build       `(("make all" "oldorg" ,(concat "EMACS=" el-get-emacs))
-                      ("make card"))
+       :build       `,(mapcar
+                       (lambda (target)
+                         (list "make" target (concat "EMACS=" (shell-quote-argument el-get-emacs))))
+                       '("oldorg" "card"))
        :load-path   ("." "lisp" "contrib/lisp")
        :autoloads   nil
        :features    org)
