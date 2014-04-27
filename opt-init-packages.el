@@ -45,7 +45,6 @@
       '((:name el-get :branch "master")
         (:name auto-complete :submodule nil :features auto-complete-config)
         (:name direx :depends popwin)
-        (:name helm :autoloads nil :prepare (setq dired-bind-jump nil))
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
         (:name smartparens :features smartparens-config)
@@ -61,7 +60,7 @@
   '(ace-jump-mode ag all-ext anzu auto-async-byte-compile cl-lib-highlight cssm-mode
                   dash-at-point dired-sync dired+ e2wm e2wm-bookmark eldoc-extension
                   emmet-mode expand-region foreign-regexp flycheck geben gist
-                  git-gutter-fringe goto-chg helm-ag helm-c-yasnippet helm-descbinds
+                  git-gutter-fringe goto-chg helm helm-ag helm-c-yasnippet helm-descbinds
                   helm-migemo helm-swoop highlight-symbol info+ js2-mode linum-relative
                   lispxmp magit markdown-mode migemo monokai-emacs multiple-cursors
                   mykie org-mode php-align php-mode psvn rainbow-mode recentf-ext
