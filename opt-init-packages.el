@@ -59,12 +59,12 @@
 (defvar jkw:el-get-package-list-from-recipe
   '(ace-jump-mode ag all-ext anzu auto-async-byte-compile cl-lib-highlight cssm-mode
                   dash-at-point dired-sync dired+ e2wm e2wm-bookmark eldoc-extension
-                  emmet-mode expand-region foreign-regexp flycheck geben gist
-                  git-gutter-fringe goto-chg helm helm-ag helm-c-yasnippet helm-descbinds
-                  helm-migemo helm-swoop highlight-symbol info+ js2-mode linum-relative
-                  lispxmp magit markdown-mode migemo monokai-emacs multiple-cursors
-                  mykie org-mode php-align php-mode psvn rainbow-mode recentf-ext
-                  scratch-ext sequential-command smart-newline smartrep tern
+                  elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck
+                  geben gist git-gutter-fringe goto-chg helm helm-ag helm-c-yasnippet
+                  helm-descbinds helm-migemo helm-swoop highlight-symbol info+ js2-mode
+                  linum-relative lispxmp magit markdown-mode migemo monokai-emacs
+                  multiple-cursors mykie org-mode php-align php-mode psvn rainbow-mode
+                  recentf-ext scratch-ext sequential-command smart-newline smartrep tern
                   twittering-mode viewer web-mode wgrep)
   "List of packages I use straight from recipe files.")
 
