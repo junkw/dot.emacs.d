@@ -33,6 +33,9 @@
 
 (require 'pre-init-core)
 
+(setq smartrep-mode-line-string-activated nil)
+(setq smartrep-mode-line-active-bg nil)
+
 (smartrep-define-key prog-mode-map "M-g"
   '(("M-n" . 'next-error)
     ("M-p" . 'previous-error)))
