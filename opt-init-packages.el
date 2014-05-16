@@ -34,6 +34,7 @@
 ;;;; Init
 ;; Need to init before loading el-get
 (setq el-get-dir "~/.emacs.d/vendor/")
+(setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
 (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get")))
 
 (setq el-get-recipe-path-emacswiki "~/.emacs.d/etc/el-get/emacswiki-recipes/")
