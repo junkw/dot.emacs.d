@@ -1,0 +1,6 @@
+(:name git-gutter-fringe+
+	   :description "Fringe version of git-gutter+.el"
+	   :website     "https://github.com/nonsequitur/git-gutter-fringe-plus"
+	   :depends     (git-gutter+ fringe-helper)
+	   :type        github
+	   :pkgname     "nonsequitur/git-gutter-fringe-plus")
