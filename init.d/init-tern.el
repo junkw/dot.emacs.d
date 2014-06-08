@@ -32,7 +32,7 @@
 ;;; Code:
 
 (eval-after-load* 'js2-mode
-  (when (locate-library "auto-complete")
+  (when (featurep 'auto-complete)
     (require 'tern-auto-complete)
     (tern-ac-setup)))
 

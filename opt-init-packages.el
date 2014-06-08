@@ -46,6 +46,7 @@
       '((:name el-get :branch "master")
         (:name auto-complete :submodule nil :features auto-complete-config)
         (:name direx :depends popwin)
+        (:name grizzl :features grizzl)
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
         (:name smartparens :features smartparens-config)

@@ -34,13 +34,13 @@
 (setq projectile-enable-caching t)
 (setq projectile-cache-file "~/.emacs.d/var/cache/projectile")
 (setq projectile-known-projects-file "~/.emacs.d/var/bookmark/projectile.eld")
-(when (locate-library "grizzl")
+(when (featurep 'grizzl)
   (setq projectile-completion-system 'grizzl))
 
 (add-hook 'prog-mode-hook 'projectile-on)
 
 ;;;; Keymap
-(when (locate-library "helm")
+(when (featurep 'helm)
   (global-set-key (kbd "C-x c P") 'helm-projectile))
 
 ;; Local Variables:

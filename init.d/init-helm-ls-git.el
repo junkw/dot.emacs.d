@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(when (locate-library "magit")
+(when (featurep 'magit)
   (setq helm-ls-git-status-command 'magit-status))
 
 ;;;; Keymap

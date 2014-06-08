@@ -38,8 +38,7 @@
   (require 'e2wm-vcs)
 
   ;; plugin
-  (when (and (require 'direx nil t)
-             (require 'direx-project nil t))
+  (when (and (featurep 'direx) (featurep 'direx-project))
     ;; https://gist.github.com/kiwanami/1998307
     (defun e2wm:def-plugin-direx (frame wm winfo)
       "e2wm plugin for direx file list."
