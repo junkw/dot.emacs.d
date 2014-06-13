@@ -4,6 +4,6 @@
        :depends     (s dash cl-lib f pkg-info grizzl)
        :type        github
        :pkgname     "lunaryorn/flycheck"
-       :build       `(("cd doc" "makeinfo flycheck.texi"))
+       :build       `(("makeinfo" "-o" "doc/flycheck.info" "doc/flycheck.texi"))
        :compile     "flycheck.el"
        :info        "doc")
