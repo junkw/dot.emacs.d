@@ -38,7 +38,7 @@
                          ,(concat (el-get-package-directory "yasnippet") "snippets")))
 (yas-reload-all)
 
-(add-hooks '(prog-mode mu4e-compose-mode) 'yas-minor-mode)
+(add-hooks '(mu4e-compose-mode org-mode prog-mode) 'yas-minor-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
