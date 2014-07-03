@@ -37,7 +37,7 @@
 (when (featurep 'grizzl)
   (setq projectile-completion-system 'grizzl))
 
-(add-hook 'prog-mode-hook 'projectile-on)
+(add-hook 'prog-mode-hook 'projectile-mode)
 
 ;;;; Keymap
 (when (featurep 'helm)
