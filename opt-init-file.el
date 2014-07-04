@@ -34,8 +34,8 @@
 (require 'cl-lib)
 (require 'pre-init-core)
 
-;; Opening a file larger than 25 MB, asks for confirmation first.
-(setq large-file-warning-threshold (* 25 1024 1024))
+;; Opening a file larger than 100 MB, asks for confirmation first.
+(setq large-file-warning-threshold 100000000)
 
 ;; Make the file executable if it is a shell script
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
