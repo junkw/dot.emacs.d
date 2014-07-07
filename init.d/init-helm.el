@@ -38,6 +38,7 @@
 (setq helm-candidate-number-limit 300)
 (setq helm-idle-delay 0.01)
 (setq helm-input-idle-delay 0.01)
+(setq helm-exit-idle-delay 0.01)
 (setq helm-quick-update t)
 (setq helm-persistent-action-use-special-display t)
 (setq helm-yank-symbol-first t)
