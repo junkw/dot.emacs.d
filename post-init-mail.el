@@ -43,10 +43,6 @@
     ;; Maildir
     (setq mu4e-maildir        "~/.mail")
     (setq mu4e-attachment-dir "~/Downloads")
-    (setq mu4e-refile-folder  "/Archive")
-    (setq mu4e-drafts-folder  "/Drafts")
-    (setq mu4e-sent-folder    "/Sent")
-    (setq mu4e-trash-folder   "/Trash")
 
     ;; External command
     (setq mu4e-get-mail-command  (executable-find "offlineimap"))
@@ -57,7 +53,27 @@
     ;; Compose
     (setq mu4e-sent-messages-behavior 'delete)
     (setq org-mu4e-convert-to-html t)
-    (setq message-signature-file "~/.emacs.d/etc/mu4e/signature")
+
+    (defun jkw:mu4e-set-account ()
+      "Set the account for composing a message."
+      (let* ((account
+              (if mu4e-compose-parent-message
+                  (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
+                    (string-match "/\\(.*?\\)/" maildir)
+                    (match-string 1 maildir))
+                (completing-read (format "Compose with account: (%s) "
+                                         (mapconcat #'(lambda (var) (car var))
+                                                    jkw:mu4e-account-alist "/"))
+                                 (mapcar #'(lambda (var) (car var)) jkw:mu4e-account-alist)
+                                 nil t nil nil (caar jkw:mu4e-account-alist))))
+             (account-vars (cdr (assoc account jkw:mu4e-account-alist))))
+        (if account-vars
+            (mapc #'(lambda (var)
+                      (set (car var) (cadr var)))
+                  account-vars)
+          (error "No email account found"))))
+
+    (add-hook 'mu4e-compose-pre-hook 'jkw:mu4e-set-account)
 
     ;; SMTP
     (require 'smtpmail)
@@ -65,9 +81,6 @@
     (setq message-send-mail-function 'smtpmail-send-it)
     (when (executable-find "gnutls-cli")
       (setq smtpmail-stream-type 'ssl))
-    (setq smtpmail-default-smtp-server "smtp.gmail.com")
-    (setq smtpmail-smtp-server         "smtp.gmail.com")
-    (setq smtpmail-smtp-service 465)
     (setq message-kill-buffer-on-exit t)
 
     ;; Contacts
