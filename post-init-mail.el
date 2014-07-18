@@ -102,7 +102,7 @@
 
     (setq message-send-mail-function 'smtpmail-send-it)
     (when (executable-find "gnutls-cli")
-      (setq smtpmail-stream-type 'ssl))
+      (setq smtpmail-stream-type 'starttls))
     (setq message-kill-buffer-on-exit t)
 
     ;; Contacts
