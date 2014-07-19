@@ -54,18 +54,40 @@
     (setq mu4e-sent-messages-behavior 'delete)
     (setq org-mu4e-convert-to-html t)
 
+    ;; Multiple accounts selection
+    ;; https://github.com/joedicastro/dotfiles/blob/master/emacs/init.el#L1214
+    (defun jkw:mu4e-select-account ()
+      "Select an account from `jkw:mu4e-account-alist'."
+      (completing-read
+       (format "Compose with account: (%s) "
+               (mapconcat #'(lambda (var) (car var)) jkw:mu4e-account-alist "/"))
+       (mapcar #'(lambda (var) (car var)) jkw:mu4e-account-alist)
+       nil t nil nil (caar jkw:mu4e-account-alist)))
+
+    (defun jkw:mu4e-get-field (field-name)
+      "Get a field var with FIELD-NAME."
+      (let ((field-var (cdar (mu4e-message-field mu4e-compose-parent-message field-name))))
+        (string-match "@\\(.*\\)\\..*" field-var)
+        (match-string 1 field-var)))
+
+    (defun jkw:mu4e-draft-p ()
+      "Return t if the message is draft."
+      (let ((maildir (mu4e-message-field (mu4e-message-at-point) :maildir)))
+        (if (string-match "drafts*" maildir)
+            t
+          nil)))
+
     (defun jkw:mu4e-set-account ()
       "Set the account for composing a message."
       (let* ((account
               (if mu4e-compose-parent-message
-                  (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
-                    (string-match "/\\(.*?\\)/" maildir)
-                    (match-string 1 maildir))
-                (completing-read (format "Compose with account: (%s) "
-                                         (mapconcat #'(lambda (var) (car var))
-                                                    jkw:mu4e-account-alist "/"))
-                                 (mapcar #'(lambda (var) (car var)) jkw:mu4e-account-alist)
-                                 nil t nil nil (caar jkw:mu4e-account-alist))))
+                  (let ((field (if (jkw:mu4e-draft-p)
+                                   (jkw:mu4e-get-field :from)
+                                 (jkw:mu4e-get-field :to))))
+                    (if (assoc field jkw:mu4e-account-alist)
+                        field
+                      (jkw:mu4e-select-account)))
+                (jkw:mu4e-select-account)))
              (account-vars (cdr (assoc account jkw:mu4e-account-alist))))
         (if account-vars
             (mapc #'(lambda (var)
