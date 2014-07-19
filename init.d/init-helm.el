@@ -95,11 +95,9 @@
 (define-key helm-map (kbd "C-z") nil)
 (define-key helm-map (kbd "C-o") nil)
 
-(define-key minibuffer-local-map (kbd "<f1> C-d") 'helm-debug-output)
-(define-key helm-map (kbd "<f1> C-b") 'helm-send-bug-report-from-helm)
-(define-key helm-map (kbd "C-o")      'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-M-n")    'helm-next-source)
-(define-key helm-map (kbd "C-M-p")    'helm-previous-source)
+(define-key helm-map (kbd "C-o")   'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-M-n") 'helm-next-source)
+(define-key helm-map (kbd "C-M-p") 'helm-previous-source)
 (define-key helm-read-file-map (kbd "C-o") 'helm-execute-persistent-action)
 
 ;; Local Variables:
