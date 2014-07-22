@@ -48,11 +48,19 @@
     (setq mu4e-get-mail-command  (executable-find "offlineimap"))
     (setq mu4e-update-interval 3600)      ; 60 mins.
 
-    (setq mu4e-html2text-command (concat (executable-find "html2text") " -utf8 -width 72"))
+    (setq mu4e-html2text-command (concat (executable-find "html2text") " -utf8 -width 80"))
 
     ;; Compose
     (setq mu4e-sent-messages-behavior 'delete)
     (setq org-mu4e-convert-to-html t)
+
+    (defun jkw:mu4e-compose-mode-hooks ()
+      "My config for message composition."
+      (set-fill-column 80)
+      (org-mu4e-compose-org-mode 1)
+      (flyspell-mode 1))
+
+    (add-hook 'mu4e-compose-mode-hook 'jkw:mu4e-compose-mode-hooks)
 
     ;; Multiple accounts selection
     ;; https://github.com/joedicastro/dotfiles/blob/master/emacs/init.el#L1214
