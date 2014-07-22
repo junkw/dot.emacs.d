@@ -68,7 +68,8 @@
 ;; Backup file
 (setq make-backup-files t)
 (setq backup-directory-alist
-      `((,tramp-file-name-regexp nil)
+      `((,tramp-file-name-regexp . nil)
+        ("/\\.\\(git\\|svn\\)/" . nil)
         ("/\\(Code\\|Documents\\|Docs\\)/" . "~/.emacs.d/var/backup/")
         ("." . ,temporary-file-directory)))
 (setq backup-by-copying t)
