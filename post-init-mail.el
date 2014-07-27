@@ -131,11 +131,11 @@
 
 ;;;; Keymap
     (setq mu4e-maildir-shortcuts
-          '(("/Archive" . ?a)
-            ("/Drafts"  . ?d)
-            ("/INBOX"   . ?i)
-            ("/Sent"    . ?t)
-            ("/Starred" . ?s)))
+          `((,mu4e-refile-folder      . ?a)
+            (,mu4e-drafts-folder      . ?d)
+            (,jkw:mu4e-inbox-folder   . ?i)
+            (,mu4e-sent-folder        . ?t)
+            (,jkw:mu4e-starred-folder . ?s)))
 
     (define-key message-mode-map (kbd "C-x C-s") 'message-dont-send)))
 
