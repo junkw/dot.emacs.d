@@ -34,9 +34,11 @@
 (require 'pre-init-core)
 
 ;; Load modules
+(add-to-list 'org-modules 'org-habit)
 (add-to-list 'org-modules 'org-man)
 
 ;; Org file
+(add-to-list 'auto-mode-alist '("\\.org_archive\\'" . org-mode))
 (setq org-insert-mode-line-in-empty-file t)
 (setq org-directory "~/Documents/org/")
 (setq org-default-notes-file (expand-file-name "inbox.org" org-directory))
@@ -58,28 +60,28 @@
 ;;;; ToDo
 (setq org-use-fast-todo-selection t)
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "STARTED(s!)" "PENDING(p@/!)" "|" "DONE(x)" "NOTTODO(n@)")))
+      '((sequence "TODO(t)" "MIT(m)" "STARTED(s!)" "PENDING(p@/!)" "|" "DONE(x)" "NOTTODO(n@)")))
 
 (setq org-log-done 'time)               ; Logging completion time
 (setq org-log-into-drawer t)            ; Logging into :LOGBOOK:
 
 ;;;; Tags
 (setq org-tag-alist
-      '(("@worksite" . ?w) ("@home" . ?h) ("@away" . ?a) ; context on place
-        ("@MITs" . ?m) ("@idle" . ?i) ("@batch" . ?b) ; context on time
-        ("@PC" . ?p) ("@contact" . ?c))) ; context on method
+      '(("@work" . ?w) ("@home" . ?h) ("@out" . ?o) ; context on place
+        ("@idle" . ?i) ("@batch" . ?b) ; context on time
+        ("@contact" . ?c) ("@delegate" . ?d))) ; context on method
 
 ;;;; Capture
 (setq org-capture-templates
       '(("s" "Stuffs such as tasks, ideas, or other information" entry (file nil)
          "* %?\n  %i"
          :empty-lines-before 1
-         :clock-keep t
+         :clock-resume t
          :kill-buffer t)
         ("c" "Code annotaion" entry (file nil)
          "* %?%^G\n  %u\n  %a\n  %i"
          :empty-lines-before 1
-         :clock-keep t
+         :clock-resume t
          :kill-buffer t)))
 
 ;;;; Agenda
