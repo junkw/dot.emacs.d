@@ -51,6 +51,8 @@
 
 ;; Remote access
 (setq tramp-persistency-file-name "~/.emacs.d/var/cache/tramp")
+(setq tramp-auto-save-directory nil)
+(setq tramp-backup-directory-alist nil)
 
 ;; Lock file
 (setq create-lockfiles nil)
