@@ -68,10 +68,9 @@
 ;; Backup file
 (setq make-backup-files t)
 (setq backup-directory-alist
-      `((,tramp-file-name-regexp . nil)
-        ("/\\.\\(git\\|svn\\)/" . nil)
+      `((,tramp-file-name-regexp nil)
         ("/\\(Code\\|Documents\\|Docs\\)/" . "~/.emacs.d/var/backup/")
-        ("." . ,temporary-file-directory)))
+        (".*" . ,temporary-file-directory)))
 (setq backup-by-copying t)
 (setq version-control t)
 (setq vc-make-backup-files t)
@@ -91,7 +90,6 @@
 (setq recentf-save-file "~/.emacs.d/var/cache/recentf")
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 100)
-(setq recentf-exclude '("^/[^/:]+:" "/var/" "/tmp/" "/Drafts/" "/TAGS$" "/\.loaddefs.elc?$"))
 (recentf-mode 1)
 
 ;; Save cursor's place
