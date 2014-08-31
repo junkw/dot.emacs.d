@@ -34,7 +34,9 @@
 (require 'pre-init-core)
 
 (lazyload 'flyspell nil
+  (require 'ispell)
   (setq-default ispell-program-name (executable-find "aspell"))
+  (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")) ; for Japanese
 
 ;;;; Command
   (when (locate-library "popup")
