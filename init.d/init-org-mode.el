@@ -60,7 +60,7 @@
 ;;;; ToDo
 (setq org-use-fast-todo-selection t)
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "MIT(m)" "STARTED(s!)" "PENDING(p@/!)" "|" "DONE(x)" "NOTTODO(n@)")))
+      '((sequence "TODO(t)" "MIT(m)" "NEXT(n)" "DOING(d!)" "PENDING(p@/!)" "|" "DONE(D)" "NOTTODO(N@)")))
 
 (setq org-log-done 'time)               ; Logging completion time
 (setq org-log-into-drawer t)            ; Logging into :LOGBOOK:
@@ -68,8 +68,8 @@
 ;;;; Tags
 (setq org-tag-alist
       '(("@work" . ?w) ("@home" . ?h) ("@out" . ?o) ; context on place
-        ("@idle" . ?i) ("@batch" . ?b) ; context on time
-        ("@contact" . ?c) ("@delegate" . ?d))) ; context on method
+        ("@idle" . ?i) ("@batch" . ?b)              ; context on time
+        ("BIGROCK" . ?r) ("CONTACT" . ?c) ("DELEGATE" . ?d))) ; action
 
 ;;;; Capture
 (setq org-capture-templates
@@ -87,6 +87,27 @@
 ;;;; Agenda
 (setq org-agenda-restore-windows-after-quit t)
 (setq org-agenda-files `(,org-directory "~/Dropbox/org/"))
+(setq org-agenda-show-log t)
+(setq org-agenda-skip-scheduled-if-done t)
+(setq org-agenda-skip-deadline-if-done t)
+(setq org-agenda-time-grid
+      '((daily today require-timed)
+        "----------------"
+        (900 1000 1100 1200 1300 1400 1500 1600 1700 1800)))
+(setq org-columns-default-format "%50ITEM %TODO %3PRIORITY %SCHEDULED %Effort{:} %10CLOCKSUM")
+(setq org-stuck-projects
+      '("+TODO={PENDING}|+LEVEL=1+BIGROCK+TODO={TODO}"
+        ("+LEVEL=2/TODO" "+LEVEL=2/NEXT" "+LEVEL=2/DOING") ("DELEGATE") nil))
+
+(setq org-agenda-custom-commands
+      '(("n" "Next Action" tags-todo "-DELEGATE/+MIT|NEXT|DOING"
+         ((org-agenda-overriding-header "Next Action")
+          (org-agenda-span 'week)
+          (org-deadline-warning-days 3)
+          (org-agenda-sorting-strategy '(todo-state-up deadline-down priority-down category-keep))))))
+
+;;;; Refile
+(setq org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
 
 ;;;; Keymap
 (global-set-key (kbd "C-c a") 'org-agenda)
