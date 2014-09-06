@@ -109,6 +109,32 @@
 ;;;; Refile
 (setq org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
 
+;;;; Export
+(setq org-export-default-language "ja")
+
+(setq org-html-doctype "html5")
+
+(setq org-latex-pdf-process '("lualatex %b" "lualatex %b"))
+(setq org-latex-classes '(("document"
+                           "\\documentclass{ltjsarticle}
+\\usepackage{amsmath,amssymb}
+\\usepackage{atbegshi}
+\\usepackage{bookmark}
+\\usepackage{color}
+\\usepackage{graphicx}
+\\usepackage{listings}
+\\usepackage{ulem}
+\\usepackage{url}
+[NO-DEFAULT-PACKAGES]
+[PACKAGES]
+[EXTRA]"
+                           ("\\section{%s}" . "\\section*{%s}")
+                           ("\\subsection{%s}" . "\\subsection*{%s}")
+                           ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                           ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                           ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+(setq org-latex-default-class "document")
+
 ;;;; Keymap
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
