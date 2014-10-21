@@ -35,7 +35,7 @@
 ;; Opening read-only file, enable view mode.
 (setq view-read-only t)
 
-(eval-after-load* 'view
+(with-eval-after-load 'view
 ;;;; Keymap
   (define-key view-mode-map (kbd "j") 'next-line)
   (define-key view-mode-map (kbd "k") 'previous-line)

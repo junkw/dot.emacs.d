@@ -36,7 +36,7 @@
 ;;;; Init
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|atom\\)\\'" . nxml-mode))
 
-(eval-after-load* 'nxml-mode
+(with-eval-after-load 'nxml-mode
   (setq nxml-child-indent 2)
   (setq nxml-attribute-indent 4)
   (setq nxml-char-ref-display-glyph-flag nil)

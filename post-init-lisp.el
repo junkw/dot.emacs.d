@@ -40,7 +40,7 @@
 ;;;; Hightlight
 (font-lock-add-keywords
  'emacs-lisp-mode
- `((,(regexp-opt '("nil" "setq" "eval-after-load*") 'words) . font-lock-keyword-face)))
+ `((,(regexp-opt '("nil" "setq") 'words) . font-lock-keyword-face)))
 
 ;;;; Documentation
 (require 'eldoc)

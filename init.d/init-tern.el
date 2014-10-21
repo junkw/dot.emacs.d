@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(eval-after-load* 'js2-mode
+(with-eval-after-load 'js2-mode
   (when (featurep 'auto-complete)
     (require 'tern-auto-complete)
     (tern-ac-setup)))

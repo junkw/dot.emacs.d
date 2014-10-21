@@ -40,17 +40,17 @@
   '(("M-n" . 'next-error)
     ("M-p" . 'previous-error)))
 
-(eval-after-load* 'flycheck
+(with-eval-after-load 'flycheck
   (smartrep-define-key flycheck-mode-map "C-c !"
     '(("n" . 'flycheck-next-error)
       ("p" . 'flycheck-previous-error))))
 
-(eval-after-load* 'org
+(with-eval-after-load 'org
   (smartrep-define-key org-mode-map "C-c"
     '(("C-n" . 'outline-next-visible-heading)
       ("C-p" . 'outline-previous-visible-heading))))
 
-(eval-after-load* 'web-mode
+(with-eval-after-load 'web-mode
   (smartrep-define-key web-mode-map "C-c C-b"
     '(("n" . 'web-mode-block-next)
       ("p" . 'web-mode-block-previous)))

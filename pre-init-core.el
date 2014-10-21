@@ -52,24 +52,13 @@
   "Return t if this display size is 15ich or less.")
 
 ;;;; Loading
-(defmacro eval-after-load* (file &rest form)
-  "Macro for simple `eval-after-load'.
-
- * FILE is a symbol or a string.
- * FORM allows for multiple body forms and is byte-compiled.
-
-See `eval-after-load'."
-  (declare (indent 1))
-  `(eval-after-load ,file
-     `(funcall #',(lambda () ,@form))))
-
 ;; https://gist.github.com/10sr/4159369
 (defmacro lazyload (feature &optional functions &rest form)
   "Macro for delay loading package.
 
 FEATURE is a symbol.  FUNCTIONS is a list of symbols.  If FUNCTIONS is nil,
 the function same as FEATURE is defined as autoloaded function.  FORM is passed
-to `eval-after-load*'.  When this macro is evaluated, returns the package path,
+to `with-eval-after-load'.  When this macro is evaluated, returns the package path,
 otherwise returns nil."
   (declare (indent 2))
   (let* ((pkg  (symbol-name (eval feature)))
@@ -83,7 +72,7 @@ otherwise returns nil."
                                t)))
                       (or (eval functions)
                           `(,(eval feature))))
-            (eval-after-load* ,feature
+            (with-eval-after-load ,feature
               ,@form)
             ,path))))
 

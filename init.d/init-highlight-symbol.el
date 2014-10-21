@@ -34,7 +34,7 @@
 (require 'pre-init-core)
 
 ;; Color
-(eval-after-load* 'monokai-theme
+(with-eval-after-load 'monokai-theme
   (setq highlight-symbol-colors
         '("#FC5C94" "#FEB257" "#F3EA98" "#C1F161" "#BBF7EF" "#C2A1FF" "#FE87F4")))
 

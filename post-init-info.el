@@ -33,7 +33,7 @@
 
 (require 'pre-init-core)
 
-(eval-after-load* 'info
+(with-eval-after-load 'info
   ;; In addition to INFOPATH
   (add-to-list 'Info-additional-directory-list "~/.emacs.d/share/info")
 

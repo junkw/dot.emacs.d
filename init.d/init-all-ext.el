@@ -41,7 +41,7 @@
    helm-buffer helm-current-buffer))
 
 ;;;; Keymap
-(eval-after-load* 'helm-ag
+(with-eval-after-load 'helm-ag
   (define-key helm-map (kbd "C-c C-a") 'all-from-helm-ag))
 
 ;; Local Variables:

@@ -36,7 +36,7 @@
 (setq wgrep-auto-save-buffer t)
 (setq wgrep-enable-key "R")
 (setq wgrep-change-readonly-file t)
-(eval-after-load* 'ag (require 'wgrep-ag))
+(with-eval-after-load 'ag (require 'wgrep-ag))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

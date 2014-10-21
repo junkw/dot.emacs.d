@@ -33,7 +33,7 @@
 
 (require 'pre-init-core)
 
-(eval-after-load* 'emmet-mode
+(with-eval-after-load 'emmet-mode
   (setq emmet-preview-default nil)
   (setq emmet-move-cursor-between-quotes t))
 
