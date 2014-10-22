@@ -92,7 +92,7 @@
 
 ;;;; Killing
 ;; http://dev.ariel-networks.com/wp/documents/aritcles/emacs/part16
-(defadvice kill-region (around kill-region-or-kill-word (beg end) activate)
+(defadvice kill-region (around kill-region-or-kill-word (beg end &optional region) activate)
   "Typing `\\[kill-region]' without mark, kill the previous word."
   (if (and (called-interactively-p 'any) transient-mark-mode (not mark-active))
       (backward-kill-word 1)
