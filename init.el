@@ -33,8 +33,6 @@
 
 (require 'cl-lib)
 
-(add-to-list 'load-path user-emacs-directory)
-
 (setq custom-file "~/.emacs.d/etc/custom.el")
 (when (file-exists-p custom-file)
   (load custom-file))
@@ -44,6 +42,13 @@
   "Init module."
   :group  'initialization
   :prefix "init-module-")
+
+(defcustom init-module-init-directory "~/.emacs.d/init.d/"
+  "`init-module-init-directory' contains init modules."
+  :type  'string
+  :group 'init-module)
+
+(add-to-list 'load-path init-module-init-directory)
 
 (defcustom init-module-load-only-pre-init-files nil
   "If this variable is non-nil, startup with minimum Emacs config."
@@ -57,10 +62,10 @@
 
 ;;;; Internal functions
 (defun init-module-list-files (regexp)
-  "Show init modules containing a match for REGEXP in `~/.emacs.d/'.
+  "Show init modules containing a match for REGEXP in `init-module-init-directory'.
 
 If a elisp file has a byte-compiled file, show the byte-compiled file only."
-  (cl-loop for el in (directory-files user-emacs-directory t)
+  (cl-loop for el in (directory-files init-module-init-directory t)
            when (and (string-match regexp (file-name-nondirectory el))
                      (or (string-match "elc$" el)
                          (and (string-match "el$" el)

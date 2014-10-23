@@ -21,18 +21,26 @@ $ open -a Emacs
   +-- bin/
   +-- etc/
   |    +-- auto-complete/
-  |         `-- dict
+  |    |    `-- dict
   |    +-- el-get/
-  |    |    +-- elpa-recipes/
-  |    |    +-- emacswiki-recipes/
-  |    |    `-- local-recipes/
+  |    |    +-- conf.d/
+  |    |    |    `-- init-PACKAGE.el
+  |    |    `-- recipes/
+  |    |         +-- elpa/
+  |    |         +-- emacswiki/
+  |    |         `-- local/
   |    +-- mu4e/
   |    |    `-- signature
   |    +-- custom.el
   |    +-- kmacro.el
   |    `-- multiple-cursors-list.el
   +-- init.d/
-  |    `-- init-PACKAGE.el
+  |    +-- cui-init-*.el
+  |    +-- gui-init-*.el
+  |    +-- opt-init-*.el
+  |    +-- post-init-*.el
+  |    `-- pre-init-*.el
+  +-- init.el
   +-- share/
   |    +-- info/
   |    `-- man/
@@ -42,11 +50,5 @@ $ open -a Emacs
   |    +-- cache/
   |    +-- log/
   |    `-- tmp/
-  +-- vendor/
-  +-- cui-init-*.el
-  +-- gui-init-*.el
-  +-- init.el
-  +-- opt-init-*.el
-  +-- post-init-*.el
-  `-- pre-init-*.el
+  `-- vendor/
 #+END_EXAMPLE

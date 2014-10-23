@@ -37,8 +37,8 @@
 (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
 (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get")))
 
-(setq el-get-recipe-path-emacswiki "~/.emacs.d/etc/el-get/emacswiki-recipes/")
-(setq el-get-recipe-path-elpa "~/.emacs.d/etc/el-get/elpa-recipes/")
+(setq el-get-recipe-path-emacswiki "~/.emacs.d/etc/el-get/recipes/emacswiki/")
+(setq el-get-recipe-path-elpa "~/.emacs.d/etc/el-get/recipes/elpa/")
 
 ;;;; Installed packages
 ;; Fix original recipes
@@ -78,8 +78,8 @@
   (unless (called-interactively-p 'interactive)
     ;; Eval in the el-get bootstrap.
     (setq el-get-verbose t)
-    (add-to-list 'el-get-recipe-path "~/.emacs.d/etc/el-get/local-recipes/")
-    (setq el-get-user-package-directory "~/.emacs.d/init.d/"))
+    (add-to-list 'el-get-recipe-path "~/.emacs.d/etc/el-get/recipes/local/")
+    (setq el-get-user-package-directory "~/.emacs.d/etc/el-get/conf.d/"))
   (let* ((src (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources)))
          (pkg (append src jkw:el-get-package-list-from-recipe)))
     (el-get 'sync pkg)))

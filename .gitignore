@@ -6,8 +6,8 @@
 TAGS
 
 etc/auto-complete/dict
-etc/el-get/elpa-recipes
-etc/el-get/emacswiki-recipes
+etc/el-get/recipes/elpa
+etc/el-get/recipes/emacswiki
 etc/mu4e
 etc/yasnippet
 etc/*.gpg

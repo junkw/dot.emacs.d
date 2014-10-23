@@ -30,6 +30,7 @@
 ;;
 
 ;;; Code:
+
 (setq geben-temporary-file-directory "~/.emacs.d/var/tmp/geben")
 
 ;; Local Variables:
