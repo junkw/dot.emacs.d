@@ -3,5 +3,6 @@
        :website     "http://emacs-helm.github.io/helm/"
        :type        github
        :pkgname     "emacs-helm/helm"
+       :build       ("make")
        :autoloads   nil
        :prepare     (setq dired-bind-jump nil))
