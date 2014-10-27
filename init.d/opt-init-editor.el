@@ -197,7 +197,8 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 ;;;; Keymap
 (keyboard-translate ?\C-h ?\C-?)
 (when mac-p
-  (setq mac-command-modifier 'control))
+  (setq mac-command-modifier 'control)
+  (setq mac-option-modifier  'meta))
 
 (global-set-key (kbd "M-/")   'hippie-expand) ; replace `dabbrev-expand'
 (global-set-key (kbd "M-d")   'kill-word-dwim)
