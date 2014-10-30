@@ -54,15 +54,15 @@
   seq-end-of-buffer
   seq-return)
 
-(defadvice sequential-command-setup-keys (after seq-setup-keys-remap activate)
-  "Use my commands in `sequential-command-setup-keys'."
-  (global-set-key (kbd "C-a") 'seq-beginnings)
+;;;; Keymap
+(global-set-key (kbd "C-a") 'seq-beginnings)
+(global-set-key (kbd "C-e") 'seq-end)
+(global-set-key (kbd "M-u") 'seq-upcase-backward-word)
+(global-set-key (kbd "M-c") 'seq-capitalize-backward-word)
+(global-set-key (kbd "M-l") 'seq-downcase-backward-word)
+(with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-a") 'org-seq-beginnings)
   (define-key org-mode-map (kbd "C-e") 'org-seq-ends))
-
-;; (ad-disable-advice 'sequential-command-setup-keys 'after 'seq-setup-keys-remap)
-;; (ad-activate 'sequential-command-setup-keys)
-(sequential-command-setup-keys)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
