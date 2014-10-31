@@ -34,20 +34,22 @@
 (setq-default case-fold-search nil)     ; case sensitive
 
 ;; http://dev.ariel-networks.com/articles/emacs/part5/
-(defadvice isearch-mode (around isearch-mode-default-string
-                                (forward &optional regexp op-fun recursive-edit word-p)
-                                activate)
-  "Start isearch with mark-set keywords."
+(defun isearch-mode-with-region (orig-fun forward &optional regexp op-fun recursive-edit word)
+  "Start isearch with mark-set keywords.
+
+Advice function for `isearch-mode'."
   (if (and transient-mark-mode mark-active (not (eq (mark) (point))))
       (progn
         (isearch-update-ring (buffer-substring-no-properties (mark) (point)))
         (deactivate-mark)
-        ad-do-it
+        (funcall orig-fun forward regexp op-fun recursive-edit word)
         (if (not forward)
             (isearch-repeat-backward)
           (goto-char (mark))
           (isearch-repeat-forward)))
-    ad-do-it))
+    (funcall orig-fun forward regexp op-fun recursive-edit word)))
+
+(advice-add 'isearch-mode :around #'isearch-mode-with-region)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

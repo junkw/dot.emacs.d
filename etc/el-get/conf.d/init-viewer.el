@@ -45,9 +45,10 @@
   (setq viewer-modeline-color-unwritable "#F92672")
   (setq viewer-modeline-color-view       "#FD971F"))
 
-(defadvice viewer-change-modeline-color
-  (around viewer-change-modeline-color-buffer-id activate)
-  "Change `mode-line-buffer-id' color."
+(defun viewer-change-modeline-color-buffer-id ()
+  "Change `mode-line-buffer-id' color.
+
+Advice function for `viewer-change-modeline-color'"
   (interactive)
   (when (eq (selected-window)
             (get-buffer-window (current-buffer)))
@@ -61,6 +62,8 @@
            (t
             viewer-modeline-color-default)))
     (force-mode-line-update)))
+
+(advice-add 'viewer-change-modeline-color :override #'viewer-change-modeline-color-buffer-id)
 
 (viewer-change-modeline-color-setup)
 

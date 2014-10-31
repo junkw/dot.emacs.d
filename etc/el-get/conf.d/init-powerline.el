@@ -75,10 +75,14 @@
 
 (add-hook 'emacs-startup-hook 'jkw:powerline-theme-initialize)
 
-(defadvice powerline-revert (after pl/revert-reload-theme activate)
-  "Reload current custom theme after `powerline-revert'."
+(defun powerline-revert-reload-theme ()
+  "Reload current custom theme after `powerline-revert'.
+
+Advice function for `powerline-revert'."
   (when custom-enabled-themes
     (load-theme (intern (custom-active-theme)) t nil)))
+
+(advice-add 'powerline-revert :after #'powerline-revert-reload-theme)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

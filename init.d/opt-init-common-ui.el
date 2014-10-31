@@ -60,12 +60,16 @@
 (setq which-func-header-line-format
       '(which-func-mode ("" which-func-format)))
 
-(defadvice which-func-ff-hook (after which-func-ff-hook-header-line activate)
-  "File find hook to use Which Function mode in header line."
+(defun which-func-ff-hook-header-line ()
+  "File find hook to use Which Function mode in header line.
+
+Advice function for `which-func-ff-hook'."
   (when which-func-mode
     (setq mode-line-misc-info
           (assq-delete-all 'which-func-mode mode-line-misc-info))
     (setq header-line-format which-func-header-line-format)))
+
+(advice-add 'which-func-ff-hook :after #'which-func-ff-hook-header-line)
 
 ;;;; Echo line
 (setq echo-keystrokes 0.1)              ; display rate (sec.)
@@ -73,9 +77,14 @@
 ;;;; Line number
 ;; http://d.hatena.ne.jp/daimatz/20120215/1329248780
 (setq linum-delay t)
-(defadvice linum-schedule (around linum-schedule-delayed activate)
-  "Delay updating line numbers."
-  (run-with-idle-timer 0.2 nil #'linum-update-current))
+
+(defun linum-schedule-delayed ()
+  "Delay updating line numbers.
+
+Advice function for `linum-schedule'."
+  (run-with-idle-timer 0.02 nil #'linum-update-current))
+
+(advice-add 'linum-schedule :override #'linum-schedule-delayed)
 
 ;; Disable BiDi
 (setq-default bidi-display-reordering nil)
