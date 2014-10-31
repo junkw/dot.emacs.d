@@ -32,6 +32,7 @@
 ;;; Code:
 
 (require 'cl-lib)
+(require 'pre-init-core)
 
 ;;;; Paths
 (when cocoa-p
@@ -48,7 +49,7 @@
 (set-language-environment 'utf-8)
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8-unix)
-(when cocoa-p
+(when mac-p
   (require 'ucs-normalize)
   (set-file-name-coding-system 'utf-8-hfs)
   (setq locale-coding-system 'utf-8-hfs)
