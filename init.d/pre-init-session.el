@@ -106,14 +106,6 @@
 (setq bookmark-default-file "~/.emacs.d/var/bookmark/bookmarks")
 (setq bookmark-save-flag 1)
 
-;; Exit
-(defadvice save-buffers-kill-terminal
-  (before save-buffers-kill-terminal-and-process activate)
-  "Kill all process, when Emacs is exited."
-  (when (process-list)
-    (cl-loop for proc in (process-list)
-             do (set-process-query-on-exit-flag proc nil))))
-
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
