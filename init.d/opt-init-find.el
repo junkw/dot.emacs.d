@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(setq-default case-fold-search nil)     ; case sensitive
+
 ;; http://dev.ariel-networks.com/articles/emacs/part5/
 (defadvice isearch-mode (around isearch-mode-default-string
                                 (forward &optional regexp op-fun recursive-edit word-p)
