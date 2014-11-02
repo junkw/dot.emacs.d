@@ -47,15 +47,6 @@
 
 (setq helm-completion-mode-string "")
 
-;; Emulate `kill-line' in helm minibuffer
-;; http://d.hatena.ne.jp/a_bicky/20140104/1388822688
-(setq helm-delete-minibuffer-contents-from-point t)
-
-(defadvice helm-delete-minibuffer-contents
-  (before helm-delete-minibuffer-contents-emulate-kill-line activate)
-  "Emulate `kill-line' in helm minibuffer."
-  (kill-new (buffer-substring (point) (field-end))))
-
 ;;;; Sources
 (when mac-p
   (setq helm-for-files-preferred-list
@@ -94,8 +85,10 @@
 
 (define-key helm-map (kbd "C-z") nil)
 (define-key helm-map (kbd "C-o") nil)
+(define-key helm-map (kbd "C-k") nil)
 
 (define-key helm-map (kbd "C-o")   'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-q")   'helm-delete-minibuffer-contents)
 (define-key helm-map (kbd "C-M-n") 'helm-next-source)
 (define-key helm-map (kbd "C-M-p") 'helm-previous-source)
 (define-key helm-read-file-map (kbd "C-o") 'helm-execute-persistent-action)
