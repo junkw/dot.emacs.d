@@ -36,7 +36,6 @@
   "My php-completion-mode config for PHP mode."
   (php-completion-mode 1)
   (when (require 'auto-complete nil t)
-    (make-variable-buffer-local 'ac-sources)
     (add-to-list 'ac-sources 'ac-source-php-completion-patial)
     (auto-complete-mode 1)))
 
