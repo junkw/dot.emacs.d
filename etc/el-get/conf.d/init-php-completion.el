@@ -42,7 +42,8 @@
 (add-hook 'php-mode-hook 'jkw:php-completion-mode-hooks)
 
 ;;;; Keymap
-(define-key php-mode-map (kbd "M-TAB") 'phpcmp-complete)
+(with-eval-after-load 'php-mode
+  (define-key php-mode-map (kbd "M-TAB") 'phpcmp-complete))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
