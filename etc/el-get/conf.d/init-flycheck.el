@@ -32,8 +32,6 @@
 ;;; Code:
 
 (setq flycheck-display-errors-delay 0.5)
-(when (featurep 'grizzl)
-  (setq flycheck-completion-system 'grizzl))
 (setq-default flycheck-emacs-lisp-load-path `(,user-emacs-directory))
 
 ;; Local Variables:

@@ -34,8 +34,7 @@
 (setq projectile-enable-caching t)
 (setq projectile-cache-file "~/.emacs.d/var/cache/projectile")
 (setq projectile-known-projects-file "~/.emacs.d/var/bookmark/projectile.eld")
-(when (featurep 'grizzl)
-  (setq projectile-completion-system 'grizzl))
+(setq projectile-completion-system 'helm)
 
 (add-hook 'prog-mode-hook 'projectile-mode)
 

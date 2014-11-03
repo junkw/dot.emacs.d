@@ -1,7 +1,7 @@
 (:name flycheck
        :description "On-the-fly syntax checking extension"
        :website     "http://flycheck.github.io/"
-       :depends     (s dash cl-lib f pkg-info grizzl)
+       :depends     (s dash cl-lib f pkg-info)
        :type        github
        :pkgname     "lunaryorn/flycheck"
        :build       `(("makeinfo" "-o" "doc/flycheck.info" "doc/flycheck.texi"))
