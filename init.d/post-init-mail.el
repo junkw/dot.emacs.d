@@ -35,7 +35,7 @@
 
 ;;;; mu4e
 (when (executable-find "mu")
-  (lazyload 'mu4e '(mu4e mu4e-update-mail-and-index mu4e-compose-new)
+  (with-eval-after-load 'mu4e
     (require 'org-mu4e)
 
     (setq mail-user-agent 'mu4e-user-agent)

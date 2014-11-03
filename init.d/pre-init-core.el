@@ -51,31 +51,6 @@
 (defvar laptop-screen-p (<= (display-pixel-height) 900)
   "Return t if this display size is 15ich or less.")
 
-;;;; Loading
-;; https://gist.github.com/10sr/4159369
-(defmacro lazyload (feature &optional functions &rest form)
-  "Macro for delay loading package.
-
-FEATURE is a symbol.  FUNCTIONS is a list of symbols.  If FUNCTIONS is nil,
-the function same as FEATURE is defined as autoloaded function.  FORM is passed
-to `with-eval-after-load'.  When this macro is evaluated, returns the package path,
-otherwise returns nil."
-  (declare (indent 2))
-  (let* ((pkg  (symbol-name (eval feature)))
-         (path (locate-library pkg)))
-    (and path
-         `(progn
-            ,@(mapcar (lambda (func)
-                        (or (fboundp func)
-                            `(autoload ',func ,pkg
-                               ,(format "Lazyloaded function defined in \"%s\"." path)
-                               t)))
-                      (or (eval functions)
-                          `(,(eval feature))))
-            (with-eval-after-load ,feature
-              ,@form)
-            ,path))))
-
 (defun add-hooks (modes function)
   "`add-hook' extension for batch adding to the list of MODES the function FUNCTION."
   (cl-loop for mode in modes

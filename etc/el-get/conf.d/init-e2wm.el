@@ -33,7 +33,7 @@
 
 (require 'pre-init-core)
 
-(lazyload 'e2wm '(e2wm:start-management)
+(with-eval-after-load 'e2wm
   (require 'e2wm-config)
   (require 'e2wm-vcs)
 

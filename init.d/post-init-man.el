@@ -33,7 +33,10 @@
 
 (require 'pre-init-core)
 
-(lazyload 'woman '(woman woman-find-file)
+(autoload 'woman "woman" "Decode and browse a UN*X man page." t)
+(autoload 'woman-find-file "woman" "Find, decode and browse a specific UN*X man-page file." t)
+
+(with-eval-after-load 'woman
   ;; Paths
   (add-to-list 'woman-manpath (concat user-emacs-directory "share/man"))
   (setq woman-cache-filename (concat user-emacs-directory "var/cache/woman")) ; Update cache: C-u M-x woman
