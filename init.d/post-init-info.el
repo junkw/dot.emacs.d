@@ -35,7 +35,7 @@
 
 (with-eval-after-load 'info
   ;; In addition to INFOPATH
-  (add-to-list 'Info-additional-directory-list "~/.emacs.d/share/info")
+  (add-to-list 'Info-additional-directory-list (concat user-emacs-directory "share/info"))
 
 ;;;; Keymap
   (define-key Info-mode-map (kbd "!")   'Info-help)

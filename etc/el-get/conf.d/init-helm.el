@@ -34,7 +34,7 @@
 ;;;; Init
 (require 'helm-config)
 
-(setq helm-adaptive-history-file "~/.emacs.d/var/cache/helm-adaptive-history")
+(setq helm-adaptive-history-file (concat user-emacs-directory "var/cache/helm-adaptive-history"))
 (setq helm-candidate-number-limit 300)
 (setq helm-idle-delay 0.01)
 (setq helm-input-idle-delay 0.01)

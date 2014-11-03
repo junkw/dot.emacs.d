@@ -33,7 +33,7 @@
 
 (require 'cl-lib)
 
-(setq custom-file "~/.emacs.d/etc/custom.el")
+(setq custom-file (concat user-emacs-directory "etc/custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file))
 
@@ -43,7 +43,7 @@
   :group  'initialization
   :prefix "init-module-")
 
-(defcustom init-module-init-directory "~/.emacs.d/init.d/"
+(defcustom init-module-init-directory (concat user-emacs-directory "init.d/")
   "`init-module-init-directory' contains init modules."
   :type  'string
   :group 'init-module)

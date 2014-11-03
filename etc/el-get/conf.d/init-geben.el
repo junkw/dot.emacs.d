@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq geben-temporary-file-directory "~/.emacs.d/var/tmp/geben")
+(setq geben-temporary-file-directory (concat user-emacs-directory "var/tmp/geben"))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

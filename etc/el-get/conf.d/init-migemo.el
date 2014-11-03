@@ -44,7 +44,7 @@
   ;; Cache
   (setq migemo-use-pattern-alist t)
   (setq migemo-use-frequent-pattern-alist t)
-  (setq migemo-pattern-alist-file "~/.emacs.d/var/cache/migemo")
+  (setq migemo-pattern-alist-file (concat user-emacs-directory "var/cache/migemo"))
   (setq migemo-pattern-alist-length 1024)
 
   (setq migemo-isearch-enable-p nil)  ; toggle with <M-m>

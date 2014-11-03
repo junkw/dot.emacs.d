@@ -32,8 +32,8 @@
 ;;; Code:
 
 (setq projectile-enable-caching t)
-(setq projectile-cache-file "~/.emacs.d/var/cache/projectile")
-(setq projectile-known-projects-file "~/.emacs.d/var/bookmark/projectile.eld")
+(setq projectile-cache-file (concat user-emacs-directory "var/cache/projectile"))
+(setq projectile-known-projects-file (concat user-emacs-directory "var/bookmark/projectile.eld"))
 (setq projectile-completion-system 'helm)
 
 (add-hook 'prog-mode-hook 'projectile-mode)

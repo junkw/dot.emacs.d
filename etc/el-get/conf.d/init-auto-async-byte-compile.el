@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq auto-async-byte-compile-init-file "~/.emacs.d/pre-init-core.el")
+(setq auto-async-byte-compile-init-file (concat user-emacs-directory "pre-init-core.el"))
 (setq auto-async-byte-compile-exclude-files-regexp
       "\\(/\\(Dropbox\\|vendor\\|var\\|tmp\\)/\\|custom.el$\\)")
 

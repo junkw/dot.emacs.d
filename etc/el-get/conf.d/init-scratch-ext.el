@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq scratch-ext-log-directory "~/.emacs.d/var/log/scratch/")
+(setq scratch-ext-log-directory (concat user-emacs-directory "var/log/scratch/"))
 (setq scratch-ext-log-name-format "%Y-%m-%d-%H%M%S.el")
 
 ;; Local Variables:

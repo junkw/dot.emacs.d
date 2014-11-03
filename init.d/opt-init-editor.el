@@ -186,7 +186,7 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
   (increment-integer-at-point (- (or dec 1))))
 
 ;; Keyboad macro
-(defvar jkw:kmacro-save-file "~/.emacs.d/etc/kmacro.el"
+(defvar jkw:kmacro-save-file (concat user-emacs-directory "etc/kmacro.el")
   "Keyboard macro is saved in this file.")
 
 (defun kmacro-save (symbol)

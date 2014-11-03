@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq mc/list-file "~/.emacs.d/etc/multiple-cursors-list.el")
+(setq mc/list-file (concat user-emacs-directory "etc/multiple-cursors-list.el"))
 
 ;;;; Keymap
 (global-set-key (kbd "C-S-e")   'mc/edit-lines)

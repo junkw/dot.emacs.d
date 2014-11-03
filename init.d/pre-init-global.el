@@ -38,7 +38,7 @@
 (when cocoa-p
   (cl-loop for path in '("PATH" "INFOPATH" "MANPATH")
            do (setenv-path-from-shell path)))
-(add-to-list 'exec-path "~/.emacs.d/bin")
+(add-to-list 'exec-path (concat user-emacs-directory "bin"))
 
 ;;;; Locales
 (setenv "LC_ALL" "ja_JP.UTF-8")

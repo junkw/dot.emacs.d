@@ -35,8 +35,8 @@
 
 (lazyload 'woman '(woman woman-find-file)
   ;; Paths
-  (add-to-list 'woman-manpath "~/.emacs.d/share/man")
-  (setq woman-cache-filename "~/.emacs.d/var/cache/woman") ; Update cache: C-u M-x woman
+  (add-to-list 'woman-manpath (concat user-emacs-directory "share/man"))
+  (setq woman-cache-filename (concat user-emacs-directory "var/cache/woman")) ; Update cache: C-u M-x woman
 
   ;; Doesn't make new frame
   (setq woman-use-own-frame nil)

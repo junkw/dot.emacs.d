@@ -35,7 +35,7 @@
 
 ;; OAuth
 (setq twittering-use-master-password t)
-(setq twittering-private-info-file "~/.emacs.d/etc/twittering-mode.gpg")
+(setq twittering-private-info-file (concat user-emacs-directory "etc/twittering-mode.gpg"))
 
 ;; Time Line
 (setq twittering-status-format "%i %s,  %@:\n%FOLD[	]{%T  // from %f%r%R}\n")

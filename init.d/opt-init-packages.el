@@ -33,12 +33,12 @@
 
 ;;;; Init
 ;; Need to init before loading el-get
-(setq el-get-dir "~/.emacs.d/vendor/")
+(setq el-get-dir (concat user-emacs-directory "vendor/"))
 (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
 (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get")))
 
-(setq el-get-recipe-path-emacswiki "~/.emacs.d/etc/el-get/recipes/emacswiki/")
-(setq el-get-recipe-path-elpa "~/.emacs.d/etc/el-get/recipes/elpa/")
+(setq el-get-recipe-path-emacswiki (concat user-emacs-directory "etc/el-get/recipes/emacswiki/"))
+(setq el-get-recipe-path-elpa (concat user-emacs-directory "etc/el-get/recipes/elpa/"))
 
 ;;;; Installed packages
 ;; Fix original recipes
@@ -49,7 +49,7 @@
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
         (:name smartparens :features smartparens-config)
-        (:name pcache :before (setq pcache-directory "~/.emacs.d/var/cache/pcache/"))
+        (:name pcache :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
         (:name popwin :features popwin)
         (:name powerline :autoloads nil)
         (:name projectile :depends (dash helm s pkg-info))
@@ -77,8 +77,8 @@
   (unless (called-interactively-p 'interactive)
     ;; Eval in the el-get bootstrap.
     (setq el-get-verbose t)
-    (add-to-list 'el-get-recipe-path "~/.emacs.d/etc/el-get/recipes/local/")
-    (setq el-get-user-package-directory "~/.emacs.d/etc/el-get/conf.d/"))
+    (add-to-list 'el-get-recipe-path (concat user-emacs-directory "etc/el-get/recipes/local/"))
+    (setq el-get-user-package-directory (concat user-emacs-directory "etc/el-get/conf.d/")))
   (let* ((src (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources)))
          (pkg (append src jkw:el-get-package-list-from-recipe)))
     (el-get 'sync pkg)))
