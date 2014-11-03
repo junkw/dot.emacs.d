@@ -34,7 +34,9 @@
 (require 'cl-lib)
 
 ;; Emacsclient
-(server-start)
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 
 ;; Garbage collection
 (setq gc-cons-threshold (* 10 gc-cons-threshold))
