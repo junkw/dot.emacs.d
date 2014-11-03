@@ -85,7 +85,7 @@
 (setq savehist-file (concat user-emacs-directory "var/cache/savehist"))
 (setq savehist-additional-variables '(search-ring regexp-search-ring))
 (setq savehist-autosave-interval (* 10 60)) ; sec.
-(savehist-mode 1)
+(savehist-mode +1)
 
 ;; Recently used file
 (require 'recentf)
@@ -94,7 +94,7 @@
 (setq recentf-max-saved-items 100)
 (setq recentf-exclude '("^/[^/:]+:" "/\.loaddefs.elc?$" "/COMMIT_EDITMSG$"
                         "/Drafts/" "/var/" "/TAGS$" "/tmp/"))
-(recentf-mode 1)
+(recentf-mode +1)
 
 ;; Save cursor's place
 (require 'saveplace)

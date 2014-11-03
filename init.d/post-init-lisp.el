@@ -52,8 +52,8 @@
 ;;;; Hooks
 (defun jkw:lisp-mode-hooks ()
   "My config for (Emacs) Lisp mode."
-  (eldoc-mode 1)
-  (linum-mode 1)
+  (eldoc-mode +1)
+  (linum-mode +1)
   (setq indent-tabs-mode nil)
   (setq imenu-prev-index-position-function nil)
   (add-to-list 'imenu-generic-expression '("Sections" "^;;;; \\(.+\\)$" 1) t))

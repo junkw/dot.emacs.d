@@ -44,7 +44,7 @@
 (setcar (cdr (assq 'isearch-mode minor-mode-alist))
         '(:eval (anzu--update-mode-line)))
 
-(global-anzu-mode 1)
+(global-anzu-mode +1)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

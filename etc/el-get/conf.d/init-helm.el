@@ -43,7 +43,7 @@
 (setq helm-persistent-action-use-special-display t)
 (setq helm-yank-symbol-first t)
 
-(helm-mode 1)
+(helm-mode +1)
 
 (setq helm-completion-mode-string "")
 

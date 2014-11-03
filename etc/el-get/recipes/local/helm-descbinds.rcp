@@ -5,4 +5,4 @@
        :type        github
        :pkgname     "emacs-helm/helm-descbinds"
        :features    helm-descbinds
-       :post-init   (helm-descbinds-mode 1))
+       :post-init   (helm-descbinds-mode +1))

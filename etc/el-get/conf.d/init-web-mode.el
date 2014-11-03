@@ -52,7 +52,7 @@
   (setq web-mode-css-indent-offset    2)
   (setq web-mode-code-indent-offset   4)
   (setq indent-tabs-mode nil)
-  (linum-mode 1))
+  (linum-mode +1))
 
 (add-hook 'web-mode-hook 'jkw:web-mode-hooks)
 

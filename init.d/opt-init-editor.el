@@ -46,7 +46,7 @@
 (setq scroll-preserve-screen-position t)
 
 ;; If mark is active, any typed text replaces the selection.
-(delete-selection-mode 1)
+(delete-selection-mode +1)
 
 ;; Enable to pop `mark-ring' repeatedly like C-u C-SPC C-SPC...
 (setq set-mark-command-repeat-pop t)
@@ -56,10 +56,10 @@
 
 ;;;; Highlight
 (setq transient-mark-mode t)
-(global-hl-line-mode 1)
+(global-hl-line-mode +1)
 (when init-module-load-only-pre-init-files ; Use `show-smartparens-mode' commonly
   (setq show-paren-delay 0)
-  (show-paren-mode 1))
+  (show-paren-mode +1))
 
 (require 'generic-x)
 

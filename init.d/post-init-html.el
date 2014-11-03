@@ -49,7 +49,7 @@
 (defun jkw:nxml-mode-hooks ()
   "My config for nxml mode."
   (setq indent-tabs-mode nil)
-  (linum-mode 1))
+  (linum-mode +1))
 
 (add-hook 'nxml-mode-hook 'jkw:nxml-mode-hooks)
 

@@ -35,13 +35,13 @@
 (require 'smartparens)
 
 ;; Enable in global, but work as strict in every lisp mode
-(smartparens-global-mode 1)
+(smartparens-global-mode +1)
 (add-hooks sp--lisp-modes 'smartparens-strict-mode)
 
 ;; Highlight matching pairs
 (setq sp-show-pair-delay 0)
 (setq sp-show-pair-from-inside t)
-(show-smartparens-global-mode 1)
+(show-smartparens-global-mode +1)
 
 ;;;; Pair management
 (sp-with-modes 'org-mode

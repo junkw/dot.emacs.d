@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(popwin-mode 1)
+(popwin-mode +1)
 
 ;;;; Display config
 (push '(all-mode :noselect t) popwin:special-display-config)

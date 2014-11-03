@@ -57,7 +57,7 @@
     (defun jkw:mu4e-compose-mode-hooks ()
       "My config for message composition."
       (set-fill-column 80)
-      (flyspell-mode 1))
+      (flyspell-mode +1))
 
     (add-hook 'mu4e-compose-mode-hook 'jkw:mu4e-compose-mode-hooks)
 

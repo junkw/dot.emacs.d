@@ -43,8 +43,8 @@
 (setq eol-mnemonic-unix "+LF")
 (setq eol-mnemonic-undecided "")
 
-(column-number-mode 1)
-(size-indication-mode 1)
+(column-number-mode +1)
+(size-indication-mode +1)
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)

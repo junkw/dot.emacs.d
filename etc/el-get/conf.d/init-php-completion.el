@@ -34,10 +34,10 @@
 ;;;; Hooks
 (defun jkw:php-completion-mode-hooks ()
   "My php-completion-mode config for PHP mode."
-  (php-completion-mode 1)
+  (php-completion-mode +1)
   (when (require 'auto-complete nil t)
     (add-to-list 'ac-sources 'ac-source-php-completion-patial)
-    (auto-complete-mode 1)))
+    (auto-complete-mode +1)))
 
 (add-hook 'php-mode-hook 'jkw:php-completion-mode-hooks)
 
