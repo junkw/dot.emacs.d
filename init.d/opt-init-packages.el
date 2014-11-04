@@ -45,6 +45,7 @@
 (setq el-get-sources
       '((:name el-get :branch "master")
         (:name auto-complete :submodule nil :features auto-complete-config)
+        (:name dired+ :autoloads nil)
         (:name direx :depends popwin)
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
@@ -59,7 +60,7 @@
 
 (defvar jkw:el-get-package-list-from-recipe
   '(ace-jump-mode ag all-ext anzu auto-async-byte-compile cl-lib-highlight cssm-mode
-                  dash-at-point dired-sync dired+ e2wm e2wm-bookmark eldoc-extension
+                  dash-at-point dired-sync e2wm e2wm-bookmark eldoc-extension
                   elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck
                   geben gist git-gutter-fringe goto-chg helm helm-ag helm-c-yasnippet
                   helm-descbinds helm-migemo helm-swoop highlight-symbol info+ js2-mode
