@@ -1,8 +1,23 @@
 # -*- mode: ruby; coding: utf-8; indent-tabs-mode: nil -*-
+require 'fileutils'
+
 
 
 task :make_dir do
-  sh "mkdir -p #{Dir.pwd}/bin #{Dir.pwd}/etc/auto-complete #{Dir.pwd}/etc/el-get/recipes/elpa #{Dir.pwd}/etc/el-get/recipes/emacswiki #{Dir.pwd}/etc/mu4e #{Dir.pwd}/etc/yasnippet #{Dir.pwd}/share/info #{Dir.pwd}/share/man #{Dir.pwd}/var/backup #{Dir.pwd}/var/bookmark #{Dir.pwd}/var/cache #{Dir.pwd}/var/log #{Dir.pwd}/var/tmp #{Dir.pwd}/vendor"
+  FileUtils.mkdir_p("#{Dir.pwd}/bin")
+  FileUtils.mkdir_p("#{Dir.pwd}/etc/auto-complete")
+  FileUtils.mkdir_p("#{Dir.pwd}/etc/el-get/recipes/elpa")
+  FileUtils.mkdir_p("#{Dir.pwd}/etc/el-get/recipes/emacswiki")
+  FileUtils.mkdir_p("#{Dir.pwd}/etc/mu4e")
+  FileUtils.mkdir_p("#{Dir.pwd}/etc/yasnippet")
+  FileUtils.mkdir_p("#{Dir.pwd}/share/info")
+  FileUtils.mkdir_p("#{Dir.pwd}/share/man")
+  FileUtils.mkdir_p("#{Dir.pwd}/var/backup")
+  FileUtils.mkdir_p("#{Dir.pwd}/var/bookmark")
+  FileUtils.mkdir_p("#{Dir.pwd}/var/cache")
+  FileUtils.mkdir_p("#{Dir.pwd}/var/log")
+  FileUtils.mkdir_p("#{Dir.pwd}/var/tmp")
+  FileUtils.mkdir_p("#{Dir.pwd}/vendor")
 end
 
 task :compile do
@@ -14,15 +29,21 @@ task :tags do
 end
 
 task :link do
-  sh "ln -s #{Dir.pwd} ~/.emacs.d"
+  FileUtils.ln_sf(Dir.pwd, "#{Dir.home}/.emacs.d")
 end
 
 task :cleanup_var do
-  sh "rm -rf #{Dir.pwd}/var/backup/* #{Dir.pwd}/var/bookmark/* #{Dir.pwd}/var/cache/* #{Dir.pwd}/var/log/* #{Dir.pwd}/var/tmp/*"
+  FileUtils.rm_rf("#{Dir.pwd}/var/backup/*")
+  FileUtils.rm_rf("#{Dir.pwd}/var/bookmark/*")
+  FileUtils.rm_rf("#{Dir.pwd}/var/cache/*")
+  FileUtils.rm_rf("#{Dir.pwd}/var/log/*")
+  FileUtils.rm_rf("#{Dir.pwd}/var/tmp/*")
 end
 
 task :cleanup_elc do
-  sh "rm -f #{Dir.pwd}/init.elc #{Dir.pwd}/init.d/*.elc  #{Dir.pwd}/etc/el-get/conf.d/*.elc"
+  FileUtils.rm_rf("#{Dir.pwd}/init.elc")
+  FileUtils.rm_rf("#{Dir.pwd}/init.d/*.elc")
+  FileUtils.rm_rf("#{Dir.pwd}/etc/el-get/conf.d/*.elc")
 end
 
 task :default => [:make_dir, :compile, :tags, :link]
