@@ -39,6 +39,18 @@
 ;; Open log and README files as read only
 (setq view-mode-by-default-regexp "\\/\\(ChangeLog\\|NEWS\\|README\\)\\|\\.log\\'")
 
+(defun view-mode-by-default-setup-with-case-sensitive ()
+  "Use `view-mode-by-default-regexp' as a case sensitive.
+
+Advice function for `view-mode-by-default-setup'."
+  (let ((case-fold-search nil))
+    (when (and buffer-file-name view-mode-by-default-regexp
+               (string-match view-mode-by-default-regexp buffer-file-name))
+      (view-mode 1)
+      (message "view-mode by view-mode-by-default-regexp."))))
+
+(advice-add 'view-mode-by-default-setup :override #'view-mode-by-default-setup-with-case-sensitive)
+
 ;; Mode line color
 (setq viewer-modeline-color-default (face-foreground 'mode-line-buffer-id))
 (with-eval-after-load 'monokai-theme

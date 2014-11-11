@@ -31,8 +31,6 @@
 
 ;;; Code:
 
-(setq-default case-fold-search nil)     ; case sensitive
-
 ;; http://dev.ariel-networks.com/articles/emacs/part5/
 (defun isearch-mode-with-region (orig-fun forward &optional regexp op-fun recursive-edit word)
   "Start isearch with mark-set keywords.
