@@ -35,6 +35,9 @@
 
 ;;;; mu4e
 (when (executable-find "mu")
+  (autoload 'mu4e "mu4e" "Start mu4e, then show the main view." t)
+  (autoload 'mu4e~compose-mail "mu4e-compose" "Start writing a new message." t)
+
   (with-eval-after-load 'mu4e
     (require 'org-mu4e)
 
