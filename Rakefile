@@ -4,20 +4,21 @@ require 'fileutils'
 
 
 task :make_dir do
-  FileUtils.mkdir_p("#{Dir.pwd}/bin")
-  FileUtils.mkdir_p("#{Dir.pwd}/etc/auto-complete")
-  FileUtils.mkdir_p("#{Dir.pwd}/etc/el-get/recipes/elpa")
-  FileUtils.mkdir_p("#{Dir.pwd}/etc/el-get/recipes/emacswiki")
-  FileUtils.mkdir_p("#{Dir.pwd}/etc/mu4e")
-  FileUtils.mkdir_p("#{Dir.pwd}/etc/yasnippet")
-  FileUtils.mkdir_p("#{Dir.pwd}/share/info")
-  FileUtils.mkdir_p("#{Dir.pwd}/share/man")
-  FileUtils.mkdir_p("#{Dir.pwd}/var/backup")
-  FileUtils.mkdir_p("#{Dir.pwd}/var/bookmark")
-  FileUtils.mkdir_p("#{Dir.pwd}/var/cache")
-  FileUtils.mkdir_p("#{Dir.pwd}/var/log")
-  FileUtils.mkdir_p("#{Dir.pwd}/var/tmp")
-  FileUtils.mkdir_p("#{Dir.pwd}/vendor")
+  emacs_dirs = ["#{Dir.pwd}/bin",
+                "#{Dir.pwd}/etc/auto-complete",
+                "#{Dir.pwd}/etc/el-get/recipes/elpa",
+                "#{Dir.pwd}/etc/el-get/recipes/emacswiki",
+                "#{Dir.pwd}/etc/mu4e",
+                "#{Dir.pwd}/etc/yasnippet",
+                "#{Dir.pwd}/share/info",
+                "#{Dir.pwd}/share/man",
+                "#{Dir.pwd}/var/backup",
+                "#{Dir.pwd}/var/bookmark",
+                "#{Dir.pwd}/var/cache",
+                "#{Dir.pwd}/var/log",
+                "#{Dir.pwd}/var/tmp",
+                "#{Dir.pwd}/vendor"]
+  FileUtils.mkdir_p(emacs_dirs)
 end
 
 task :compile do
@@ -33,17 +34,12 @@ task :link do
 end
 
 task :cleanup_var do
-  FileUtils.rm_rf("#{Dir.pwd}/var/backup/*")
-  FileUtils.rm_rf("#{Dir.pwd}/var/bookmark/*")
-  FileUtils.rm_rf("#{Dir.pwd}/var/cache/*")
-  FileUtils.rm_rf("#{Dir.pwd}/var/log/*")
-  FileUtils.rm_rf("#{Dir.pwd}/var/tmp/*")
+  FileUtils.rm(Dir.glob("#{Dir.pwd}/var/{backup,bookmark,cache,log,tmp}/*"))
 end
 
 task :cleanup_elc do
-  FileUtils.rm_rf("#{Dir.pwd}/init.elc")
-  FileUtils.rm_rf("#{Dir.pwd}/init.d/*.elc")
-  FileUtils.rm_rf("#{Dir.pwd}/etc/el-get/conf.d/*.elc")
+  elcs = ["#{Dir.pwd}/init.elc", "#{Dir.pwd}/init.d/*.elc", "#{Dir.pwd}/etc/el-get/conf.d/*.elc"]
+  FileUtils.rm_f(elcs)
 end
 
 task :default => [:make_dir, :compile, :tags, :link]
