@@ -22,7 +22,7 @@ task :make_dir do
 end
 
 task :compile do
-  sh "emacs -batch -L #{Dir.pwd}/init.d/ -f batch-byte-compile init.el #{Dir.pwd}/init.d/*.el"
+  sh "emacs --batch -L #{Dir.pwd}/init.d/ -f batch-byte-compile #{Dir.pwd}/init.el #{Dir.pwd}/init.d/*.el"
 end
 
 task :tags do
@@ -38,8 +38,7 @@ task :cleanup_var do
 end
 
 task :cleanup_elc do
-  elcs = ["#{Dir.pwd}/init.elc", "#{Dir.pwd}/init.d/*.elc", "#{Dir.pwd}/etc/el-get/conf.d/*.elc"]
-  FileUtils.rm_f(elcs)
+  FileUtils.rm(Dir.glob("#{Dir.pwd}/{init.elc,**/*init-*.elc}"))
 end
 
 task :default => [:make_dir, :compile, :tags, :link]
