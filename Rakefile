@@ -30,6 +30,10 @@ task :tags do
 end
 
 task :link do
+  git_hooks = ["#{Dir.pwd}/share/git/post-checkout",
+               "#{Dir.pwd}/share/git/post-merge",
+               "#{Dir.pwd}/share/git/post-rewrite"]
+  FileUtils.ln_sf(git_hooks, "#{Dir.pwd}/.git/hooks/")
   FileUtils.ln_sf(Dir.pwd, "#{Dir.home}/.emacs.d")
 end
 
