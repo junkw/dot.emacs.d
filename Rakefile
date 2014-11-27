@@ -38,7 +38,7 @@ task :link do
 end
 
 task :cleanup_var do
-  FileUtils.rm(Dir.glob("#{Dir.pwd}/var/{backup,bookmark,cache,log,tmp}/*"))
+  FileUtils.rm_r(Dir.glob("#{Dir.pwd}/var/{backup,bookmark,cache,log,tmp}/*"))
 end
 
 task :cleanup_elc do
