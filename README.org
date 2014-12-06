@@ -2,16 +2,21 @@
 
 * My Emacs config
 
+** Requirements
+
+   - Mac OS X Yosemite
+   - Homebrew
+
 ** Installation
 
 #+BEGIN_SRC sh
-$ brew tap railwaycat/emacsmacport
-$ brew install emacs-mac --icon-modern --with-gnutls --with-imagemagick --with-xml2
-$ brew linkapps
-$ git clone https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
-$ cd /path/to/local/repo
-$ rake
-$ open -a Emacs
+brew tap railwaycat/emacsmacport
+brew install emacs-mac --icon-modern --with-gnutls --with-imagemagick --with-xml2
+brew linkapps
+git clone https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
+cd /path/to/local/repo
+rake
+open -a Emacs
 #+END_SRC
 
 ** Structure
