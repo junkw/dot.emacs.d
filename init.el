@@ -4,7 +4,7 @@
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Jul. 24, 2012
-;; Keywords: .emacs
+;; Keywords: .emacs, el-get, ELPA
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -25,6 +25,7 @@
 
 ;;; Commentary:
 ;;
+;; https://github.com/emacs-jp/init-loader
 
 ;;; Change Log:
 ;;
@@ -48,8 +49,6 @@
   :type  'string
   :group 'init-module)
 
-(add-to-list 'load-path init-module-init-directory)
-
 (defcustom init-module-load-only-pre-init-files nil
   "If this variable is non-nil, startup with minimum Emacs config."
   :type  'boolean
@@ -60,8 +59,38 @@
   :type  'string
   :group 'init-module)
 
+;;;; Installed packages via el-get
+;; Fix original recipes
+(setq el-get-sources
+      '((:name el-get :branch "master")
+        (:name auto-complete :submodule nil :features auto-complete-config)
+        (:name dired+ :autoloads nil)
+        (:name direx :depends popwin)
+        (:name helm-ls-git :depends (helm magit))
+        (:name highlight-indentation :features highlight-indentation)
+        (:name smartparens :features smartparens-config)
+        (:name pcache :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
+        (:name popwin :features popwin)
+        (:name powerline :autoloads nil)
+        (:name projectile :depends (dash helm s pkg-info))
+        (:name undo-tree :features undo-tree)
+        (:name yasnippet :features yasnippet)
+        ))
+
+(defvar jkw:el-get-package-list-from-recipe
+  '(ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile cl-lib-highlight
+                cssm-mode dash-at-point dired-sync e2wm e2wm-bookmark eldoc-extension
+                elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck geben
+                gist git-gutter-fringe goto-chg helm helm-ag helm-c-yasnippet
+                helm-descbinds helm-migemo helm-swoop highlight-symbol info+ js2-mode
+                linum-relative lispxmp magit markdown-mode migemo monokai-emacs
+                multiple-cursors mykie org-mode php-completion php-mode psvn rainbow-mode
+                recentf-ext scratch-ext sequential-command smart-newline smartrep tern
+                twittering-mode viewer web-mode wgrep)
+  "List of packages I use straight from recipe files.")
+
 ;;;; Internal functions
-(defun init-module-list-files (regexp)
+(defun init-module--list-files (regexp)
   "Show init modules containing a match for REGEXP in `init-module-init-directory'.
 
 If a elisp file has a byte-compiled file, show the byte-compiled file only."
@@ -72,9 +101,9 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
                               (not (locate-library (concat el "c"))))))
            collect (file-name-nondirectory el)))
 
-(defun init-module-load-files (regexp)
+(defun init-module--load-files (regexp)
   "Load init modules matching the REGEXP specified."
-  (cl-loop for mod in (init-module-list-files regexp)
+  (cl-loop for mod in (init-module--list-files regexp)
            do (condition-case err
                   (load (file-name-sans-extension mod))
                 (error
@@ -83,20 +112,58 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
                                   (error-message-string err)))))))
 
 ;;;; Command
+;; Need to init after loading el-get
+(defun el-get-initialize-packages ()
+  "Install packages via `el-get', and initialize them."
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    ;; Eval in the el-get bootstrap.
+    (setq el-get-verbose t)
+    (add-to-list 'el-get-recipe-path (concat user-emacs-directory "etc/el-get/recipes/local/"))
+    (setq el-get-user-package-directory (concat user-emacs-directory "etc/el-get/conf.d/")))
+  (let* ((src (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources)))
+         (pkg (append src jkw:el-get-package-list-from-recipe)))
+    (el-get 'sync pkg)))
+
 (defun init-module-initialize ()
   "Initialize Emacs init files."
   (interactive)
   ;; Minimum config
-  (init-module-load-files "^pre-init-")
+  (init-module--load-files "^pre-init-")
 
   (unless init-module-load-only-pre-init-files
     ;; Environment-dependent config
     (if (null window-system)
-        (init-module-load-files "^cui-init-")
-      (init-module-load-files "^gui-init-"))
+        (init-module--load-files "^cui-init-")
+      (init-module--load-files "^gui-init-"))
+
+    ;; el-get installer
+    (if (require 'el-get nil t)
+        (el-get-initialize-packages)
+      (url-retrieve
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
+       (lambda (s)
+         (let (el-get-master-branch)
+           (goto-char (point-max)) (eval-print-last-sexp)
+           ;; After el-get is installed, inits ELPA and builds its recipe files,
+           ;; finally installes all packages I use.
+           (el-get 'sync 'package) (package-initialize) (el-get-elpa-build-local-recipes)
+           (el-get-initialize-packages)))))
+
     ;; Advanced config
-    (init-module-load-files init-module-opt-init-file-regexp)
-    (init-module-load-files "^post-init-")))
+    (init-module--load-files init-module-opt-init-file-regexp)
+    (init-module--load-files "^post-init-")))
+
+;;;; Bootstrap
+(add-to-list 'load-path init-module-init-directory)
+
+;; Need to init before loading el-get
+(unless init-module-load-only-pre-init-files
+  (setq el-get-dir (concat user-emacs-directory "vendor/"))
+  (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
+  (setq el-get-recipe-path-emacswiki (concat user-emacs-directory "etc/el-get/recipes/emacswiki/"))
+  (setq el-get-recipe-path-elpa (concat user-emacs-directory "etc/el-get/recipes/elpa/"))
+  (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get"))))
 
 (init-module-initialize)
 
