@@ -38,6 +38,8 @@
   "Return t if this system is Mac OS X.")
 (defvar cocoa-p (featurep 'ns)
   "Return t if this Emacs is cocoa version.")
+(defvar mac-port-p (featurep 'mac)
+  "Return t if this Emacs is mac port version.")
 (defvar linux-p (eq system-type 'gnu/linux)
   "Return t if this system is Linux.")
 (defvar cygwin-p (eq system-type 'cygwin)

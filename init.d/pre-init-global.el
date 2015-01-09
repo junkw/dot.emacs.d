@@ -71,12 +71,14 @@ Advice function for `abort-recursive-edit'."
 (advice-add 'abort-recursive-edit :before #'abort-recursive-edit-and-save-minibuffer)
 
 ;;;; Input Method
-(when (and mac-p (fboundp 'mac-input-method-mode))
-  (setq default-input-method "MacOSX")
-  (setq mac-use-input-method-on-system t)
-  (mac-translate-from-yen-to-backslash)
-  (add-hook 'after-init-hook 'mac-change-language-to-us)
-  (add-hook 'minibuffer-setup-hook 'mac-change-language-to-us))
+(cond (mac-port-p
+       (mac-auto-ascii-mode +1))
+      ((and cocoa-p (fboundp 'mac-input-method-mode))
+       (setq default-input-method "MacOSX")
+       (setq mac-use-input-method-on-system t)
+       (mac-translate-from-yen-to-backslash)
+       (add-hook 'after-init-hook 'mac-change-language-to-us)
+       (add-hook 'minibuffer-setup-hook 'mac-change-language-to-us)))
 
 ;;;; Keymap
 (global-set-key (kbd "C-M-g") 'keyboard-escape-quit)
