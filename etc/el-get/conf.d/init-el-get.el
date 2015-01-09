@@ -37,6 +37,8 @@
 (require 'el-get-list-packages)
 (require 'el-get-recipes)
 
+(setq el-get-package-menu-sort-key "Status")
+
 ;; Use function `terminal-notifier-notify' as `el-get-growl' on Mac OS X.
 (when (executable-find "terminal-notifier")
   (fset 'el-get-growl 'terminal-notifier-notify))
