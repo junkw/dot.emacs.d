@@ -35,7 +35,7 @@
 (require 'pre-init-core)
 
 ;;;; Paths
-(when cocoa-p
+(when (or cocoa-p mac-port-p)
   (cl-loop for path in '("PATH" "INFOPATH" "MANPATH")
            do (setenv-path-from-shell path)))
 (add-to-list 'exec-path (concat user-emacs-directory "bin"))
