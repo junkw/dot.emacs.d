@@ -1,9 +1,0 @@
-(:name php-align
-       :description "Alignment configuration for PHP."
-       :website     "https://github.com/tetsujin/emacs-php-align#readme"
-       :depends     php-mode
-       :type        github
-       :pkgname     "tetsujin/emacs-php-align"
-       :post-init   (add-hook 'php-mode-hook (lambda ()
-                                               (require 'php-align)
-                                               (php-align-setup))))

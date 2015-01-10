@@ -10,4 +10,4 @@
                        '("oldorg" "card"))
        :load-path   ("." "lisp" "contrib/lisp")
        :autoloads   nil
-       :features    org)
+       :load        "lisp/org-loaddefs.el")

@@ -1,7 +1,0 @@
-(:name helm-migemo
-       :description "Migemo plug-in for helm"
-       :website     "https://github.com/emacs-helm/helm-migemo"
-       :depends     (helm migemo)
-       :type        github
-       :pkgname     "emacs-helm/helm-migemo"
-       :features    helm-migemo)

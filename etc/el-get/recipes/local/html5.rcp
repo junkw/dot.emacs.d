@@ -1,7 +1,0 @@
-(:name html5
-       :description "Umbrella project for projects adding HTML5 support to Emacs."
-       :website     "http://github.com/hober/html5-el#readme"
-       :type        github
-       :pkgname     "purcell/html5-el"
-       :branch      "patch-1"
-       :build       (("make" "relaxng")))

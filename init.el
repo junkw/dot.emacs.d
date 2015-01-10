@@ -62,31 +62,34 @@
 ;;;; Installed packages via el-get
 ;; Fix original recipes
 (setq el-get-sources
-      '((:name el-get :branch "master")
-        (:name auto-complete :submodule nil :features auto-complete-config)
-        (:name dired+ :autoloads nil)
+      '((:name dired+ :autoloads nil)
         (:name direx :depends popwin)
+        (:name helm :autoloads nil :before (setq dired-bind-jump nil) :features helm-config)
+        (:name helm-descbinds :prepare nil :library helm :after (helm-descbinds-mode +1))
         (:name helm-ls-git :depends (helm magit))
+        (:name helm-migemo :depends (helm migemo))
+        (:name helm-swoop :depends (helm migemo helm-migemo))
         (:name highlight-indentation :features highlight-indentation)
         (:name smartparens :features smartparens-config)
-        (:name pcache :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
+        (:name smartrep :features smartrep)
+        (:name pcache
+               :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
         (:name popwin :features popwin)
         (:name powerline :autoloads nil)
-        (:name projectile :depends (dash helm s pkg-info))
+        (:name projectile :depends (dash helm s f pkg-info))
+        (:name twittering-mode :features nil)
         (:name undo-tree :features undo-tree)
-        (:name yasnippet :features yasnippet)
-        ))
+        (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)))
 
 (defvar jkw:el-get-package-list-from-recipe
-  '(ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile cl-lib-highlight
-                cssm-mode dash-at-point dired-sync e2wm e2wm-bookmark eldoc-extension
-                elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck geben
-                gist git-gutter-fringe goto-chg helm helm-ag helm-c-yasnippet
-                helm-descbinds helm-migemo helm-swoop highlight-symbol info+ js2-mode
-                linum-relative lispxmp magit markdown-mode migemo monokai-emacs
-                multiple-cursors mykie org-mode php-completion php-mode psvn rainbow-mode
-                recentf-ext scratch-ext sequential-command smart-newline smartrep tern
-                twittering-mode viewer web-mode wgrep)
+  '(ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile auto-complete
+                cl-lib-highlight cssm-mode dash-at-point dired-sync e2wm e2wm-bookmark
+                eldoc-extension elisp-slime-nav emmet-mode expand-region foreign-regexp
+                flycheck geben gist git-gutter-fringe goto-chg helm-ag helm-c-yasnippet
+                highlight-symbol info+ js2-mode linum-relative lispxmp magit markdown-mode
+                migemo monokai-emacs multiple-cursors mykie org-mode php-completion
+                php-mode psvn rainbow-mode recentf-ext scratch-ext sequential-command
+                smart-newline tern viewer web-mode wgrep)
   "List of packages I use straight from recipe files.")
 
 ;;;; Internal functions
@@ -116,11 +119,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 (defun el-get-initialize-packages ()
   "Install packages via `el-get', and initialize them."
   (interactive)
-  (unless (called-interactively-p 'interactive)
-    ;; Eval in the el-get bootstrap.
-    (setq el-get-verbose t)
-    (add-to-list 'el-get-recipe-path (concat user-emacs-directory "etc/el-get/recipes/local/"))
-    (setq el-get-user-package-directory (concat user-emacs-directory "etc/el-get/conf.d/")))
+  (el-get 'sync 'el-get)
   (let* ((src (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources)))
          (pkg (append src jkw:el-get-package-list-from-recipe)))
     (el-get 'sync pkg)))
@@ -161,8 +160,11 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 (unless init-module-load-only-pre-init-files
   (setq el-get-dir (concat user-emacs-directory "vendor/"))
   (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
+  (setq el-get-user-package-directory (concat user-emacs-directory "etc/el-get/conf.d/"))
   (setq el-get-recipe-path-emacswiki (concat user-emacs-directory "etc/el-get/recipes/emacswiki/"))
   (setq el-get-recipe-path-elpa (concat user-emacs-directory "etc/el-get/recipes/elpa/"))
+  (with-eval-after-load 'el-get
+    (add-to-list 'el-get-recipe-path (concat user-emacs-directory "etc/el-get/recipes/local/")))
   (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get"))))
 
 (init-module-initialize)

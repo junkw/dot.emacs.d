@@ -1,8 +1,0 @@
-(:name flymake-phpcs
-       :description "Flymake handler for PHP to invoke PHP-CodeSniffer."
-       :website     "https://github.com/illusori/emacs-flymake-phpcs#readme"
-       :depends     php-mode
-       :type        github
-       :pkgname     "illusori/emacs-flymake-phpcs"
-       :features    flymake-phpcs
-       :post-init   (setq flymake-phpcs-show-rule t))

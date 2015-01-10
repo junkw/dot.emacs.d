@@ -1,6 +1,0 @@
-(:name twittering-mode
-       :description "Major mode for Twitter"
-       :website     "http://twmode.sourceforge.net/"
-       :type        github
-       :pkgname     "hayamiz/twittering-mode"
-       :compile     "twittering-mode.el")

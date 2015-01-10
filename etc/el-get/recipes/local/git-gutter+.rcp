@@ -1,6 +1,0 @@
-(:name git-gutter+
-	   :description "Manage Git hunks straight from the buffer."
-	   :website     "https://github.com/nonsequitur/git-gutter-plus"
-	   :depends     git-modes
-	   :type        github
-	   :pkgname     "nonsequitur/git-gutter-plus")
