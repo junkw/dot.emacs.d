@@ -32,8 +32,6 @@
 ;;; Code:
 
 ;;;; Init
-(require 'helm-config)
-
 (setq helm-adaptive-history-file (concat user-emacs-directory "var/cache/helm-adaptive-history"))
 (setq helm-candidate-number-limit 300)
 (setq helm-idle-delay 0.01)
@@ -56,25 +54,6 @@
           helm-source-file-cache
           helm-source-files-in-current-dir
           helm-source-mac-spotlight)))
-
-;; Fix matching method in `helm-buffers-list'.
-;; http://d.hatena.ne.jp/a_bicky/20140104/1388822688
-(defun helm-buffers-list-pattern-transformer (pattern)
-  "Match function to transform the PATTERN."
-  (if (equal pattern "")
-      pattern
-    ;; Escape '.' to match '.' instead of an arbitrary character
-    (setq pattern (replace-regexp-in-string "\\." "\\\\." pattern))
-    (let ((first-char (substring pattern 0 1)))
-      (cond ((equal first-char "*")
-             (concat " " pattern))
-            ((equal first-char "=")
-             (concat "*" (substring pattern 1)))
-            (t
-             pattern)))))
-
-(add-to-list 'helm-source-buffers-list
-             '(pattern-transformer helm-buffers-list-pattern-transformer))
 
 ;;;; Keymap
 (global-set-key [remap execute-extended-command] 'helm-M-x)
