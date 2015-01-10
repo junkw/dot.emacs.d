@@ -56,21 +56,17 @@
           helm-source-mac-spotlight)))
 
 ;;;; Keymap
-(global-set-key [remap execute-extended-command] 'helm-M-x)
-(global-set-key [remap find-file]    'helm-find-files)
-(global-set-key [remap list-buffers] 'helm-buffers-list)
-(global-set-key (kbd "C-;")          'helm-for-files)
-(global-set-key (kbd "C-M-y")        'helm-show-kill-ring)
+(global-set-key (kbd "M-x")     'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+(global-set-key (kbd "C-;")     'helm-for-files)
+(global-set-key (kbd "C-M-y")   'helm-show-kill-ring)
 
-(define-key helm-map (kbd "C-z") nil)
-(define-key helm-map (kbd "C-o") nil)
 (define-key helm-map (kbd "C-k") nil)
 
-(define-key helm-map (kbd "C-o")   'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-q")   'helm-delete-minibuffer-contents)
 (define-key helm-map (kbd "C-M-n") 'helm-next-source)
 (define-key helm-map (kbd "C-M-p") 'helm-previous-source)
-(define-key helm-read-file-map (kbd "C-o") 'helm-execute-persistent-action)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
