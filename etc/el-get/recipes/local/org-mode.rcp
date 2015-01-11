@@ -3,11 +3,12 @@
        :website     "http://orgmode.org/"
        :type        git
        :url         "git://orgmode.org/org-mode.git"
+       :checkout    "release_8.2.10"
        :info        "doc"
        :build       `,(mapcar
                        (lambda (target)
                          (list "make" target (concat "EMACS=" (shell-quote-argument el-get-emacs))))
                        '("oldorg" "card"))
-       :load-path   ("." "lisp" "contrib/lisp")
+       :load-path   ("lisp" "contrib/lisp")
        :autoloads   nil
-       :load        "lisp/org-loaddefs.el")
+       :features    org-loaddefs)
