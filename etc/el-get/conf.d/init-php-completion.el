@@ -34,16 +34,10 @@
 ;;;; Hooks
 (defun jkw:php-completion-mode-hooks ()
   "My php-completion-mode config for PHP mode."
-  (php-completion-mode +1)
-  (when (require 'auto-complete nil t)
-    (add-to-list 'ac-sources 'ac-source-php-completion-patial)
-    (auto-complete-mode +1)))
+  (add-to-list 'ac-sources 'ac-source-php-completion-patial)
+  (php-completion-mode +1))
 
 (add-hook 'php-mode-hook 'jkw:php-completion-mode-hooks)
-
-;;;; Keymap
-(with-eval-after-load 'php-mode
-  (define-key php-mode-map (kbd "M-TAB") 'phpcmp-complete))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

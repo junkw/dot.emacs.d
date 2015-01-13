@@ -1,9 +1,8 @@
 (:name php-completion
-       :description "complete everything PHP with Anything.el"
+       :description "Complete everything PHP with Anything.el or helm.el."
        :website     "https://github.com/suzuki/php-completion"
        :depends     (helm auto-complete)
        :type        github
        :pkgname     "suzuki/php-completion"
        :branch      "develop"
-       :library     php-mode
-       :feature     php-completion)
+       :features    php-completion)
