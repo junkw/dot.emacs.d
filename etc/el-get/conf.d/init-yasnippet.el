@@ -35,7 +35,7 @@
 
 ;; Loading my snippets
 (setq yas-snippet-dirs `(,(concat user-emacs-directory "etc/yasnippet")
-                         ,(concat (el-get-package-directory "yasnippet") "snippets")))
+                         ,yas-installed-snippets-dir))
 (yas-reload-all)
 
 (add-hooks '(mu4e-compose-mode org-mode prog-mode) 'yas-minor-mode)
