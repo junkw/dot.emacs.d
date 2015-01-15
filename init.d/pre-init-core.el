@@ -33,6 +33,10 @@
 
 (require 'cl-lib)
 
+;;;; Compatibility
+(when (fboundp 'apropos-macrop)
+  (fset 'apropos-macrop 'macrop))          ; 24.4+
+
 ;;;; System type predicates
 (defvar mac-p (eq system-type 'darwin)
   "Return t if this system is Mac OS X.")
@@ -53,6 +57,7 @@
 (defvar laptop-screen-p (<= (display-pixel-height) 900)
   "Return t if this display size is 15ich or less.")
 
+;;;; Hook
 (defun add-hooks (modes function)
   "`add-hook' extension for batch adding to the list of MODES the function FUNCTION."
   (cl-loop for mode in modes
