@@ -62,8 +62,10 @@
 ;; Auto save file
 (setq auto-save-default t)
 (setq auto-save-file-name-transforms
-      `(("\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'"
-         ,(expand-file-name (concat user-emacs-directory "var/tmp/")) t)))
+      `(("\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'" ; for tramp
+         ,(concat temporary-file-directory "\\2") t)
+        ("\\`/?\\([^/]*/\\)*\\([^/]*\\)\\'"
+         ,(expand-file-name (concat user-emacs-directory "var/tmp/\\2")) t)))
 (setq delete-auto-save-files t)
 (setq auto-save-timeout 300)            ; 5 min.
 (setq auto-save-interval 500)           ; 500 types
