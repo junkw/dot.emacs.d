@@ -56,7 +56,7 @@
   (linum-mode +1)
   (setq indent-tabs-mode nil)
   (setq imenu-prev-index-position-function nil)
-  (add-to-list 'imenu-generic-expression '("Sections" "^;;;; \\(.+\\)$" 1) t))
+  (add-to-list 'imenu-generic-expression '("Sections" "\\`;;;; \\(.+\\)\\'" 1) t))
 
 (add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) 'jkw:lisp-mode-hooks)
 

@@ -54,7 +54,7 @@
   :type  'boolean
   :group 'init-module)
 
-(defcustom init-module-opt-init-file-regexp "^opt-init-"
+(defcustom init-module-opt-init-file-regexp "\\`opt-init-"
   "Regexp matching opt-init filename."
   :type  'string
   :group 'init-module)
@@ -99,8 +99,8 @@
 If a elisp file has a byte-compiled file, show the byte-compiled file only."
   (cl-loop for el in (directory-files init-module-init-directory t)
            when (and (string-match regexp (file-name-nondirectory el))
-                     (or (string-match "elc$" el)
-                         (and (string-match "el$" el)
+                     (or (string-match "elc\\'" el)
+                         (and (string-match "el\\'" el)
                               (not (locate-library (concat el "c"))))))
            collect (file-name-nondirectory el)))
 
@@ -128,13 +128,13 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
   "Initialize Emacs init files."
   (interactive)
   ;; Minimum config
-  (init-module--load-files "^pre-init-")
+  (init-module--load-files "\\`pre-init-")
 
   (unless init-module-load-only-pre-init-files
     ;; Environment-dependent config
     (if (null window-system)
-        (init-module--load-files "^cui-init-")
-      (init-module--load-files "^gui-init-"))
+        (init-module--load-files "\\`cui-init-")
+      (init-module--load-files "\\`gui-init-"))
 
     ;; el-get installer
     (if (require 'el-get nil t)
@@ -151,7 +151,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 
     ;; Advanced config
     (init-module--load-files init-module-opt-init-file-regexp)
-    (init-module--load-files "^post-init-")))
+    (init-module--load-files "\\`post-init-")))
 
 ;;;; Bootstrap
 (add-to-list 'load-path init-module-init-directory)

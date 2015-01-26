@@ -37,7 +37,7 @@
 (viewer-stay-in-setup)
 
 ;; Open log and README files as read only
-(setq view-mode-by-default-regexp "\\/\\(ChangeLog\\|NEWS\\|README\\)\\|\\.log\\'")
+(setq view-mode-by-default-regexp "/\\(ChangeLog\\|NEWS\\|README\\)\\|.+\\.log\\'")
 
 (defun view-mode-by-default-setup-with-case-sensitive ()
   "Use `view-mode-by-default-regexp' as a case sensitive.

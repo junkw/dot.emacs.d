@@ -48,15 +48,15 @@
   (setq woman-imenu t)
   (setq woman-imenu-generic-expression
         '((nil "\n\\([A-Z].*\\|\\cj.*\\)" 1)
-          ("*Subsections*" "^ \\{3,4\\}\\([A-Z].*\\|\\cj.*\\)" 1)))
+          ("*Subsections*" "\\` \\{3,4\\}\\([A-Z].*\\|\\cj.*\\)" 1)))
 
   ;; Jump to SEE ALSO by <r>
   (setq Man-see-also-regexp "\\(SEE ALSO\\|関連項目\\)")
 
   ;; Jump to heading by <n> and <p>
   (setq Man-first-heading-regexp
-        "^\\(NAME\\|名[前称]\\|[ \t]*No manual entry fo.*\\)$")
-  (setq Man-heading-regexp "^\\([A-Z][A-Z0-9 /-]+\\|\\cj+\\)$")
+        "\\`\\(NAME\\|名[前称]\\|[ \t]*No manual entry fo.*\\)\\'")
+  (setq Man-heading-regexp "\\`\\([A-Z][A-Z0-9 /-]+\\|\\cj+\\)\\'")
 
 ;;;; Keymap
   (define-key woman-mode-map (kbd "j") 'next-line)
