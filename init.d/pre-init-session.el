@@ -53,8 +53,8 @@
 
 ;; Remote access
 (setq tramp-persistency-file-name (concat user-emacs-directory "var/cache/tramp"))
-(setq tramp-auto-save-directory nil)
-(setq tramp-backup-directory-alist nil)
+(setq tramp-auto-save-directory temporary-file-directory)
+(setq tramp-backup-directory-alist `((".*" . ,temporary-file-directory)))
 
 ;; Lock file
 (setq create-lockfiles nil)
@@ -73,8 +73,7 @@
 ;; Backup file
 (setq make-backup-files t)
 (setq backup-directory-alist
-      `((,tramp-file-name-regexp nil)
-        ("/\\(Code\\|Documents\\|Docs\\)/" . ,(concat user-emacs-directory "var/backup/"))
+      `(("/\\(Code\\|Documents\\|Docs\\)/" . ,(concat user-emacs-directory "var/backup/"))
         (".*" . ,temporary-file-directory)))
 (setq backup-by-copying t)
 (setq version-control t)
