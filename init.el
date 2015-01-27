@@ -86,10 +86,11 @@
                 cl-lib-highlight cssm-mode dash-at-point dired-sync e2wm e2wm-bookmark
                 eldoc-extension elisp-slime-nav emmet-mode expand-region foreign-regexp
                 flycheck geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag
-                helm-c-yasnippet highlight-symbol info+ js2-mode linum-relative lispxmp
-                magit markdown-mode migemo monokai-emacs multiple-cursors mykie org-mode
-                php-completion php-mode psvn rainbow-mode recentf-ext scratch-ext
-                sequential-command smart-newline tern viewer web-mode wgrep)
+                helm-c-yasnippet highlight-defined highlight-symbol info+ js2-mode
+                linum-relative lispxmp magit markdown-mode migemo monokai-emacs
+                multiple-cursors mykie org-mode php-completion php-mode psvn rainbow-mode
+                recentf-ext scratch-ext sequential-command smart-newline tern viewer
+                web-mode wgrep)
   "List of packages I use straight from recipe files.")
 
 ;;;; Internal functions

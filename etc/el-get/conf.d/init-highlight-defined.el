@@ -1,10 +1,10 @@
-;;; post-init-lisp.el --- Emacs init file
+;;; init-highlight-defined.el --- el-get init file for package highlight-defined
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Sep. 15, 2012
-;; Keywords: .emacs
+;; Created: Jan. 27, 2015
+;; Keywords: .emacs, elisp
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,29 +31,17 @@
 
 ;;; Code:
 
-(require 'cl-lib)
-(require 'pre-init-core)
+;;;; Face
+(set-face-attribute 'highlight-defined-builtin-function-name-face nil
+                    :inherit 'font-lock-builtin-face)
+(set-face-attribute 'highlight-defined-special-form-name-face nil
+                    :inherit 'font-lock-keyword-face)
+(set-face-attribute 'highlight-defined-macro-name-face nil
+                    :inherit 'font-lock-function-name-face
+                    :slant 'italic)
 
-(find-function-setup-keys)
-(add-to-list 'which-func-modes 'emacs-lisp-mode)
-
-;;;; Documentation
-(require 'eldoc)
-(setq eldoc-idle-delay 0.2)
-(setq eldoc-minor-mode-string "")
-(setq eldoc-echo-area-use-multiline-p t)
-(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
-
-;;;; Hooks
-(defun jkw:lisp-mode-hooks ()
-  "My config for (Emacs) Lisp mode."
-  (eldoc-mode +1)
-  (linum-mode +1)
-  (setq indent-tabs-mode nil)
-  (setq imenu-prev-index-position-function nil)
-  (add-to-list 'imenu-generic-expression '("Sections" "\\`;;;; \\(.+\\)\\'" 1) t))
-
-(add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) 'jkw:lisp-mode-hooks)
+;;;; Hook
+(add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -62,4 +50,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; post-init-lisp.el ends here
+;;; init-highlight-defined.el ends here
