@@ -2,4 +2,5 @@
        :description "Syntax highlighting of known Elisp symbols."
        :website     "https://github.com/Fanael/highlight-defined"
        :type        github
-       :pkgname     "Fanael/highlight-defined")
+       :pkgname     "Fanael/highlight-defined"
+       :features    highlight-defined)
