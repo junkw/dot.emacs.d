@@ -55,6 +55,11 @@
           helm-source-files-in-current-dir
           helm-source-mac-spotlight)))
 
+;;;; Candidates
+(setq helm-M-x-fuzzy-match t)
+(setq helm-apropos-fuzzy-match t)
+(setq helm-buffers-fuzzy-matching t)
+
 ;;;; Keymap
 (global-set-key (kbd "M-x")     'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
