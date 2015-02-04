@@ -51,7 +51,8 @@
     (setq mu4e-get-mail-command  (executable-find "offlineimap"))
     (setq mu4e-update-interval 3600)      ; 60 mins.
 
-    (setq mu4e-html2text-command (concat (executable-find "html2text") " -utf8 -width 80"))
+    (require 'mu4e-contrib)
+    (setq mu4e-html2text-command 'mu4e-shr2text)
 
     ;; Compose
     (setq mu4e-sent-messages-behavior 'delete)
