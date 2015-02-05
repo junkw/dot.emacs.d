@@ -147,7 +147,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
            (goto-char (point-max)) (eval-print-last-sexp)
            ;; After el-get is installed, inits ELPA and builds its recipe files,
            ;; finally installes all packages I use.
-           (el-get 'sync 'package) (package-initialize) (el-get-elpa-build-local-recipes)
+           (el-get 'sync 'package) (package-initialize)
            (el-get-initialize-packages)))))
 
     ;; Advanced config
@@ -162,10 +162,8 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
   (setq el-get-dir (concat user-emacs-directory "vendor/"))
   (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
   (setq el-get-user-package-directory (concat user-emacs-directory "etc/el-get/conf.d/"))
-  (setq el-get-recipe-path-emacswiki (concat user-emacs-directory "etc/el-get/recipes/emacswiki/"))
-  (setq el-get-recipe-path-elpa (concat user-emacs-directory "etc/el-get/recipes/elpa/"))
   (with-eval-after-load 'el-get
-    (add-to-list 'el-get-recipe-path (concat user-emacs-directory "etc/el-get/recipes/local/")))
+    (add-to-list 'el-get-recipe-path (concat user-emacs-directory "etc/el-get/recipes/")))
   (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get"))))
 
 (init-module-initialize)

@@ -31,9 +31,7 @@ open -a Emacs
   |    |    +-- conf.d/
   |    |    |    `-- init-PACKAGE.el
   |    |    `-- recipes/
-  |    |         +-- elpa/
-  |    |         +-- emacswiki/
-  |    |         `-- local/
+  |    |         `-- PACKAGE-LOCAL.rcp
   |    +-- mu4e/
   |    |    `-- signature
   |    +-- custom.el

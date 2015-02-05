@@ -6,8 +6,6 @@ require 'fileutils'
 task :make_dir do
   emacs_dirs = ["#{Dir.pwd}/bin",
                 "#{Dir.pwd}/etc/auto-complete",
-                "#{Dir.pwd}/etc/el-get/recipes/elpa",
-                "#{Dir.pwd}/etc/el-get/recipes/emacswiki",
                 "#{Dir.pwd}/etc/mu4e",
                 "#{Dir.pwd}/etc/yasnippet",
                 "#{Dir.pwd}/share/info",
