@@ -1,10 +1,10 @@
-;;; init-yasnippet.el --- el-get init file for package yasnippet
+;;; init-multiple-cursors.el --- el-get init file for package multiple-cursors
 
 ;; Copyright (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Oct. 28, 2013
-;; Keywords: .emacs, snippet
+;; Created: Nov. 4, 2013
+;; Keywords: .emacs
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,14 +31,15 @@
 
 ;;; Code:
 
-(require 'pre-init-core)
+(setq mc/list-file (concat user-emacs-directory "var/cache/multiple-cursors-list.el"))
 
-;; Loading my snippets
-(setq yas-snippet-dirs `(,(concat user-emacs-directory "etc/yasnippet")
-                         ,yas-installed-snippets-dir))
-(yas-reload-all)
-
-(add-hooks '(mu4e-compose-mode org-mode prog-mode) 'yas-minor-mode)
+;;;; Keymap
+(global-set-key (kbd "C-S-e")   'mc/edit-lines)
+(global-set-key (kbd "C-c C-r") 'mc/mark-all-in-region)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C-d") 'mc/mark-all-like-this-dwim)
+(global-set-key (kbd "C->")     'mc/mark-next-like-this)
+(global-set-key (kbd "C-<")     'mc/mark-previous-like-this)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -47,4 +48,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-yasnippet.el ends here
+;;; init-multiple-cursors.el ends here

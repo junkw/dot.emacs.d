@@ -1,10 +1,10 @@
-;;; init-multiple-cursors.el --- el-get init file for package multiple-cursors
+;;; init-auto-complete.el --- el-get init file for package auto-complete
 
 ;; Copyright (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Nov. 4, 2013
-;; Keywords: .emacs
+;; Created: Oct. 23, 2013
+;; Keywords: .emacs, completion
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,15 +31,28 @@
 
 ;;; Code:
 
-(setq mc/list-file (concat user-emacs-directory "etc/multiple-cursors-list.el"))
+(require 'pre-init-core)
+
+;; Candidates
+(add-to-list 'ac-dictionary-directories
+             (concat (el-get-package-directory "auto-complete") "dict"))
+(setq ac-user-dictionary-files (concat user-emacs-directory "etc/auto-complete.dict"))
+(setq ac-comphist-file (concat user-emacs-directory "var/cache/ac-comphist.dat"))
+
+;; Enable default settings
+(setq ac-auto-start 3)
+(setq ac-use-menu-map t)
+(when (custom-theme-active-p "monokai")
+  (setq ac-fuzzy-cursor-color "#F92672"))
+
+(add-to-list 'ac-modes 'web-mode)
+(ac-config-default)
+(ac-flyspell-workaround)
 
 ;;;; Keymap
-(global-set-key (kbd "C-S-e")   'mc/edit-lines)
-(global-set-key (kbd "C-c C-r") 'mc/mark-all-in-region)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-(global-set-key (kbd "C-c C-d") 'mc/mark-all-like-this-dwim)
-(global-set-key (kbd "C->")     'mc/mark-next-like-this)
-(global-set-key (kbd "C-<")     'mc/mark-previous-like-this)
+(ac-set-trigger-key "TAB")
+(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+(define-key ac-completing-map (kbd "C-M-g") 'ac-stop)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -48,4 +61,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-multiple-cursors.el ends here
+;;; init-auto-complete.el ends here

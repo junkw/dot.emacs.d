@@ -185,19 +185,6 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
   (interactive "p")
   (increment-integer-at-point (- (or dec 1))))
 
-;; Keyboad macro
-(defvar jkw:kmacro-save-file (concat user-emacs-directory "etc/kmacro.el")
-  "Keyboard macro is saved in this file.")
-
-(defun kmacro-save (symbol)
-  "Save keyboard macro as SYMBOL in kmacro.el."
-  (interactive "Name for last kbd macro: ")
-  (name-last-kbd-macro symbol)
-  (with-current-buffer (find-file-noselect jkw:kmacro-save-file)
-    (goto-char (point-max))
-    (insert-kbd-macro symbol)
-    (basic-save-buffer)))
-
 ;;;; Keymap
 (keyboard-translate ?\C-h ?\C-?)
 (when mac-p

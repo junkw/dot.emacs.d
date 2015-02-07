@@ -34,17 +34,13 @@
 
 (require 'cl-lib)
 
-(setq custom-file (concat user-emacs-directory "etc/custom.el"))
-(when (file-exists-p custom-file)
-  (load custom-file))
-
 ;;;; Customization
 (defgroup init-module nil
   "Init module."
   :group  'initialization
   :prefix "init-module-")
 
-(defcustom init-module-init-directory (concat user-emacs-directory "init.d/")
+(defcustom init-module-init-directory (concat user-emacs-directory "modules/")
   "`init-module-init-directory' contains init modules."
   :type  'string
   :group 'init-module)
@@ -156,14 +152,15 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 
 ;;;; Bootstrap
 (add-to-list 'load-path init-module-init-directory)
+(setq custom-file (concat user-emacs-directory "modules/pre-init--custom.el"))
 
 ;; Need to init before loading el-get
 (unless init-module-load-only-pre-init-files
   (setq el-get-dir (concat user-emacs-directory "vendor/"))
   (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
-  (setq el-get-user-package-directory (concat user-emacs-directory "etc/el-get/conf.d/"))
+  (setq el-get-user-package-directory (concat user-emacs-directory "configs"))
   (with-eval-after-load 'el-get
-    (add-to-list 'el-get-recipe-path (concat user-emacs-directory "etc/el-get/recipes/")))
+    (add-to-list 'el-get-recipe-path (concat user-emacs-directory "etc/recipes/")))
   (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get"))))
 
 (init-module-initialize)

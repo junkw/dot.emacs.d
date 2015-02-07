@@ -4,12 +4,8 @@ require 'fileutils'
 
 
 task :make_dir do
-  emacs_dirs = ["#{Dir.pwd}/bin",
-                "#{Dir.pwd}/etc/auto-complete",
-                "#{Dir.pwd}/etc/mu4e",
-                "#{Dir.pwd}/etc/yasnippet",
-                "#{Dir.pwd}/share/info",
-                "#{Dir.pwd}/share/man",
+  emacs_dirs = ["#{Dir.pwd}/etc/auto-complete.dict",
+                "#{Dir.pwd}/etc/snippets",
                 "#{Dir.pwd}/var/backup",
                 "#{Dir.pwd}/var/bookmark",
                 "#{Dir.pwd}/var/cache",
@@ -20,17 +16,21 @@ task :make_dir do
 end
 
 task :compile do
-  sh "emacs --batch -L #{Dir.pwd}/init.d/ -f batch-byte-compile #{Dir.pwd}/init.el #{Dir.pwd}/init.d/*.el"
+  modules = ["#{Dir.pwd}/init.el"]
+  modules += Dir.glob("#{Dir.pwd}/modules/*-init-[^-]*.el")
+
+  modules.each do |el|
+    sh "emacs --batch -L #{Dir.pwd}/modules/ -f batch-byte-compile #{el}"
+  end
 end
 
 task :tags do
-  sh "ctags -e #{Dir.pwd}/init.el #{Dir.pwd}/init.d/*.el #{Dir.pwd}/etc/el-get/conf.d/*.el"
+  sh "ctags -e #{Dir.pwd}/init.el #{Dir.pwd}/modules/*.el #{Dir.pwd}/configs/*.el"
 end
 
 task :link do
-  git_hooks = ["#{Dir.pwd}/share/git/post-checkout",
-               "#{Dir.pwd}/share/git/post-merge",
-               "#{Dir.pwd}/share/git/post-rewrite"]
+  git_hooks = Dir.glob("#{Dir.pwd}/lib/git-hooks/*")
+
   FileUtils.ln_sf(git_hooks, "#{Dir.pwd}/.git/hooks/")
   FileUtils.ln_sf(Dir.pwd, "#{Dir.home}/.emacs.d")
 end
@@ -40,7 +40,7 @@ task :cleanup_var do
 end
 
 task :cleanup_elc do
-  FileUtils.rm(Dir.glob("#{Dir.pwd}/{init.elc,**/*init-*.elc}"))
+  FileUtils.rm(Dir.glob("#{Dir.pwd}/{init.elc,{modules,configs}/*.elc}"))
 end
 
 task :default => [:make_dir, :compile, :tags, :link]

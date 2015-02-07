@@ -1,10 +1,10 @@
-;;; init-all-ext.el --- el-get init file for package all-ext
+;;; init-yasnippet.el --- el-get init file for package yasnippet
 
 ;; Copyright (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Oct. 7, 2013
-;; Keywords: .emacs, all mode, helm, occur
+;; Created: Oct. 28, 2013
+;; Keywords: .emacs, snippet
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -33,16 +33,12 @@
 
 (require 'pre-init-core)
 
-(defun all-from-helm-ag ()
-  "Call `all' from `helm' content."
-  (interactive)
-  (helm-run-after-quit
-   'all-from-anything-occur-internal "helm-ag"
-   helm-buffer helm-current-buffer))
+;; Loading my snippets
+(setq yas-snippet-dirs `(,(concat user-emacs-directory "etc/snippets")
+                         ,yas-installed-snippets-dir))
+(yas-reload-all)
 
-;;;; Keymap
-(with-eval-after-load 'helm-ag
-  (define-key helm-map (kbd "C-c C-a") 'all-from-helm-ag))
+(add-hooks '(mu4e-compose-mode org-mode prog-mode) 'yas-minor-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -51,4 +47,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-all-ext.el ends here
+;;; init-yasnippet.el ends here
