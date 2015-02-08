@@ -4,7 +4,7 @@
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Oct. 26, 2012
-;; Keywords: .emacs, whitespace, kmacro
+;; Keywords: .emacs
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -183,11 +183,6 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
   (increment-integer-at-point (- (or dec 1))))
 
 ;;;; Keymap
-(keyboard-translate ?\C-h ?\C-?)
-(when mac-p
-  (setq mac-command-modifier 'control)
-  (setq mac-option-modifier  'meta))
-
 (global-set-key (kbd "M-/")   'hippie-expand) ; replace `dabbrev-expand'
 (global-set-key (kbd "M-d")   'kill-word-dwim)
 (global-set-key (kbd "M-SPC") 'cycle-spacing) ; replace `just-one-space'

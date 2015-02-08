@@ -81,6 +81,11 @@ Advice function for `abort-recursive-edit'."
        (add-hook 'minibuffer-setup-hook 'mac-change-language-to-us)))
 
 ;;;; Keymap
+(keyboard-translate ?\C-h ?\C-?)
+(when mac-p
+  (setq mac-command-modifier 'control)
+  (setq mac-option-modifier  'meta))
+
 (global-set-key (kbd "C-M-g") 'keyboard-escape-quit)
 
 ;; Local Variables:
