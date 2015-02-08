@@ -84,8 +84,13 @@
 (defvar init-module-modules-directory (concat user-emacs-directory "modules/")
   "`init-module-modules-directory' contains init modules.")
 
-(defvar init-module-safe-mode-p (file-exists-p (concat user-emacs-directory "var/log/init-module-error"))
-  "Return t as safe mode if init-module-error file exists.")
+(defvar init-module-initerror-file (concat user-emacs-directory "var/initerror")
+  "Log file on loading init modules.")
+
+(defvar init-module-safe-mode-p (file-exists-p init-module-initerror-file)
+  "Return t as safe mode if initerror file exists.")
+
+(defvar init-module-errors nil)
 
 (defun init-module--list-files (regexp)
   "Show init modules containing a match for REGEXP in `init-module-modules-directory'.
@@ -98,7 +103,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
                               (not (locate-library (concat el "c"))))))
            collect (file-name-nondirectory el)))
 
-(defun init-module--load-files (regexp)
+(cl-defun init-module--load-files (regexp &optional (initerror nil))
   "Load init modules matching the REGEXP specified."
   (cl-loop for mod in (init-module--list-files regexp)
            do (condition-case err
@@ -106,7 +111,13 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
                 (error
                  (message (format "Error in init-module %s. %s"
                                   (file-name-sans-extension mod)
-                                  (error-message-string err)))))))
+                                  (error-message-string err))))
+                (if initerror (setq init-module-errors t)))))
+
+(defun init-module--save-initerror-file ()
+  "Save error message on loading init modules."
+  (with-current-buffer "*Messages*"
+        (write-file init-module-initerror-file)))
 
 ;;;; Command
 ;; Need to init after loading el-get
@@ -127,8 +138,8 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
   (unless init-module-safe-mode-p
     ;; Environment-dependent config
     (if (null window-system)
-        (init-module--load-files "\\`cui-init-")
-      (init-module--load-files "\\`gui-init-"))
+        (init-module--load-files "\\`cui-init-" t)
+      (init-module--load-files "\\`gui-init-" t))
 
     ;; el-get installer
     (unless (require 'el-get nil t)
@@ -136,8 +147,8 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
     (el-get-initialize-packages)
 
     ;; Advanced config
-    (init-module--load-files "\\`opt-init-")
-    (init-module--load-files "\\`post-init-")))
+    (init-module--load-files "\\`opt-init-" t)
+    (init-module--load-files "\\`post-init-" t)))
 
 ;;;; Bootstrap
 (add-to-list 'load-path init-module-modules-directory)
@@ -153,6 +164,9 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
   (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get"))))
 
 (init-module-initialize)
+
+(if init-module-errors                  ; Next time, launch as safe mode.
+    (add-hook 'after-init-hook #'init-module--save-initerror-file))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

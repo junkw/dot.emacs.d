@@ -38,7 +38,7 @@ task :link do
 end
 
 task :cleanup_var do
-  FileUtils.rm_r(Dir.glob("#{user_emacs_dir}/var/{backup,bookmark,cache,log,tmp}/*"))
+  FileUtils.rm_r(Dir.glob("#{user_emacs_dir}/var/{initerror,{backup,bookmark,cache,log,tmp}/*}"))
 end
 
 task :cleanup_elc do
