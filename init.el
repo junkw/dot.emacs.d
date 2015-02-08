@@ -69,6 +69,18 @@
   "List of packages I use straight from recipe files.")
 
 ;;;; Internal functions
+(defun el-get--installer ()
+  "Install el-get and initialize ELPA."
+  (url-retrieve
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
+       (lambda (s)
+         (let (el-get-master-branch)
+           (goto-char (point-max)) (eval-print-last-sexp)
+           ;; After el-get is installed, initialize ELPA,
+           ;; finally installes all packages I use.
+           (el-get 'sync 'package)
+           (package-initialize)))))
+
 (defvar init-module-modules-directory (concat user-emacs-directory "modules/")
   "`init-module-modules-directory' contains init modules.")
 
@@ -119,17 +131,9 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
       (init-module--load-files "\\`gui-init-"))
 
     ;; el-get installer
-    (if (require 'el-get nil t)
-        (el-get-initialize-packages)
-      (url-retrieve
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
-       (lambda (s)
-         (let (el-get-master-branch)
-           (goto-char (point-max)) (eval-print-last-sexp)
-           ;; After el-get is installed, inits ELPA and builds its recipe files,
-           ;; finally installes all packages I use.
-           (el-get 'sync 'package) (package-initialize)
-           (el-get-initialize-packages)))))
+    (unless (require 'el-get nil t)
+      (el-get--installer))
+    (el-get-initialize-packages)
 
     ;; Advanced config
     (init-module--load-files "\\`opt-init-")
