@@ -34,27 +34,6 @@
 
 (require 'cl-lib)
 
-;;;; Customization
-(defgroup init-module nil
-  "Init module."
-  :group  'initialization
-  :prefix "init-module-")
-
-(defcustom init-module-init-directory (concat user-emacs-directory "modules/")
-  "`init-module-init-directory' contains init modules."
-  :type  'string
-  :group 'init-module)
-
-(defcustom init-module-load-only-pre-init-files nil
-  "If this variable is non-nil, startup with minimum Emacs config."
-  :type  'boolean
-  :group 'init-module)
-
-(defcustom init-module-opt-init-file-regexp "\\`opt-init-"
-  "Regexp matching opt-init filename."
-  :type  'string
-  :group 'init-module)
-
 ;;;; Installed packages via el-get
 ;; Fix original recipes
 (setq el-get-sources
@@ -90,11 +69,17 @@
   "List of packages I use straight from recipe files.")
 
 ;;;; Internal functions
+(defvar init-module-modules-directory (concat user-emacs-directory "modules/")
+  "`init-module-modules-directory' contains init modules.")
+
+(defvar init-module-safe-mode-p (file-exists-p (concat user-emacs-directory "var/log/init-module-error"))
+  "Return t as safe mode if init-module-error file exists.")
+
 (defun init-module--list-files (regexp)
-  "Show init modules containing a match for REGEXP in `init-module-init-directory'.
+  "Show init modules containing a match for REGEXP in `init-module-modules-directory'.
 
 If a elisp file has a byte-compiled file, show the byte-compiled file only."
-  (cl-loop for el in (directory-files init-module-init-directory t)
+  (cl-loop for el in (directory-files init-module-modules-directory t)
            when (and (string-match regexp (file-name-nondirectory el))
                      (or (string-match "elc\\'" el)
                          (and (string-match "el\\'" el)
@@ -127,7 +112,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
   ;; Minimum config
   (init-module--load-files "\\`pre-init-")
 
-  (unless init-module-load-only-pre-init-files
+  (unless init-module-safe-mode-p
     ;; Environment-dependent config
     (if (null window-system)
         (init-module--load-files "\\`cui-init-")
@@ -147,15 +132,15 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
            (el-get-initialize-packages)))))
 
     ;; Advanced config
-    (init-module--load-files init-module-opt-init-file-regexp)
+    (init-module--load-files "\\`opt-init-")
     (init-module--load-files "\\`post-init-")))
 
 ;;;; Bootstrap
-(add-to-list 'load-path init-module-init-directory)
+(add-to-list 'load-path init-module-modules-directory)
 (setq custom-file (concat user-emacs-directory "modules/pre-init--custom.el"))
 
 ;; Need to init before loading el-get
-(unless init-module-load-only-pre-init-files
+(unless init-module-safe-mode-p
   (setq el-get-dir (concat user-emacs-directory "vendor/"))
   (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
   (setq el-get-user-package-directory (concat user-emacs-directory "configs"))
