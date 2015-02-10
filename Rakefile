@@ -31,10 +31,10 @@ task :tags do
 end
 
 task :link do
-  git_hooks = Dir.glob("#{user_emacs_dir}/lib/git-hooks/*")
-
-  FileUtils.ln_sf(git_hooks, "#{user_emacs_dir}/.git/hooks/")
   FileUtils.ln_sf(user_emacs_dir, user_emacs_dir)
+
+  git_hooks = Dir.glob("#{user_emacs_dir}/lib/git-hooks/*")
+  FileUtils.ln_sf(git_hooks, "#{user_emacs_dir}/.git/hooks/")
 end
 
 task :cleanup_var do
