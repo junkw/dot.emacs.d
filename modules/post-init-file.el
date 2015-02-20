@@ -1,4 +1,4 @@
-;;; opt-init-file.el --- Emacs init file
+;;; post-init-file.el --- Emacs init file
 
 ;; Copyright (C) 2012  Jumpei KAWAMI
 
@@ -116,4 +116,4 @@ ARG is like in `dired-map-over-marks'."
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; opt-init-file.el ends here
+;;; post-init-file.el ends here

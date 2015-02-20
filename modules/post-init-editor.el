@@ -1,4 +1,4 @@
-;;; opt-init-editor.el --- Emacs init file
+;;; post-init-editor.el --- Emacs init file
 
 ;; Copyright (C) 2012  Jumpei KAWAMI
 
@@ -196,4 +196,4 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; opt-init-editor.el ends here
+;;; post-init-editor.el ends here

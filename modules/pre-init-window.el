@@ -1,10 +1,10 @@
-;;; opt-init-common-ui.el --- Emacs init file
+;;; pre-init-window.el --- Emacs init file
 
 ;; Copyright (C) 2012  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Sep. 15, 2012
-;; Keywords: .emacs
+;; Keywords: .emacs, window
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -90,15 +90,6 @@ Advice function for `linum-schedule'."
 (setq-default bidi-display-reordering nil)
 (setq-default bidi-paragraph-direction 'left-to-right)
 
-;;;; Font
-(when (find-font (font-spec :name "Ricty"))
-  (set-face-attribute 'default nil
-                      :family "Ricty"
-                      :height 140)
-  (set-fontset-font nil
-                    'japanese-jisx0208
-                    (font-spec :family "Ricty")))
-
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
@@ -106,4 +97,4 @@ Advice function for `linum-schedule'."
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; opt-init-common-ui.el ends here
+;;; pre-init-window.el ends here

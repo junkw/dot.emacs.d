@@ -1,10 +1,10 @@
-;;; post-init-lisp.el --- Emacs init file
+;;; opt-init-html.el --- Emacs init file
 
 ;; Copyright (C) 2012  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Sep. 15, 2012
-;; Keywords: .emacs
+;; Created: Nov. 21, 2012
+;; Keywords: .emacs, html, xml, nxml
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,29 +31,27 @@
 
 ;;; Code:
 
-(require 'cl-lib)
 (require 'pre-init-core)
 
-(find-function-setup-keys)
-(add-to-list 'which-func-modes 'emacs-lisp-mode)
+;;;; Init
+(add-to-list 'auto-mode-alist '("\\.\\(xml\\|atom\\)\\'" . nxml-mode))
 
-;;;; Documentation
-(require 'eldoc)
-(setq eldoc-idle-delay 0.2)
-(setq eldoc-minor-mode-string "")
-(setq eldoc-echo-area-use-multiline-p t)
-(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+(with-eval-after-load 'nxml-mode
+  (setq nxml-child-indent 2)
+  (setq nxml-attribute-indent 4)
+  (setq nxml-char-ref-display-glyph-flag nil)
+
+  (setq nxml-slash-auto-complete-flag t)
+  (setq nxml-bind-meta-tab-to-complete-flag t)
+  (setq nxml-sexp-element-flag t))
 
 ;;;; Hooks
-(defun jkw:lisp-mode-hooks ()
-  "My config for (Emacs) Lisp mode."
-  (eldoc-mode +1)
-  (linum-mode +1)
+(defun jkw:nxml-mode-hooks ()
+  "My config for nxml mode."
   (setq indent-tabs-mode nil)
-  (setq imenu-prev-index-position-function nil)
-  (add-to-list 'imenu-generic-expression '("Sections" "\\`;;;; \\(.+\\)\\'" 1) t))
+  (linum-mode +1))
 
-(add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) 'jkw:lisp-mode-hooks)
+(add-hook 'nxml-mode-hook 'jkw:nxml-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -62,4 +60,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; post-init-lisp.el ends here
+;;; opt-init-html.el ends here

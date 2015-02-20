@@ -1,10 +1,10 @@
-;;; post-init-diff.el --- Emacs init file
+;;; pre-init-fonts.el --- Emacs init file
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; Copyright (C) 2014  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Jan. 8, 2013
-;; Keywords: .emacs, diff, ediff
+;; Created: Sep. 20, 2014
+;; Keywords: .emacs, font
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,12 +31,14 @@
 
 ;;; Code:
 
-(setq diff-switches "-u")               ; unified diff format
-
-(with-eval-after-load 'ediff
-  (setq ediff-window-setup-function 'ediff-setup-windows-plain) ; don't make 'Ediff Control Panel' frame
-  (setq ediff-split-window-function 'split-window-horizontally) ; split ediff window, side by side
-  (setq ediff-keep-variants nil))       ; remove unmodified buffers
+;;;; Font
+(when (find-font (font-spec :name "Ricty"))
+  (set-face-attribute 'default nil
+                      :family "Ricty"
+                      :height 140)
+  (set-fontset-font nil
+                    'japanese-jisx0208
+                    (font-spec :family "Ricty")))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -45,4 +47,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; post-init-diff.el ends here
+;;; pre-init-fonts.el ends here

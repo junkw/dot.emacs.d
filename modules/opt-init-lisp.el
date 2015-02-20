@@ -1,10 +1,10 @@
-;;; opt-init-find.el --- Emacs init file
+;;; opt-init-lisp.el --- Emacs init file
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; Copyright (C) 2012  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Jan. 16, 2013
-;; Keywords: .emacs, isearch
+;; Created: Sep. 15, 2012
+;; Keywords: .emacs, lisp, elisp
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,23 +31,29 @@
 
 ;;; Code:
 
-;; http://dev.ariel-networks.com/articles/emacs/part5/
-(defun isearch-mode-with-region (orig-fun forward &optional regexp op-fun recursive-edit word)
-  "Start isearch with mark-set keywords.
+(require 'cl-lib)
+(require 'pre-init-core)
 
-Advice function for `isearch-mode'."
-  (if (and transient-mark-mode mark-active (not (eq (mark) (point))))
-      (progn
-        (isearch-update-ring (buffer-substring-no-properties (mark) (point)))
-        (deactivate-mark)
-        (funcall orig-fun forward regexp op-fun recursive-edit word)
-        (if (not forward)
-            (isearch-repeat-backward)
-          (goto-char (mark))
-          (isearch-repeat-forward)))
-    (funcall orig-fun forward regexp op-fun recursive-edit word)))
+(find-function-setup-keys)
+(add-to-list 'which-func-modes 'emacs-lisp-mode)
 
-(advice-add 'isearch-mode :around #'isearch-mode-with-region)
+;;;; Documentation
+(require 'eldoc)
+(setq eldoc-idle-delay 0.2)
+(setq eldoc-minor-mode-string "")
+(setq eldoc-echo-area-use-multiline-p t)
+(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+
+;;;; Hooks
+(defun jkw:lisp-mode-hooks ()
+  "My config for (Emacs) Lisp mode."
+  (eldoc-mode +1)
+  (linum-mode +1)
+  (setq indent-tabs-mode nil)
+  (setq imenu-prev-index-position-function nil)
+  (add-to-list 'imenu-generic-expression '("Sections" "\\`;;;; \\(.+\\)\\'" 1) t))
+
+(add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) 'jkw:lisp-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -56,4 +62,4 @@ Advice function for `isearch-mode'."
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; opt-init-find.el ends here
+;;; opt-init-lisp.el ends here

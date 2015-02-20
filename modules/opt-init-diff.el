@@ -1,10 +1,10 @@
-;;; post-init-view.el --- Emacs init file
+;;; opt-init-diff.el --- Emacs init file
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Nov. 6, 2012
-;; Keywords: .emacs, view mode
+;; Created: Jan. 8, 2013
+;; Keywords: .emacs, diff, ediff
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,23 +31,10 @@
 
 ;;; Code:
 
-;; View mode
-;; Opening read-only file, enable view mode.
-(setq view-read-only t)
-
-(with-eval-after-load 'view
-;;;; Keymap
-  (define-key view-mode-map (kbd "j") 'next-line)
-  (define-key view-mode-map (kbd "k") 'previous-line)
-  (define-key view-mode-map (kbd "J") 'View-scroll-line-forward)
-  (define-key view-mode-map (kbd "K") 'View-scroll-line-forward)
-  (define-key view-mode-map (kbd "b") 'View-scroll-page-backward)
-  (define-key view-mode-map (kbd "g") 'beginning-of-buffer)
-  (define-key view-mode-map (kbd "G") 'end-of-buffer)
-  (define-key view-mode-map (kbd "l") 'forward-char)
-  (define-key view-mode-map (kbd "h") 'backward-char)
-  (define-key view-mode-map (kbd "w") 'forward-word)
-  (define-key view-mode-map (kbd "W") 'backward-word))
+(setq diff-switches "-u")               ; unified diff format
+(setq ediff-window-setup-function 'ediff-setup-windows-plain) ; don't make 'Ediff Control Panel' frame
+(setq ediff-split-window-function 'split-window-horizontally) ; split ediff window, side by side
+(setq ediff-keep-variants nil)          ; remove unmodified buffers
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -56,4 +43,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; post-init-view.el ends here
+;;; opt-init-diff.el ends here
