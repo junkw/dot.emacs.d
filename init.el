@@ -35,7 +35,25 @@
 
 (require 'cl-lib)
 
-;;;; Internal functions
+;;;; Variables
+(defvar init-module-pre-init-regexp "\\`pre-init-"
+  "Regular expression of init module names for pre loading.")
+
+(defvar init-module-cui-init-regexp "\\`cui-init-"
+  "Regular expression of no-window Emacs init module names.")
+
+(defvar init-module-gui-init-regexp "\\`gui-init-"
+  "Regular expression of window Emacs init module names.")
+
+(defvar init-module-opt-init-regexp "\\`opt-init-"
+  "Regular expression of init module names for optional loading.")
+
+(defvar init-module-lazy-init-regexp "\\`lazy-init-\\(.+\\)\\.elc?\\'"
+  "Regular expression of init module names for lazy loading.")
+
+(defvar init-module-post-init-regexp "\\`post-init-"
+  "Regular expression of init module names for post loading.")
+
 (defvar init-module-modules-directory (concat user-emacs-directory "modules/")
   "`init-module-modules-directory' contains init modules.")
 
@@ -47,8 +65,9 @@
 
 (defvar init-module-errors nil)
 
+;;;; Internal functions
 (defun init-module--list-files (regexp)
-  "Show init modules containing a match for REGEXP in `init-module-modules-directory'.
+  "[internal] Show init modules containing a match for REGEXP in `init-module-modules-directory'.
 
 If a elisp file has a byte-compiled file, show the byte-compiled file only."
   (cl-loop for el in (directory-files init-module-modules-directory t)
@@ -59,7 +78,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
            collect (file-name-nondirectory el)))
 
 (cl-defun init-module--load-file (file &optional (initerror nil))
-  "Load elisp file."
+  "[internal] Load elisp file."
   (let ((module (file-name-sans-extension file)))
     (condition-case err
         (load module)
@@ -70,12 +89,12 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
       (if initerror (setq init-module-errors t)))))
 
 (cl-defun init-module--load-files (regexp &optional (initerror nil))
-  "Load init modules matching the REGEXP specified."
+  "[internal] Load init modules matching the REGEXP specified."
   (cl-loop for file in (init-module--list-files regexp)
            do (init-module--load-file file initerror)))
 
 (cl-defun init-module--lazy-load-files (regexp)
-  "Lazy load init modules matching the REGEXP specified."
+  "[internal] Lazy load init modules matching the REGEXP specified."
   (cl-loop for file in (init-module--list-files regexp)
            for feature = (save-match-data
                            (when (string-match regexp file)
@@ -84,37 +103,37 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
                 `(init-module--load-file ',file))))
 
 (defun init-module--save-initerror-file ()
-  "Save error message on loading init modules."
+  "[internal] Save error message on loading init modules."
   (with-current-buffer "*Messages*"
-        (write-file init-module-initerror-file)))
+    (write-file init-module-initerror-file)))
+
+(if init-module-errors               ; Next time, launch as safe mode.
+    (add-hook 'after-init-hook #'init-module--save-initerror-file))
 
 ;;;; Command
 (defun init-module-initialize ()
   "Initialize Emacs init files."
   (interactive)
   ;; Minimum config
-  (init-module--load-files "\\`pre-init-")
+  (init-module--load-files init-module-pre-init-regexp)
 
   (unless init-module-safe-mode-p
     ;; Environment-dependent config
     (if (null window-system)
-        (init-module--load-files "\\`cui-init-" t)
-      (init-module--load-files "\\`gui-init-" t))
+        (init-module--load-files init-module-cui-init-regexp t)
+      (init-module--load-files init-module-gui-init-regexp t))
 
     ;; Advanced config
-    (init-module--load-files "\\`opt-init-" t)
+    (init-module--load-files init-module-opt-init-regexp t)
     (require 'site-loaddefs nil t)
-    (init-module--lazy-load-files "\\`lazy-init-\\(.+\\)\\.elc?\\'")
-    (init-module--load-files "\\`post-init-" t)))
+    (init-module--lazy-load-files init-module-lazy-init-regexp)
+    (init-module--load-files init-module-post-init-regexp t)))
 
 ;;;; Bootstrap
 (add-to-list 'load-path init-module-modules-directory)
 (setq custom-file (concat user-emacs-directory "modules/pre-init--custom.el"))
 
 (init-module-initialize)
-
-(if init-module-errors                  ; Next time, launch as safe mode.
-    (add-hook 'after-init-hook #'init-module--save-initerror-file))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
