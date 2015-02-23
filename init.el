@@ -26,6 +26,7 @@
 ;;; Commentary:
 ;;
 ;; https://github.com/emacs-jp/init-loader
+;; https://github.com/HKey/el-init
 
 ;;; Change Log:
 ;;
@@ -57,16 +58,30 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
                               (not (locate-library (concat el "c"))))))
            collect (file-name-nondirectory el)))
 
+(cl-defun init-module--load-file (file &optional (initerror nil))
+  "Load elisp file."
+  (let ((module (file-name-sans-extension file)))
+    (condition-case err
+        (load module)
+      (error
+       (message (format "Error in init-module %s. %s"
+                        module
+                        (error-message-string err))))
+      (if initerror (setq init-module-errors t)))))
+
 (cl-defun init-module--load-files (regexp &optional (initerror nil))
   "Load init modules matching the REGEXP specified."
-  (cl-loop for mod in (init-module--list-files regexp)
-           do (condition-case err
-                  (load (file-name-sans-extension mod))
-                (error
-                 (message (format "Error in init-module %s. %s"
-                                  (file-name-sans-extension mod)
-                                  (error-message-string err))))
-                (if initerror (setq init-module-errors t)))))
+  (cl-loop for file in (init-module--list-files regexp)
+           do (init-module--load-file file initerror)))
+
+(cl-defun init-module--lazy-load-files (regexp)
+  "Lazy load init modules matching the REGEXP specified."
+  (cl-loop for file in (init-module--list-files regexp)
+           for feature = (save-match-data
+                           (when (string-match regexp file)
+                             (match-string 1 file)))
+           do (eval-after-load feature
+                `(init-module--load-file ',file))))
 
 (defun init-module--save-initerror-file ()
   "Save error message on loading init modules."
@@ -88,6 +103,8 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 
     ;; Advanced config
     (init-module--load-files "\\`opt-init-" t)
+    (require 'site-loaddefs nil t)
+    (init-module--lazy-load-files "\\`lazy-init-\\(.+\\)\\.elc?\\'")
     (init-module--load-files "\\`post-init-" t)))
 
 ;;;; Bootstrap

@@ -35,6 +35,7 @@ open -a Emacs
   +-- modules/
   |    +-- cui-init-*.el
   |    +-- gui-init-*.el
+  |    +-- lazy-init-*.el
   |    +-- opt-init-*.el
   |    +-- post-init-*.el
   |    +-- pre-init--custom.el
