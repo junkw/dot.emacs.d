@@ -41,7 +41,7 @@ task :tags do
 end
 
 task :link do
-  FileUtils.ln_sf(user_emacs_dir, user_emacs_dir)
+  FileUtils.ln_sf(Dir.pwd, user_emacs_dir)
 
   git_hooks = Dir.glob("#{user_emacs_dir}/lib/git-hooks/*")
   FileUtils.ln_sf(git_hooks, "#{user_emacs_dir}/.git/hooks/")
@@ -55,4 +55,4 @@ task :cleanup_elc do
   FileUtils.rm(Dir.glob("#{user_emacs_dir}/{init.elc,{modules,configs}/*.elc}"))
 end
 
-task :default => [:generate_loaddefs, :make_dir, :compile, :tags, :link]
+task :default => [:generate_loaddefs, :link, :make_dir, :compile, :tags]
