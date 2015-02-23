@@ -17,6 +17,16 @@ task :make_dir do
   FileUtils.mkdir_p(emacs_dirs)
 end
 
+task :generate_loaddefs do
+  site_lisp_dir  = '/usr/local/share/emacs/site-lisp'
+  site_lisp_dirs = Dir.glob("#{site_lisp_dir}/{,*/}")
+
+  evals = '(setq make-backup-files nil generated-autoload-file \"' + site_lisp_dir + '/site-loaddefs.el\")'
+  paths = site_lisp_dirs.join(" ")
+
+  sh "emacs -Q --batch --eval \"#{evals}\" -f batch-update-autoloads #{paths}"
+end
+
 task :compile do
   modules = ["#{user_emacs_dir}/init.el"]
   modules += Dir.glob("#{user_emacs_dir}/modules/*-init-[^-]*.el")
@@ -45,4 +55,4 @@ task :cleanup_elc do
   FileUtils.rm(Dir.glob("#{user_emacs_dir}/{init.elc,{modules,configs}/*.elc}"))
 end
 
-task :default => [:make_dir, :compile, :tags, :link]
+task :default => [:generate_loaddefs, :make_dir, :compile, :tags, :link]
