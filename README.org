@@ -15,7 +15,7 @@ brew install emacs-mac --icon-modern --with-gnutls --with-imagemagick --with-xml
 brew linkapps
 git clone https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
 cd /path/to/local/repo
-rake
+rake install
 open -a Emacs
 #+END_SRC
 

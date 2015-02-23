@@ -55,4 +55,6 @@ task :cleanup_elc do
   FileUtils.rm(Dir.glob("#{user_emacs_dir}/{init.elc,{modules,configs}/*.elc}"))
 end
 
-task :default => [:generate_loaddefs, :link, :make_dir, :compile, :tags]
+task :default => [:generate_loaddefs, :compile, :tags]
+task :install => [:generate_loaddefs, :link, :make_dir, :compile, :tags]
+task :cleanup => [:cleanup_var, :cleanup_elc, :compile]
