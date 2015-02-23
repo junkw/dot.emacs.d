@@ -106,7 +106,7 @@ ARG is like in `dired-map-over-marks'."
    (function dired-convert-coding-system) arg 'convert-coding-system t))
 
 ;;;; Keymap
-(define-key dired-mode-map (kbd "R") 'wdired-change-to-wdired-mode)
+(define-key dired-mode-map (kbd "C-c C-e") 'wdired-change-to-wdired-mode)
 (define-key dired-mode-map (kbd "E") 'dired-do-convert-coding-system)
 
 ;; Local Variables:
