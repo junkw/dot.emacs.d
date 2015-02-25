@@ -83,10 +83,8 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
     (condition-case err
         (load module)
       (error
-       (message (format "Error in init-module %s. %s"
-                        module
-                        (error-message-string err))))
-      (if initerror (setq init-module-errors t)))))
+       (message (format "[Error in module %s] %s" module (error-message-string err)))
+       (if initerror (setq init-module-errors t))))))
 
 (cl-defun init-module--load-files (regexp &optional (initerror nil))
   "[internal] Load init modules matching the REGEXP specified."
@@ -104,11 +102,11 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 
 (defun init-module--save-initerror-file ()
   "[internal] Save error message on loading init modules."
-  (with-current-buffer "*Messages*"
-    (write-file init-module-initerror-file)))
+  (if init-module-errors
+      (with-current-buffer "*Messages*"
+        (write-file init-module-initerror-file))))
 
-(if init-module-errors               ; Next time, launch as safe mode.
-    (add-hook 'after-init-hook #'init-module--save-initerror-file))
+(add-hook 'emacs-startup-hook #'init-module--save-initerror-file) ; Next time, launch as safe mode.
 
 ;;;; Command
 (defun init-module-initialize ()
