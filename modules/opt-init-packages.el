@@ -69,46 +69,43 @@
 
 ;;;; Internal functions
 (defun el-get--pre-initialize-el-get ()
-  "Need to initialize before loading el-get."
+  "[internal] Need to initialize before loading el-get."
   (setq el-get-dir (file-name-as-directory (concat user-emacs-directory "vendor")))
   (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
   (setq el-get-user-package-directory (file-name-as-directory (concat user-emacs-directory "configs")))
   (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get"))))
 
 (defun el-get--host-initialize-el-get ()
-  "Need to initialize after loading el-get."
-  (add-to-list 'el-get-recipe-path (file-name-as-directory (concat user-emacs-directory "etc/recipes"))))
+  "[internal] Need to initialize after loading el-get."
+  (add-to-list 'el-get-recipe-path (file-name-as-directory (concat user-emacs-directory "etc/recipes")))
+  (el-get 'sync 'package)
+  (el-get 'sync 'el-get))
 
 (defun el-get--installer ()
-  "Install el-get and initialize ELPA."
-  (url-retrieve
-   "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
-   (lambda (s)
-     (let (el-get-master-branch)
-       (goto-char (point-max)) (eval-print-last-sexp)
-       ;; After el-get is installed, initialize ELPA,
-       ;; finally installes all packages I use.
-       (el-get 'sync 'package)
-       (package-initialize)))))
+  "[internal] Install el-get and initialize ELPA."
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (let (el-get-master-branch el-get-install-skip-emacswiki-recipes)
+      (goto-char (point-max))
+      (eval-print-last-sexp))))
 
 ;;;; Command
 (defun el-get-initialize-packages ()
-  "Install packages via `el-get', and initialize them.
-
-Need to initialize after loading el-get."
+  "Install packages via `el-get', and initialize them."
   (interactive)
-  (el-get--pre-initialize-el-get)
-  (el-get--host-initialize-el-get)
-  (el-get 'sync 'el-get)
   (let* ((src (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources)))
          (pkg (append src jkw:el-get-package-list-from-recipe)))
     (el-get 'sync pkg)))
 
 ;;;; Initialize packages
+(el-get--pre-initialize-el-get)
+
+(unless (require 'el-get nil t)
+  ;; If el-get is not installed, install it
+  (el-get--installer))
+
 (unless init-module-safe-mode-p
-  (el-get--pre-initialize-el-get)
-  (unless (require 'el-get nil t)
-    (el-get--installer))
   (el-get--host-initialize-el-get)
   (el-get-initialize-packages))
 
