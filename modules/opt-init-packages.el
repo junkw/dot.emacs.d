@@ -1,6 +1,6 @@
 ;;; opt-init-packages.el --- Emacs init file
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Feb. 21, 2015
@@ -64,7 +64,7 @@
                 linum-relative lispxmp magit markdown-mode migemo monokai-emacs
                 multiple-cursors mykie org-mode php-completion php-mode psvn rainbow-mode
                 recentf-ext scratch-ext sequential-command smart-newline tern viewer
-                web-mode wgrep)
+                web-mode wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
 
 ;;;; Internal functions
