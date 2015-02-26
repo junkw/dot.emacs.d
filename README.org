@@ -30,7 +30,10 @@ open -a Emacs
   |    `-- recipes/
   |         `-- PACKAGE-LOCAL.rcp
   +-- lib/
-  |    `-- git-hooks/
+  |    +-- git-hooks/
+  |    `-- test/
+  |         +-- test-CASE.el
+  |         `-- run-tests.el
   +-- init.el
   +-- modules/
   |    +-- cui-init-*.el

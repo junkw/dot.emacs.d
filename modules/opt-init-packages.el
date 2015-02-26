@@ -81,6 +81,11 @@
   (el-get 'sync 'package)
   (el-get 'sync 'el-get))
 
+(defun el-get--list-installing-packages ()
+  "[internal] Return a list of installing packages via el-get."
+  (append (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))
+          jkw:el-get-package-list-from-recipe))
+
 (defun el-get--installer ()
   "[internal] Install el-get and initialize ELPA."
   (with-current-buffer
@@ -94,8 +99,7 @@
 (defun el-get-initialize-packages ()
   "Install packages via `el-get', and initialize them."
   (interactive)
-  (let* ((src (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources)))
-         (pkg (append src jkw:el-get-package-list-from-recipe)))
+  (let ((pkg (el-get--list-installing-packages)))
     (el-get 'sync pkg)))
 
 ;;;; Initialize packages
@@ -108,6 +112,8 @@
 (unless init-module-safe-mode-p
   (el-get--host-initialize-el-get)
   (el-get-initialize-packages))
+
+(provide 'opt-init-packages)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

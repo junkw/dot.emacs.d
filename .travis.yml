@@ -1,0 +1,24 @@
+# -*- mode: yaml; coding: utf-8; indent-tabs-mode: nil; tab-width: 2 -*-
+language: generic
+
+env:
+  matrix:
+    - EMACS=emacs24
+    - EMACS=emacs-snapshot
+
+branches:
+  only:
+    - master
+
+install:
+  - sudo add-apt-repository -y ppa:cassou/emacs
+  - sudo add-apt-repository -y ppa:ubuntu-elisp/ppa
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq -yy ${EMACS}-nox ${EMACS}-el
+
+before_script:
+  - rake link
+  - rake make_dir
+
+script:
+  - rake test
