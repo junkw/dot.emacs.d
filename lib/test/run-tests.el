@@ -46,7 +46,8 @@
 
 (setq el-get-verbose t)
 (setq el-get-notify-type 'message)
-(add-to-list 'el-get-recipe-path (file-name-as-directory (concat user-emacs-directory "etc/recipes")))
+(defvar el-get-local-recipe-path (file-name-as-directory (concat user-emacs-directory "etc/recipes")))
+(add-to-list 'el-get-recipe-path el-get-local-recipe-path)
 
 ;;;; Internal functions
 (defun el-get--recipe-exists-p (package)
@@ -54,6 +55,11 @@
   (ignore-errors
     (not (el-get-error-unless-package-p package))))
 
+(defun el-get--list-local-recipes ()
+  "[internal] Show el-get recipe files containing in `el-get-local-recipe-path'. "
+  (cl-loop for rcp in (directory-files el-get-local-recipe-path t)
+           when (string-match "\\.rcp\\'" rcp)
+           collect (intern (file-name-nondirectory (file-name-sans-extension rcp)))))
 
 ;;;; Test case files
 (load "test-recipe-exists")
