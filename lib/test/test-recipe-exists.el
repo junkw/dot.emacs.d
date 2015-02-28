@@ -33,7 +33,6 @@
 
 (require 'cl-lib)
 (require 'ert)
-(require 'run-tests)
 
 (defmacro deftest-recipe-exists (package)
   `(ert-deftest ,(intern (format "test-%s-recipe-exists" package)) ()
