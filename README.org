@@ -1,6 +1,6 @@
 # -*- mode: org; coding: utf-8 -*-
 
-* My Emacs config
+* My Emacs config [[https://travis-ci.org/junkw/dot.emacs.d][https://api.travis-ci.org/junkw/dot.emacs.d.svg]]
 
 ** Requirements
 
