@@ -10,6 +10,22 @@ user_emacs_dir = "#{Dir.home}/.emacs.d"
 package_dir    = "#{user_emacs_dir}/vendor"
 el_get_dir     = "#{package_dir}/el-get"
 
+task :generate_loaddefs do
+  site_lisp_dirs = Dir.glob("#{site_lisp_dir}/{,*/}")
+
+  evals = '(setq make-backup-files nil generated-autoload-file \"' + site_lisp_dir + '/site-loaddefs.el\")'
+  paths = site_lisp_dirs.join(" ")
+
+  sh "#{emacs_cmd} --eval \"#{evals}\" -f batch-update-autoloads #{paths}"
+end
+
+task :link do
+  FileUtils.ln_sf(Dir.pwd, user_emacs_dir)
+
+  git_hooks = Dir.glob("#{user_emacs_dir}/lib/git-hooks/*")
+  FileUtils.ln_sf(git_hooks, "#{user_emacs_dir}/.git/hooks/")
+end
+
 task :make_dir do
   emacs_dirs = ["#{user_emacs_dir}/etc/auto-complete.dict",
                 "#{user_emacs_dir}/etc/snippets",
@@ -20,15 +36,6 @@ task :make_dir do
                 "#{user_emacs_dir}/var/tmp",
                 "#{user_emacs_dir}/vendor"]
   FileUtils.mkdir_p(emacs_dirs)
-end
-
-task :generate_loaddefs do
-  site_lisp_dirs = Dir.glob("#{site_lisp_dir}/{,*/}")
-
-  evals = '(setq make-backup-files nil generated-autoload-file \"' + site_lisp_dir + '/site-loaddefs.el\")'
-  paths = site_lisp_dirs.join(" ")
-
-  sh "#{emacs_cmd} --eval \"#{evals}\" -f batch-update-autoloads #{paths}"
 end
 
 task :compile do
@@ -44,19 +51,16 @@ task :tags do
   sh "ctags -e #{user_emacs_dir}/init.el #{user_emacs_dir}/modules/*.el #{user_emacs_dir}/configs/*.el"
 end
 
-task :link do
-  FileUtils.ln_sf(Dir.pwd, user_emacs_dir)
-
-  git_hooks = Dir.glob("#{user_emacs_dir}/lib/git-hooks/*")
-  FileUtils.ln_sf(git_hooks, "#{user_emacs_dir}/.git/hooks/")
-end
-
 task :cleanup_var do
   FileUtils.rm_r(Dir.glob("#{user_emacs_dir}/var/{initerror,{backup,bookmark,cache,log,tmp}/*}"))
 end
 
 task :cleanup_elc do
   FileUtils.rm(Dir.glob("#{user_emacs_dir}/{init.elc,{modules,configs}/*.elc}"))
+end
+
+task :run_tests do
+  sh "#{emacs_cmd} -l #{user_emacs_dir}/lib/test/run-tests.el"
 end
 
 task :check_recipes do
@@ -66,11 +70,7 @@ task :check_recipes do
   sh "#{emacs_cmd} -L #{el_get_dir} -l #{el_get_dir}/el-get-recipes.el -f el-get-check-recipe-batch #{args} #{recipes}"
 end
 
-task :run_tests do
-  sh "#{emacs_cmd} -l #{user_emacs_dir}/lib/test/run-tests.el"
-end
-
 task :default => [:generate_loaddefs, :compile, :tags]
 task :install => [:generate_loaddefs, :link, :make_dir, :compile, :tags]
 task :cleanup => [:cleanup_var, :cleanup_elc, :compile]
-task :test    => [:compile, :check_recipes, :run_tests]
+task :test    => [:compile, :run_tests, :check_recipes]
