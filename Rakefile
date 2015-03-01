@@ -53,7 +53,7 @@ task :tags do
 end
 
 task :install_el_get do
-  sh "#{emacs_cmd} -L #{init_module_dir} --eval '(setq init-module-safe-mode-p nil)' -l opt-init-packages -f el-get--installer"
+  sh "#{emacs_cmd} -L #{init_module_dir} --eval '(setq init-module-safe-mode-p t)' -l opt-init-packages -f el-get--installer"
 end
 
 task :cleanup_var do
