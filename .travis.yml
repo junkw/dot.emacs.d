@@ -18,8 +18,7 @@ install:
 
 before_script:
   - $EMACS --version
-  - rake link
-  - rake make_dir
+  - rake travis
 
 script:
   - rake test

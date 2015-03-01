@@ -3,12 +3,13 @@ require 'fileutils'
 
 
 
-emacs_cmd      = "emacs -Q --batch"
+emacs_cmd       = "emacs -Q --batch"
 
-site_lisp_dir  = '/usr/local/share/emacs/site-lisp'
-user_emacs_dir = "#{Dir.home}/.emacs.d"
-package_dir    = "#{user_emacs_dir}/vendor"
-el_get_dir     = "#{package_dir}/el-get"
+site_lisp_dir   = '/usr/local/share/emacs/site-lisp'
+user_emacs_dir  = "#{Dir.home}/.emacs.d"
+init_module_dir = "#{user_emacs_dir}/modules"
+package_dir     = "#{user_emacs_dir}/vendor"
+el_get_dir      = "#{package_dir}/el-get"
 
 task :generate_loaddefs do
   site_lisp_dirs = Dir.glob("#{site_lisp_dir}/{,*/}")
@@ -40,15 +41,19 @@ end
 
 task :compile do
   modules = ["#{user_emacs_dir}/init.el"]
-  modules += Dir.glob("#{user_emacs_dir}/modules/*-init-[^-]*.el")
+  modules += Dir.glob("#{init_module_dir}/*-init-[^-]*.el")
 
   modules.each do |el|
-    sh "#{emacs_cmd} -L #{user_emacs_dir}/modules/ -f batch-byte-compile #{el}"
+    sh "#{emacs_cmd} -L #{init_module_dir}/ -f batch-byte-compile #{el}"
   end
 end
 
 task :tags do
-  sh "ctags -e #{user_emacs_dir}/init.el #{user_emacs_dir}/modules/*.el #{user_emacs_dir}/configs/*.el"
+  sh "ctags -e #{user_emacs_dir}/init.el #{init_module_dir}/*.el #{user_emacs_dir}/configs/*.el"
+end
+
+task :install_el_get do
+  sh "#{emacs_cmd} -L #{init_module_dir} --eval '(setq init-module-safe-mode-p nil)' -l opt-init-packages -f el-get--installer"
 end
 
 task :cleanup_var do
@@ -72,5 +77,6 @@ end
 
 task :default => [:generate_loaddefs, :compile, :tags]
 task :install => [:generate_loaddefs, :link, :make_dir, :compile, :tags]
+task :travis  => [:link, :make_dir, :install_el_get]
 task :cleanup => [:cleanup_var, :cleanup_elc, :compile]
 task :test    => [:compile, :run_tests, :check_recipes]

@@ -105,11 +105,10 @@
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)
 
-(unless (require 'el-get nil t)
-  ;; If el-get is not installed, install it
-  (el-get--installer))
-
 (unless init-module-safe-mode-p
+  (unless (require 'el-get nil t)
+    ;; If el-get is not installed, install it
+    (el-get--installer))
   (el-get--host-initialize-el-get)
   (el-get-initialize-packages))
 
