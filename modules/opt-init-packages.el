@@ -37,12 +37,8 @@
 ;; Fix original recipes
 (setq el-get-sources
       '((:name dired+ :autoloads nil)
-        (:name direx :depends popwin)
         (:name helm :autoloads nil :before (setq dired-bind-jump nil) :features helm-config)
         (:name helm-descbinds :prepare nil :library helm :after (helm-descbinds-mode +1))
-        (:name helm-ls-git :depends (helm magit))
-        (:name helm-migemo :depends (helm migemo))
-        (:name helm-swoop :depends (helm migemo helm-migemo))
         (:name highlight-indentation :features highlight-indentation)
         (:name smartparens :features smartparens-config)
         (:name smartrep :features smartrep)
@@ -50,21 +46,21 @@
                :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
         (:name popwin :features popwin)
         (:name powerline :autoloads nil)
-        (:name projectile :depends (dash helm s f pkg-info))
         (:name twittering-mode :features nil)
         (:name undo-tree :features undo-tree)
         (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)))
 
 (defvar jkw:el-get-package-list-from-recipe
   '(ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile auto-complete
-                cl-lib-highlight cssm-mode dash-at-point dired-sync e2wm e2wm-bookmark
-                eldoc-extension elisp-slime-nav emmet-mode expand-region foreign-regexp
-                flycheck geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag
-                helm-c-yasnippet highlight-defined highlight-symbol info+ js2-mode
-                linum-relative lispxmp magit markdown-mode migemo monokai-emacs
-                multiple-cursors mykie org-mode php-completion php-mode psvn rainbow-mode
-                recentf-ext scratch-ext sequential-command smart-newline tern viewer
-                web-mode wgrep yaml-mode)
+                cl-lib-highlight cssm-mode dash-at-point dired-sync direx e2wm
+                e2wm-bookmark eldoc-extension elisp-slime-nav emmet-mode expand-region
+                foreign-regexp flycheck geben gist git-gutter-fringe goto-chg grep-a-lot
+                helm-ag helm-c-yasnippet helm-ls-git helm-migemo helm-swoop
+                highlight-defined highlight-symbol info+ js2-mode linum-relative lispxmp
+                magit markdown-mode migemo monokai-emacs multiple-cursors mykie org-mode
+                php-completion php-mode projectile psvn rainbow-mode recentf-ext
+                scratch-ext sequential-command smart-newline tern viewer web-mode wgrep
+                yaml-mode)
   "List of packages I use straight from recipe files.")
 
 ;;;; Internal functions

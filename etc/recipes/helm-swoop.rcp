@@ -1,0 +1,6 @@
+(:name helm-swoop
+       :description "Efficiently hopping squeezed lines powered by helm interface"
+       :website     "https://github.com/ShingoFukuyama/helm-swoop"
+       :depends     (helm migemo helm-migemo)
+       :type        github
+       :pkgname     "ShingoFukuyama/helm-swoop")

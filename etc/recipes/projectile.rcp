@@ -1,0 +1,6 @@
+(:name projectile
+       :description "Manage and navigate projects in Emacs easily."
+       :website     "https://github.com/bbatsov/projectile"
+       :depends     (dash s f pkg-info helm)
+       :type        github
+       :pkgname     "bbatsov/projectile")
