@@ -1,5 +1,0 @@
-(:name ag
-       :description "A front-end for ag ('the silver searcher'), the C ack replacement."
-       :website     "https://github.com/Wilfred/ag.el"
-       :type        github
-       :pkgname     "Wilfred/ag.el")
