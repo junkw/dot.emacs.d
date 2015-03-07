@@ -41,7 +41,6 @@
 (add-to-list 'exec-path (concat user-emacs-directory "bin"))
 
 ;;;; Locales
-(setenv "LC_ALL" "ja_JP.UTF-8")
 (setenv "LANG" "ja_JP.UTF-8")
 (setq system-time-locale "C")
 
