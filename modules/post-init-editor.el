@@ -1,9 +1,9 @@
 ;;; post-init-editor.el --- Emacs init file
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Oct. 26, 2012
+;; Created: Feb. 20, 2015
 ;; Keywords: .emacs
 
 ;;; This file is NOT part of GNU Emacs.

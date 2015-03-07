@@ -1,10 +1,10 @@
 ;;; opt-init-view.el --- Emacs init file
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Nov. 6, 2012
-;; Keywords: .emacs, view mode
+;; Created: Feb. 20, 2015
+;; Keywords: .emacs, view
 
 ;;; This file is NOT part of GNU Emacs.
 

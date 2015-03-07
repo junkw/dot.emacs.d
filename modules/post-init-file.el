@@ -1,9 +1,9 @@
 ;;; post-init-file.el --- Emacs init file
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Oct. 17, 2012
+;; Created: Feb. 20, 2015
 ;; Keywords: .emacs, dired
 
 ;;; This file is NOT part of GNU Emacs.
