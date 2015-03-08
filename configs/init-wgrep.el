@@ -34,7 +34,7 @@
 (require 'pre-init-core)
 
 (setq wgrep-auto-save-buffer t)
-(setq wgrep-enable-key "R")
+(setq wgrep-enable-key (kbd "C-c C-e"))
 (setq wgrep-change-readonly-file t)
 (with-eval-after-load 'ag (require 'wgrep-ag))
 
