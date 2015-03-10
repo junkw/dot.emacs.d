@@ -39,7 +39,6 @@
 (push '(" *auto-async-byte-compile*" :noselect t) popwin:special-display-config)
 (push '("*Backtrace*" :noselect t) popwin:special-display-config)
 (push '("*Compile-Log*" :height 10 :noselect t) popwin:special-display-config)
-(push '(direx:direx-mode :position left :width 30 :dedicated t) popwin:special-display-config)
 (push '("*el-get packages*" :position bottom) popwin:special-display-config)
 (push '("*vc-log*" :stick t) popwin:special-display-config)
 

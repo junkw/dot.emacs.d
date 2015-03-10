@@ -1,0 +1,7 @@
+(:name neotree
+       :description "An Emacs tree plugin like NerdTree for Vim."
+       :website     "https://github.com/jaypei/emacs-neotree"
+       :depends     projectile
+       :type        github
+       :pkgname     "jaypei/emacs-neotree"
+       :branch      "dev")

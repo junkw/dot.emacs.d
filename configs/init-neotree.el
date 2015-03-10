@@ -1,10 +1,10 @@
-;;; init-direx.el --- el-get init file for package direx
+;;; init-neotree.el --- el-get init file for package neotree
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; Copyright (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Aug. 7, 2013
-;; Keywords: .emacs, filer, dired
+;; Created: Mar. 11, 2015
+;; Keywords: .emacs, file
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,26 +31,24 @@
 
 ;;; Code:
 
-(require 'direx)
-(require 'direx-project)
+(require 'projectile nil t)
 
-;; Icon
-(setq direx:leaf-icon   "  ")
-(setq direx:open-icon   "- ")
-(setq direx:closed-icon "+ ")
+(setq neo-theme 'nerd)
+(setq neo-persist-show nil)
+(setq neo-smart-open t)
+(setq neo-cwd-line-style 'button)
 
-;;;; Command
-(defun direx:direx-jump ()
-  "Jump and display the directory tree corresponding to current buffer."
+;;;; Commands
+(defun neotree-find-project-root-or-current-directory ()
+  "Quick select project or current directory as node in NeoTree."
   (interactive)
-  (let ((buffer (or (ignore-errors
-                      (direx-project:jump-to-project-root-noselect))
-                    (direx:jump-to-directory-noselect))))
-    (switch-to-buffer-other-window buffer)
-    (setq-local mode-line-format '("- " mode-line-buffer-identification "-%-"))))
+  (let ((path (if (fboundp 'projectile-project-root)
+                  (ignore-errors (projectile-project-root))
+                nil)))
+    (neotree-find path)))
 
 ;;;; Keymap
-(global-set-key (kbd "C-x C-j") 'direx:direx-jump)
+(global-set-key (kbd "C-x C-d") 'neotree-find-project-root-or-current-directory)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -59,4 +57,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-direx.el ends here
+;;; init-neotree.el ends here
