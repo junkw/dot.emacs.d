@@ -40,15 +40,18 @@
         (:name helm :autoloads nil :before (setq dired-bind-jump nil) :features helm-config)
         (:name helm-descbinds :prepare nil :library helm :after (helm-descbinds-mode +1))
         (:name highlight-indentation :features highlight-indentation)
-        (:name smartparens :features smartparens-config)
-        (:name smartrep :features smartrep)
         (:name pcache
                :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
         (:name popwin :features popwin)
         (:name powerline :autoloads nil)
+        (:name smartparens :features smartparens-config)
         (:name twittering-mode :features nil)
         (:name undo-tree :features undo-tree)
         (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)))
+
+(defvar jkw:el-get-preloaded-package-list-from-recipe
+  '(sequential-command smartrep)
+  "List of packages that need to load before loading `jkw:el-get-package-list-from-recipe'.")
 
 (defvar jkw:el-get-package-list-from-recipe
   '(ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile auto-complete
@@ -57,10 +60,9 @@
                 foreign-regexp flycheck geben gist git-gutter-fringe goto-chg grep-a-lot
                 helm-ag helm-c-yasnippet helm-ls-git helm-migemo helm-swoop
                 highlight-defined highlight-symbol info+ js2-mode linum-relative lispxmp
-                magit markdown-mode migemo monokai-emacs multiple-cursors mykie org-mode
-                php-completion php-mode projectile psvn rainbow-mode recentf-ext
-                scratch-ext sequential-command smart-newline tern viewer web-mode wgrep
-                yaml-mode)
+                magit markdown-mode migemo monokai-emacs multiple-cursors mykie
+                org-mode php-completion php-mode projectile psvn rainbow-mode recentf-ext
+                scratch-ext smart-newline tern viewer web-mode wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
 
 ;;;; Internal functions
@@ -74,13 +76,14 @@
 (defun el-get--host-initialize-el-get ()
   "[internal] Need to initialize after loading el-get."
   (add-to-list 'el-get-recipe-path (file-name-as-directory (concat user-emacs-directory "etc/recipes")))
-  (el-get 'sync 'package)
-  (el-get 'sync 'el-get))
+  (el-get 'sync '(package el-get)))
 
 (defun el-get--list-installing-packages ()
   "[internal] Return a list of installing packages via el-get."
-  (append (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))
-          jkw:el-get-package-list-from-recipe))
+  (let* ((src      (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources)))
+         (add-src  (append src jkw:el-get-package-list-from-recipe))
+         (pkg-list (append jkw:el-get-preloaded-package-list-from-recipe add-src)))
+    pkg-list))
 
 (defun el-get--installer ()
   "[internal] Install el-get and initialize ELPA."
