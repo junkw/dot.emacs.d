@@ -32,6 +32,7 @@
 ;;; Code:
 
 (require 'pre-init-core)
+(require 'smartrep)
 
 (setq smartrep-mode-line-string-activated nil)
 (setq smartrep-mode-line-active-bg nil)
@@ -39,29 +40,6 @@
 (smartrep-define-key prog-mode-map "M-g"
   '(("M-n" . 'next-error)
     ("M-p" . 'previous-error)))
-
-(with-eval-after-load 'flycheck
-  (smartrep-define-key flycheck-mode-map "C-c !"
-    '(("n" . 'flycheck-next-error)
-      ("p" . 'flycheck-previous-error))))
-
-(with-eval-after-load 'org
-  (smartrep-define-key org-mode-map "C-c"
-    '(("C-n" . 'outline-next-visible-heading)
-      ("C-p" . 'outline-previous-visible-heading))))
-
-(with-eval-after-load 'web-mode
-  (smartrep-define-key web-mode-map "C-c C-b"
-    '(("n" . 'web-mode-block-next)
-      ("p" . 'web-mode-block-previous)))
-
-  (smartrep-define-key web-mode-map "C-c C-e"
-    '(("n" . 'web-mode-element-next)
-      ("p" . 'web-mode-element-previous)))
-
-  (smartrep-define-key web-mode-map "C-c e"
-    '(("n" . 'web-mode-tag-next)
-      ("p" . 'web-mode-tag-previous))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

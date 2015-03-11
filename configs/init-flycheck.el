@@ -31,8 +31,16 @@
 
 ;;; Code:
 
+(require 'smartrep)
+
 (setq flycheck-display-errors-delay 0.5)
 (setq-default flycheck-emacs-lisp-load-path `(,user-emacs-directory))
+
+;;;; Keymap
+(with-eval-after-load 'flycheck
+  (smartrep-define-key flycheck-mode-map "C-c !"
+    '(("n" . 'flycheck-next-error)
+      ("p" . 'flycheck-previous-error))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

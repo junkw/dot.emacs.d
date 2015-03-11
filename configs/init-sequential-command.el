@@ -43,26 +43,12 @@
   seq-beginning-of-buffer
   seq-return)
 
-(define-sequential-command org-seq-beginnings
-  seq-back-to-indentation
-  seq-org-beginning-of-line
-  seq-beginning-of-buffer
-  seq-return)
-
-(define-sequential-command org-seq-ends
-  seq-org-end-of-line
-  seq-end-of-buffer
-  seq-return)
-
 ;;;; Keymap
 (global-set-key (kbd "C-a") 'seq-beginnings)
 (global-set-key (kbd "C-e") 'seq-end)
 (global-set-key (kbd "M-u") 'seq-upcase-backward-word)
 (global-set-key (kbd "M-c") 'seq-capitalize-backward-word)
 (global-set-key (kbd "M-l") 'seq-downcase-backward-word)
-(with-eval-after-load 'org
-  (define-key org-mode-map (kbd "C-a") 'org-seq-beginnings)
-  (define-key org-mode-map (kbd "C-e") 'org-seq-ends))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
