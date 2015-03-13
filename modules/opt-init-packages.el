@@ -60,8 +60,8 @@
                 foreign-regexp flycheck geben gist git-gutter-fringe goto-chg grep-a-lot
                 helm-ag helm-c-yasnippet helm-ls-git helm-migemo helm-swoop
                 highlight-defined highlight-symbol info+ js2-mode linum-relative lispxmp
-                magit markdown-mode migemo monokai-emacs multiple-cursors mykie
-                org-mode php-completion php-mode projectile psvn rainbow-mode recentf-ext
+                magit markdown-mode migemo monokai-emacs multiple-cursors org-mode
+                php-completion php-mode projectile psvn rainbow-mode recentf-ext
                 scratch-ext smart-newline tern viewer web-mode wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
 
