@@ -1,0 +1,7 @@
+(:name origami
+       :description "Flexible text folding."
+       :website     "https://github.com/gregsexton/origami.el"
+       :depends     (dash s)
+       :type        github
+       :pkgname     "gregsexton/origami.el"
+       :features    origami)
