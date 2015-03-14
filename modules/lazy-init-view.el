@@ -1,9 +1,9 @@
-;;; opt-init-view.el --- Emacs init file
+;;; lazy-init-view.el --- Emacs init file
 
 ;; Copyright (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Feb. 20, 2015
+;; Created: Mar. 14, 2015
 ;; Keywords: .emacs, view
 
 ;;; This file is NOT part of GNU Emacs.
@@ -55,4 +55,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; opt-init-view.el ends here
+;;; lazy-init-view.el ends here
