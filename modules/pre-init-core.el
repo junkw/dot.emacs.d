@@ -61,7 +61,8 @@
 (defun add-hooks (modes function)
   "`add-hook' extension for batch adding to the list of MODES the function FUNCTION."
   (cl-loop for mode in modes
-           do (add-hook (intern (concat (symbol-name mode) "-hook")) function)))
+           when (fboundp mode)
+           do (add-hook (intern (format "%s-hook" mode)) function)))
 
 ;;;; Paths
 (defun getenv-from-shell (variable)
