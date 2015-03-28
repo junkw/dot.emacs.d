@@ -39,9 +39,37 @@
 
 (setq el-get-package-menu-sort-key "Status")
 
+;;;; Functions
 ;; Use function `terminal-notifier-notify' as `el-get-growl' on Mac OS X.
 (when (executable-find "terminal-notifier")
   (fset 'el-get-growl 'terminal-notifier-notify))
+
+(defun el-get-load-package-user-init-file-with-debug (package)
+  "Debug on loading the user init file for PACKAGE.
+
+Advice function for `el-get-load-package-user-init-file'."
+  (when el-get-user-package-directory
+    (let* ((init-file-name (format "init-%s.el" package))
+           (package-init-file
+            (expand-file-name init-file-name el-get-user-package-directory))
+           (file-name-no-extension (file-name-sans-extension package-init-file))
+           (compiled-init-file (concat file-name-no-extension ".elc")))
+      (when (file-exists-p package-init-file)
+        (when el-get-byte-compile
+          (el-get-byte-compile-file package-init-file))
+        (condition-case err
+            (progn
+              (load file-name-no-extension)
+              (el-get-verbose-message "el-get: load %S" file-name-no-extension))
+          (error
+           (el-get-verbose-message "Error in el-get user init file %S: %s"
+                                   file-name-no-extension
+                                   (error-message-string err))))))))
+
+(when el-get-verbose
+  (advice-add 'el-get-load-package-user-init-file
+              :override
+              #'el-get-load-package-user-init-file-with-debug))
 
 ;;;; Commands
 ;; el-get package menu
