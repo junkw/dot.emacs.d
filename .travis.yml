@@ -12,8 +12,8 @@ branches:
 
 before_install:
   - if [ "$METHOD" = 'evm' ]; then
-        curl -fsSkL https://gist.github.com/rejeep/7736123/raw | sh &&
-        export PATH="/home/travis/.evm/bin:$PATH";
+        curl -fsSkL https://raw.github.com/rejeep/evm/master/go | bash &&
+        export PATH="$HOME/.evm/bin:$PATH";
     fi
   - if [ "$METHOD" = 'ppa' ]; then
         sudo add-apt-repository -y ppa:cassou/emacs &&
