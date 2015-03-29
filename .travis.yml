@@ -12,6 +12,8 @@ branches:
 
 before_install:
   - if [ "$METHOD" = 'evm' ]; then
+        sudo mkdir /usr/local/evm &&
+        sudo chown travis:travis /usr/local/evm &&
         curl -fsSkL https://raw.github.com/rejeep/evm/master/go | bash &&
         export PATH="$HOME/.evm/bin:$PATH";
     fi
