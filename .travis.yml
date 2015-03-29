@@ -33,7 +33,7 @@ install:
     fi
 
 before_script:
-  - $EMACS --version
+  - emacs --version
   - rake travis
 
 script:
