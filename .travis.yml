@@ -1,20 +1,34 @@
 # -*- mode: yaml; coding: utf-8; indent-tabs-mode: nil; tab-width: 2 -*-
-language: generic
+language: emacs-lisp
 
 env:
   matrix:
-    - EMACS=emacs24
-    - EMACS=emacs-snapshot
+    - EMACS=emacs-24.4-bin METHOD=evm
+    - EMACS=emacs-snapshot METHOD=ppa
 
 branches:
   only:
     - master
 
-install:
-  - sudo add-apt-repository -y ppa:cassou/emacs
-  - sudo add-apt-repository -y ppa:ubuntu-elisp/ppa
+before_install:
+  - if [ "$METHOD" = 'evm' ]; then
+        curl -fsSkL https://gist.github.com/rejeep/7736123/raw | sh &&
+        export PATH="/home/travis/.evm/bin:$PATH";
+    fi
+  - if [ "$METHOD" = 'ppa' ]; then
+        sudo add-apt-repository -y ppa:cassou/emacs &&
+        sudo add-apt-repository -y ppa:ubuntu-elisp/ppa;
+    fi
   - sudo apt-get update -qq
-  - sudo apt-get install -qq -yy ${EMACS}-nox ${EMACS}-el install-info
+  - sudo apt-get install -qq -yy install-info
+
+install:
+  - if [ "$METHOD" = 'evm' ]; then
+        evm install ${EMACS} --use;
+    fi
+  - if [ "$METHOD" = 'ppa' ]; then
+        sudo apt-get install -qq -yy ${EMACS}-nox ${EMACS}-el;
+    fi
 
 before_script:
   - $EMACS --version
