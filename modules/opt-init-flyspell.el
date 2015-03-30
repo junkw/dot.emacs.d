@@ -4,7 +4,7 @@
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Mar. 7, 2015
-;; Keywords: .emacs, ispell, flyspell
+;; Keywords: .emacs, flyspell, ispell, hunspell
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -44,7 +44,7 @@
 
 ;;;; Command
 ;; http://d.hatena.ne.jp/mooz/20100423/p1
-(with-eval-after-load 'flyspell
+(when (require 'popup nil t)
   (defun flyspell-correct-word-with-popup ()
     "Pop up a menu of possible corrections for misspelled word before point."
     (interactive)
@@ -86,8 +86,7 @@
             (ispell-pdict-save t)))))
 
 ;;;; Keymap
-  (when (locate-library "popup")
-    (define-key flyspell-mode-map (kbd "C-<return>") 'flyspell-correct-word-with-popup)))
+  (define-key flyspell-mode-map (kbd "C-<return>") 'flyspell-correct-word-with-popup))
 
 (setq flyspell-auto-correct-binding (kbd "C-M-<return>"))
 
