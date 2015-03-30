@@ -1,9 +1,9 @@
-;;; init-cssm-mode.el --- el-get init file for package cssm-mode
+;;; lazy-init-css-mode.el --- Emacs init file
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Dec. 5, 2012
+;; Created: Mar. 30, 2015
 ;; Keywords: .emacs, css
 
 ;;; This file is NOT part of GNU Emacs.
@@ -35,12 +35,10 @@
 (defun jkw:css-mode-hooks ()
   "My config for CSS mode."
   (setq indent-tabs-mode nil)
-  (setq cssm-indent-function #'cssm-c-style-indenter)
-  (setq cssm-indent-level 4)
-  (setq cssm-newline-before-closing-bracket t)
+  (setq css-indent-offset 4)
   (linum-mode +1))
 
-(add-hook 'css-mode-hook 'jkw:css-mode-hooks)
+(add-hook 'css-mode-hook #'jkw:css-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -49,4 +47,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-cssm-mode.el ends here
+;;; lazy-init-css-mode.el ends here
