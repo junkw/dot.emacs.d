@@ -1,10 +1,10 @@
-;;; opt-init-html.el --- Emacs init file
+;;; lazy-init-nxml-mode.el --- Emacs init file
 
 ;; Copyright (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Feb. 20, 2015
-;; Keywords: .emacs, html, xml, nxml
+;; Created: Mar. 30, 2015
+;; Keywords: .emacs, html, xml
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -33,17 +33,12 @@
 
 (require 'pre-init-core)
 
-;;;; Init
-(add-to-list 'auto-mode-alist '("\\.\\(xml\\|atom\\)\\'" . nxml-mode))
-
-(with-eval-after-load 'nxml-mode
-  (setq nxml-child-indent 2)
-  (setq nxml-attribute-indent 4)
-  (setq nxml-char-ref-display-glyph-flag nil)
-
-  (setq nxml-slash-auto-complete-flag t)
-  (setq nxml-bind-meta-tab-to-complete-flag t)
-  (setq nxml-sexp-element-flag t))
+(setq nxml-child-indent 2)
+(setq nxml-attribute-indent 4)
+(setq nxml-char-ref-display-glyph-flag nil)
+(setq nxml-slash-auto-complete-flag t)
+(setq nxml-bind-meta-tab-to-complete-flag t)
+(setq nxml-sexp-element-flag t)
 
 ;;;; Hooks
 (defun jkw:nxml-mode-hooks ()
@@ -51,7 +46,7 @@
   (setq indent-tabs-mode nil)
   (linum-mode +1))
 
-(add-hook 'nxml-mode-hook 'jkw:nxml-mode-hooks)
+(add-hook 'nxml-mode-hook #'jkw:nxml-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -60,4 +55,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; opt-init-html.el ends here
+;;; lazy-init-nxml-mode.el ends here
