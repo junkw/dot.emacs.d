@@ -56,10 +56,9 @@
 
   (defun jkw:mu4e-compose-mode-hooks ()
     "My config for message composition."
-    (set-fill-column 80)
-    (flyspell-mode +1))
+    (set-fill-column 80))
 
-  (add-hook 'mu4e-compose-mode-hook 'jkw:mu4e-compose-mode-hooks)
+  (add-hook 'mu4e-compose-mode-hook #'jkw:mu4e-compose-mode-hooks)
 
   ;; Multiple accounts selection
   ;; https://github.com/joedicastro/dotfiles/blob/master/emacs/init.el#L1214
@@ -99,7 +98,7 @@
                 account-vars)
         (error "No email account found"))))
 
-  (add-hook 'mu4e-compose-pre-hook 'jkw:mu4e-set-account)
+  (add-hook 'mu4e-compose-pre-hook #'jkw:mu4e-set-account)
 
   ;; SMTP
   (require 'smtpmail)
