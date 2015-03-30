@@ -51,6 +51,9 @@
 (setq twittering-use-native-retweet t)
 (setq twittering-retweet-format '(nil _ " RT @%s: %t"))
 
+;;;; Hooks
+(add-hook 'twittering-edit-mode-hook #'flyspell-mode)
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
