@@ -3,7 +3,7 @@
        :website     "http://orgmode.org/"
        :type        git
        :url         "git://orgmode.org/org-mode.git"
-       :checkout    "release_8.2.10"
+       :branch      "maint"
        :info        "doc"
        :build       `,(mapcar
                        (lambda (target)
