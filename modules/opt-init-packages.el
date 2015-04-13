@@ -72,7 +72,7 @@
   (setq el-get-user-package-directory (file-name-as-directory (concat user-emacs-directory "configs")))
   (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get"))))
 
-(defun el-get--host-initialize-el-get ()
+(defun el-get--post-initialize-el-get ()
   "[internal] Need to initialize after loading el-get."
   (add-to-list 'el-get-recipe-path (file-name-as-directory (concat user-emacs-directory "etc/recipes")))
   (el-get 'sync '(package el-get)))
@@ -107,7 +107,7 @@
   (unless (require 'el-get nil t)
     ;; If el-get is not installed, install it
     (el-get--installer))
-  (el-get--host-initialize-el-get)
+  (el-get--post-initialize-el-get)
   (el-get-initialize-packages))
 
 (provide 'opt-init-packages)
