@@ -51,8 +51,8 @@
 
 ;;;; Keymap
 (ac-set-trigger-key "TAB")
-(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-(define-key ac-completing-map (kbd "C-M-g") 'ac-stop)
+(define-key ac-mode-map (kbd "M-TAB") #'auto-complete)
+(define-key ac-completing-map (kbd "C-M-g") #'ac-stop)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

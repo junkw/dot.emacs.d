@@ -86,7 +86,7 @@
             (ispell-pdict-save t)))))
 
 ;;;; Keymap
-  (define-key flyspell-mode-map (kbd "C-<return>") 'flyspell-correct-word-with-popup))
+  (define-key flyspell-mode-map (kbd "C-<return>") #'flyspell-correct-word-with-popup))
 
 (setq flyspell-auto-correct-binding (kbd "C-M-<return>"))
 

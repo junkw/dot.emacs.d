@@ -44,11 +44,11 @@
   seq-return)
 
 ;;;; Keymap
-(global-set-key (kbd "C-a") 'seq-beginnings)
-(global-set-key (kbd "C-e") 'seq-end)
-(global-set-key (kbd "M-u") 'seq-upcase-backward-word)
-(global-set-key (kbd "M-c") 'seq-capitalize-backward-word)
-(global-set-key (kbd "M-l") 'seq-downcase-backward-word)
+(global-set-key (kbd "C-a") #'seq-beginnings)
+(global-set-key (kbd "C-e") #'seq-end)
+(global-set-key (kbd "M-u") #'seq-upcase-backward-word)
+(global-set-key (kbd "M-c") #'seq-capitalize-backward-word)
+(global-set-key (kbd "M-l") #'seq-downcase-backward-word)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

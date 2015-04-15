@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(add-hook 'prog-mode-hook 'smart-newline-mode)
+(add-hook 'prog-mode-hook #'smart-newline-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

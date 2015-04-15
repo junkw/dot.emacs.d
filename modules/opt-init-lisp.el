@@ -42,7 +42,7 @@
 (setq eldoc-idle-delay 0.2)
 (setq eldoc-minor-mode-string "")
 (setq eldoc-echo-area-use-multiline-p t)
-(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'ielm-mode-hook #'eldoc-mode)
 
 ;;;; Hooks
 (defun jkw:lisp-mode-hooks ()
@@ -53,7 +53,7 @@
   (setq imenu-prev-index-position-function nil)
   (add-to-list 'imenu-generic-expression '("Sections" "\\`;;;; \\(.+\\)\\'" 1) t))
 
-(add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) 'jkw:lisp-mode-hooks)
+(add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) #'jkw:lisp-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

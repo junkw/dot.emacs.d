@@ -73,7 +73,7 @@
                              (powerline-fill face2 (powerline-width rhs))
                              (powerline-render rhs)))))))
 
-(add-hook 'emacs-startup-hook 'jkw:powerline-theme-initialize)
+(add-hook 'emacs-startup-hook #'jkw:powerline-theme-initialize)
 
 (defun powerline-revert-reload-theme ()
   "Reload current custom theme after `powerline-revert'.

@@ -38,7 +38,7 @@
 (setq large-file-warning-threshold 100000000)
 
 ;; Make the file executable if it is a shell script
-(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+(add-hook 'after-save-hook #'executable-make-buffer-file-executable-if-script-p)
 
 ;; File deletion makes use of the Trash.
 (when mac-p
@@ -106,8 +106,8 @@ ARG is like in `dired-map-over-marks'."
    (function dired-convert-coding-system) arg 'convert-coding-system t))
 
 ;;;; Keymap
-(define-key dired-mode-map (kbd "C-c C-e") 'wdired-change-to-wdired-mode)
-(define-key dired-mode-map (kbd "E") 'dired-do-convert-coding-system)
+(define-key dired-mode-map (kbd "C-c C-e") #'wdired-change-to-wdired-mode)
+(define-key dired-mode-map (kbd "E") #'dired-do-convert-coding-system)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

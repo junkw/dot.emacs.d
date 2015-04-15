@@ -36,11 +36,11 @@
 (setq projectile-known-projects-file (concat user-emacs-directory "var/bookmark/projectile.eld"))
 (setq projectile-completion-system 'helm)
 
-(add-hook 'prog-mode-hook 'projectile-mode)
+(add-hook 'prog-mode-hook #'projectile-mode)
 
 ;;;; Keymap
 (when (featurep 'helm)
-  (global-set-key (kbd "C-x c P") 'helm-projectile))
+  (global-set-key (kbd "C-x c P") #'helm-projectile))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

@@ -38,7 +38,7 @@
                          ,yas-installed-snippets-dir))
 (yas-reload-all)
 
-(add-hooks '(mu4e-compose-mode org-mode prog-mode) 'yas-minor-mode)
+(add-hooks '(mu4e-compose-mode org-mode prog-mode) #'yas-minor-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

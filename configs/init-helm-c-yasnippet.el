@@ -34,7 +34,7 @@
 (setq helm-yas-space-match-any-greedy t)
 
 ;;;; Keymap
-(global-set-key (kbd "C-x c y") 'helm-yas-complete)
+(global-set-key (kbd "C-x c y") #'helm-yas-complete)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

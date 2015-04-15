@@ -58,7 +58,7 @@
 (global-set-key (kbd "<f10>") nil)
 (global-set-key (kbd "<f11>") nil)
 
-(global-set-key (kbd "<f8>") 'toggle-frame-fullscreen)
+(global-set-key (kbd "<f8>") #'toggle-frame-fullscreen)
 
 
 ;; Local Variables:

@@ -85,7 +85,7 @@
         (tab-mark     ?\t     [?\u00BB ?\t]  [?\\ ?\t])))
 
 ;; Remove unneeded whitespace when saving a file
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 ;;;; Killing
 ;; http://dev.ariel-networks.com/wp/documents/aritcles/emacs/part16
@@ -183,11 +183,11 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
   (increment-integer-at-point (- (or dec 1))))
 
 ;;;; Keymap
-(global-set-key (kbd "M-/")   'hippie-expand) ; replace `dabbrev-expand'
-(global-set-key (kbd "M-d")   'kill-word-dwim)
-(global-set-key (kbd "M-SPC") 'cycle-spacing) ; replace `just-one-space'
-(global-set-key (kbd "C-c +") 'increment-integer-at-point)
-(global-set-key (kbd "C-c -") 'decrement-integer-at-point)
+(global-set-key (kbd "M-/")   #'hippie-expand) ; replace `dabbrev-expand'
+(global-set-key (kbd "M-d")   #'kill-word-dwim)
+(global-set-key (kbd "M-SPC") #'cycle-spacing) ; replace `just-one-space'
+(global-set-key (kbd "C-c +") #'increment-integer-at-point)
+(global-set-key (kbd "C-c -") #'decrement-integer-at-point)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

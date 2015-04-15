@@ -39,8 +39,8 @@
 ;;;; Keymap
 (with-eval-after-load 'flycheck
   (smartrep-define-key flycheck-mode-map "C-c !"
-    '(("n" . 'flycheck-next-error)
-      ("p" . 'flycheck-previous-error))))
+    '(("n" . #'flycheck-next-error)
+      ("p" . #'flycheck-previous-error))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

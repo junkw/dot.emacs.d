@@ -46,7 +46,7 @@
   (setq indent-tabs-mode nil)
   (linum-mode +1))
 
-(add-hook 'js2-mode-hook 'jkw:js2-mode-hooks)
+(add-hook 'js2-mode-hook #'jkw:js2-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

@@ -37,7 +37,7 @@
     (tern-ac-setup)))
 
 ;;;; Hooks
-(add-hook 'js2-mode-hook 'tern-mode)
+(add-hook 'js2-mode-hook #'tern-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

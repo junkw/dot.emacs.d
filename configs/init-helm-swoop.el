@@ -34,9 +34,9 @@
 (setq helm-swoop-speed-or-color t)
 
 ;;;; Keymap
-(global-set-key (kbd "C-x c M-i") 'helm-swoop)
-(global-set-key (kbd "C-x c M-I") 'helm-multi-swoop)
-(global-set-key (kbd "C-x c M-a") 'helm-multi-swoop-all)
+(global-set-key (kbd "C-x c M-i") #'helm-swoop)
+(global-set-key (kbd "C-x c M-I") #'helm-multi-swoop)
+(global-set-key (kbd "C-x c M-a") #'helm-multi-swoop-all)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

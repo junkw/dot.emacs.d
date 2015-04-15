@@ -50,7 +50,7 @@
   (c-set-offset 'arglist-close 0)
   (linum-mode +1))
 
-(add-hook 'php-mode-hook 'jkw:php-mode-hooks)
+(add-hook 'php-mode-hook #'jkw:php-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

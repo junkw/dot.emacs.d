@@ -38,7 +38,7 @@
   "Set anzu format and face on mode line."
   (propertize (format " [%d/%d]" here total)
               'face '((:foreground "#CDF187" :weight bold))))
-(setq anzu-mode-line-update-function 'jkw:anzu-update-format)
+(setq anzu-mode-line-update-function #'jkw:anzu-update-format)
 
 (setq anzu-cons-mode-line-p nil)
 (setcar (cdr (assq 'isearch-mode minor-mode-alist))

@@ -38,7 +38,7 @@
 (add-to-list 'dash-at-point-mode-alist '(web-mode  . "html"))
 
 ;;;; Keymap
-(global-set-key (kbd "C-c d") 'dash-at-point)
+(global-set-key (kbd "C-c d") #'dash-at-point)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

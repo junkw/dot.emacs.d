@@ -41,7 +41,7 @@
                     :slant 'italic)
 
 ;;;; Hook
-(add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode)
+(add-hook 'emacs-lisp-mode-hook #'highlight-defined-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

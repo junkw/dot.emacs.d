@@ -42,7 +42,7 @@
 ;;;; Functions
 ;; Use function `terminal-notifier-notify' as `el-get-growl' on Mac OS X.
 (when (executable-find "terminal-notifier")
-  (fset 'el-get-growl 'terminal-notifier-notify))
+  (fset #'el-get-growl #'terminal-notifier-notify))
 
 (defun el-get-load-package-user-init-file-with-debug (package)
   "Debug on loading the user init file for PACKAGE.
@@ -86,7 +86,7 @@ Advice function for `el-get-load-package-user-init-file'."
         (find-file package-init-file)))))
 
 ;;;; Keymap
-(define-key el-get-package-menu-mode-map "o" 'el-get-package-menu-open-init-file)
+(define-key el-get-package-menu-mode-map "o" #'el-get-package-menu-open-init-file)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

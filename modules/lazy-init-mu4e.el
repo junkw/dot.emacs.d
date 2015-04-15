@@ -48,7 +48,7 @@
   (setq mu4e-update-interval 3600)      ; 60 mins.
 
   (require 'mu4e-contrib)
-  (setq mu4e-html2text-command 'mu4e-shr2text)
+  (setq mu4e-html2text-command #'mu4e-shr2text)
 
   ;; Compose
   (setq mu4e-sent-messages-behavior 'delete)
@@ -103,7 +103,7 @@
   ;; SMTP
   (require 'smtpmail)
 
-  (setq message-send-mail-function 'smtpmail-send-it)
+  (setq message-send-mail-function #'smtpmail-send-it)
   (when (executable-find "gnutls-cli")
     (setq smtpmail-stream-type 'starttls))
   (setq message-kill-buffer-on-exit t)
@@ -132,7 +132,7 @@
           (,mu4e-sent-folder        . ?t)
           (,jkw:mu4e-starred-folder . ?s)))
 
-  (define-key message-mode-map (kbd "C-x C-s") 'message-dont-send))
+  (define-key message-mode-map (kbd "C-x C-s") #'message-dont-send))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

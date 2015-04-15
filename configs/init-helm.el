@@ -61,17 +61,17 @@
 (setq helm-buffers-fuzzy-matching t)
 
 ;;;; Keymap
-(global-set-key (kbd "M-x")     'helm-M-x)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
-(global-set-key (kbd "C-;")     'helm-for-files)
-(global-set-key (kbd "C-M-y")   'helm-show-kill-ring)
+(global-set-key (kbd "M-x")     #'helm-M-x)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "C-x C-b") #'helm-buffers-list)
+(global-set-key (kbd "C-;")     #'helm-for-files)
+(global-set-key (kbd "C-M-y")   #'helm-show-kill-ring)
 
 (define-key helm-map (kbd "C-k") nil)
 
-(define-key helm-map (kbd "C-q")   'helm-delete-minibuffer-contents)
-(define-key helm-map (kbd "C-M-n") 'helm-next-source)
-(define-key helm-map (kbd "C-M-p") 'helm-previous-source)
+(define-key helm-map (kbd "C-q")   #'helm-delete-minibuffer-contents)
+(define-key helm-map (kbd "C-M-n") #'helm-next-source)
+(define-key helm-map (kbd "C-M-p") #'helm-previous-source)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

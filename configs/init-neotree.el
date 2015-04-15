@@ -48,7 +48,7 @@
     (neotree-find path)))
 
 ;;;; Keymap
-(global-set-key (kbd "C-x C-d") 'neotree-find-project-root-or-current-directory)
+(global-set-key (kbd "C-x C-d") #'neotree-find-project-root-or-current-directory)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

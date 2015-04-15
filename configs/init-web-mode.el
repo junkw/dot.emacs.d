@@ -47,16 +47,16 @@
   (define-key web-mode-map (kbd "C-;") nil)
 
   (smartrep-define-key web-mode-map "C-c C-b"
-    '(("n" . 'web-mode-block-next)
-      ("p" . 'web-mode-block-previous)))
+    '(("n" . #'web-mode-block-next)
+      ("p" . #'web-mode-block-previous)))
 
   (smartrep-define-key web-mode-map "C-c C-e"
-    '(("n" . 'web-mode-element-next)
-      ("p" . 'web-mode-element-previous)))
+    '(("n" . #'web-mode-element-next)
+      ("p" . #'web-mode-element-previous)))
 
   (smartrep-define-key web-mode-map "C-c e"
-    '(("n" . 'web-mode-tag-next)
-      ("p" . 'web-mode-tag-previous))))
+    '(("n" . #'web-mode-tag-next)
+      ("p" . #'web-mode-tag-previous))))
 
 ;;;; Hooks
 (defun jkw:web-mode-hooks ()
@@ -67,7 +67,7 @@
   (setq indent-tabs-mode nil)
   (linum-mode +1))
 
-(add-hook 'web-mode-hook 'jkw:web-mode-hooks)
+(add-hook 'web-mode-hook #'jkw:web-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

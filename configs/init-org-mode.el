@@ -138,26 +138,26 @@
 (setq org-latex-default-class "document")
 
 ;;;; Keymap
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c c") 'org-capture)
-(global-set-key (kbd "C-c b") 'org-iswitchb)
-(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+(global-set-key (kbd "C-c b") #'org-iswitchb)
+(global-set-key (kbd "C-c l") #'org-store-link)
 
 (org-defkey org-mode-map (kbd "C-c C-x d") nil)
-(org-defkey org-mode-map (kbd "C-c C-x I") 'org-insert-drawer)
+(org-defkey org-mode-map (kbd "C-c C-x I") #'org-insert-drawer)
 
-(org-defkey org-mode-map (kbd "C-c C-x l") 'org-metaleft)
-(org-defkey org-mode-map (kbd "C-c C-x r") 'org-metaright)
-(org-defkey org-mode-map (kbd "C-c C-x u") 'org-metaup)
-(org-defkey org-mode-map (kbd "C-c C-x d") 'org-metadown)
-(org-defkey org-mode-map (kbd "C-c C-x L") 'org-shiftmetaleft)
-(org-defkey org-mode-map (kbd "C-c C-x R") 'org-shiftmetaright)
-(org-defkey org-mode-map (kbd "C-c C-x U") 'org-shiftmetaup)
-(org-defkey org-mode-map (kbd "C-c C-x D") 'org-shiftmetadown)
-(org-defkey org-mode-map (kbd "C-c U")     'org-shiftup)
-(org-defkey org-mode-map (kbd "C-c D")     'org-shiftdown)
-(org-defkey org-mode-map (kbd "C-c L")     'org-shiftleft)
-(org-defkey org-mode-map (kbd "C-c R")     'org-shiftright)
+(org-defkey org-mode-map (kbd "C-c C-x l") #'org-metaleft)
+(org-defkey org-mode-map (kbd "C-c C-x r") #'org-metaright)
+(org-defkey org-mode-map (kbd "C-c C-x u") #'org-metaup)
+(org-defkey org-mode-map (kbd "C-c C-x d") #'org-metadown)
+(org-defkey org-mode-map (kbd "C-c C-x L") #'org-shiftmetaleft)
+(org-defkey org-mode-map (kbd "C-c C-x R") #'org-shiftmetaright)
+(org-defkey org-mode-map (kbd "C-c C-x U") #'org-shiftmetaup)
+(org-defkey org-mode-map (kbd "C-c C-x D") #'org-shiftmetadown)
+(org-defkey org-mode-map (kbd "C-c U")     #'org-shiftup)
+(org-defkey org-mode-map (kbd "C-c D")     #'org-shiftdown)
+(org-defkey org-mode-map (kbd "C-c L")     #'org-shiftleft)
+(org-defkey org-mode-map (kbd "C-c R")     #'org-shiftright)
 
 (define-sequential-command org-seq-beginnings
   seq-back-to-indentation
@@ -170,12 +170,12 @@
   seq-end-of-buffer
   seq-return)
 
-(define-key org-mode-map (kbd "C-a") 'org-seq-beginnings)
-(define-key org-mode-map (kbd "C-e") 'org-seq-ends)
+(define-key org-mode-map (kbd "C-a") #'org-seq-beginnings)
+(define-key org-mode-map (kbd "C-e") #'org-seq-ends)
 
 (smartrep-define-key org-mode-map "C-c"
-  '(("C-n" . 'outline-next-visible-heading)
-    ("C-p" . 'outline-previous-visible-heading)))
+  '(("C-n" . #'outline-next-visible-heading)
+    ("C-p" . #'outline-previous-visible-heading)))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

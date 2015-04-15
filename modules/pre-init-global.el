@@ -85,7 +85,7 @@ Advice function for `abort-recursive-edit'."
   (setq mac-command-modifier 'control)
   (setq mac-option-modifier  'meta))
 
-(global-set-key (kbd "C-M-g") 'keyboard-escape-quit)
+(global-set-key (kbd "C-M-g") #'keyboard-escape-quit)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

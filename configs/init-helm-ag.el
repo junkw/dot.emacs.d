@@ -34,7 +34,7 @@
 (setq helm-ag-thing-at-point 'symbol)
 
 ;;;; Keymap
-(global-set-key (kbd "C-x c M-g a") 'helm-ag)
+(global-set-key (kbd "C-x c M-g a") #'helm-ag)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

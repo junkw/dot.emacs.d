@@ -38,8 +38,8 @@
 (setq smartrep-mode-line-active-bg nil)
 
 (smartrep-define-key prog-mode-map "M-g"
-  '(("M-n" . 'next-error)
-    ("M-p" . 'previous-error)))
+  '(("M-n" . #'next-error)
+    ("M-p" . #'previous-error)))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

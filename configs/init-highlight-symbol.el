@@ -39,11 +39,11 @@
         '("#FC5C94" "#FEB257" "#F3EA98" "#C1F161" "#BBF7EF" "#C2A1FF" "#FE87F4")))
 
 ;;;; Keymap
-(global-set-key (kbd "C-x w .") 'highlight-symbol-at-point)
-(global-set-key (kbd "M-s h .") 'highlight-symbol-at-point)
-(global-set-key (kbd "M-s M-n") 'highlight-symbol-next)
-(global-set-key (kbd "M-s M-p") 'highlight-symbol-prev)
-(global-set-key (kbd "M-s h %") 'highlight-symbol-query-replace)
+(global-set-key (kbd "C-x w .") #'highlight-symbol-at-point)
+(global-set-key (kbd "M-s h .") #'highlight-symbol-at-point)
+(global-set-key (kbd "M-s M-n") #'highlight-symbol-next)
+(global-set-key (kbd "M-s M-p") #'highlight-symbol-prev)
+(global-set-key (kbd "M-s h %") #'highlight-symbol-query-replace)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

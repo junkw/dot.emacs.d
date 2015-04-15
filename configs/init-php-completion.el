@@ -37,7 +37,7 @@
   (add-to-list 'ac-sources 'ac-source-php-completion-patial)
   (php-completion-mode +1))
 
-(add-hook 'php-mode-hook 'jkw:php-completion-mode-hooks)
+(add-hook 'php-mode-hook #'jkw:php-completion-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

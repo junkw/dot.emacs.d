@@ -35,7 +35,7 @@
   (setq helm-ls-git-status-command 'magit-status))
 
 ;;;; Keymap
-(global-set-key (kbd "C-x c g") 'helm-ls-git-ls)
+(global-set-key (kbd "C-x c g") #'helm-ls-git-ls)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
