@@ -70,7 +70,7 @@
 ;; Batch convert coding system
 ;; http://www.bookshelf.jp/soft/meadow_25.html#SEC273
 (defvar dired-default-file-coding-system nil
-  "Default coding system for converting file (s).")
+  "Default coding system for converting file(s).")
 
 (defvar dired-file-coding-system 'no-conversion)
 
@@ -90,14 +90,14 @@
       (dired-make-relative file))))
 
 (defun dired-do-convert-coding-system (coding-system &optional arg)
-  "Convert file (s) in specified CODING-SYSTEM.
+  "Convert file(s) in specified CODING-SYSTEM.
 
 ARG is like in `dired-map-over-marks'."
   (interactive
    (list (let ((default (or dired-default-file-coding-system
                             buffer-file-coding-system)))
            (read-coding-system
-            (format "Coding system for converting file (s) (default, %s): " default)
+            (format "Coding system for converting file(s) (default, %s): " default)
             default))
          current-prefix-arg))
   (check-coding-system coding-system)
