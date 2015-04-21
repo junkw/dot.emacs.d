@@ -56,6 +56,8 @@
 
   (defun jkw:mu4e-compose-mode-hooks ()
     "My config for message composition."
+    (when (fboundp 'yas-minor-mode)
+      (yas-minor-mode +1))
     (set-fill-column 80))
 
   (add-hook 'mu4e-compose-mode-hook #'jkw:mu4e-compose-mode-hooks)

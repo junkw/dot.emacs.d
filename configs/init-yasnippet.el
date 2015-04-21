@@ -31,14 +31,11 @@
 
 ;;; Code:
 
-(require 'pre-init-core)
-
-;; Loading my snippets
 (setq yas-snippet-dirs `(,(concat user-emacs-directory "etc/snippets")
                          ,yas-installed-snippets-dir))
 (yas-reload-all)
 
-(add-hooks '(mu4e-compose-mode org-mode prog-mode) #'yas-minor-mode)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
