@@ -43,14 +43,13 @@
 (setq sp-show-pair-from-inside t)
 (show-smartparens-global-mode +1)
 
-;;;; Pair management
+;;;; Pair and tag
 (sp-with-modes 'org-mode
-  (sp-local-tag "*" "*" "*")
-  (sp-local-tag "/" "/" "/")
-  ;; (sp-local-tag "_" "_" "_")            ; doesn't work because char _ is replaced with inserted text
-  (sp-local-tag "=" "=" "=")
-  (sp-local-tag "~" "~" "~")
-  (sp-local-tag "+" "+" "+"))
+  (sp-local-pair "*" "*" :actions '(insert wrap) :unless '(sp-point-after-word-p sp-point-at-bol-p) :skip-match 'sp--org-skip-asterisk)
+  (sp-local-pair "_" "_" :unless  '(sp-point-after-word-p))
+  (sp-local-pair "/" "/" :unless  '(sp-point-after-word-p))
+  (sp-local-pair "~" "~" :unless  '(sp-point-after-word-p))
+  (sp-local-pair "+" "+" :unless  '(sp-point-after-word-p)))
 
 (sp-with-modes '(nxml-mode web-mode)
   (sp-local-tag  "<" "<_>" "</_>"
