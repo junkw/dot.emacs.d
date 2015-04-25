@@ -32,7 +32,7 @@ task :make_dir do
                 "#{user_emacs_dir}/etc/snippets",
                 "#{user_emacs_dir}/var/backup",
                 "#{user_emacs_dir}/var/bookmark",
-                "#{user_emacs_dir}/var/cache",
+                "#{user_emacs_dir}/var/cache/pcache",
                 "#{user_emacs_dir}/var/log",
                 "#{user_emacs_dir}/var/tmp",
                 "#{user_emacs_dir}/vendor"]
