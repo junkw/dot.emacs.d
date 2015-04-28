@@ -43,6 +43,14 @@
 (setq sp-show-pair-from-inside t)
 (show-smartparens-global-mode +1)
 
+;;;; Functions
+(defun sp-point-on-web-mode-p (id action context)
+  "Return t if point is code on web-mode, nil otherwise."
+  (when (and (eq action 'insert)
+             (not (or (get-text-property (point) 'part-side)
+                      (get-text-property (point) 'block-side))))
+    t))
+
 ;;;; Pair and tag
 (sp-pair "（" "）")
 (sp-pair "｛" "｝")
@@ -56,6 +64,8 @@
   (sp-local-pair "/" "/" :unless  '(sp-point-after-word-p))
   (sp-local-pair "~" "~" :unless  '(sp-point-after-word-p))
   (sp-local-pair "+" "+" :unless  '(sp-point-after-word-p)))
+
+(sp-local-pair 'web-mode "<" nil :when '(sp-point-on-web-mode-p))
 
 ;;;; Keymap
 (sp-use-smartparens-bindings)
