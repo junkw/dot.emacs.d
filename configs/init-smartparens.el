@@ -44,22 +44,18 @@
 (show-smartparens-global-mode +1)
 
 ;;;; Pair and tag
+(sp-pair "（" "）")
+(sp-pair "｛" "｝")
+(sp-pair "［" "］")
+(sp-pair "「" "」")
+(sp-pair "『" "』")
+
 (sp-with-modes 'org-mode
   (sp-local-pair "*" "*" :actions '(insert wrap) :unless '(sp-point-after-word-p sp-point-at-bol-p) :skip-match 'sp--org-skip-asterisk)
   (sp-local-pair "_" "_" :unless  '(sp-point-after-word-p))
   (sp-local-pair "/" "/" :unless  '(sp-point-after-word-p))
   (sp-local-pair "~" "~" :unless  '(sp-point-after-word-p))
   (sp-local-pair "+" "+" :unless  '(sp-point-after-word-p)))
-
-(sp-with-modes '(nxml-mode web-mode)
-  (sp-local-tag  "<" "<_>" "</_>"
-                 :transform 'sp-match-sgml-tags
-                 :post-handlers '(sp-html-post-handler)))
-
-(sp-with-modes '(text-mode org-mode web-mode)
-  (sp-local-pair "（" "）")
-  (sp-local-pair "「" "」")
-  (sp-local-pair "『" "』"))
 
 ;;;; Keymap
 (sp-use-smartparens-bindings)
