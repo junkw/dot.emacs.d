@@ -46,6 +46,9 @@
 (setq delete-by-moving-to-trash t)
 
 ;;;; Dired
+(setq dired-dwim-target t)
+(setq dired-recursive-copies 'always)
+
 (require 'wdired)
 (setq wdired-allow-to-change-permissions t)
 
@@ -54,6 +57,8 @@
 (setq ls-lisp-dirs-first t)
 
 (require 'dired-aux)
+(setq dired-isearch-filenames 'dwim)
+
 ;; Compression and uncompression with atool
 ;; http://d.hatena.ne.jp/mooz/20110911/p1
 (defvar jkw:dired-additional-compression-suffixes
