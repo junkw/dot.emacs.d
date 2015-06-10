@@ -35,7 +35,7 @@
                          ,yas-installed-snippets-dir))
 (yas-reload-all)
 
-(add-hook 'prog-mode-hook #'yas-minor-mode)
+(add-hooks '(prog-mode org-mode) #'yas-minor-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
