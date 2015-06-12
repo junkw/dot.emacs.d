@@ -59,6 +59,8 @@
 (setq org-return-follows-link t)        ; Open URL with RET
 (setq org-use-speed-commands t)
 
+(add-to-list 'org-structure-template-alist '("C" "#+BEGIN_COMMENT\n?\n#+END_COMMENT" "<!--\n?\n-->"))
+
 ;;;; ToDo
 (setq org-use-fast-todo-selection t)
 (setq org-todo-keywords
