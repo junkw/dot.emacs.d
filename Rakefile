@@ -72,7 +72,7 @@ task :check_recipes do
   args    = '-Wno-features -Wno-autoloads'
   recipes = "#{user_emacs_dir}/etc/recipes/*.rcp"
 
-  sh "#{emacs_cmd} -L #{el_get_dir} -l #{el_get_dir}/el-get-recipes.el -f el-get-check-recipe-batch #{args} #{recipes}"
+  sh "#{emacs_cmd} -L #{el_get_dir} -l #{el_get_dir}/el-get-check.el -f el-get-check-recipe-batch #{args} #{recipes}"
 end
 
 task :default => [:generate_loaddefs, :compile, :tags]
