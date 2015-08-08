@@ -40,7 +40,6 @@
 (add-to-list 'org-modules 'org-man)
 
 ;; Org file
-(add-to-list 'auto-mode-alist '("\\.org_archive\\'" . org-mode))
 (setq org-insert-mode-line-in-empty-file t)
 (setq org-directory "~/Documents/org/")
 (setq org-default-notes-file (expand-file-name "inbox.org" org-directory))
@@ -140,11 +139,6 @@
 (setq org-latex-default-class "document")
 
 ;;;; Keymap
-(global-set-key (kbd "C-c a") #'org-agenda)
-(global-set-key (kbd "C-c c") #'org-capture)
-(global-set-key (kbd "C-c b") #'org-iswitchb)
-(global-set-key (kbd "C-c l") #'org-store-link)
-
 (org-defkey org-mode-map (kbd "C-c C-x d") nil)
 (org-defkey org-mode-map (kbd "C-c C-x I") #'org-insert-drawer)
 

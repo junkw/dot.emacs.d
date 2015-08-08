@@ -31,6 +31,7 @@
 
 ;;; Code:
 
+(add-to-list 'org-export-backends 'reveal)
 (setq org-reveal-root (expand-file-name "~/lib/reveal.js"))
 
 ;; Local Variables:

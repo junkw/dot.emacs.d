@@ -9,6 +9,14 @@
                        (lambda (target)
                          (list "make" target (concat "EMACS=" (shell-quote-argument el-get-emacs))))
                        '("oldorg" "card"))
-       :load-path   ("lisp" "contrib/lisp")
+       :load-path   ("contrib/lisp" "lisp")
        :autoloads   nil
+       :library     org
+       :lazy        t
+       :prepare     (progn
+                      (add-to-list 'auto-mode-alist '("\\.org_archive\\'" . org-mode))
+                      (global-set-key (kbd "C-c a") #'org-agenda)
+                      (global-set-key (kbd "C-c c") #'org-capture)
+                      (global-set-key (kbd "C-c b") #'org-iswitchb)
+                      (global-set-key (kbd "C-c l") #'org-store-link))
        :features    org-loaddefs)

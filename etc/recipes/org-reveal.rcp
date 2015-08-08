@@ -2,8 +2,8 @@
        :description "Exports Org-mode contents to Reveal.js HTML presentation."
        :website     "https://github.com/yjwen/org-reveal"
        :depends     org-mode
-       :library     org-mode
        :type        github
        :pkgname     "yjwen/org-reveal"
        :branch      "stable"
-       :post-init   (add-to-list 'org-export-backends 'reveal))
+       :library     org
+       :lazy        t)

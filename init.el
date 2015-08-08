@@ -128,6 +128,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
     (init-module--load-files init-module-post-init-regexp t)))
 
 ;;;; Bootstrap
+(setq load-path (cl-remove-if #'(lambda (path) (string-match-p "org\\'" path)) load-path))
 (add-to-list 'load-path init-module-modules-directory)
 (setq custom-file (concat user-emacs-directory "modules/pre-init--custom.el"))
 
