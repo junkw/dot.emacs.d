@@ -44,6 +44,7 @@
         (:name popwin :features popwin)
         (:name powerline :autoloads nil)
         (:name smartparens :features smartparens-config)
+        (:name tabulated-list :builtin "24")
         (:name twittering-mode :features nil)
         (:name undo-tree :features undo-tree)
         (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)))
@@ -59,7 +60,7 @@
                 git-gutter-fringe goto-chg grep-a-lot helm-ag helm-c-yasnippet helm-ls-git
                 helm-migemo helm-swoop highlight-defined highlight-symbol info+ js2-mode
                 linum-relative lispxmp magit magit-svn markdown-mode migemo monokai-emacs
-                multiple-cursors neotree org-mode org-reveal  php-completion php-mode
+                multiple-cursors neotree org-mode org-reveal php-completion php-mode
                 projectile psvn rainbow-mode recentf-ext scratch-ext smart-newline tern
                 viewer web-mode wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
