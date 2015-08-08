@@ -75,12 +75,10 @@
 ;; Backup file
 (setq make-backup-files t)
 (setq backup-directory-alist
-      `(("\\(?:/\\.\\(?:\\(?:bzr\\|git\\|hg\\|svn\\)/\\)\\)" . nil)
-        ("/\\(Code\\|Documents\\|Docs\\)/" . ,(concat user-emacs-directory "var/backup/"))
+      `(("/\\(Code\\|Documents\\|Docs\\)/" . ,(concat user-emacs-directory "var/backup/"))
         (".*" . ,temporary-file-directory)))
 (setq backup-by-copying t)
 (setq version-control t)
-(setq vc-make-backup-files t)
 (setq kept-new-versions 3)
 (setq kept-old-versions 3)
 (setq delete-old-versions t)
