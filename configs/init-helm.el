@@ -56,6 +56,9 @@
           helm-source-mac-spotlight)))
 
 ;;;; Candidates
+(when (executable-find "cmigemo")
+  (helm-migemo-mode +1))
+
 (setq helm-M-x-fuzzy-match t)
 (setq helm-apropos-fuzzy-match t)
 (setq helm-buffers-fuzzy-matching t)
