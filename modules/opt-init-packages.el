@@ -36,7 +36,7 @@
 ;;;; Installed packages via el-get
 ;; Fix original recipes
 (setq el-get-sources
-      '((:name helm :autoloads nil :before (setq dired-bind-jump nil) :features helm-config)
+      '((:name helm :depends migemo :autoloads nil :before (setq dired-bind-jump nil) :features helm-config)
         (:name helm-descbinds :prepare nil :library helm :after (helm-descbinds-mode +1))
         (:name highlight-indentation :features highlight-indentation)
         (:name pcache
