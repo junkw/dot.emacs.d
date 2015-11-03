@@ -31,8 +31,7 @@
 
 ;;; Code:
 
-(when (featurep 'magit)
-  (setq helm-ls-git-status-command 'magit-status))
+(setq helm-ls-git-status-command 'magit-status-internal)
 
 ;;;; Keymap
 (global-set-key (kbd "C-x c g") #'helm-ls-git-ls)

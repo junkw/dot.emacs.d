@@ -38,6 +38,7 @@
 (setq el-get-sources
       '((:name helm :depends migemo :autoloads nil :before (setq dired-bind-jump nil) :features helm-config)
         (:name helm-descbinds :prepare nil :library helm :after (helm-descbinds-mode +1))
+        (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
         (:name pcache
                :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
@@ -57,11 +58,10 @@
   '(ac-php ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile auto-complete
            cl-lib-highlight dash-at-point e2wm e2wm-bookmark eldoc-extension elisp-slime-nav
            emmet-mode expand-region foreign-regexp flycheck geben gist git-gutter-fringe
-           goto-chg grep-a-lot helm-ag helm-ls-git helm-swoop highlight-defined
-           highlight-symbol info+ js2-mode linum-relative lispxmp magit magit-svn
-           markdown-mode migemo monokai-emacs multiple-cursors neotree org-mode org-reveal
-           php-mode projectile psvn rainbow-mode recentf-ext scratch-ext smart-newline tern
-           viewer web-mode wgrep yaml-mode)
+           goto-chg grep-a-lot helm-ag helm-swoop highlight-defined highlight-symbol info+
+           js2-mode linum-relative lispxmp magit magit-svn markdown-mode migemo monokai-emacs
+           multiple-cursors neotree org-mode org-reveal php-mode projectile psvn rainbow-mode
+           recentf-ext scratch-ext smart-newline tern viewer web-mode wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
 
 ;;;; Internal functions
