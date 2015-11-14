@@ -40,7 +40,8 @@
   (setq mail-user-agent 'mu4e-user-agent)
 
   ;; Maildir
-  (setq mu4e-maildir        "~/.mail")
+  (setq mu4e-mu-home        "~/.cache/mu/")
+  (setq mu4e-maildir        "~/.local/share/mail/")
   (setq mu4e-attachment-dir "~/Downloads")
 
   ;; External command
