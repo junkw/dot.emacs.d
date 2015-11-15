@@ -31,6 +31,10 @@
 
 ;;; Code:
 
+;;;; Face
+(set-face-attribute 'ac-php-candidate-face nil :inherit 'ac-candidate-face)
+(set-face-attribute 'ac-php-selection-face nil :inherit 'ac-selection-face)
+
 ;;;; Keymap
 (with-eval-after-load 'php-mode
   (define-key php-mode-map (kbd "C-,")   #'ac-php-find-symbol-at-point)
@@ -40,7 +44,7 @@
 (defun jkw:ac-php-hooks ()
   "ac-php config for PHP mode."
   (auto-complete-mode +1)
-  (setq ac-sources '(ac-source-php))
+  (add-to-list 'ac-sources 'ac-source-php)
   (yas-minor-mode-on))
 
 (add-hook 'php-mode-hook #'jkw:ac-php-hooks)
