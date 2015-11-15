@@ -1,9 +1,9 @@
-;;; init-sequential-command.el --- el-get init file for package sequential-command
+;;; init-mwim.el --- el-get init file for package mwim
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Oct. 25, 2012
+;; Created: Nov. 15, 2015
 ;; Keywords: .emacs
 
 ;;; This file is NOT part of GNU Emacs.
@@ -31,24 +31,9 @@
 
 ;;; Code:
 
-(require 'sequential-command-config)
-
-(seq-define-cursor-command back-to-indentation)
-(seq-define-cursor-command org-beginning-of-line)
-(seq-define-cursor-command org-end-of-line)
-
-(define-sequential-command seq-beginnings
-  seq-back-to-indentation
-  seq-beginning-of-line
-  seq-beginning-of-buffer
-  seq-return)
-
 ;;;; Keymap
-(global-set-key (kbd "C-a") #'seq-beginnings)
-(global-set-key (kbd "C-e") #'seq-end)
-(global-set-key (kbd "M-u") #'seq-upcase-backward-word)
-(global-set-key (kbd "M-c") #'seq-capitalize-backward-word)
-(global-set-key (kbd "M-l") #'seq-downcase-backward-word)
+(global-set-key (kbd "C-a") #'mwim-beginning-of-code-or-line)
+(global-set-key (kbd "C-e") #'mwim-end-of-code-or-line)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -57,4 +42,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-sequential-command.el ends here
+;;; init-mwim.el ends here

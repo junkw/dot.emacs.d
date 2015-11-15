@@ -32,7 +32,6 @@
 ;;; Code:
 
 (require 'pre-init-core)
-(require 'sequential-command)
 (require 'smartrep)
 
 ;; Load modules
@@ -154,20 +153,6 @@
 (org-defkey org-mode-map (kbd "C-c D")     #'org-shiftdown)
 (org-defkey org-mode-map (kbd "C-c L")     #'org-shiftleft)
 (org-defkey org-mode-map (kbd "C-c R")     #'org-shiftright)
-
-(define-sequential-command org-seq-beginnings
-  seq-back-to-indentation
-  seq-org-beginning-of-line
-  seq-beginning-of-buffer
-  seq-return)
-
-(define-sequential-command org-seq-ends
-  seq-org-end-of-line
-  seq-end-of-buffer
-  seq-return)
-
-(define-key org-mode-map (kbd "C-a") #'org-seq-beginnings)
-(define-key org-mode-map (kbd "C-e") #'org-seq-ends)
 
 (smartrep-define-key org-mode-map "C-c"
   '(("C-n" . #'outline-next-visible-heading)

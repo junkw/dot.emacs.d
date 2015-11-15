@@ -1,0 +1,5 @@
+(:name mwim
+       :designation "Move to the beginning/end of line or code."
+       :website     "https://github.com/alezost/mwim.el"
+       :type        github
+       :pkgname     "alezost/mwim.el")
