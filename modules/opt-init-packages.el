@@ -59,10 +59,10 @@
            beginend cl-lib-highlight dash-at-point e2wm e2wm-bookmark eldoc-extension
            elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck geben gist
            git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop highlight-defined
-           highlight-symbol info+ js2-mode linum-relative lispxmp magit magit-svn markdown-mode
-           migemo monokai-emacs multiple-cursors mwim neotree org-mode org-reveal php-mode
-           projectile psvn rainbow-mode recentf-ext scratch-ext smart-newline tern viewer
-           web-mode wgrep yaml-mode)
+           highlight-symbol info+ js2-mode json-mode linum-relative lispxmp magit magit-svn
+           markdown-mode migemo monokai-emacs multiple-cursors mwim neotree org-mode org-reveal
+           php-mode projectile psvn rainbow-mode recentf-ext scratch-ext smart-newline tern
+           viewer web-mode wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
 
 ;;;; Internal functions
