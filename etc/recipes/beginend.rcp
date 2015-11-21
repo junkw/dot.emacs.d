@@ -1,5 +1,5 @@
 (:name beginend
-       :designation "Redefine M-< and M-> for some modes."
+       :description "Redefine M-< and M-> for some modes."
        :website     "https://github.com/DamienCassou/beginend"
        :type        github
        :pkgname     "DamienCassou/beginend"
