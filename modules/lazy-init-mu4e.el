@@ -63,6 +63,19 @@
 
   (add-hook 'mu4e-compose-mode-hook #'jkw:mu4e-compose-mode-hooks)
 
+  ;; http://mbork.pl/2015-11-28_Fixing_mml-attach-file_using_advice
+  (defun mml-attach-file--attach-on-eob (orig-fun &rest args)
+    "Attach files on the end of buffer.
+
+Advice function for `mml-attach-file'."
+    (save-excursion
+      (save-restriction
+        (widen)
+        (goto-char (point-max))
+        (apply orig-fun args))))
+
+  (advice-add 'mml-attach-file :around #'mml-attach-file--attach-on-eob)
+
   ;; Multiple accounts selection
   ;; https://github.com/joedicastro/dotfiles/blob/master/emacs/init.el#L1214
   (defun jkw:mu4e-select-account ()
