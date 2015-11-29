@@ -44,7 +44,7 @@
 (when (executable-find "terminal-notifier")
   (fset #'el-get-growl #'terminal-notifier-notify))
 
-(defun el-get-load-package-user-init-file-with-debug (package)
+(defun el-get-load-package-user-init-file--with-debug (package)
   "Debug on loading the user init file for PACKAGE.
 
 Advice function for `el-get-load-package-user-init-file'."
@@ -69,7 +69,7 @@ Advice function for `el-get-load-package-user-init-file'."
 (when el-get-verbose
   (advice-add 'el-get-load-package-user-init-file
               :override
-              #'el-get-load-package-user-init-file-with-debug))
+              #'el-get-load-package-user-init-file--with-debug))
 
 ;;;; Commands
 ;; el-get package menu

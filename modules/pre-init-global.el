@@ -60,14 +60,14 @@
 (minibuffer-depth-indicate-mode +1)
 
 ;; http://d.hatena.ne.jp/rubikitch/20091216/minibuffer
-(defun abort-recursive-edit-and-save-minibuffer ()
+(defun abort-recursive-edit--and-save-minibuffer ()
   "Save last command to minibuffer history when type `\\[abort-recursive-edit]'.
 
 Advice function for `abort-recursive-edit'."
   (when (eq (selected-window) (active-minibuffer-window))
     (add-to-history minibuffer-history-variable (minibuffer-contents))))
 
-(advice-add 'abort-recursive-edit :before #'abort-recursive-edit-and-save-minibuffer)
+(advice-add 'abort-recursive-edit :before #'abort-recursive-edit--and-save-minibuffer)
 
 ;;;; Input Method
 (cond (mac-port-p

@@ -32,7 +32,7 @@
 ;;; Code:
 
 ;; http://dev.ariel-networks.com/articles/emacs/part5/
-(defun isearch-mode-with-region (orig-fun forward &optional regexp op-fun recursive-edit word)
+(defun isearch-mode--with-region (orig-fun forward &optional regexp op-fun recursive-edit word)
   "Start isearch with mark-set keywords.
 
 Advice function for `isearch-mode'."
@@ -47,7 +47,7 @@ Advice function for `isearch-mode'."
           (isearch-repeat-forward)))
     (funcall orig-fun forward regexp op-fun recursive-edit word)))
 
-(advice-add 'isearch-mode :around #'isearch-mode-with-region)
+(advice-add 'isearch-mode :around #'isearch-mode--with-region)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

@@ -39,7 +39,7 @@
 ;; Open log and README files as read only
 (setq view-mode-by-default-regexp "/\\(ChangeLog\\|NEWS\\|README\\)\\|.+\\.log\\'")
 
-(defun view-mode-by-default-setup-with-case-sensitive ()
+(defun view-mode-by-default-setup--with-case-sensitive ()
   "Use `view-mode-by-default-regexp' as a case sensitive.
 
 Advice function for `view-mode-by-default-setup'."
@@ -49,7 +49,7 @@ Advice function for `view-mode-by-default-setup'."
       (view-mode 1)
       (message "view-mode by view-mode-by-default-regexp."))))
 
-(advice-add 'view-mode-by-default-setup :override #'view-mode-by-default-setup-with-case-sensitive)
+(advice-add 'view-mode-by-default-setup :override #'view-mode-by-default-setup--with-case-sensitive)
 
 ;; Mode line color
 (setq viewer-modeline-color-default (face-foreground 'mode-line-buffer-id))
@@ -57,7 +57,7 @@ Advice function for `view-mode-by-default-setup'."
   (setq viewer-modeline-color-unwritable "#F92672")
   (setq viewer-modeline-color-view       "#FD971F"))
 
-(defun viewer-change-modeline-color-buffer-id ()
+(defun viewer-change-modeline-color--buffer-id-switcher ()
   "Change `mode-line-buffer-id' color.
 
 Advice function for `viewer-change-modeline-color'"
@@ -75,7 +75,7 @@ Advice function for `viewer-change-modeline-color'"
             viewer-modeline-color-default)))
     (force-mode-line-update)))
 
-(advice-add 'viewer-change-modeline-color :override #'viewer-change-modeline-color-buffer-id)
+(advice-add 'viewer-change-modeline-color :override #'viewer-change-modeline-color--buffer-id-switcher)
 
 (viewer-change-modeline-color-setup)
 

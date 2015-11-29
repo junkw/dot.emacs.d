@@ -89,7 +89,7 @@
 
 ;;;; Killing
 ;; http://dev.ariel-networks.com/wp/documents/aritcles/emacs/part16
-(defun kill-region-or-kill-word (orig-fun &rest args)
+(defun kill-region--or-kill-word (orig-fun &rest args)
   "Typing `\\[kill-region]' without mark, kill the previous word.
 
 Advice function for `kill-region'."
@@ -97,7 +97,7 @@ Advice function for `kill-region'."
       (backward-kill-word 1)
     (apply orig-fun args)))
 
-(advice-add 'kill-region :around #'kill-region-or-kill-word)
+(advice-add 'kill-region :around #'kill-region--or-kill-word)
 
 (defun kill-word-dwim (arg)
   "Call the `kill-word' command you want (Do What I Mean).
