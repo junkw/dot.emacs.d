@@ -97,7 +97,7 @@
 (setq recentf-max-saved-items 100)
 (setq recentf-exclude `(,tramp-file-name-regexp
                         "/\\.loaddefs\\.elc?\\'" "/COMMIT_EDITMSG\\'"
-                        "/Drafts/" "/var/" "/TAGS\\'" "/tmp/"))
+                        "/mail/" "/var/" "/TAGS\\'" "/tmp/"))
 (recentf-mode +1)
 
 ;; Save cursor's place
