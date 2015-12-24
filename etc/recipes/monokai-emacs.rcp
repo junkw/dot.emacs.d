@@ -1,6 +1,0 @@
-(:name monokai-emacs
-       :description "A fruity color theme for Emacs."
-       :website     "https://github.com/oneKelvinSmith/monokai-emacs#readme"
-       :type        github
-       :pkgname     "oneKelvinSmith/monokai-emacs"
-       :prepare     (add-to-list 'custom-theme-load-path default-directory))
