@@ -40,7 +40,7 @@
         (:name helm-descbinds :prepare nil :library helm :after (helm-descbinds-mode +1))
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
-        (:name monokai-theme :pkgname "junkw/monokai-emacs" :branch "customize" :after (load-theme 'monokai t))
+        (:name monokai-theme :after (load-theme 'monokai t))
         (:name pcache
                :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
         (:name popwin :features popwin)
