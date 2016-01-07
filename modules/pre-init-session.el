@@ -87,6 +87,7 @@
 (require 'savehist)
 (setq savehist-file (concat user-emacs-directory "var/cache/savehist"))
 (setq savehist-additional-variables '(search-ring regexp-search-ring))
+(setq savehist-ignored-variables '(file-name-history buffer-name-history))
 (setq savehist-autosave-interval (* 10 60)) ; sec.
 (savehist-mode +1)
 
