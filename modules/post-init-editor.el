@@ -182,12 +182,20 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
   (interactive "p")
   (increment-integer-at-point (- (or dec 1))))
 
+;; Rectangle
+;; https://twitter.com/rubikitch/status/718219606578589697
+(defun quote-rectangle (s e)
+  "Quote the region-rectangle."
+  (interactive "r")
+  (string-rectangle s e "> "))
+
 ;;;; Keymap
 (global-set-key (kbd "M-/")   #'hippie-expand) ; replace `dabbrev-expand'
 (global-set-key (kbd "M-d")   #'kill-word-dwim)
 (global-set-key (kbd "M-SPC") #'cycle-spacing) ; replace `just-one-space'
 (global-set-key (kbd "C-c +") #'increment-integer-at-point)
 (global-set-key (kbd "C-c -") #'decrement-integer-at-point)
+(global-set-key (kbd "C-x r q") #'quote-rectangle)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
