@@ -67,7 +67,7 @@
   "List of packages I use straight from recipe files.")
 
 (defvar jkw:el-get-package-for-mu4e-list-from-recipe
-  '()
+  '(mu4e-alert)
   "List of mu4e plugin packages I use straight from recipe files.")
 
 ;;;; Internal functions

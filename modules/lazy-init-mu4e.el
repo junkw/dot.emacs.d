@@ -34,7 +34,8 @@
 (require 'pre-init-core)
 
 ;;;; mu4e
-(when (executable-find "mu")
+(setq mu4e-mu-binary (executable-find "mu"))
+(when mu4e-mu-binary
   (require 'org-mu4e)
 
   (setq mail-user-agent 'mu4e-user-agent)
