@@ -66,6 +66,10 @@
            smart-newline tern viewer web-mode wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
 
+(defvar jkw:el-get-package-for-mu4e-list-from-recipe
+  '()
+  "List of mu4e plugin packages I use straight from recipe files.")
+
 ;;;; Internal functions
 (defun el-get--pre-initialize-el-get ()
   "[internal] Need to initialize before loading el-get."
@@ -81,10 +85,12 @@
 
 (defun el-get--list-installing-packages ()
   "[internal] Return a list of installing packages via el-get."
-  (let* ((src      (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources)))
-         (add-src  (append src jkw:el-get-package-list-from-recipe))
-         (pkg-list (append jkw:el-get-preloaded-package-list-from-recipe add-src)))
-    pkg-list))
+  (let* ((rcps (append jkw:el-get-package-list-from-recipe
+                       (when (executable-find "mu") jkw:el-get-package-for-mu4e-list-from-recipe)))
+         (pkgs (append jkw:el-get-preloaded-package-list-from-recipe
+                       (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))
+                       rcps)))
+    pkgs))
 
 (defun el-get--installer ()
   "[internal] Install el-get and initialize ELPA."
