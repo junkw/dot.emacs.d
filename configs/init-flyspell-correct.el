@@ -1,10 +1,10 @@
-;;; post-init-proofreading.el --- Emacs init file
+;;; init-flyspell-correct.el --- el-get init file for package flyspell-correct
 
-;; Copyright (C) 2015  Jumpei KAWAMI
+;; Copyright (C) 2016  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Jun. 1, 2015
-;; Keywords: .emacs, flyspell, ispell, hunspell
+;; Created: May. 10, 2016
+;; Keywords: .emacs, flyspell
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,18 +31,11 @@
 
 ;;; Code:
 
-(let ((hunspell (executable-find "hunspell")))
-  (when hunspell
-    (setq-default ispell-program-name hunspell)
-    (setq ispell-local-dictionary "en_US")
-    (setq ispell-local-dictionary-alist
-          '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
-    (setq ispell-really-hunspell t)))
-(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")) ; for Japanese
+(setq flyspell-correct-interface 'flyspell-correct-popup)
 
 ;;;; Keymap
 (with-eval-after-load 'flyspell
-  (define-key flyspell-mode-map (kbd "C-;") nil))
+  (define-key flyspell-mode-map (kbd "C-<return>") #'flyspell-correct-word-generic))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -51,4 +44,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; post-init-proofreading.el ends here
+;;; init-flyspell-correct.el ends here

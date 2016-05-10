@@ -1,0 +1,6 @@
+(:name flyspell-correct
+       :description "Correcting words with flyspell via custom interface."
+       :website     "https://github.com/d12frosted/flyspell-correct"
+       :type        github
+       :pkgname     "d12frosted/flyspell-correct"
+       :depends     popup)
