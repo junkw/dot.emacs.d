@@ -57,6 +57,10 @@
 (defvar laptop-screen-p (<= (display-pixel-height) 900)
   "Return t if this display size is 15ich or less.")
 
+;;;; Environment predicates
+(defvar has-notifier-p (executable-find "terminal-notifier")
+  "Return path if this system has terminal-notifier.")
+
 ;;;; Hook
 (defun add-hooks (modes function)
   "`add-hook' extension for batch adding to the list of MODES the function FUNCTION."
@@ -94,19 +98,6 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
 (defun custom-theme-active-p (theme)
   "Return t if THEME is active."
   (equal (custom-active-theme) theme))
-
-;;;; Notify
-(when mac-p
-  (defun terminal-notifier-notify (title message)
-    "Send a MESSAGE with TITLE in Mac OS X Notification Center using terminal-notify.app."
-    (let* ((name "*terminal-notifier*")
-           (proc
-            (start-process name name
-                           (executable-find "terminal-notifier")
-                           "-title" title
-                           "-message" message
-                           "-activate" "org.gnu.Emacs")))
-      (process-send-eof proc))))
 
 (provide 'pre-init-core)
 

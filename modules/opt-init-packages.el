@@ -32,6 +32,7 @@
 ;;; Code:
 
 (require 'cl-lib)
+(require 'pre-init-core)
 
 ;;;; Environment predicates
 (defvar has-mu-p (executable-find "mu")
@@ -59,7 +60,7 @@
   (add-to-list 'el-get-sources '((:name mu4e-alert :depends (alert s ht) :library mu4e))))
 
 (defvar jkw:el-get-preloaded-package-list-from-recipe
-  '(origami smartrep)
+  '(alert origami smartrep)
   "List of packages that need to load before loading `jkw:el-get-package-list-from-recipe'.")
 
 (defvar jkw:el-get-package-list-from-recipe

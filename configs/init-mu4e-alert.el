@@ -31,9 +31,11 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
+
 (setq mu4e-alert-interesting-mail-query "flag:unread AND maildir:\"/INBOX\"")
 
-(when (executable-find "terminal-notifier")
+(when has-notifier-p
   (mu4e-alert-set-default-style 'notifier))
 
 (mu4e-alert-enable-notifications)

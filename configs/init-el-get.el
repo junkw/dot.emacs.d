@@ -40,9 +40,14 @@
 (setq el-get-package-menu-sort-key "Status")
 
 ;;;; Functions
-;; Use function `terminal-notifier-notify' as `el-get-growl' on Mac OS X.
-(when (executable-find "terminal-notifier")
-  (fset #'el-get-growl #'terminal-notifier-notify))
+(when (and has-notifier-p (fboundp 'alert))
+  (defun el-get-notify--wrapper (title message)
+    "Send a message to terminal-notifier.
+
+Advice function for `el-get-notify'."
+    (let ((alert-default-style 'notifier))
+      (alert message :title title)))
+  (advice-add 'el-get-notify :override #'el-get-notify--wrapper))
 
 (defun el-get-load-package-user-init-file--with-debug (package)
   "Debug on loading the user init file for PACKAGE.
