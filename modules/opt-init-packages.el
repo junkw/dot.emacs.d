@@ -33,6 +33,10 @@
 
 (require 'cl-lib)
 
+;;;; Environment predicates
+(defvar has-mu-p (executable-find "mu")
+  "Return path if this system has mu.")
+
 ;;;; Installed packages via el-get
 ;; Fix original recipes
 (setq el-get-sources
@@ -41,7 +45,6 @@
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
         (:name monokai-theme :after (load-theme 'monokai t))
-        (:name mu4e-alert :depends (alert s ht) :library mu4e)
         (:name pcache
                :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
         (:name popwin :features popwin)
@@ -51,6 +54,9 @@
         (:name twittering-mode :features nil)
         (:name undo-tree :features undo-tree)
         (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)))
+
+(when has-mu-p
+  (add-to-list 'el-get-sources '((:name mu4e-alert :depends (alert s ht) :library mu4e))))
 
 (defvar jkw:el-get-preloaded-package-list-from-recipe
   '(origami smartrep)
@@ -68,7 +74,7 @@
   "List of packages I use straight from recipe files.")
 
 (defvar jkw:el-get-package-for-mu4e-list-from-recipe
-  '(mu4e-alert)
+  '()
   "List of mu4e plugin packages I use straight from recipe files.")
 
 ;;;; Internal functions
@@ -87,7 +93,7 @@
 (defun el-get--list-installing-packages ()
   "[internal] Return a list of installing packages via el-get."
   (let* ((rcps (append jkw:el-get-package-list-from-recipe
-                       (when (executable-find "mu") jkw:el-get-package-for-mu4e-list-from-recipe)))
+                       (when has-mu-p jkw:el-get-package-for-mu4e-list-from-recipe)))
          (pkgs (append jkw:el-get-preloaded-package-list-from-recipe
                        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))
                        rcps)))
