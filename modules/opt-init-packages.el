@@ -34,10 +34,6 @@
 (require 'cl-lib)
 (require 'pre-init-core)
 
-;;;; Environment predicates
-(defvar has-mu-p (executable-find "mu")
-  "Return path if this system has mu.")
-
 ;;;; Installed packages via el-get
 ;; Fix original recipes
 (setq el-get-sources

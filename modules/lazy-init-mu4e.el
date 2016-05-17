@@ -34,10 +34,10 @@
 (require 'pre-init-core)
 
 ;;;; mu4e
-(setq mu4e-mu-binary (executable-find "mu"))
-(when mu4e-mu-binary
-  (require 'org-mu4e)
-
+(when has-mu-p
+  (setq mu4e-mu-binary (executable-find "mu"))
+  (setq mu4e-get-mail-command (executable-find "offlineimap"))
+  (setq mu4e-update-interval 3600)      ; 60 mins.
   (setq mail-user-agent 'mu4e-user-agent)
 
   ;; Maildir
@@ -45,39 +45,26 @@
   (setq mu4e-maildir        "~/.local/share/mail/")
   (setq mu4e-attachment-dir "~/Downloads")
 
-  ;; External command
-  (setq mu4e-get-mail-command  (executable-find "offlineimap"))
-  (setq mu4e-update-interval 3600)      ; 60 mins.
+  ;; SMTP
+  (require 'smtpmail)
+  (setq message-send-mail-function #'smtpmail-send-it)
+  (when (executable-find "gnutls-cli")
+    (setq smtpmail-stream-type 'starttls))
+  (setq message-kill-buffer-on-exit t)
+
+  ;; View
+  (when (not laptop-screen-p)
+    (setq mu4e-split-view 'vertical)
+    (setq mu4e-headers-visible-columns 90))
 
   (require 'mu4e-contrib)
   (setq mu4e-html2text-command #'mu4e-shr2text)
 
-  ;; Compose
-  (setq mu4e-sent-messages-behavior 'delete)
-  (setq org-mu4e-convert-to-html t)
+  (setq mu4e-view-show-images t)
+  (when (fboundp 'imagemagick-register-types)
+    (imagemagick-register-types))
 
-  (defun jkw:mu4e-compose-mode-hooks ()
-    "My config for message composition."
-    (when (fboundp 'yas-minor-mode)
-      (yas-minor-mode +1))
-    (set-fill-column 80))
-
-  (add-hook 'mu4e-compose-mode-hook #'jkw:mu4e-compose-mode-hooks)
-
-  ;; http://mbork.pl/2015-11-28_Fixing_mml-attach-file_using_advice
-  (defun mml-attach-file--attach-on-eob (orig-fun &rest args)
-    "Attach files on the end of buffer.
-
-Advice function for `mml-attach-file'."
-    (save-excursion
-      (save-restriction
-        (widen)
-        (goto-char (point-max))
-        (apply orig-fun args))))
-
-  (advice-add 'mml-attach-file :around #'mml-attach-file--attach-on-eob)
-
-  ;; Multiple accounts selection
+  ;; Accounts
   ;; https://github.com/joedicastro/dotfiles/blob/master/emacs/init.el#L1214
   (defun jkw:mu4e-select-account ()
     "Select an account from `jkw:mu4e-account-alist'."
@@ -117,14 +104,6 @@ Advice function for `mml-attach-file'."
 
   (add-hook 'mu4e-compose-pre-hook #'jkw:mu4e-set-account)
 
-  ;; SMTP
-  (require 'smtpmail)
-
-  (setq message-send-mail-function #'smtpmail-send-it)
-  (when (executable-find "gnutls-cli")
-    (setq smtpmail-stream-type 'starttls))
-  (setq message-kill-buffer-on-exit t)
-
   ;; Contacts
   (when (require 'org-contacts nil t)
     (setq mu4e-org-contacts-file (expand-file-name "contacts.org" org-directory))
@@ -133,13 +112,32 @@ Advice function for `mml-attach-file'."
     (add-to-list 'mu4e-view-actions
                  '("org-contact-add" . mu4e-action-add-org-contact) t))
 
-  ;; View
-  (when (not laptop-screen-p)
-    (setq mu4e-split-view 'vertical)
-    (setq mu4e-headers-visible-columns 90))
-  (setq mu4e-view-show-images t)
-  (when (fboundp 'imagemagick-register-types)
-    (imagemagick-register-types))
+  ;; Compose
+  (setq mu4e-sent-messages-behavior 'delete)
+
+  (require 'org-mu4e)
+  (setq org-mu4e-convert-to-html t)
+
+  (defun jkw:mu4e-compose-mode-hooks ()
+    "My config for message composition."
+    (when (fboundp 'yas-minor-mode)
+      (yas-minor-mode +1))
+    (set-fill-column 80))
+
+  (add-hook 'mu4e-compose-mode-hook #'jkw:mu4e-compose-mode-hooks)
+
+  ;; http://mbork.pl/2015-11-28_Fixing_mml-attach-file_using_advice
+  (defun mml-attach-file--attach-on-eob (orig-fun &rest args)
+    "Attach files on the end of buffer.
+
+Advice function for `mml-attach-file'."
+    (save-excursion
+      (save-restriction
+        (widen)
+        (goto-char (point-max))
+        (apply orig-fun args))))
+
+  (advice-add 'mml-attach-file :around #'mml-attach-file--attach-on-eob)
 
 ;;;; Keymap
   (setq mu4e-maildir-shortcuts

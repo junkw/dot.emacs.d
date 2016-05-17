@@ -58,6 +58,9 @@
   "Return t if this display size is 15ich or less.")
 
 ;;;; Environment predicates
+(defvar has-mu-p (executable-find "mu")
+  "Return path if this system has mu.")
+
 (defvar has-notifier-p (executable-find "terminal-notifier")
   "Return path if this system has terminal-notifier.")
 
