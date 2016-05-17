@@ -41,6 +41,7 @@
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
         (:name monokai-theme :after (load-theme 'monokai t))
+        (:name mu4e-alert :depends (alert s ht) :library mu4e)
         (:name pcache
                :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
         (:name popwin :features popwin)
