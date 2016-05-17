@@ -87,6 +87,16 @@
 ;; Remove unneeded whitespace when saving a file
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
+;;;; Spell check
+(let ((hunspell (executable-find "hunspell")))
+  (when hunspell
+    (setq-default ispell-program-name hunspell)
+    (setq ispell-local-dictionary "en_US")
+    (setq ispell-local-dictionary-alist
+          '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
+    (setq ispell-really-hunspell t)))
+(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")) ; for Japanese
+
 ;;;; Killing
 ;; http://dev.ariel-networks.com/wp/documents/aritcles/emacs/part16
 (defun kill-region--or-kill-word (orig-fun &rest args)
@@ -196,6 +206,9 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 (global-set-key (kbd "C-c +") #'increment-integer-at-point)
 (global-set-key (kbd "C-c -") #'decrement-integer-at-point)
 (global-set-key (kbd "C-x r q") #'quote-rectangle)
+
+(with-eval-after-load 'flyspell
+  (define-key flyspell-mode-map (kbd "C-;") nil))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
