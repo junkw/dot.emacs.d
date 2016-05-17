@@ -47,8 +47,7 @@
   (setq c-basic-offset 4)
   (c-set-offset 'case-label '+)
   (c-set-offset 'arglist-intro '+)
-  (c-set-offset 'arglist-close 0)
-  (linum-mode +1))
+  (c-set-offset 'arglist-close 0))
 
 (add-hook 'php-mode-hook #'jkw:php-mode-hooks)
 

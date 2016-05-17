@@ -1,10 +1,10 @@
-;;; init-js2-mode.el --- el-get init file for package js2-mode
+;;; init-nlinum-relative.el --- el-get init file for package nlinum-relative
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; Copyright (C) 2016  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Dec. 20, 2012
-;; Keywords: .emacs, javascript
+;; Created: May. 17, 2016
+;; Keywords: .emacs
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,21 +31,10 @@
 
 ;;; Code:
 
-(require 'pre-init-core)
-
-(add-to-list 'auto-mode-alist '("\\.\\(js\\|json\\)\\'" . js2-mode))
-
-(with-eval-after-load 'js2-mode
-  (require 'js2-imenu-extras)
-  (js2-imenu-extras-setup)
-  (add-to-list 'which-func-modes 'js2-mode))
-
-;;;; Hooks
-(defun jkw:js2-mode-hooks ()
-  "My config for js2 mode."
-  (setq indent-tabs-mode nil))
-
-(add-hook 'js2-mode-hook #'jkw:js2-mode-hooks)
+(setq nlinum-relative-redisplay-delay 0.01)
+(setq nlinum-relative-current-symbol "  >")
+(setq nlinum-relative-offset 1)
+(add-hook 'prog-mode-hook #'nlinum-relative-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -54,4 +43,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-js2-mode.el ends here
+;;; init-nlinum-relative.el ends here

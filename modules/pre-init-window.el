@@ -74,18 +74,6 @@ Advice function for `which-func-ff-hook'."
 ;;;; Echo line
 (setq echo-keystrokes 0.1)              ; display rate (sec.)
 
-;;;; Line number
-;; http://d.hatena.ne.jp/daimatz/20120215/1329248780
-(setq linum-delay t)
-
-(defun linum-schedule--delayed ()
-  "Delay updating line numbers.
-
-Advice function for `linum-schedule'."
-  (run-with-idle-timer 0.02 nil #'linum-update-current))
-
-(advice-add 'linum-schedule :override #'linum-schedule--delayed)
-
 ;; Disable BiDi
 (setq-default bidi-display-reordering nil)
 (setq-default bidi-paragraph-direction 'left-to-right)

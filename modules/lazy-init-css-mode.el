@@ -35,8 +35,7 @@
 (defun jkw:css-mode-hooks ()
   "My config for CSS mode."
   (setq indent-tabs-mode nil)
-  (setq css-indent-offset 4)
-  (linum-mode +1))
+  (setq css-indent-offset 4))
 
 (add-hook 'css-mode-hook #'jkw:css-mode-hooks)
 

@@ -1,0 +1,4 @@
+(:name nlinum
+       :description "Show line numbers in the margin."
+       :website     "https://elpa.gnu.org/packages/nlinum.html"
+       :type        elpa)
