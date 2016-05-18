@@ -53,7 +53,7 @@
         (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)))
 
 (when has-mu-p
-  (add-to-list 'el-get-sources '((:name mu4e-alert :depends (alert s ht) :library mu4e))))
+  (add-to-list 'el-get-sources '(:name mu4e-alert :depends (alert s ht) :library mu4e)))
 
 (defvar jkw:el-get-preloaded-package-list-from-recipe
   '(alert origami smartrep)
