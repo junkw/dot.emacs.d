@@ -31,7 +31,9 @@
 
 ;;; Code:
 
-(when (executable-find "cmigemo")
+(require 'pre-init-core)
+
+(when has-migemo-p
   (setq migemo-command "cmigemo")
   (setq migemo-options '("-q" "--emacs" "-i" "\a"))
 

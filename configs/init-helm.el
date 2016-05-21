@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
+
 ;;;; Init
 (setq helm-adaptive-history-file (concat user-emacs-directory "var/cache/helm-adaptive-history"))
 (setq helm-candidate-number-limit 300)
@@ -40,8 +42,6 @@
 (setq helm-quick-update t)
 (setq helm-persistent-action-use-special-display t)
 (setq helm-yank-symbol-first t)
-
-(helm-mode +1)
 
 (setq helm-completion-mode-string "")
 
@@ -56,7 +56,7 @@
           helm-source-mac-spotlight)))
 
 ;;;; Candidates
-(when (executable-find "cmigemo")
+(when has-migemo-p
   (helm-migemo-mode +1))
 
 (setq helm-M-x-fuzzy-match t)

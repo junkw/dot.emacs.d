@@ -37,7 +37,7 @@
 ;;;; Installed packages via el-get
 ;; Fix original recipes
 (setq el-get-sources
-      '((:name helm :depends migemo :autoloads nil :before (setq dired-bind-jump nil) :features helm-config)
+      '((:name helm :before (setq dired-bind-jump nil))
         (:name helm-descbinds :prepare nil :library helm :after (helm-descbinds-mode +1))
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
@@ -59,15 +59,18 @@
   '(alert origami smartrep)
   "List of packages that need to load before loading `jkw:el-get-package-list-from-recipe'.")
 
+(when has-migemo-p
+  (add-to-list 'jkw:el-get-preloaded-package-list-from-recipe 'migemo))
+
 (defvar jkw:el-get-package-list-from-recipe
   '(ac-php ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile auto-complete
            beginend cl-lib-highlight dash-at-point e2wm e2wm-bookmark eldoc-extension
            elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck flyspell-correct
            geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop
            highlight-defined highlight-symbol info+ js2-mode json-mode nlinum-relative lispxmp
-           magit magit-svn markdown-mode migemo multiple-cursors mwim neotree org-mode
-           org-reveal php-mode projectile psvn rainbow-mode recentf-ext scratch-ext
-           smart-newline tern viewer web-mode wgrep yaml-mode)
+           magit magit-svn markdown-mode multiple-cursors mwim neotree org-mode org-reveal
+           php-mode projectile psvn rainbow-mode recentf-ext scratch-ext smart-newline tern
+           viewer web-mode wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
 
 (defvar jkw:el-get-package-for-mu4e-list-from-recipe

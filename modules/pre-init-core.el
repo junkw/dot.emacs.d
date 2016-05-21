@@ -58,6 +58,9 @@
   "Return t if this display size is 15ich or less.")
 
 ;;;; Environment predicates
+(defvar has-migemo-p (executable-find "cmigemo")
+  "Return path if this system has cmigemo.")
+
 (defvar has-mu-p (executable-find "mu")
   "Return path if this system has mu.")
 
