@@ -64,9 +64,9 @@
 
 (defvar jkw:el-get-package-list-from-recipe
   '(ac-php ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile auto-complete
-           beginend cl-lib-highlight dash-at-point e2wm e2wm-bookmark eldoc-extension
-           elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck flyspell-correct
-           geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop
+           beginend cl-lib-highlight dash-at-point e2wm e2wm-bookmark electric-align
+           eldoc-extension elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck
+           flyspell-correct geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop
            highlight-defined highlight-symbol info+ js2-mode json-mode nlinum-relative lispxmp
            magit magit-svn markdown-mode multiple-cursors mwim neotree org-mode org-reveal
            php-mode projectile psvn rainbow-mode recentf-ext scratch-ext smart-newline tern

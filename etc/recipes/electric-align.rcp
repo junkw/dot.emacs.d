@@ -1,0 +1,7 @@
+(:name electric-align
+       :description "Insert a certain amout of spaces at once to easily align columns."
+       :website     "https://github.com/zk-phi/electric-align"
+       :type        github
+       :pkgname     "zk-phi/electric-align"
+       :features    electric-align
+       :post-init   (add-hook 'prog-mode-hook #'electric-align-mode))
