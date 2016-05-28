@@ -64,6 +64,9 @@
 (defvar has-mu-p (executable-find "mu")
   "Return path if this system has mu.")
 
+(defvar has-nodejs-p (executable-find "node")
+  "Return path if this system has Node.js.")
+
 (defvar has-notifier-p (executable-find "terminal-notifier")
   "Return path if this system has terminal-notifier.")
 

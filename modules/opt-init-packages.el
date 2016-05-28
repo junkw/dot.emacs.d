@@ -69,13 +69,17 @@
            flyspell-correct geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop
            highlight-defined highlight-symbol info+ js2-mode json-mode nlinum-relative lispxmp
            magit magit-svn markdown-mode multiple-cursors mwim neotree org-mode org-reveal
-           php-mode projectile psvn rainbow-mode recentf-ext scratch-ext smart-newline tern
+           php-mode projectile psvn rainbow-mode recentf-ext scratch-ext smart-newline
            viewer web-mode wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
 
 (defvar jkw:el-get-package-for-mu4e-list-from-recipe
   '()
   "List of mu4e plugin packages I use straight from recipe files.")
+
+(defvar jkw:el-get-package-with-nodejs-list-from-recipe
+  '(vmd-mode tern)
+  "List of packages with Node.js I use straight from recipe files.")
 
 ;;;; Internal functions
 (defun el-get--pre-initialize-el-get ()
@@ -93,7 +97,8 @@
 (defun el-get--list-installing-packages ()
   "[internal] Return a list of installing packages via el-get."
   (let* ((rcps (append jkw:el-get-package-list-from-recipe
-                       (when has-mu-p jkw:el-get-package-for-mu4e-list-from-recipe)))
+                       (when has-nodejs-p jkw:el-get-package-with-nodejs-list-from-recipe)
+                       (when has-mu-p     jkw:el-get-package-for-mu4e-list-from-recipe)))
          (pkgs (append jkw:el-get-preloaded-package-list-from-recipe
                        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))
                        rcps)))

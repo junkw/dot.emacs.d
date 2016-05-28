@@ -1,0 +1,6 @@
+(:name vmd-mode
+       :description "Fast GHF Markdown previewing for Emacs using a vmd subprocess."
+       :website     "https://github.com/blak3mill3r/vmd-mode"
+       :build       `(("npm" "install" "-g" "vmd"))
+       :type        github
+       :pkgname     "blak3mill3r/vmd-mode")
