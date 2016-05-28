@@ -1,0 +1,6 @@
+(:name dumb-jump
+       :description "jump to definition for multiple languages without configuration."
+       :website     "https://github.com/jacktasia/dumb-jump"
+       :depends     (f s dash popup)
+       :type        github
+       :pkgname     "jacktasia/dumb-jump")
