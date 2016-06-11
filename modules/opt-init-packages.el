@@ -37,7 +37,8 @@
 ;;;; Installed packages via el-get
 ;; Fix original recipes
 (setq el-get-sources
-      '((:name helm :before (setq dired-bind-jump nil))
+      '((:name editorconfig :features editorconfig)
+        (:name helm :before (setq dired-bind-jump nil))
         (:name helm-descbinds :prepare nil :library helm :after (helm-descbinds-mode +1))
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
