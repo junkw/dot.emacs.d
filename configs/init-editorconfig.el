@@ -32,10 +32,7 @@
 ;;; Code:
 
 ;;;; Hooks
-(add-hook 'prog-mode-hook #'editorconfig-mode)
-
-(when (fboundp 'jkw:web-mode-hooks)
-  (add-hook 'editorconfig-custom-hooks #'jkw:web-mode-hooks))
+(add-hooks 'prog-mode-hook #'editorconfig-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
