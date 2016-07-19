@@ -6,6 +6,7 @@
 
    - Mac OS X El Capitan
    - Homebrew
+	 - [[https://github.com/junkw/dotfiles/blob/master/Brewfile][Installed packages]]
 
 ** Installation
 
