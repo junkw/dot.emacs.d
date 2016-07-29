@@ -57,7 +57,7 @@
   (add-to-list 'el-get-sources '(:name mu4e-alert :depends (alert s ht) :library mu4e)))
 
 (defvar jkw:el-get-preloaded-package-list-from-recipe
-  '(alert origami smartrep)
+  '(alert origami smartrep projectile)
   "List of packages that need to load before loading `jkw:el-get-package-list-from-recipe'.")
 
 (when has-migemo-p
@@ -70,8 +70,8 @@
            flyspell-correct geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop
            highlight-defined highlight-symbol info+ js2-mode json-mode nlinum-relative lispxmp
            magit magit-svn markdown-mode multiple-cursors mwim neotree org-mode org-reveal
-           php-mode projectile psvn rainbow-mode recentf-ext scratch-ext smart-newline
-           viewer web-mode wgrep yaml-mode)
+           php-mode psvn rainbow-mode recentf-ext scratch-ext smart-newline viewer web-mode
+           wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
 
 (defvar jkw:el-get-package-for-mu4e-list-from-recipe

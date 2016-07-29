@@ -31,24 +31,23 @@
 
 ;;; Code:
 
-(require 'projectile nil t)
-
 (setq neo-theme 'nerd)
 (setq neo-persist-show nil)
 (setq neo-smart-open t)
 (setq neo-cwd-line-style 'button)
 
+(with-eval-after-load 'projectile
 ;;;; Commands
-(defun neotree-find-project-root-or-current-directory ()
-  "Quick select project or current directory as node in NeoTree."
-  (interactive)
-  (let ((path (if (fboundp 'projectile-project-root)
-                  (ignore-errors (projectile-project-root))
-                nil)))
-    (neotree-find path)))
+  (defun neotree-find-project-root-or-current-directory ()
+    "Quick select project or current directory as node in NeoTree."
+    (interactive)
+    (let ((path (if (fboundp 'projectile-project-root)
+                    (ignore-errors (projectile-project-root))
+                  nil)))
+      (neotree-find path)))
 
 ;;;; Keymap
-(global-set-key (kbd "C-x C-d") #'neotree-find-project-root-or-current-directory)
+  (global-set-key (kbd "C-x C-d") #'neotree-find-project-root-or-current-directory))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
