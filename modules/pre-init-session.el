@@ -51,6 +51,8 @@
   (add-to-list 'auth-sources 'macos-keychain-generic)
   (add-to-list 'auth-sources 'macos-keychain-internet))
 
+(setq nsm-settings-file (concat user-emacs-directory "var/cache/network-security.data"))
+
 ;; Remote access
 (setq tramp-persistency-file-name (concat user-emacs-directory "var/cache/tramp"))
 (setq tramp-auto-save-directory temporary-file-directory)
