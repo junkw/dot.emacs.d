@@ -64,6 +64,7 @@
   "Return t as safe mode if initerror file exists.")
 
 (defvar init-module-errors nil)
+(setq package-enable-at-startup nil)
 
 ;;;; Internal functions
 (defun init-module--list-files (regexp)
