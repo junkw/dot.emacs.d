@@ -1,0 +1,5 @@
+(:name geben
+       :description "DBGp protocol frontend, a script debugger."
+       :website     "https://github.com/ahungry/geben"
+       :type        github
+       :pkgname     "ahungry/geben")
