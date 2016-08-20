@@ -31,19 +31,10 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
+
 ;;;; Keymap
-(define-key help-mode-map (kbd "j") #'next-line)
-(define-key help-mode-map (kbd "k") #'previous-line)
-(define-key help-mode-map (kbd "J") #'scroll-up-line)
-(define-key help-mode-map (kbd "K") #'scroll-down-line)
-(define-key help-mode-map (kbd "b") #'scroll-down-command)
-(define-key help-mode-map (kbd "g") #'beginning-of-buffer)
-(define-key help-mode-map (kbd "G") #'end-of-buffer)
-(define-key help-mode-map (kbd "l") #'forward-char)
-(define-key help-mode-map (kbd "h") #'backward-char)
-(define-key help-mode-map (kbd "w") #'forward-word)
-(define-key help-mode-map (kbd "W") #'backward-word)
-(define-key help-mode-map (kbd "v") #'set-mark-command)
+(define-vimlike-key-sets help-mode-map)
 (define-key help-mode-map (kbd "<") #'help-go-back)
 (define-key help-mode-map (kbd ">") #'help-go-forward)
 

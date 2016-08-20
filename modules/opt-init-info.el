@@ -31,22 +31,16 @@
 
 ;;; Code:
 
+(require 'pre-init-core)
 (require 'info)
 
 ;; In addition to INFOPATH
 (add-to-list 'Info-additional-directory-list (concat user-emacs-directory "share/info"))
 
 ;;;; Keymap
+(define-vimlike-key-sets Info-mode-map)
 (define-key Info-mode-map (kbd "!")   #'Info-help)
-(define-key Info-mode-map (kbd "j")   #'next-line)
-(define-key Info-mode-map (kbd "k")   #'previous-line)
-(define-key Info-mode-map (kbd "J")   #'(lambda () (interactive) (scroll-up 1)))
-(define-key Info-mode-map (kbd "K")   #'(lambda () (interactive) (scroll-down 1)))
 (define-key Info-mode-map (kbd "b")   #'Info-scroll-down)
-(define-key Info-mode-map (kbd "g")   #'beginning-of-buffer)
-(define-key Info-mode-map (kbd "G")   #'end-of-buffer)
-(define-key Info-mode-map (kbd "l")   #'forward-char)
-(define-key Info-mode-map (kbd "h")   #'backward-char)
 (define-key Info-mode-map (kbd "o")   #'Info-follow-nearest-node)
 (define-key Info-mode-map (kbd ":")   #'Info-goto-node)
 (define-key Info-mode-map (kbd "M-n") #'Info-next-reference)

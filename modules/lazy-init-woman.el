@@ -55,16 +55,7 @@
 (setq Man-heading-regexp "\\`\\([A-Z][A-Z0-9 /-]+\\|\\cj+\\)\\'")
 
 ;;;; Keymap
-(define-key woman-mode-map (kbd "j") #'next-line)
-(define-key woman-mode-map (kbd "k") #'previous-line)
-(define-key woman-mode-map (kbd "J") #'scroll-up-line)
-(define-key woman-mode-map (kbd "K") #'scroll-down-line)
-(define-key woman-mode-map (kbd "b") #'scroll-down-command)
-(define-key woman-mode-map (kbd "l") #'forward-char)
-(define-key woman-mode-map (kbd "h") #'backward-char)
-(define-key woman-mode-map (kbd "w") #'forward-word)
-(define-key woman-mode-map (kbd "W") #'backward-word)
-(define-key woman-mode-map (kbd "v") #'set-mark-command)
+(define-vimlike-key-sets woman-mode-map)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

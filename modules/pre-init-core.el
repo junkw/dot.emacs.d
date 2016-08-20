@@ -77,6 +77,22 @@
            when (fboundp mode)
            do (add-hook (intern (format "%s-hook" mode)) function)))
 
+;;;; Keymap
+(defun define-vimlike-key-sets (map)
+  "Define vim-like keymap sets for MAP."
+  (define-key map (kbd "j") #'next-line)
+  (define-key map (kbd "k") #'previous-line)
+  (define-key map (kbd "J") #'scroll-up-line)
+  (define-key map (kbd "K") #'scroll-down-line)
+  (define-key map (kbd "b") #'scroll-down-command)
+  (define-key map (kbd "g") #'beginning-of-buffer)
+  (define-key map (kbd "G") #'end-of-buffer)
+  (define-key map (kbd "l") #'forward-char)
+  (define-key map (kbd "h") #'backward-char)
+  (define-key map (kbd "w") #'forward-word)
+  (define-key map (kbd "W") #'backward-word)
+  (define-key map (kbd "v") #'set-mark-command))
+
 ;;;; Paths
 (defun getenv-from-shell (variable)
   "Get the value of environment variable VARIABLE from the user's shell."
