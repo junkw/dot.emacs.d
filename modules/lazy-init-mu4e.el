@@ -47,9 +47,9 @@
 
   ;; SMTP
   (require 'smtpmail)
+  (require 'starttls)
   (setq message-send-mail-function #'smtpmail-send-it)
-  (when (executable-find "gnutls-cli")
-    (setq smtpmail-stream-type 'starttls))
+  (setq starttls-use-gnutls t)
   (setq message-kill-buffer-on-exit t)
 
   ;; View
