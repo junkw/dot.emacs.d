@@ -47,6 +47,7 @@
 (define-key view-mode-map (kbd "h") #'backward-char)
 (define-key view-mode-map (kbd "w") #'forward-word)
 (define-key view-mode-map (kbd "W") #'backward-word)
+(define-key view-mode-map (kbd "v") #'set-mark-command)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
