@@ -43,7 +43,8 @@
 ;;;; Hooks
 (defun jkw:js2-mode-hooks ()
   "My config for js2 mode."
-  (setq indent-tabs-mode nil))
+  (setq indent-tabs-mode nil)
+  (subword-mode +1))
 
 (add-hook 'js2-mode-hook #'jkw:js2-mode-hooks)
 
