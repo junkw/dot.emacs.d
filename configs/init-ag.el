@@ -32,6 +32,7 @@
 ;;; Code:
 
 (setq ag-highlight-search t)
+(setq ag-group-matches nil)
 
 ;;;; Keymap
 (global-set-key (kbd "<f5>") #'ag-project-at-point)
