@@ -33,6 +33,8 @@
 
 (require 'pre-init-core)
 
+(defvar with-editor-file-name-history-exclude '())
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
