@@ -59,6 +59,9 @@
 
 (add-to-list 'org-structure-template-alist '("C" "#+BEGIN_COMMENT\n?\n#+END_COMMENT" "<!--\n?\n-->"))
 
+;;;; Link
+(add-to-list 'org-link-abbrev-alist '("isbn" . "https://www.amazon.co.jp/gp/product/%s"))
+
 ;;;; ToDo
 (setq org-use-fast-todo-selection t)
 (setq org-todo-keywords
