@@ -104,9 +104,8 @@
 (recentf-mode +1)
 
 ;; Save cursor's place
-(require 'saveplace)
 (setq save-place-file (concat user-emacs-directory "var/cache/saveplace"))
-(setq-default save-place t)
+(save-place-mode +1)
 
 ;; Bookmark
 (require 'bookmark)
