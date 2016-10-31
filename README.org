@@ -4,7 +4,7 @@
 
 ** Requirements
 
-   - Mac OS X El Capitan
+   - macOS Sierra
    - Homebrew
 	 - [[https://github.com/junkw/dotfiles/blob/master/Brewfile][Installed packages]]
 
@@ -12,7 +12,7 @@
 
 #+BEGIN_SRC sh
 brew tap railwaycat/emacsmacport
-brew install emacs-mac --icon-modern --with-gnutls --with-imagemagick --with-xml2
+brew install emacs-mac --with-dbus --with-glib --with-gnutls --with-imagemagick --with-official-icon --with-xml2
 brew linkapps emacs-mac
 git clone https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
 cd /path/to/local/repo
