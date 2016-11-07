@@ -2,7 +2,7 @@
        :description "Outline-based notes management and organizer."
        :website     "http://orgmode.org/"
        :type        git
-       :url         "git://orgmode.org/org-mode.git"
+       :url         "http://orgmode.org/org-mode.git"
        :branch      "maint"
        :info        "doc"
        :build       `,(mapcar
