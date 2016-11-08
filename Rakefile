@@ -8,8 +8,9 @@ emacs_cmd       = "emacs -Q --batch"
 site_lisp_dir   = '/usr/local/share/emacs/site-lisp'
 user_emacs_dir  = "#{Dir.home}/.emacs.d"
 init_module_dir = "#{user_emacs_dir}/modules"
-package_dir     = "#{user_emacs_dir}/vendor"
-el_get_dir      = "#{package_dir}/el-get"
+pkg_conf_dir    = "#{user_emacs_dir}/configs"
+pkg_dir         = "#{user_emacs_dir}/vendor"
+elget_dir       = "#{pkg_dir}/el-get"
 
 task :generate_loaddefs do
   site_lisp_dirs = Dir.glob("#{site_lisp_dir}/**/*/")
@@ -40,12 +41,14 @@ task :make_dir do
 end
 
 task :compile do
-  modules = ["#{user_emacs_dir}/init.el"]
-  modules += Dir.glob("#{init_module_dir}/*-init-[^-]*.el")
+  els  = ["#{user_emacs_dir}/init.el"]
+  els += Dir.glob("#{init_module_dir}/*-init-[^-]*.el")
+  els += Dir.glob("#{pkg_conf_dir}/init-*.el")
 
-  modules.each do |el|
-    sh "#{emacs_cmd} -L #{init_module_dir}/ -f batch-byte-compile #{el}"
-  end
+  conf = els.join(" ")
+  s    = "(let ((default-directory \"#{pkg_dir}\")) (normal-top-level-add-subdirs-to-load-path))"
+
+  sh "#{emacs_cmd} -L #{init_module_dir}/ --eval '#{s}' -f batch-byte-compile #{conf}"
 end
 
 task :tags do
@@ -72,7 +75,7 @@ task :check_recipes do
   args    = '-Wno-features -Wno-autoloads'
   recipes = "#{user_emacs_dir}/etc/recipes/*.rcp"
 
-  sh "#{emacs_cmd} -L #{el_get_dir} -l #{el_get_dir}/el-get-check.el -f el-get-check-recipe-batch #{args} #{recipes}"
+  sh "#{emacs_cmd} -L #{elget_dir} -l #{elget_dir}/el-get-check.el -f el-get-check-recipe-batch #{args} #{recipes}"
 end
 
 task :default => [:generate_loaddefs, :compile, :tags]
