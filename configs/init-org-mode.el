@@ -70,6 +70,32 @@
 (setq org-log-done 'time)               ; Logging completion time
 (setq org-log-into-drawer t)            ; Logging into :LOGBOOK:
 
+;; http://emacs.stackexchange.com/questions/10206/limit-number-of-org-todo-items-in-a-certain-state
+(defvar org-wip-limit 3 "Work-in-progress limit.")
+(defvar org-wip-state "DOING" "State limited work-in-progress.")
+
+(defun org-wip--count-todos-in-state (state)
+  "[internal] Count TODOs in STATE."
+  (let ((count 0))
+    (org-scan-tags (lambda ()
+                     (when (string= (org-get-todo-state) state)
+                       (setq count (1+ count))))
+                   t t)
+    count))
+
+(defun org-wip-limitter (change-plist)
+  "Limit work-in-progress in current org file."
+  (catch 'dont-block
+    (when (or (not (eq (plist-get change-plist :type) 'todo-state-change))
+              (not (string= (plist-get change-plist :to) org-wip-state)))
+      (throw 'dont-block t))
+    (when (>= (org-wip--count-todos-in-state org-wip-state) org-wip-limit)
+      (setq org-block-entry-blocking (format "WIP limit: %s" org-wip-state))
+      (throw 'dont-block nil))
+    t))
+
+(add-hook 'org-blocker-hook #'org-wip-limitter)
+
 ;;;; Tags
 (setq org-tag-alist
       '(("@work" . ?w) ("@home" . ?h) ("@out" . ?o) ; context on place
