@@ -2,7 +2,6 @@
 require 'fileutils'
 
 
-
 emacs_cmd       = "emacs -Q --batch"
 
 site_lisp_dir   = '/usr/local/share/emacs/site-lisp'
@@ -51,19 +50,19 @@ task :compile do
   sh "#{emacs_cmd} -L #{init_module_dir}/ --eval '#{s}' -f batch-byte-compile #{conf}"
 end
 
-task :tags do
-  sh "ctags -e #{user_emacs_dir}/init.el #{init_module_dir}/*.el #{user_emacs_dir}/configs/*.el"
+task :tag do
+  sh "ctags -e #{user_emacs_dir}/init.el #{init_module_dir}/*.el #{pkg_conf_dir}/*.el"
 end
 
-task :install_el_get do
+task :install_elget do
   sh "#{emacs_cmd} -L #{init_module_dir} --eval '(setq init-module-safe-mode-p t)' -l opt-init-packages -f el-get--installer"
 end
 
-task :cleanup_var do
+task :remove_var do
   FileUtils.rm_r(Dir.glob("#{user_emacs_dir}/var/{initerror,{backup,bookmark,cache,log,tmp}/*}"))
 end
 
-task :cleanup_elc do
+task :remove_elc do
   FileUtils.rm(Dir.glob("#{user_emacs_dir}/{init.elc,{modules,configs}/*.elc}"))
 end
 
@@ -80,6 +79,7 @@ end
 
 task :default => [:generate_loaddefs, :compile, :tags]
 task :install => [:generate_loaddefs, :link, :make_dir, :compile, :tags]
-task :travis  => [:link, :make_dir, :install_el_get]
-task :cleanup => [:cleanup_var, :cleanup_elc, :compile]
+task :travis  => [:link, :make_dir, :install_elget]
+task :clear   => [:remove_var]
+task :cleanup => [:remove_var, :remove_elc, :compile]
 task :test    => [:compile, :run_tests, :check_recipes]

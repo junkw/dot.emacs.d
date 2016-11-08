@@ -1,4 +1,4 @@
 #!/bin/sh
 if [ ${3} -eq 1 ] ; then
-	rake compile && rake tags
+	rake compile && rake tag
 fi
