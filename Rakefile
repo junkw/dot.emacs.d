@@ -39,7 +39,16 @@ task :make_dir do
   FileUtils.mkdir_p(emacs_dirs)
 end
 
-task :compile do
+task :compile_init_module do
+  els  = ["#{user_emacs_dir}/init.el"]
+  els += Dir.glob("#{init_module_dir}/*-init-[^-]*.el")
+
+  conf = els.join(" ")
+
+  sh "#{emacs_cmd} -L #{init_module_dir}/ -f batch-byte-compile #{conf}"
+end
+
+task :compile_all do
   els  = ["#{user_emacs_dir}/init.el"]
   els += Dir.glob("#{init_module_dir}/*-init-[^-]*.el")
   els += Dir.glob("#{pkg_conf_dir}/init-*.el")
@@ -80,6 +89,7 @@ end
 task :default => [:generate_loaddefs, :compile, :tags]
 task :install => [:generate_loaddefs, :link, :make_dir, :compile, :tags]
 task :travis  => [:link, :make_dir, :install_elget]
+task :compile => [:compile_all]
 task :clear   => [:remove_var]
-task :cleanup => [:remove_var, :remove_elc, :compile]
-task :test    => [:compile, :run_tests, :check_recipes]
+task :cleanup => [:remove_var, :remove_elc, :compile_all]
+task :test    => [:compile_init_module, :run_tests, :check_recipes]
