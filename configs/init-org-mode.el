@@ -142,7 +142,7 @@
 
 ;;;; Babel
 ;; PlantUML
-(setq org-plantuml-jar-path "~/bin/plantuml.jar")
+(setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
 
 (org-babel-do-load-languages
  'org-babel-load-languages
