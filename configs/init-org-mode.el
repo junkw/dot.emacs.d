@@ -140,6 +140,14 @@
 ;;;; Refile
 (setq org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
 
+;;;; Babel
+;; PlantUML
+(setq org-plantuml-jar-path "~/bin/plantuml.jar")
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((plantuml . t)))
+
 ;;;; Export
 (setq org-export-default-language "ja")
 
