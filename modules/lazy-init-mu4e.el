@@ -46,6 +46,7 @@
   (setq mu4e-index-lazy-check nil)
   (setq mu4e-context-policy 'pick-first)
   (setq mu4e-compose-context-policy nil)
+  (setq message-kill-buffer-on-exit t)
 
   ;; Maildir
   (setq mu4e-mu-home        (concat (getenv "XDG_CACHE_HOME") "/mu/"))
@@ -62,9 +63,10 @@
   ;; SMTP
   (require 'smtpmail)
   (require 'starttls)
-  (setq message-send-mail-function #'smtpmail-send-it)
-  (setq starttls-use-gnutls t)
-  (setq message-kill-buffer-on-exit t)
+  (setq message-send-mail-function #'message-send-mail-with-sendmail)
+  (setq sendmail-program "msmtp")
+  (setq message-sendmail-extra-arguments '("--read-envelope-from"))
+  (setq message-sendmail-f-is-evil 't)
   (setq mail-user-agent 'mu4e-user-agent)
 
   ;; View
