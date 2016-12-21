@@ -4,7 +4,7 @@
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Feb. 20, 2015
-;; Keywords: .emacs, mail, mu4e
+;; Keywords: .emacs, mail, mu4e, mbsync
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -36,14 +36,28 @@
 ;;;; mu4e
 (when has-mu-p
   (setq mu4e-mu-binary (executable-find "mu"))
-  (setq mu4e-get-mail-command (executable-find "offlineimap"))
-  (setq mu4e-update-interval 3600)      ; 60 mins.
-  (setq mail-user-agent 'mu4e-user-agent)
+  (setq mu4e-get-mail-command (format "%s -a -c %s/mbsync/config"
+                                      (executable-find "mbsync") (getenv "XDG_CONFIG_HOME")))
+  (setq mu4e-update-interval (* 15 60))      ; 15 mins.
+  (setq mu4e-change-filenames-when-moving t)
+  (setq mu4e-cache-maildir-list t)
+  (setq mu4e-hide-index-messages t)
+  (setq mu4e-index-cleanup t)
+  (setq mu4e-index-lazy-check nil)
+  (setq mu4e-context-policy 'pick-first)
+  (setq mu4e-compose-context-policy nil)
 
   ;; Maildir
-  (setq mu4e-mu-home        "~/.cache/mu/")
-  (setq mu4e-maildir        "~/.local/share/mail/")
+  (setq mu4e-mu-home        (concat (getenv "XDG_CACHE_HOME") "/mu/"))
+  (setq mu4e-maildir        (concat (getenv "XDG_DATA_HOME")  "/gmail/"))
+  (setq mu4e-drafts-folder  "/drafts")
+  (setq mu4e-refile-folder  "/archive")
+  (setq mu4e-sent-folder    "/sent")
+  (setq mu4e-trash-folder   "/trash")
   (setq mu4e-attachment-dir "~/Downloads")
+
+  (defvar jkw:mu4e-inbox-folder   "/inbox")
+  (defvar jkw:mu4e-starred-folder "/starred")
 
   ;; SMTP
   (require 'smtpmail)
@@ -51,6 +65,7 @@
   (setq message-send-mail-function #'smtpmail-send-it)
   (setq starttls-use-gnutls t)
   (setq message-kill-buffer-on-exit t)
+  (setq mail-user-agent 'mu4e-user-agent)
 
   ;; View
   (when (not laptop-screen-p)
