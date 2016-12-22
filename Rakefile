@@ -20,6 +20,10 @@ task :generate_loaddefs do
   sh "#{emacs_cmd} --eval '#{s}' -f batch-update-autoloads #{paths}"
 end
 
+task :clone_revealjs do
+  sh "git clone https://github.com/hakimel/reveal.js.git #{Dir.home}/lib/reveal.js"
+end
+
 task :link do
   FileUtils.ln_sf(Dir.pwd, user_emacs_dir)
 
@@ -87,7 +91,7 @@ task :check_recipes do
 end
 
 task :default => [:generate_loaddefs, :compile, :tags]
-task :install => [:generate_loaddefs, :link, :make_dir, :compile, :tags]
+task :install => [:generate_loaddefs, :clone_revealjs, :link, :make_dir, :compile, :tags]
 task :travis  => [:link, :make_dir, :install_elget]
 task :compile => [:compile_all]
 task :clear   => [:remove_var]
