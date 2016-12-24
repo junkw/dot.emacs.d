@@ -32,13 +32,13 @@
 ;;; Code:
 
 ;;;; Font
-(when (find-font (font-spec :name "Ricty"))
+(when (find-font (font-spec :name "Ricty Diminished Discord"))
   (set-face-attribute 'default nil
-                      :family "Ricty"
+                      :family "Ricty Diminished Discord"
                       :height 140)
   (set-fontset-font nil
                     'japanese-jisx0208
-                    (font-spec :family "Ricty")))
+                    (font-spec :family "Ricty Diminished Discord")))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
