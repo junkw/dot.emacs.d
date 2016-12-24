@@ -90,8 +90,8 @@ task :check_recipes do
   sh "#{emacs_cmd} -L #{elget_dir} -l #{elget_dir}/el-get-check.el -f el-get-check-recipe-batch #{args} #{recipes}"
 end
 
-task :default => [:generate_loaddefs, :compile, :tags]
-task :install => [:generate_loaddefs, :clone_revealjs, :link, :make_dir, :compile, :tags]
+task :default => [:generate_loaddefs, :compile, :tag]
+task :install => [:generate_loaddefs, :clone_revealjs, :link, :make_dir, :compile, :tag]
 task :travis  => [:link, :make_dir, :install_elget]
 task :compile => [:compile_all]
 task :clear   => [:remove_var]
