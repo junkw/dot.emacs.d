@@ -55,7 +55,7 @@
 
 ;;;; Display size predicates
 (defvar laptop-screen-p (<= (display-pixel-height) 900)
-  "Return t if this display size is 15ich or less.")
+  "Return t if this display size is 15-inch or less.")
 
 ;;;; Environment predicates
 (defvar has-migemo-p (executable-find "cmigemo")

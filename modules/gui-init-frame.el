@@ -34,17 +34,17 @@
 (require 'pre-init-core)
 
 ;; Frame size and position
-(cond
- ((= (display-pixel-height) 1440)       ; 27ich
-  (add-to-list 'default-frame-alist '(top    . 110))
-  (add-to-list 'default-frame-alist '(left   . 150))
-  (add-to-list 'default-frame-alist '(height .  75))
-  (add-to-list 'default-frame-alist '(width  . 320)))
- ((= (display-pixel-height) 800)        ; 13ich
-  (add-to-list 'default-frame-alist '(top    .  60))
-  (add-to-list 'default-frame-alist '(left   . 100))
-  (add-to-list 'default-frame-alist '(height .  40))
-  (add-to-list 'default-frame-alist '(width  . 150))))
+(if laptop-screen-p
+    (progn
+      (add-to-list 'default-frame-alist '(top    .  60))
+      (add-to-list 'default-frame-alist '(left   . 100))
+      (add-to-list 'default-frame-alist '(height .  40))
+      (add-to-list 'default-frame-alist '(width  . 150)))
+  (progn
+    (add-to-list 'default-frame-alist '(top    . 110))
+    (add-to-list 'default-frame-alist '(left   . 150))
+    (add-to-list 'default-frame-alist '(height .  75))
+    (add-to-list 'default-frame-alist '(width  . 320))))
 
 ;; Transparent
 (add-to-list 'default-frame-alist '(alpha . (92 82)))
