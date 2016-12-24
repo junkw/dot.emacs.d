@@ -91,7 +91,7 @@ task :check_recipes do
 end
 
 task :default => [:generate_loaddefs, :compile, :tag]
-task :install => [:generate_loaddefs, :clone_revealjs, :link, :make_dir, :compile, :tag]
+task :install => [:generate_loaddefs, :clone_revealjs, :link, :make_dir, :compile_init_module, :tag]
 task :travis  => [:link, :make_dir, :install_elget]
 task :compile => [:compile_all]
 task :clear   => [:remove_var]
