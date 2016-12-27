@@ -38,7 +38,7 @@
   (setq mu4e-mu-binary (executable-find "mu"))
   (setq mu4e-get-mail-command (format "%s -a -c %s/mbsync/config"
                                       (executable-find "mbsync") (getenv "XDG_CONFIG_HOME")))
-  (setq mu4e-update-interval (* 15 60))      ; 15 mins.
+  (setq mu4e-update-interval (* 30 60))      ; 30 mins.
   (setq mu4e-change-filenames-when-moving t)
   (setq mu4e-cache-maildir-list t)
   (setq mu4e-hide-index-messages t)
