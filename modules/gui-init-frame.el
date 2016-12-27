@@ -38,8 +38,8 @@
     (progn
       (add-to-list 'default-frame-alist '(top    .  60))
       (add-to-list 'default-frame-alist '(left   . 100))
-      (add-to-list 'default-frame-alist '(height .  40))
-      (add-to-list 'default-frame-alist '(width  . 150)))
+      (add-to-list 'default-frame-alist '(height .  45))
+      (add-to-list 'default-frame-alist '(width  . 175)))
   (progn
     (add-to-list 'default-frame-alist '(top    . 110))
     (add-to-list 'default-frame-alist '(left   . 150))
