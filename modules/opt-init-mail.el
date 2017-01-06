@@ -91,6 +91,26 @@
   (when (fboundp 'imagemagick-register-types)
     (imagemagick-register-types))
 
+  ;; Find messages from same sender
+  ;; https://github.com/kaz-yos/emacs/blob/master/init.d/500_email.el#L232
+  (defun jkw:mu4e-action-find-messages-from-same-sender (&optional msg)
+    "Extract sender from From: field and find messages from same sender."
+    (interactive)
+    (let* ((from (message-field-value "From"))
+           (sender-address (cadr (gnus-extract-address-components from))))
+      (mu4e-headers-search (concat "from:" sender-address))))
+  (add-to-list 'mu4e-view-actions
+               '("find same sender" . jkw:mu4e-action-find-messages-from-same-sender) t)
+
+  (defun jkw:mu4e-action-narrow-messages-to-same-sender (&optional msg)
+    "Extract sender from From: field and narrow messages to same sender."
+    (interactive)
+    (let* ((from (message-field-value "From"))
+           (sender-address (cadr (gnus-extract-address-components from))))
+      (mu4e-headers-search-narrow (concat "from:" sender-address))))
+  (add-to-list 'mu4e-view-actions
+               '("narrow same sender" . jkw:mu4e-action-narrow-messages-to-same-sender) t)
+
   ;; Accounts
   ;; https://github.com/joedicastro/dotfiles/blob/master/emacs/init.el#L1214
   (defun jkw:mu4e-select-account ()
