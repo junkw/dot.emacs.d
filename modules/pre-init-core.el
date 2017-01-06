@@ -64,6 +64,9 @@
 (defvar has-mu-p (executable-find "mu")
   "Return path if this system has mu.")
 
+(defvar has-msmtp-p (executable-find "msmtp")
+  "Return path if this system has msmtp.")
+
 (defvar has-nodejs-p (executable-find "node")
   "Return path if this system has Node.js.")
 

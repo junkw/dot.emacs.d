@@ -1,10 +1,10 @@
-;;; lazy-init-mu4e.el --- Emacs init file
+;;; opt-init-mail.el --- Emacs init file
 
-;; Copyright (C) 2015  Jumpei KAWAMI
+;; Copyright (C) 2017  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Feb. 20, 2015
-;; Keywords: .emacs, mail, mu4e, mbsync
+;; Created: Jan. 6, 2017
+;; Keywords: .emacs, mail, mu4e, mbsync, msmtp
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -33,20 +33,14 @@
 
 (require 'pre-init-core)
 
-;;;; mu4e
+;;;; Initialize
 (when has-mu-p
-  (setq mu4e-mu-binary (executable-find "mu"))
+  ;; Commands
+  (setq mu4e-mu-binary has-mu-p)
   (setq mu4e-get-mail-command (format "%s -a -c %s/mbsync/config"
                                       (executable-find "mbsync") (getenv "XDG_CONFIG_HOME")))
-  (setq mu4e-update-interval (* 30 60))      ; 30 mins.
-  (setq mu4e-change-filenames-when-moving t)
-  (setq mu4e-cache-maildir-list t)
-  (setq mu4e-hide-index-messages t)
-  (setq mu4e-index-cleanup t)
-  (setq mu4e-index-lazy-check nil)
-  (setq mu4e-context-policy 'pick-first)
-  (setq mu4e-compose-context-policy nil)
-  (setq message-kill-buffer-on-exit t)
+  (when has-msmtp-p
+    (setq sendmail-program has-msmtp-p))
 
   ;; Maildir
   (setq mu4e-mu-home        (concat (getenv "XDG_CACHE_HOME") "/mu/"))
@@ -58,15 +52,31 @@
   (setq mu4e-attachment-dir "~/Downloads")
 
   (defvar jkw:mu4e-inbox-folder   "/inbox")
-  (defvar jkw:mu4e-starred-folder "/starred")
+  (defvar jkw:mu4e-starred-folder "/starred"))
+
+;;;; Post-init
+(with-eval-after-load 'mu4e
+  ;; Sync
+  (setq mu4e-update-interval (* 30 60))      ; 30 mins.
+  (setq mu4e-change-filenames-when-moving t)
+  (setq mu4e-cache-maildir-list t)
+  (setq mu4e-hide-index-messages t)
+  (setq mu4e-index-cleanup t)
+  (setq mu4e-index-lazy-check nil)
 
   ;; SMTP
   (require 'smtpmail)
-  (require 'starttls)
-  (setq message-send-mail-function #'message-send-mail-with-sendmail)
-  (setq sendmail-program "msmtp")
-  (setq message-sendmail-extra-arguments '("--read-envelope-from"))
-  (setq message-sendmail-f-is-evil 't)
+
+  (if has-msmtp-p
+      (progn
+        (setq message-send-mail-function #'message-send-mail-with-sendmail)
+        (setq message-sendmail-extra-arguments '("--read-envelope-from"))
+        (setq message-sendmail-f-is-evil 't))
+    (require 'starttls)
+    (setq message-send-mail-function #'smtpmail-send-it)
+    (setq starttls-use-gnutls t))
+
+  (setq message-kill-buffer-on-exit t)
   (setq mail-user-agent 'mu4e-user-agent)
 
   ;; View
@@ -130,6 +140,8 @@
                  '("org-contact-add" . mu4e-action-add-org-contact) t))
 
   ;; Compose
+  (setq mu4e-context-policy 'pick-first)
+  (setq mu4e-compose-context-policy nil)
   (setq mu4e-sent-messages-behavior 'delete)
 
   (require 'org-mu4e)
@@ -173,4 +185,4 @@ Advice function for `mml-attach-file'."
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; lazy-init-mu4e.el ends here
+;;; opt-init-mail.el ends here
