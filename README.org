@@ -1,4 +1,4 @@
-# -*- mode: org; coding: utf-8 -*-
+# -*- mode: org; coding: utf-8; indent-tabs-mode: nil -*-
 
 * My Emacs config [[https://travis-ci.org/junkw/dot.emacs.d][https://api.travis-ci.org/junkw/dot.emacs.d.svg]]
 
@@ -6,7 +6,7 @@
 
    - macOS Sierra
    - Homebrew
-	 - [[https://github.com/junkw/dotfiles/blob/master/Brewfile][Installed packages]]
+     - [[https://github.com/junkw/dotfiles/blob/master/Brewfile][Installed packages]]
 
 ** Installation
 
