@@ -12,7 +12,7 @@ pkg_dir         = "#{user_emacs_dir}/vendor"
 elget_dir       = "#{pkg_dir}/el-get"
 
 task :generate_loaddefs do
-  site_lisp_dirs = Dir.glob("#{site_lisp_dir}/**/*/")
+  site_lisp_dirs = Dir.glob("#{site_lisp_dir}/*/**/")
 
   paths = site_lisp_dirs.join(" ")
   s     = "(setq make-backup-files nil generated-autoload-file \"#{site_lisp_dir}/site-loaddefs.el\")"
