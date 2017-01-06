@@ -5,5 +5,5 @@
        :type        github
        :pkgname     "yjwen/org-reveal"
        :branch      "stable"
-       :library     org
-       :lazy        t)
+       :lazy        t
+       :library     org)
