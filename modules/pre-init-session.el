@@ -77,10 +77,9 @@
 ;; Backup file
 (setq make-backup-files t)
 (setq backup-directory-alist
-      `(("\\(?:/\\.\\(?:\\(?:bzr\\|cache\\|git\\|hg\\|svn\\)/\\)\\)" . nil)
-        ("/\\(tmp\\|var\\)/"            . nil)
-        ("/\\(Code\\|Documents\\)/"     . ,(concat user-emacs-directory "var/backup/"))
-        (".*"                           . ,temporary-file-directory)))
+      `(("/\\.\\(bzr\\|git\\|hg\\|svn\\)/" . ,temporary-file-directory)
+        ("/\\(Code\\|Documents\\)/"        . ,(concat user-emacs-directory "var/backup/"))
+        (".*"                              . ,temporary-file-directory)))
 (setq backup-by-copying t)
 (setq version-control t)
 (setq kept-new-versions 3)
