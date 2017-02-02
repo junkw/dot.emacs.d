@@ -85,6 +85,16 @@
         (tab-mark     ?\t     [?\u00BB ?\t]  [?\\ ?\t])))
 
 ;; Remove unneeded whitespace when saving a file
+(defvar delete-trailing-whitespace--enabled-flag-p t)
+(defun delete-trailing-whitespace--enabled-flag (orig-fun &rest args)
+  "If `delete-trailing-whitespace--enabled-flag-p' is nil, don't excute `delete-trailing-whitespace'.
+
+(set (make-local-variable 'delete-trailing-whitespace--enabled-flag-p) nil)
+
+Advice function for `delete-trailing-whitespace'."
+  (if delete-trailing-whitespace--enabled-flag-p
+      (apply orig-fun args)))
+(advice-add 'delete-trailing-whitespace :around #'delete-trailing-whitespace--enabled-flag)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 ;;;; Spell check
