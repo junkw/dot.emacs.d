@@ -1,4 +1,4 @@
-;;; init-markdown.el --- el-get init file for package markdown
+;;; init-markdown-mode.el --- el-get init file for package markdown-mode
 
 ;; Copyright (C) 2017  Jumpei KAWAMI
 
@@ -33,11 +33,11 @@
 
 
 ;;;; Hooks
-(defun jkw:markdown-hooks ()
+(defun jkw:markdown-mode-hooks ()
   "Config for markdown mode."
   (set (make-local-variable 'delete-trailing-whitespace--enabled-flag-p) nil))
 
-(add-hook 'markdown-mode-hook #'jkw:markdown-hooks)
+(add-hook 'markdown-mode-hook #'jkw:markdown-mode-hooks)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -46,4 +46,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-markdown.el ends here
+;;; init-markdown-mode.el ends here
