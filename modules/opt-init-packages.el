@@ -37,9 +37,10 @@
 ;;;; Installed packages via el-get
 ;; Fix original recipes
 (setq el-get-sources
-      '((:name editorconfig :features editorconfig)
+      '((:name alert :features alert :after (setq alert-default-style 'notifier))
+        (:name editorconfig :features editorconfig)
         (:name helm :before (setq dired-bind-jump nil))
-        (:name helm-descbinds :prepare nil :lazy t :library helm :after (helm-descbinds-mode +1))
+        (:name helm-descbinds :before nil :lazy t :library helm :after (helm-descbinds-mode +1))
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
         (:name monokai-theme :after (load-theme 'monokai t))
@@ -57,7 +58,7 @@
   (add-to-list 'el-get-sources '(:name mu4e-alert :depends (alert s ht) :lazy t :library mu4e)))
 
 (defvar jkw:el-get-preloaded-package-list-from-recipe
-  '(alert origami smartrep projectile)
+  '(origami smartrep projectile)
   "List of packages that need to load before loading `jkw:el-get-package-list-from-recipe'.")
 
 (when has-migemo-p

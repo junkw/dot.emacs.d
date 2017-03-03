@@ -45,8 +45,7 @@
     "Send a message to terminal-notifier.
 
 Advice function for `el-get-notify'."
-    (let ((alert-default-style 'notifier))
-      (alert message :title title)))
+    (alert message :title title))
   (advice-add 'el-get-notify :override #'el-get-notify--wrapper))
 
 (defun el-get-load-package-user-init-file--with-debug (package)
