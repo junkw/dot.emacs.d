@@ -1,0 +1,6 @@
+(:name magit-lfs
+       :description "Magit plugin for Git LFS"
+       :website     "https://github.com/ailrun/magit-lfs"
+       :depends     magit
+       :type        github
+       :pkgname     "ailrun/magit-lfs")
