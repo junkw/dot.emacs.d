@@ -34,6 +34,7 @@
 (require 'pre-init-core)
 
 (setq dumb-jump-default-project "~/Code/")
+(setq dumb-jump-force-searcher 'rg)
 
 ;;;; Hooks
 (add-hooks '(emacs-lisp-mode js2-mode php-mode) #'dumb-jump-mode)
