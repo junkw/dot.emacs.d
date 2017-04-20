@@ -61,8 +61,8 @@
   (setq mu4e-change-filenames-when-moving t)
   (setq mu4e-cache-maildir-list t)
   (setq mu4e-hide-index-messages t)
-  (setq mu4e-index-cleanup t)
-  (setq mu4e-index-lazy-check nil)
+  (setq mu4e-index-cleanup nil)
+  (setq mu4e-index-lazy-check t)
 
   ;; SMTP
   (require 'smtpmail)
