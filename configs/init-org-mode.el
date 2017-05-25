@@ -174,6 +174,13 @@
                            ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 (setq org-latex-default-class "document")
 
+;;;; Color
+;; https://fuco1.github.io/2017-05-25-Fontify-done-checkbox-items-in-org-mode.html
+(font-lock-add-keywords
+ 'org-mode
+ `(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)" 1 'org-headline-done prepend))
+ 'append)
+
 ;;;; Keymap
 (org-defkey org-mode-map (kbd "C-c C-x d") nil)
 (org-defkey org-mode-map (kbd "C-c C-x I") #'org-insert-drawer)
