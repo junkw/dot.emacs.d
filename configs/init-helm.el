@@ -56,7 +56,7 @@
           helm-source-mac-spotlight)))
 
 ;;;; Candidates
-(when has-migemo-p
+(with-eval-after-load 'migemo
   (helm-migemo-mode +1))
 
 (setq helm-M-x-fuzzy-match t)

@@ -31,7 +31,8 @@
 
 ;;; Code:
 
-(setq anzu-use-migemo t)
+(when (featurep 'migemo)
+  (setq anzu-use-migemo t))
 (setq anzu-mode-lighter "")
 
 (defun jkw:anzu-update-format (here total)
