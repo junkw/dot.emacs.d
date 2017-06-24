@@ -40,7 +40,7 @@
 (setq el-get-package-menu-sort-key "Status")
 
 ;;;; Functions
-(when (and has-notifier-p (fboundp 'alert))
+(with-eval-after-load 'alert
   (defun el-get-notify--wrapper (title message)
     "Send a message to terminal-notifier.
 

@@ -1,0 +1,9 @@
+(:name alert
+       :description "Growl-style notification system for Emacs."
+       :website     "https://github.com/jwiegley/alert"
+       :type        github
+       :pkgname     "jwiegley/alert"
+       :features    alert
+       :post-init   (progn
+                      (setq alert-default-style 'notifier)
+                      (setq el-get-notify-type 'both)))

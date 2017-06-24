@@ -37,8 +37,7 @@
 ;;;; Installed packages via el-get
 ;; Fix original recipes
 (setq el-get-sources
-      '((:name alert :features alert :after (setq alert-default-style 'notifier))
-        (:name editorconfig :features editorconfig)
+      '((:name editorconfig :features editorconfig)
         (:name helm :before (setq dired-bind-jump nil))
         (:name helm-descbinds :before nil :lazy t :library helm :after (helm-descbinds-mode +1))
         (:name helm-ls-git :depends (helm magit))
@@ -58,7 +57,7 @@
   (add-to-list 'el-get-sources '(:name mu4e-alert :depends (alert s ht) :lazy t :library mu4e)))
 
 (defvar jkw:el-get-preloaded-package-list-from-recipe
-  '(origami smartrep projectile)
+  '(alert origami smartrep projectile)
   "List of packages that need to load before loading `jkw:el-get-package-list-from-recipe'.")
 
 (when has-migemo-p
@@ -94,6 +93,8 @@
 (defun el-get--post-initialize-el-get ()
   "[internal] Need to initialize after loading el-get."
   (add-to-list 'el-get-recipe-path (file-name-as-directory (concat user-emacs-directory "etc/recipes")))
+  (when (not (and has-notifier-p (fboundp 'alert)))
+    (setq el-get-notify-type 'message))
   (el-get 'sync '(package el-get)))
 
 (defun el-get--list-installing-packages ()
