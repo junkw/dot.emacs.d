@@ -70,8 +70,8 @@
            flyspell-correct geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop
            highlight-defined highlight-symbol info+ js2-mode json-mode nlinum-relative lispxmp
            magit magit-lfs magit-svn markdown-mode multiple-cursors mwim neotree org-mode
-           org-reveal php-mode psvn rainbow-mode recentf-ext ripgrep scratch-ext smart-newline
-           viewer web-mode wgrep yaml-mode)
+           org-reveal ox-pandoc php-mode psvn rainbow-mode recentf-ext ripgrep scratch-ext
+           smart-newline viewer web-mode wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
 
 (defvar jkw:el-get-package-for-mu4e-list-from-recipe
