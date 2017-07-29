@@ -31,9 +31,15 @@
 
 ;;; Code:
 
-(require 'pre-init-core)
-
 (defvar with-editor-file-name-history-exclude '())
+(setq magit-repository-directories '(("~/Code/" . 3)
+                                     ("~/etc/conf.d/" . 1)))
+
+;;;; Alias
+(defalias 'magit 'magit-status)
+
+;;;; Keymap
+(global-set-key (kbd "C-x g") #'magit-status)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
