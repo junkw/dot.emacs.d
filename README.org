@@ -13,7 +13,6 @@
 #+BEGIN_SRC sh
 brew tap railwaycat/emacsmacport
 brew install emacs-mac --with-dbus --with-glib --with-gnutls --with-imagemagick --with-modules --with-natural-title-bar --with-official-icon --with-xml2
-defaults write org.gnu.Emacs TransparentTitleBar DARK
 git clone https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
 cd /path/to/local/repo
 rake install

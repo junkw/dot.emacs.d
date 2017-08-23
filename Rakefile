@@ -90,8 +90,14 @@ task :check_recipes do
   sh "#{emacs_cmd} -L #{elget_dir} -l #{elget_dir}/el-get-check.el -f el-get-check-recipe-batch #{args} #{recipes}"
 end
 
+task :set_config do
+  if RUBY_PLATFORM.include?("darwin")
+    sh "defaults write org.gnu.Emacs TransparentTitleBar DARK"
+  end
+end
+
 task :default => [:generate_loaddefs, :compile, :tag]
-task :install => [:generate_loaddefs, :clone_revealjs, :link, :make_dir, :compile_init_module, :tag]
+task :install => [:set_config, :generate_loaddefs, :clone_revealjs, :link, :make_dir, :compile_init_module, :tag]
 task :travis  => [:link, :make_dir, :install_elget]
 task :compile => [:compile_all]
 task :clear   => [:remove_var]
