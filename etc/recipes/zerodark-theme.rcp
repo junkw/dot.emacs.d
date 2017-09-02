@@ -1,0 +1,7 @@
+(:name zerodark-theme
+       :description "A utility package to collect various Icon Fonts and propertize them within Emacs."
+       :website     "https://github.com/NicolasPetton/zerodark-theme"
+       :type        github
+       :pkgname     "NicolasPetton/zerodark-theme"
+       :depends     all-the-icons
+       :prepare     (add-to-list 'custom-theme-load-path default-directory))

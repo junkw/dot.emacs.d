@@ -1,0 +1,5 @@
+(:name font-lock+
+       :description "Some extension for eldoc."
+       :website     "Enhancements to standard library `font-lock.el'."
+       :type        emacswiki
+       :features    font-lock+)

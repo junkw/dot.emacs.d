@@ -42,7 +42,6 @@
         (:name helm-descbinds :before nil :lazy t :library helm :after (helm-descbinds-mode +1))
         (:name helm-ls-git :depends (helm magit))
         (:name highlight-indentation :features highlight-indentation)
-        (:name monokai-theme :after (load-theme 'monokai t))
         (:name pcache
                :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
         (:name popwin :features popwin)
@@ -51,7 +50,8 @@
         (:name tabulated-list :builtin "24")
         (:name twittering-mode :features nil)
         (:name undo-tree :features undo-tree)
-        (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)))
+        (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)
+        (:name zerodark-theme :after (load-theme 'zerodark t))))
 
 (when has-mu-p
   (add-to-list 'el-get-sources '(:name mu4e-alert :depends (alert s ht) :lazy t :library mu4e)))
@@ -68,10 +68,10 @@
            beginend cl-lib-highlight dash-at-point dumb-jump e2wm e2wm-bookmark electric-align
            eldoc-extension elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck
            flyspell-correct geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop
-           highlight-defined highlight-symbol info+ js2-mode json-mode nlinum-relative lispxmp
-           magit magit-lfs magit-svn markdown-mode multiple-cursors mwim neotree org-mode
-           org-reveal ox-pandoc php-mode psvn rainbow-mode recentf-ext ripgrep scratch-ext
-           smart-newline viewer web-mode wgrep yaml-mode)
+           highlight-defined highlight-symbol info+ js2-mode json-mode lispxmp magit magit-lfs
+           magit-svn markdown-mode monokai-theme multiple-cursors mwim neotree nlinum-relative
+           org-mode org-reveal ox-pandoc php-mode psvn rainbow-mode recentf-ext ripgrep
+           scratch-ext smart-newline viewer web-mode wgrep yaml-mode)
   "List of packages I use straight from recipe files.")
 
 (defvar jkw:el-get-package-for-mu4e-list-from-recipe

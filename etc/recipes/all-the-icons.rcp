@@ -1,0 +1,9 @@
+(:name all-the-icons
+       :description "A utility package to collect various Icon Fonts and propertize them within Emacs."
+       :website     "https://github.com/domtronn/all-the-icons.el"
+       :build       `((,(getenv "SHELL") "-c" ,(format "cp %sfonts/*.ttf %s/Library/Fonts/" default-directory (getenv "HOME")))
+                      ("fc-cache" "-f" "-v"))
+       :type        github
+       :pkgname     "domtronn/all-the-icons.el"
+       :depends     (font-lock+ memoize)
+       :features    all-the-icons)
