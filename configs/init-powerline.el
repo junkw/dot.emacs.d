@@ -33,7 +33,50 @@
 
 (require 'pre-init-core)
 
-(defun jkw:powerline-theme-initialize ()
+(defun jkw:powerline-zerodark-theme ()
+  "My powerline theme for zerodark."
+  (interactive)
+  (setq-default mode-line-format
+                '("%e"
+                  (:eval
+                   (let* ((active (powerline-selected-window-active))
+                          (mode-line-buffer-id (if active 'mode-line-buffer-id 'mode-line-buffer-id-inactive))
+                          (mode-line (if active 'mode-line 'mode-line-inactive))
+                          (face1 (if active 'powerline-active1 'powerline-inactive1))
+                          (face2 (if active 'powerline-active2 'powerline-inactive2))
+                          (separator-left (intern (format "powerline-%s-%s"
+                                                          (powerline-current-separator)
+                                                          (car powerline-default-separator-dir))))
+                          (separator-right (intern (format "powerline-%s-%s"
+                                                           (powerline-current-separator)
+                                                           (cdr powerline-default-separator-dir))))
+                          (lhs (list (powerline-raw mode-line-mule-info mode-line 'l)
+                                     (powerline-raw " ")
+                                     (powerline-raw zerodark-modeline-modified mode-line 'l)
+                                     (powerline-buffer-id mode-line-buffer-id 'l)
+                                     (powerline-raw " ")
+                                     (funcall separator-left mode-line face1)
+                                     (powerline-major-mode face1 'l)
+                                     (powerline-process face1)
+                                     (powerline-minor-modes face1 'l)
+                                     (powerline-narrow face1 'l)
+                                     (powerline-raw " " face1)
+                                     (funcall separator-left face1 face2)
+                                     (powerline-raw zerodark-modeline-vc mode-line 'r)
+                                     (zerodark-modeline-flycheck-status)))
+                          (rhs (list (powerline-raw global-mode-string face2 'r)
+                                     (funcall separator-right face2 face1)
+                                     (powerline-raw "%4l" face1 'l)
+                                     (powerline-raw ":" face1 'l)
+                                     (powerline-raw "%3c" face1 'r)
+                                     (funcall separator-right face1 mode-line)
+                                     (powerline-raw " ")
+                                     (powerline-raw "%6p" mode-line 'r))))
+                     (concat (powerline-render lhs)
+                             (powerline-fill face2 (powerline-width rhs))
+                             (powerline-render rhs)))))))
+
+(defun jkw:powerline-default-theme ()
   "My powerline theme."
   (interactive)
   (setq-default mode-line-format
@@ -69,11 +112,16 @@
                                      (powerline-raw "%3c" face1 'r)
                                      (funcall separator-right face1 mode-line)
                                      (powerline-raw " ")
-                                     (powerline-raw "%6p" mode-line 'r)
-                                     )))
+                                     (powerline-raw "%6p" mode-line 'r))))
                      (concat (powerline-render lhs)
                              (powerline-fill face2 (powerline-width rhs))
                              (powerline-render rhs)))))))
+
+(defun jkw:powerline-theme-initialize ()
+  "[internal] Initialize powerline theme."
+  (if (custom-theme-active-p "zerodark")
+      (jkw:powerline-zerodark-theme)
+    (jkw:powerline-default-theme)))
 
 (add-hook 'emacs-startup-hook #'jkw:powerline-theme-initialize)
 
