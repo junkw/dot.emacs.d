@@ -37,6 +37,7 @@
 (setq wgrep-enable-key (kbd "C-c C-e"))
 (setq wgrep-change-readonly-file t)
 (with-eval-after-load 'ag (require 'wgrep-ag))
+(with-eval-after-load 'rg (require 'wgrep-ag))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

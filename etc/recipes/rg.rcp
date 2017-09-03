@@ -1,0 +1,7 @@
+(:name rg
+       :description "A ripgrep frontend, similar to built in grep.el."
+       :website     "https://github.com/dajva/rg.el"
+       :type        github
+       :pkgname     "dajva/rg.el"
+       :depends     (s seq wgrep)
+       :post-init   (add-hook 'rg-mode-hook #'wgrep-ag-setup))
