@@ -66,6 +66,7 @@
   (setq web-mode-css-indent-offset    2)
   (setq web-mode-code-indent-offset   4)
   (setq web-mode-enable-auto-pairing nil)
+  (setq web-mode-enable-auto-indentation nil)
   (setq indent-tabs-mode nil))
 
 (add-hook 'web-mode-hook #'jkw:web-mode-hooks)

@@ -42,6 +42,9 @@
 (setq truncate-lines nil)
 (setq truncate-partial-width-windows nil)
 
+;; Disable auto indentation
+(electric-indent-mode -1)
+
 ;; Scroll without moving cursor
 (setq scroll-preserve-screen-position t)
 
