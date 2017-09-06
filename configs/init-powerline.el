@@ -32,12 +32,12 @@
 ;;; Code:
 
 (require 'pre-init-core)
-(require 'flycheck)
-(require 'magit)
 
 (defun jkw:powerline-zerodark-theme ()
   "My powerline theme for zerodark."
   (interactive)
+  (require 'flycheck nil t)
+  (require 'magit nil t)
   (setq-default mode-line-format
                 '("%e"
                   (:eval
