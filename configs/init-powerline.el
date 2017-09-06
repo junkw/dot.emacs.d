@@ -32,6 +32,8 @@
 ;;; Code:
 
 (require 'pre-init-core)
+(require 'flycheck)
+(require 'magit)
 
 (defun jkw:powerline-zerodark-theme ()
   "My powerline theme for zerodark."
