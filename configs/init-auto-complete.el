@@ -42,8 +42,7 @@
 ;; Enable default settings
 (setq ac-auto-start 3)
 (setq ac-use-menu-map t)
-(when (custom-theme-active-p "monokai")
-  (setq ac-fuzzy-cursor-color "#F92672"))
+(setq ac-fuzzy-cursor-color "#F92672")
 
 (add-to-list 'ac-modes 'web-mode)
 (ac-config-default)

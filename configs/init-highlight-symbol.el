@@ -34,9 +34,7 @@
 (require 'pre-init-core)
 
 ;; Color
-(with-eval-after-load 'monokai-theme
-  (setq highlight-symbol-colors
-        '("#FC5C94" "#FEB257" "#F3EA98" "#C1F161" "#BBF7EF" "#C2A1FF" "#FE87F4")))
+(setq highlight-symbol-colors '("#FC5C94" "#FEB257" "#F3EA98" "#C1F161" "#BBF7EF" "#C2A1FF" "#FE87F4"))
 
 ;;;; Keymap
 (global-set-key (kbd "C-x w .") #'highlight-symbol-at-point)

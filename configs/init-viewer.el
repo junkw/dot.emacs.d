@@ -53,9 +53,8 @@ Advice function for `view-mode-by-default-setup'."
 
 ;; Mode line color
 (setq viewer-modeline-color-default (face-foreground 'mode-line-buffer-id))
-(with-eval-after-load 'monokai-theme
-  (setq viewer-modeline-color-unwritable "#F92672")
-  (setq viewer-modeline-color-view       "#FD971F"))
+(setq viewer-modeline-color-unwritable "#F92672")
+(setq viewer-modeline-color-view       "#FD971F")
 
 (defun viewer-change-modeline-color--buffer-id-switcher ()
   "Change `mode-line-buffer-id' color.
