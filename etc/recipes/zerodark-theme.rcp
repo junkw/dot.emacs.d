@@ -3,5 +3,5 @@
        :website     "https://github.com/NicolasPetton/zerodark-theme"
        :type        github
        :pkgname     "NicolasPetton/zerodark-theme"
-       :depends     all-the-icons
+       :depends     (cl-lib all-the-icons)
        :prepare     (add-to-list 'custom-theme-load-path default-directory))

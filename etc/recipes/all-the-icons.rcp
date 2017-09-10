@@ -5,5 +5,5 @@
                       ("fc-cache" "-f" "-v"))
        :type        github
        :pkgname     "domtronn/all-the-icons.el"
-       :depends     (font-lock+ memoize)
+       :depends     (cl-lib font-lock+ memoize)
        :features    all-the-icons)
