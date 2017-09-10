@@ -48,7 +48,7 @@ end
 
 task :compile_init_module do
   els  = ["#{user_emacs_dir}/init.el"]
-  els += Dir.glob("#{init_module_dir}/*/*-init-[^private-]*.el")
+  els += Dir.glob("#{init_module_dir}/*/*-init-*.el")
 
   conf = els.join(" ")
 
@@ -57,7 +57,7 @@ end
 
 task :compile_all do
   els  = ["#{user_emacs_dir}/init.el"]
-  els += Dir.glob("#{init_module_dir}/*/*init-[^private-]*.el")
+  els += Dir.glob("#{init_module_dir}/*/*init-*.el")
 
   conf = els.join(" ")
   s    = "(let ((default-directory \"#{vendor_dir}\")) (normal-top-level-add-subdirs-to-load-path))"
