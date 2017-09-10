@@ -5,9 +5,9 @@
 \#*\#
 TAGS
 
+*-init-private-*.el
 etc/auto-complete.dict
 etc/snippets
 etc/*.gpg
-modules/pre-init--custom.el
 var/
 vendor/

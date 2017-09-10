@@ -23,8 +23,6 @@ open -a Emacs
 
 #+BEGIN_EXAMPLE
 ~/.emacs.d/
-  +-- configs/
-  |    `-- init-PACKAGE.el
   +-- etc/
   |    +-- auto-complete.dict/
   |    `-- recipes/
@@ -36,13 +34,19 @@ open -a Emacs
   |         `-- run-tests.el
   +-- init.el
   +-- modules/
-  |    +-- cui-init-*.el
-  |    +-- gui-init-*.el
-  |    +-- lazy-init-*.el
-  |    +-- opt-init-*.el
-  |    +-- post-init-*.el
-  |    +-- pre-init--custom.el
-  |    `-- pre-init-*.el
+  |    +-- builtins-config/
+  |    |    +-- cui-init-*.el
+  |    |    +-- gui-init-*.el
+  |    |    +-- lazy-init-*.el
+  |    |    +-- opt-init-*.el
+  |    |    +-- post-init-*.el
+  |    |    `-- pre-init-*.el
+  |    +-- core/
+  |    +-- local-config/
+  |    |    +-- *-init-private-*.el
+  |    |    `-- opt-init-additional-packages.el
+  |    `-- vendors-config/
+  |         `-- init-PACKAGE.el
   +-- var/
   |    +-- backup/
   |    +-- bookmark/
@@ -51,3 +55,17 @@ open -a Emacs
   |    `-- tmp/
   `-- vendor/
 #+END_EXAMPLE
+
+*** Loading modules
+
+    1. =init.el=
+    2. =modules/core/=
+    3. =modules/builtins-config/=
+       1. =pre-init-*.el=
+       2. =cui-init-*.el=
+       3. =gui-init-*.el=
+       4. =opt-init-*.el=
+       5. =lazy-init-*.el=
+       6. =post-init-*.el=
+    4. =modules/local-config/=
+    5. =modules/vendors-config/init-*.el=

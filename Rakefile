@@ -7,9 +7,12 @@ emacs_cmd       = "emacs -Q --batch"
 site_lisp_dir   = '/usr/local/share/emacs/site-lisp'
 user_emacs_dir  = "#{Dir.home}/.emacs.d"
 init_module_dir = "#{user_emacs_dir}/modules"
-pkg_conf_dir    = "#{user_emacs_dir}/configs"
-pkg_dir         = "#{user_emacs_dir}/vendor"
-elget_dir       = "#{pkg_dir}/el-get"
+builtin_conf_dir = "#{init_module_dir}/builtins-config"
+core_dir        = "#{init_module_dir}/core"
+local_conf_dir  = "#{init_module_dir}/local-config"
+vendor_conf_dir = "#{init_module_dir}/vendors-config"
+vendor_dir      = "#{user_emacs_dir}/vendor"
+elget_dir       = "#{vendor_dir}/el-get"
 
 task :generate_loaddefs do
   site_lisp_dirs = Dir.glob("#{site_lisp_dir}/*/**/")
@@ -45,30 +48,31 @@ end
 
 task :compile_init_module do
   els  = ["#{user_emacs_dir}/init.el"]
-  els += Dir.glob("#{init_module_dir}/*-init-[^-]*.el")
+  els += Dir.glob("#{init_module_dir}/*/*-init-[^private-]*.el")
 
   conf = els.join(" ")
 
-  sh "#{emacs_cmd} -L #{init_module_dir}/ -f batch-byte-compile #{conf}"
+  sh "#{emacs_cmd} -L #{core_dir}/ -f batch-byte-compile #{conf}"
 end
 
 task :compile_all do
   els  = ["#{user_emacs_dir}/init.el"]
-  els += Dir.glob("#{init_module_dir}/*-init-[^-]*.el")
-  els += Dir.glob("#{pkg_conf_dir}/init-*.el")
+  els += Dir.glob("#{init_module_dir}/*/*init-[^private-]*.el")
 
   conf = els.join(" ")
-  s    = "(let ((default-directory \"#{pkg_dir}\")) (normal-top-level-add-subdirs-to-load-path))"
+  s    = "(let ((default-directory \"#{vendor_dir}\")) (normal-top-level-add-subdirs-to-load-path))"
 
-  sh "#{emacs_cmd} -L #{init_module_dir}/ --eval '#{s}' -f batch-byte-compile #{conf}"
+  sh "#{emacs_cmd} -L #{core_dir}/ --eval '#{s}' -f batch-byte-compile #{conf}"
 end
 
 task :tag do
-  sh "ctags -e #{user_emacs_dir}/init.el #{init_module_dir}/*.el #{pkg_conf_dir}/*.el"
+  sh "ctags -e -f #{user_emacs_dir}/TAGS -R #{user_emacs_dir}/init.el #{init_module_dir}/"
 end
 
 task :install_elget do
-  sh "#{emacs_cmd} -L #{init_module_dir} --eval '(setq init-module-safe-mode-p t)' -l opt-init-packages -f el-get--installer"
+  s = '(setq el-get-dir (concat user-emacs-directory "vendor/")) (setq init-module-safe-mode-p t)'
+
+  sh "#{emacs_cmd} -L #{core_dir} --eval '#{s}' -l opt-init-packages -f el-get--installer"
 end
 
 task :remove_var do
@@ -76,7 +80,7 @@ task :remove_var do
 end
 
 task :remove_elc do
-  FileUtils.rm(Dir.glob("#{user_emacs_dir}/{init.elc,{modules,configs}/*.elc}"))
+  FileUtils.rm(Dir.glob("#{user_emacs_dir}/{init.elc,modules/*/*.elc}"))
 end
 
 task :run_tests do
@@ -97,9 +101,9 @@ task :set_config do
 end
 
 task :default => [:generate_loaddefs, :compile, :tag]
+task :compile => [:compile_all, :tag]
 task :install => [:set_config, :generate_loaddefs, :clone_revealjs, :link, :make_dir, :compile_init_module, :tag]
 task :travis  => [:link, :make_dir, :install_elget]
-task :compile => [:compile_all]
 task :clear   => [:remove_var]
-task :cleanup => [:remove_var, :remove_elc, :compile_all]
+task :cleanup => [:remove_var, :remove_elc, :compile]
 task :test    => [:compile_init_module, :run_tests, :check_recipes]

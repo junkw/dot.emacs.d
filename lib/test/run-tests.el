@@ -37,18 +37,33 @@
 ;;;; Initialize
 (setq debug-on-error t)
 
-(add-to-list 'load-path (concat user-emacs-directory "modules/"))
-(add-to-list 'load-path (concat user-emacs-directory "lib/test/"))
+(setq init-module-modules-directory
+      (file-name-as-directory (concat user-emacs-directory "modules")))
+(setq init-module-builtins-config-directory
+      (file-name-as-directory (concat init-module-modules-directory "builtins-config")))
+(setq init-module-core-directory
+      (file-name-as-directory (concat init-module-modules-directory "core")))
+(setq init-module-local-config-directory
+      (file-name-as-directory (concat init-module-modules-directory "local-config")))
+(setq init-module-vendors-config-directory
+      (file-name-as-directory (concat init-module-modules-directory "vendors-config")))
+
+(add-to-list 'load-path init-module-core-directory)
+(add-to-list 'load-path init-module-local-config-directory)
+(add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "lib/test")))
 
 (setq init-module-safe-mode-p t)
-(require 'opt-init-packages)
+(load "opt-init-packages.el" nil t)
+(load "opt-init-additional-packages.el" nil t)
 (require 'el-get)
 
 (setq el-get-verbose t)
 (setq el-get-notify-type 'message)
 
-(defvar el-get-origin-recipe-path (file-name-as-directory (concat user-emacs-directory "vendor/el-get/recipes")))
-(defvar el-get-local-recipe-path (file-name-as-directory (concat user-emacs-directory "etc/recipes")))
+(defvar el-get-origin-recipe-path
+  (file-name-as-directory (concat user-emacs-directory "vendor/el-get/recipes")))
+(defvar el-get-local-recipe-path
+  (file-name-as-directory (concat user-emacs-directory "etc/recipes/")))
 (add-to-list 'el-get-recipe-path el-get-local-recipe-path)
 
 ;;;; Libraries
@@ -67,7 +82,7 @@
   "[internal] Show el-get recipe files containing in `el-get-local-recipe-path'. "
   (cl-loop for rcp in (directory-files el-get-local-recipe-path t)
            when (string-match "\\.rcp\\'" rcp)
-           collect (intern (file-name-nondirectory (file-name-sans-extension rcp)))))
+           collect (intern (file-name-base rcp))))
 
 (defun el-get--difference-origin-and-local-dependencies (package)
   "[internal] Return dependencies list with only the :depends of origin that are not in local."

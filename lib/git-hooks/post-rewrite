@@ -1,2 +1,2 @@
 #!/bin/sh
-rake compile && rake tag
+rake compile
