@@ -42,6 +42,10 @@
 ;; Garbage collection
 (setq gc-cons-threshold (* 10 gc-cons-threshold))
 
+;; Limit lisp binding
+(setq max-specpdl-size 5000)
+(setq max-lisp-eval-depth 5000)
+
 ;; History size
 (setq message-log-max 5000)             ; Message log buffer
 (setq history-length 1000)              ; Minibuffer
