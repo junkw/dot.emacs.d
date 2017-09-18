@@ -3,9 +3,6 @@
        :website     "https://github.com/xcwen/ac-php"
        :type        github
        :pkgname     "xcwen/ac-php"
-       :depends     (php-mode auto-complete yasnippet xcscope f s)
+       :depends     (php-mode company-mode yasnippet xcscope f s)
        :lazy        t
-       :library     php-mode
-       :post-init   (progn
-                      (require 'auto-complete)
-                      (require 'ac-php)))
+       :library     php-mode)

@@ -1,10 +1,10 @@
-;;; init-ac-php.el --- el-get init file for package ac-php
+;;; init-company-statistics --- el-get init file for package company-statistics
 
-;; Copyright (C) 2015  Jumpei KAWAMI
+;; Copyright (C) 2017  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Oct. 31, 2015
-;; Keywords: .emacs, completion, php
+;; Created: Sep. 18, 2017
+;; Keywords: .emacs, completion
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,34 +31,10 @@
 
 ;;; Code:
 
-(with-eval-after-load 'auto-complete
-  (require 'ac-php))
+(setq company-statistics-file (concat user-emacs-directory "var/cache/company-statistics-cache.el"))
 
 (with-eval-after-load 'company
-  (require 'company-php))
-
-(setq ac-php-tags-path (concat (getenv "XDG_CACHE_HOME") "/ac-php"))
-
-;;;; Hooks
-(defun jkw:ac-php-hooks ()
-  "[internal] My config for ac-php.
-
-Set `auto-complete-mode' or `company-backends' for php-mode."
-  (when (featurep 'auto-complete-mode)
-    (auto-complete-mode +1)
-    (add-to-list 'ac-sources 'ac-source-php)
-    (ac-php-core-eldoc-setup))
-
-  (when (featurep 'company-mode)
-    (company-mode +1)
-    (ac-php-core-eldoc-setup)
-    (add-to-list (make-local-variable 'company-backends) 'company-ac-php-backend)))
-
-(add-hook 'php-mode-hook #'jkw:ac-php-hooks)
-
-;;;; Keymap
-(define-key php-mode-map (kbd "C-,")   #'ac-php-find-symbol-at-point)
-(define-key php-mode-map (kbd "C-c <") #'ac-php-location-stack-back)
+  (company-statistics-mode +1))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -67,4 +43,4 @@ Set `auto-complete-mode' or `company-backends' for php-mode."
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-ac-php.el ends here
+;;; init-company-statistics.el ends here

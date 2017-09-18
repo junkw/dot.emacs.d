@@ -1,7 +1,6 @@
 (:name tern
        :description "A JavaScript code analyzer for deep, cross-editor language support."
        :website     "http://ternjs.net"
-       :depends     auto-complete
        :type        github
        :pkgname     "marijnh/tern"
        :load-path   "emacs")
