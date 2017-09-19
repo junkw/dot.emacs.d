@@ -66,7 +66,14 @@ task :compile_all do
 end
 
 task :tag do
-  sh "ctags -e -f #{user_emacs_dir}/TAGS -R #{user_emacs_dir}/init.el #{init_module_dir}/"
+  tag = "#{user_emacs_dir}/TAGS"
+  els = "#{user_emacs_dir}/init.el #{init_module_dir}/"
+
+  if File.exist?(tag)
+    sh "ctags -e -u -f #{tag} -R #{els}"
+  else
+    sh "ctags -e -f #{tag} -R #{els}"
+  end
 end
 
 task :install_elget do
