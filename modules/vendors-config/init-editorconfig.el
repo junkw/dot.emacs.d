@@ -31,10 +31,8 @@
 
 ;;; Code:
 
-(require 'pre-init-hook-utils)
-
 ;;;; Hooks
-(add-hooks 'prog-mode-hook #'editorconfig-mode)
+(add-hook 'prog-mode-hook #'editorconfig-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
