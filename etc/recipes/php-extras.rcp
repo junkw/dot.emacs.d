@@ -1,0 +1,9 @@
+(:name php-extras
+       :description "Extra features for `php-mode'."
+       :website     "https://github.com/arnested/php-extras"
+       :type        github
+       :pkgname     "arnested/php-extras"
+       :depends     (php-mode company-mode)
+       :lazy        t
+       :library     php-mode
+       :features    php-extras)
