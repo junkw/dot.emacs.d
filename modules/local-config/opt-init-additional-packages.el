@@ -36,7 +36,8 @@
 
 ;;;; Installed packages via el-get
 (setq el-get-sources
-      '((:name editorconfig :features editorconfig)
+      '((:name ac-php :depends (php-mode company-mode yasnippet xcscope f s) :lazy t :library php-mode)
+        (:name editorconfig :features editorconfig)
         (:name company-mode :depends yasnippet)
         (:name company-statistics :depends company-mode)
         (:name company-quickhelp :depends (company-mode pos-tip))
@@ -68,14 +69,14 @@
   (add-to-list 'jkw:el-get-preloaded-package-list-from-recipe 'migemo))
 
 (setq jkw:el-get-package-list-from-recipe
-  '(ac-php ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile beginend
-           cl-lib-highlight dash-at-point dumb-jump e2wm e2wm-bookmark electric-align
-           eldoc-extension elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck
-           flyspell-correct geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop
-           highlight-defined highlight-symbol info+ js2-mode json-mode lispxmp magit magit-lfs
-           magit-svn markdown-mode monokai-theme multiple-cursors mwim neotree nlinum-relative
-           org-mode org-reveal ox-pandoc php-mode php-extras psvn rainbow-mode recentf-ext rg
-           scratch-ext smart-newline viewer web-mode wgrep yaml-mode))
+      '(ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile beginend cl-lib-highlight
+                    dash-at-point dumb-jump e2wm e2wm-bookmark electric-align eldoc-extension
+                    elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck flyspell-correct
+                    geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop highlight-defined
+                    highlight-symbol info+ js2-mode json-mode lispxmp magit magit-lfs magit-svn
+                    markdown-mode monokai-theme multiple-cursors mwim neotree nlinum-relative org-mode
+                    org-reveal ox-pandoc php-mode php-extras psvn rainbow-mode recentf-ext rg scratch-ext
+                    smart-newline viewer web-mode wgrep yaml-mode))
 
 (setq jkw:el-get-package-for-mu4e-list-from-recipe
   '())
