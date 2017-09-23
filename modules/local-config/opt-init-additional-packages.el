@@ -55,6 +55,7 @@
         (:name twittering-mode :features nil)
         (:name undo-tree :features undo-tree)
         (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)
+        (:name yasnippet-snippets :features yasnippet-snippets)
         (:name zerodark-theme :after (load-theme 'zerodark t))))
 
 (when has-mu-p
