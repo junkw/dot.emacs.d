@@ -29,6 +29,7 @@ open -a Emacs
   |         `-- PACKAGE-LOCAL.rcp
   +-- lib/
   |    +-- git-hooks/
+  |    +-- reveal.js/
   |    `-- test/
   |         +-- test-CASE.el
   |         `-- run-tests.el

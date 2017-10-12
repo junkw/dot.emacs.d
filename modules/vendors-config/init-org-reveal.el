@@ -32,7 +32,7 @@
 ;;; Code:
 
 (add-to-list 'org-export-backends 'reveal)
-(setq org-reveal-root (expand-file-name "~/lib/reveal.js"))
+(setq org-reveal-root (concat user-emacs-directory "lib/reveal.js"))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

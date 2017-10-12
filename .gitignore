@@ -9,5 +9,6 @@ TAGS
 etc/auto-complete.dict
 etc/snippets
 etc/*.gpg
+lib/reveal.js/
 var/
 vendor/

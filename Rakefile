@@ -24,7 +24,7 @@ task :generate_loaddefs do
 end
 
 task :clone_revealjs do
-  sh "git clone https://github.com/hakimel/reveal.js.git #{Dir.home}/lib/reveal.js"
+  sh "git clone https://github.com/hakimel/reveal.js.git #{user_emacs_dir}/lib/reveal.js"
 end
 
 task :link do
