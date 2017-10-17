@@ -32,7 +32,7 @@
 ;;; Code:
 
 (setq auto-async-byte-compile-exclude-files-regexp
-      "\\(/\\(Dropbox\\|vendor\\|var\\|tmp\\|tests?\\)/\\)")
+      "\\(\\(/\\(Dropbox\\|vendor\\|var\\|tmp\\|tests?\\)/\\)\\|\\.dir-locals\\.el\\)")
 
 ;; Local Variables:
 ;; mode: emacs-lisp
