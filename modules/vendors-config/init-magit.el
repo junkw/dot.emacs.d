@@ -40,6 +40,7 @@
 
 ;;;; Keymap
 (global-set-key (kbd "C-x g") #'magit-status)
+(global-set-key (kbd "C-x G") #'magit-list-repositories)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
