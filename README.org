@@ -4,7 +4,7 @@
 
 ** Requirements
 
-   - macOS Sierra
+   - macOS High Sierra
    - Homebrew
      - [[https://github.com/junkw/dotfiles/blob/master/Brewfile][Installed packages]]
 
@@ -12,7 +12,7 @@
 
 #+BEGIN_SRC sh
 brew tap railwaycat/emacsmacport
-brew install emacs-mac --with-dbus --with-glib --with-gnutls --with-imagemagick --with-modules --with-natural-title-bar --with-official-icon --with-xml2
+brew install emacs-mac --with-dbus --with-glib --with-gnutls --with-imagemagick --with-modules --with-official-icon --with-xml2
 git clone https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
 cd /path/to/local/repo
 rake install
@@ -24,7 +24,6 @@ open -a Emacs
 #+BEGIN_EXAMPLE
 ~/.emacs.d/
   +-- etc/
-  |    +-- auto-complete.dict/
   |    `-- recipes/
   |         `-- PACKAGE-LOCAL.rcp
   +-- lib/
@@ -69,4 +68,11 @@ open -a Emacs
        5. =lazy-init-*.el=
        6. =post-init-*.el=
     4. =modules/local-config/=
-    5. =modules/vendors-config/init-*.el=
+       1. =pre-init-{private-,*}.el=
+       2. =cui-init-{private-,*}.el=
+       3. =gui-init-{private-,*}.el=
+       4. =opt-init-{private-,*}.el=
+          - =opt-init-additional-packages.el=
+            - =modules/vendors-config/init-*.el=
+       5. =lazy-init-{private-,*}.el=
+       6. =post-init-{private-,*}.el=
