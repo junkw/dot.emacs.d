@@ -37,6 +37,7 @@ end
 task :make_dir do
   emacs_dirs = ["#{user_emacs_dir}/etc/auto-complete.dict",
                 "#{user_emacs_dir}/etc/snippets",
+                "#{user_emacs_dir}/lib",
                 "#{user_emacs_dir}/var/backup",
                 "#{user_emacs_dir}/var/bookmark",
                 "#{user_emacs_dir}/var/cache/pcache",
@@ -107,9 +108,9 @@ task :set_config do
   end
 end
 
-task :default => [:generate_loaddefs, :compile, :tag]
+task :default => [:generate_loaddefs, :compile]
 task :compile => [:compile_all, :tag]
-task :install => [:set_config, :generate_loaddefs, :clone_revealjs, :link, :make_dir, :compile_init_module, :tag]
+task :install => [:set_config, :generate_loaddefs, :make_dir, :link, :clone_revealjs, :compile_init_module, :tag]
 task :travis  => [:link, :make_dir, :install_elget]
 task :clear   => [:remove_var]
 task :cleanup => [:remove_var, :remove_elc, :compile]
