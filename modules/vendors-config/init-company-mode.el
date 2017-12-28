@@ -34,6 +34,7 @@
 (setq company-minimum-prefix-length 3)
 (setq company-selection-wrap-around t)
 (setq company-require-match nil)
+(setq company-show-numbers t)
 
 (defun company-visible-and-explicit-action-p ()
   "[internal] Return t if tooltip is visible and user explicit action took place."
@@ -84,6 +85,20 @@ Insert selection if only preview is showing or only one candidate, otherwise com
       (call-interactively 'company-complete-common-or-cycle)
     (call-interactively 'company-complete-selection)))
 
+;; https://oremacs.com/2017/12/27/company-numbers/
+(defun company-do-complete-number ()
+  "[internal] Forward to `company-complete-number'.
+
+Unless the number is potentially part of the candidate.
+In that case, insert the number."
+  (interactive)
+  (let* ((k (this-command-keys))
+         (re (concat "^" company-prefix k)))
+    (if (cl-find-if (lambda (s) (string-match re s))
+                    company-candidates)
+        (self-insert-command 1)
+      (company-complete-number (string-to-number k)))))
+
 ;;;; Keymap
 (global-set-key (kbd "C-c y") #'company-yasnippet)
 
@@ -103,6 +118,17 @@ Insert selection if only preview is showing or only one candidate, otherwise com
 
 (define-key company-search-map (kbd "C-n") #'company-select-next)
 (define-key company-search-map (kbd "C-p") #'company-select-previous)
+
+(let ((map company-active-map))
+  (mapc
+   (lambda (x)
+     (define-key map (format "%d" x) #'company-do-complete-number))
+   (number-sequence 0 9))
+  (define-key map " " (lambda ()
+                        (interactive)
+                        (company-abort)
+                        (self-insert-command 1)))
+  (define-key map (kbd "<RET>") nil))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
