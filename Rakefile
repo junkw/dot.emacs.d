@@ -110,7 +110,7 @@ end
 
 task :default => [:generate_loaddefs, :compile]
 task :compile => [:compile_all, :tag]
-task :install => [:set_config, :generate_loaddefs, :make_dir, :link, :clone_revealjs, :compile_init_module, :tag]
+task :install => [:set_config, :generate_loaddefs, :link, :make_dir, :clone_revealjs, :compile_init_module, :tag]
 task :travis  => [:link, :make_dir, :install_elget]
 task :clear   => [:remove_var]
 task :cleanup => [:remove_var, :remove_elc, :compile]
