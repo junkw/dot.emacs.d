@@ -35,8 +35,13 @@
 
 (with-eval-after-load 'php-mode
   (add-to-list 'which-func-modes 'php-mode)
-  (setq php-search-url "http://jp.php.net/ja/")
-  (setq php-manual-url "http://jp.php.net/manual/ja/"))
+  (setq php-manual-url 'ja)
+  (setq php-mode-coding-style 'psr2)
+  (setq php-template-compatibility nil)
+
+;;;; Keymap
+  (define-key php-mode-map (kbd "C-c C--") #'php-current-class)
+  (define-key php-mode-map (kbd "C-c C-=") #'php-current-namespace))
 
 ;;;; Hooks
 (defun jkw:php-mode-hooks ()
