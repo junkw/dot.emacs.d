@@ -46,13 +46,13 @@
 Set `auto-complete-mode' or `company-backends' for php-mode."
   (when (featurep 'auto-complete-mode)
     (auto-complete-mode +1)
-    (add-to-list 'ac-sources 'ac-source-php)
-    (ac-php-core-eldoc-setup))
+    (add-to-list 'ac-sources 'ac-source-php))
 
   (when (featurep 'company-mode)
     (company-mode +1)
-    (ac-php-core-eldoc-setup)
-    (add-to-list (make-local-variable 'company-backends) 'company-ac-php-backend)))
+    (add-to-list (make-local-variable 'company-backends) 'company-ac-php-backend))
+
+  (ac-php-core-eldoc-setup))
 
 (add-hook 'php-mode-hook #'jkw:ac-php-hooks)
 
