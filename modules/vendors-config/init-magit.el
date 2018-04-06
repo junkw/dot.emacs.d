@@ -39,8 +39,13 @@
 (defalias 'magit 'magit-status)
 
 ;;;; Keymap
-(global-set-key (kbd "C-x g") #'magit-status)
-(global-set-key (kbd "C-x G") #'magit-list-repositories)
+(define-prefix-command 'jkw:magit-command-prefix-key)
+(global-set-key (kbd "C-x g") 'jkw:magit-command-prefix-key)
+
+(define-key jkw:magit-command-prefix-key (kbd "g") #'magit-status)
+(define-key jkw:magit-command-prefix-key (kbd "G") #'magit-list-repositories)
+(define-key jkw:magit-command-prefix-key (kbd "f") #'magit-find-file)
+(define-key jkw:magit-command-prefix-key (kbd "F") #'magit-find-file-other-window)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
