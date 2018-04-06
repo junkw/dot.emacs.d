@@ -1,0 +1,5 @@
+(:name composer
+       :description "PHP Composer interface for Emacs."
+       :website     "https://github.com/emacs-php/composer.el"
+       :type        github
+       :pkgname     "emacs-php/composer.el")
