@@ -34,12 +34,12 @@
 (require 'cl-lib)
 
 ;;;; System type predicates
-(defvar mac-p (eq system-type 'darwin)
-  "Return t if this system is Mac OS X.")
 (defvar cocoa-p (featurep 'ns)
-  "Return t if this Emacs is cocoa version.")
+  "Return t if this Emacs is Cocoa version.")
 (defvar mac-port-p (featurep 'mac)
-  "Return t if this Emacs is mac port version.")
+  "Return t if this Emacs is Mac port version.")
+(defvar mac-p (or cocoa-p mac-port-p (eq system-type 'darwin))
+  "Return t if this system is macOS.")
 (defvar linux-p (eq system-type 'gnu/linux)
   "Return t if this system is Linux.")
 (defvar cygwin-p (eq system-type 'cygwin)

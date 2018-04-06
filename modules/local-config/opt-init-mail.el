@@ -43,8 +43,8 @@
     (setq sendmail-program has-msmtp-p))
 
   ;; Maildir
-  (setq mu4e-mu-home        (concat (getenv "XDG_CACHE_HOME") "/mu/"))
-  (setq mu4e-maildir        (concat (getenv "XDG_DATA_HOME")  "/gmail/"))
+  (setq mu4e-mu-home        (substitute-in-file-name "$XDG_CACHE_HOME/mu/"))
+  (setq mu4e-maildir        (substitute-in-file-name "$XDG_DATA_HOME/gmail/"))
   (setq mu4e-drafts-folder  "/drafts")
   (setq mu4e-refile-folder  "/archive")
   (setq mu4e-sent-folder    "/sent")
