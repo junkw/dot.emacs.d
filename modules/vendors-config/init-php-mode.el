@@ -51,7 +51,10 @@
   (c-set-offset 'case-label '+)
   (c-set-offset 'arglist-intro '+)
   (c-set-offset 'arglist-close 0)
-  (subword-mode +1))
+  (subword-mode +1)
+
+  (when (eq (buffer-size) 0)
+    (insert "<?php\n\n")))
 
 (add-hook 'php-mode-hook #'jkw:php-mode-hooks)
 
