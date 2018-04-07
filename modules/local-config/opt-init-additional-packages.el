@@ -76,7 +76,7 @@
                     geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop highlight-defined
                     highlight-symbol info+ js2-mode json-mode lispxmp magit magit-lfs magit-svn
                     markdown-mode monokai-theme multiple-cursors mwim neotree nlinum-relative org-mode
-                    org-reveal ox-pandoc php-mode psvn rainbow-mode recentf-ext rg scratch-ext
+                    org-reveal ox-pandoc php-mode phpunit psvn rainbow-mode recentf-ext rg scratch-ext
                     smart-newline viewer web-mode wgrep yaml-mode))
 
 (setq jkw:el-get-package-for-mu4e-list-from-recipe

@@ -1,0 +1,7 @@
+(:name phpunit
+       :description "Emacs mode to phpunit and test command line tool."
+       :website     "https://github.com/nlamirault/phpunit.el"
+       :depends     (s f)
+       :type        github
+       :pkgname     "nlamirault/phpunit.el"
+       :branch      "develop")
