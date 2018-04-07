@@ -34,13 +34,10 @@
 (setq projectile-enable-caching t)
 (setq projectile-cache-file (concat user-emacs-directory "var/cache/projectile"))
 (setq projectile-known-projects-file (concat user-emacs-directory "var/bookmark/projectile.eld"))
-(setq projectile-completion-system 'helm)
+(when (featurep 'helm)
+  (setq projectile-completion-system 'helm))
 
 (add-hook 'prog-mode-hook #'projectile-mode)
-
-;;;; Keymap
-(when (featurep 'helm)
-  (global-set-key (kbd "C-x c P") #'helm-projectile))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

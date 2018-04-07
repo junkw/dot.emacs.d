@@ -46,6 +46,7 @@
         (:name helm :before (setq dired-bind-jump nil))
         (:name helm-descbinds :before nil :lazy t :library helm :after (helm-descbinds-mode +1))
         (:name helm-ls-git :depends (helm magit))
+        (:name helm-projectile :lazy t :library projectile :after (helm-projectile-on))
         (:name highlight-indentation :features highlight-indentation)
         (:name pcache
                :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
