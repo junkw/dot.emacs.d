@@ -37,7 +37,6 @@
 ;;;; Installed packages via el-get
 (setq el-get-sources
       '((:name ac-php :depends (php-mode company-mode yasnippet xcscope f s) :lazy t :library php-mode)
-        (:name editorconfig :features editorconfig)
         (:name company-mode :depends yasnippet)
         (:name company-statistics :depends company-mode)
         (:name company-quickhelp :depends (company-mode pos-tip))
@@ -64,7 +63,7 @@
   (add-to-list 'el-get-sources '(:name mu4e-alert :depends (alert s ht) :lazy t :library mu4e)))
 
 (setq jkw:el-get-preloaded-package-list-from-recipe
-  '(alert origami smartrep projectile))
+  '(alert editorconfig origami smartrep projectile))
 
 (when has-migemo-p
   (add-to-list 'jkw:el-get-preloaded-package-list-from-recipe 'migemo))

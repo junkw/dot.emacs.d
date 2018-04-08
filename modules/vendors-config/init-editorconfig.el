@@ -31,9 +31,6 @@
 
 ;;; Code:
 
-;;;; Hooks
-(add-hook 'prog-mode-hook #'editorconfig-mode)
-
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix
