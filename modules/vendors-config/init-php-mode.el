@@ -37,6 +37,7 @@
   (add-to-list 'which-func-modes 'php-mode)
   (setq php-manual-url 'ja)
   (setq php-mode-coding-style 'psr2)
+  (setq php-lineup-cascaded-calls t)
   (setq php-template-compatibility nil)
 
 ;;;; Keymap
@@ -47,13 +48,6 @@
 (defun jkw:php-mode-hooks ()
   "My config for PHP mode."
   (subword-mode +1)
-
-  (unless editorconfig-mode
-    (setq indent-tabs-mode nil)
-    (setq c-basic-offset 4)
-    (c-set-offset 'case-label '+)
-    (c-set-offset 'arglist-intro '+)
-    (c-set-offset 'arglist-close 0))
 
   (when (eq (buffer-size) 0)
     (insert "<?php\n\n")))
