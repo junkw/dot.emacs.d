@@ -45,14 +45,14 @@
   (define-key php-mode-map (kbd "C-c C-=") #'php-current-namespace))
 
 ;;;; Hooks
-(defun jkw:php-mode-hooks ()
+(defun jkw:php-mode-init ()
   "My config for PHP mode."
   (subword-mode +1)
 
   (when (eq (buffer-size) 0)
     (insert "<?php\n\n")))
 
-(add-hook 'php-mode-hook #'jkw:php-mode-hooks)
+(add-hook 'php-mode-hook #'jkw:php-mode-init)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

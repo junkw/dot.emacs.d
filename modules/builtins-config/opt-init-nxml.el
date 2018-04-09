@@ -34,7 +34,7 @@
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|atom\\)\\'" . nxml-mode))
 
 ;;;; Hooks
-(defun jkw:nxml-mode-hooks ()
+(defun jkw:nxml-mode-init ()
   "My config for nxml mode."
   (setq nxml-child-indent 2)
   (setq nxml-attribute-indent 4)
@@ -44,7 +44,7 @@
   (setq nxml-sexp-element-flag t)
   (setq indent-tabs-mode nil))
 
-(add-hook 'nxml-mode-hook #'jkw:nxml-mode-hooks)
+(add-hook 'nxml-mode-hook #'jkw:nxml-mode-init)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

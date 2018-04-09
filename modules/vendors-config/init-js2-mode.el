@@ -39,13 +39,13 @@
   (add-to-list 'which-func-modes 'js2-mode))
 
 ;;;; Hooks
-(defun jkw:js2-mode-hooks ()
+(defun jkw:js2-mode-init ()
   "My config for js2 mode."
   (unless editorconfig-mode
     (setq indent-tabs-mode nil))
   (subword-mode +1))
 
-(add-hook 'js2-mode-hook #'jkw:js2-mode-hooks)
+(add-hook 'js2-mode-hook #'jkw:js2-mode-init)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

@@ -33,13 +33,13 @@
 
 (require 'pre-init-hook-utils)
 
-(defun jkw:company-backends-for-web-mode-hooks ()
+(defun jkw:company-backends-for-web-mode-init ()
   "[inwebal] Set `company-backends' for web-mode."
   (add-to-list (make-local-variable 'company-backends) 'company-tern)
   (add-to-list (make-local-variable 'company-backends) 'company-css)
   (add-to-list (make-local-variable 'company-backends) 'company-web-html))
 
-(add-hooks '(web-mode css-mode) #'jkw:company-backends-for-web-mode-hooks)
+(add-hooks '(web-mode css-mode) #'jkw:company-backends-for-web-mode-init)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

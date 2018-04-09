@@ -45,14 +45,14 @@
 (add-hook 'ielm-mode-hook #'eldoc-mode)
 
 ;;;; Hooks
-(defun jkw:lisp-mode-hooks ()
+(defun jkw:lisp-mode-init ()
   "My config for (Emacs) Lisp mode."
   (eldoc-mode +1)
   (setq indent-tabs-mode nil)
   (setq imenu-prev-index-position-function nil)
   (add-to-list 'imenu-generic-expression '("Sections" "\\`;;;; \\(.+\\)\\'" 1) t))
 
-(add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) #'jkw:lisp-mode-hooks)
+(add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) #'jkw:lisp-mode-init)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

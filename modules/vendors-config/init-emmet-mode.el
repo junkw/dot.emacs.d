@@ -38,12 +38,12 @@
   (setq emmet-move-cursor-between-quotes t))
 
 ;;;; Hooks
-(defun jkw:emmet-mode-hooks ()
+(defun jkw:emmet-mode-init ()
   "My config for emmet mode."
   (setq emmet-indentation 2)
   (emmet-mode +1))
 
-(add-hooks '(web-mode nxml-mode css-mode) #'jkw:emmet-mode-hooks)
+(add-hooks '(web-mode nxml-mode css-mode) #'jkw:emmet-mode-init)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

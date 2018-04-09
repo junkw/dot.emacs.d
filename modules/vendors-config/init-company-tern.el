@@ -31,11 +31,11 @@
 
 ;;; Code:
 
-(defun jkw:company-backends-for-js2-mode-hooks ()
+(defun jkw:company-backends-for-js2-mode-init ()
   "[internal] Set `company-backends' for js2-mode."
   (add-to-list (make-local-variable 'company-backends) 'company-tern))
 
-(add-hook 'js2-mode-hook #'jkw:company-backends-for-js2-mode-hooks)
+(add-hook 'js2-mode-hook #'jkw:company-backends-for-js2-mode-init)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

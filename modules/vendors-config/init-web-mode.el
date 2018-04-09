@@ -58,7 +58,7 @@
       ("p" . #'web-mode-tag-previous))))
 
 ;;;; Hooks
-(defun jkw:web-mode-hooks ()
+(defun jkw:web-mode-init ()
   "My config for web-mode."
   (setq web-mode-enable-auto-pairing nil)
   (setq web-mode-enable-auto-indentation nil)
@@ -69,7 +69,7 @@
     (setq web-mode-code-indent-offset   4)
     (setq indent-tabs-mode nil)))
 
-(add-hook 'web-mode-hook #'jkw:web-mode-hooks)
+(add-hook 'web-mode-hook #'jkw:web-mode-init)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

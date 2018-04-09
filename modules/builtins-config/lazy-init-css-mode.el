@@ -32,12 +32,12 @@
 ;;; Code:
 
 ;;;; Hooks
-(defun jkw:css-mode-hooks ()
+(defun jkw:css-mode-init ()
   "My config for CSS mode."
   (setq indent-tabs-mode nil)
   (setq css-indent-offset 4))
 
-(add-hook 'css-mode-hook #'jkw:css-mode-hooks)
+(add-hook 'css-mode-hook #'jkw:css-mode-init)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

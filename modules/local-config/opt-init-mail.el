@@ -167,13 +167,13 @@
   (require 'org-mu4e)
   (setq org-mu4e-convert-to-html t)
 
-  (defun jkw:mu4e-compose-mode-hooks ()
+  (defun jkw:mu4e-compose-mode-init ()
     "My config for message composition."
     (when (fboundp 'yas-minor-mode)
       (yas-minor-mode +1))
     (set-fill-column 80))
 
-  (add-hook 'mu4e-compose-mode-hook #'jkw:mu4e-compose-mode-hooks)
+  (add-hook 'mu4e-compose-mode-hook #'jkw:mu4e-compose-mode-init)
 
   ;; http://mbork.pl/2015-11-28_Fixing_mml-attach-file_using_advice
   (defun mml-attach-file--attach-on-eob (orig-fun &rest args)

@@ -66,11 +66,11 @@
                                       company-files company-ispell
                                       (company-dabbrev company-abbrev)))
 
-(defun jkw:company-backends-for-emacs-lisp-mode-hooks ()
+(defun jkw:company-backends-for-emacs-lisp-mode-init ()
   "[internal] Set `company-backends' for emacs-lisp-mode."
   (add-to-list (make-local-variable 'company-backends) 'company-elisp))
 
-(add-hook 'emacs-lisp-mode-hook #'jkw:company-backends-for-emacs-lisp-mode-hooks)
+(add-hook 'emacs-lisp-mode-hook #'jkw:company-backends-for-emacs-lisp-mode-init)
 
 ;; Enalbe company-mode
 (global-company-mode +1)
