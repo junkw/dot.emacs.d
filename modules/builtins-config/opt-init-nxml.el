@@ -36,13 +36,15 @@
 ;;;; Hooks
 (defun jkw:nxml-mode-init ()
   "My config for nxml mode."
-  (setq nxml-child-indent 2)
-  (setq nxml-attribute-indent 4)
+  (unless editorconfig-mode
+   (setq indent-tabs-mode nil)
+   (setq nxml-child-indent 2)
+   (setq nxml-attribute-indent 4))
+
   (setq nxml-char-ref-display-glyph-flag nil)
   (setq nxml-slash-auto-complete-flag t)
   (setq nxml-bind-meta-tab-to-complete-flag t)
-  (setq nxml-sexp-element-flag t)
-  (setq indent-tabs-mode nil))
+  (setq nxml-sexp-element-flag t))
 
 (add-hook 'nxml-mode-hook #'jkw:nxml-mode-init)
 
