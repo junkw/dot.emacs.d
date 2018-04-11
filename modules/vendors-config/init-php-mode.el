@@ -48,6 +48,7 @@
 (defun jkw:php-mode-init ()
   "My config for PHP mode."
   (subword-mode +1)
+  (setq c-basic-offset 4)
 
   (when (eq (buffer-size) 0)
     (insert "<?php\n\n")))
