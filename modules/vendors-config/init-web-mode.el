@@ -38,9 +38,13 @@
 
 (with-eval-after-load 'web-mode
   (add-to-list 'which-func-modes 'web-mode)
+  (setq web-mode-engines-alist '(("php" . "\\.html\\.php\\'")))
+  (setq web-mode-enable-auto-pairing nil)
+  (setq web-mode-enable-auto-indentation nil)
   (setq web-mode-enable-comment-keywords t)
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-heredoc-fontification t)
+  (setq web-mode-part-padding 0)
 
 ;;;; Keymap
   (define-key web-mode-map (kbd "C-;") nil)
@@ -53,21 +57,21 @@
     '(("n" . #'web-mode-element-next)
       ("p" . #'web-mode-element-previous)))
 
-  (smartrep-define-key web-mode-map "C-c e"
+  (smartrep-define-key web-mode-map "C-c C-t"
     '(("n" . #'web-mode-tag-next)
       ("p" . #'web-mode-tag-previous))))
 
 ;;;; Hooks
 (defun jkw:web-mode-init ()
   "My config for web-mode."
-  (setq web-mode-enable-auto-pairing nil)
-  (setq web-mode-enable-auto-indentation nil)
+  (setq web-mode-script-padding 0)
+  (setq web-mode-style-padding 0)
 
   (unless editorconfig-mode
+    (setq indent-tabs-mode nil)
     (setq web-mode-markup-indent-offset 2)
-    (setq web-mode-css-indent-offset    2)
-    (setq web-mode-code-indent-offset   4)
-    (setq indent-tabs-mode nil)))
+    (setq web-mode-css-indent-offset 2)
+    (setq web-mode-code-indent-offset 4)))
 
 (add-hook 'web-mode-hook #'jkw:web-mode-init)
 
