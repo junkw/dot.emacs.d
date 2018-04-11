@@ -41,9 +41,12 @@
   (setq web-mode-engines-alist '(("php" . "\\.html\\.php\\'")))
   (setq web-mode-enable-auto-pairing nil)
   (setq web-mode-enable-auto-indentation nil)
-  (setq web-mode-enable-comment-keywords t)
+  (setq web-mode-enable-auto-expanding t)
+  (setq web-mode-enable-comment-annotation t)
+  (setq web-mode-enable-comment-interpolation t)
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-heredoc-fontification t)
+  (setq web-mode-enable-sql-detection t)
   (setq web-mode-part-padding 0)
 
 ;;;; Keymap
