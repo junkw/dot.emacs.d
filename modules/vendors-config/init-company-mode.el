@@ -31,10 +31,12 @@
 
 ;;; Code:
 
+(setq company-idle-delay 0.3)
 (setq company-minimum-prefix-length 3)
 (setq company-selection-wrap-around t)
 (setq company-require-match nil)
 (setq company-show-numbers t)
+(setq company-dabbrev-downcase nil)
 
 (defun company-visible-and-explicit-action-p ()
   "[internal] Return t if tooltip is visible and user explicit action took place."

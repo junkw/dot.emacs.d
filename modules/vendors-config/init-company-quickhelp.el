@@ -34,7 +34,8 @@
 (setq company-quickhelp-use-propertized-text t)
 (setq company-quickhelp-max-lines 10)
 
-(company-quickhelp-mode +1)
+(with-eval-after-load 'company
+  (company-quickhelp-mode +1))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

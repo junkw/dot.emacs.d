@@ -39,7 +39,7 @@
   (add-to-list (make-local-variable 'company-backends) 'company-css)
   (add-to-list (make-local-variable 'company-backends) 'company-web-html))
 
-(add-hooks '(web-mode css-mode) #'jkw:company-backends-for-web-mode-init)
+(add-hooks '(css-mode nxml-mode web-mode) #'jkw:company-backends-for-web-mode-init)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
