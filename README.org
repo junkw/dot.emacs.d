@@ -24,10 +24,11 @@ open -a Emacs
 #+BEGIN_EXAMPLE
 ~/.emacs.d/
   +-- etc/
-  |    `-- recipes/
-  |         `-- PACKAGE-LOCAL.rcp
-  +-- lib/
   |    +-- git-hooks/
+  |    +-- recipes/
+  |    |    `-- PACKAGE-LOCAL.rcp
+  |    `-- snippets/
+  +-- lib/
   |    +-- reveal.js/
   |    `-- test/
   |         +-- test-CASE.el
