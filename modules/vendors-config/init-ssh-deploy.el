@@ -39,8 +39,9 @@
 (define-prefix-command 'ssh-deploy-command-prefix-key)
 
 (defvar ssh-deploy-mode-map
-  (let ((prefix ssh-deploy-command-prefix-key))
-    (global-set-key (kbd "C-c C-z") prefix)
+  (let* ((map (make-sparse-keymap))
+         (prefix ssh-deploy-command-prefix-key))
+    (define-key map (kbd "C-c C-z") prefix)
     (define-key prefix (kbd "f") #'ssh-deploy-upload-handler-forced)
     (define-key prefix (kbd "u") #'ssh-deploy-upload-handler)
     (define-key prefix (kbd "D") #'ssh-deploy-delete-handler)
@@ -55,7 +56,7 @@
     (define-key prefix (kbd "b") #'ssh-deploy-browse-remote-base-handler)
     (define-key prefix (kbd "o") #'ssh-deploy-open-remote-file-handler)
     (define-key prefix (kbd "m") #'ssh-deploy-remote-sql-mysql-handler)
-    prefix)
+    map)
   "Keymap for `ssh-deploy-mode'.")
 
 ;;;; Functions
