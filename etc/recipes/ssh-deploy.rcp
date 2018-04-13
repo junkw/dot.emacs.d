@@ -1,0 +1,5 @@
+(:name ssh-deploy
+       :description "A deployment plugin via TRAMP for Emacs."
+       :website     "https://github.com/cjohansson/emacs-ssh-deploy"
+       :type        github
+       :pkgname     "cjohansson/emacs-ssh-deploy")
