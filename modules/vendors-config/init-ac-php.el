@@ -37,7 +37,7 @@
 (with-eval-after-load 'company
   (require 'company-php))
 
-(setq ac-php-tags-path (substitute-in-file-name "$XDG_CACHE_HOME/ac-php"))
+(setq ac-php-tags-path (substitute-in-file-name "$XDG_DATA_HOME/ac-php"))
 
 ;;;; Hooks
 (defun jkw:ac-php-hooks ()
