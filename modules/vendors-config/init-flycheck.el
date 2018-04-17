@@ -31,6 +31,7 @@
 
 ;;; Code:
 
+(require 'pre-init-hook-utils)
 (require 'smartrep)
 
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
@@ -43,7 +44,7 @@
   (flycheck-add-mode 'css-csslint 'web-mode)
   (flycheck-add-mode 'javascript-jshint 'web-mode))
 
-(add-hook 'prog-mode-hook #'flycheck-mode)
+(add-hooks '(prog-mode markdown-mode) #'flycheck-mode)
 
 ;;;; Keymap
 (with-eval-after-load 'flycheck
