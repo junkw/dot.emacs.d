@@ -33,8 +33,11 @@
 
 (require 'smartrep)
 
+(setq flycheck-check-syntax-automatically '(mode-enabled save))
 (setq flycheck-display-errors-delay 0.5)
-(setq-default flycheck-emacs-lisp-load-path `(,user-emacs-directory))
+(setq-default flycheck-emacs-lisp-load-path 'inhert)
+
+(add-hook 'prog-mode-hook #'flycheck-mode)
 
 ;;;; Keymap
 (with-eval-after-load 'flycheck
