@@ -37,6 +37,12 @@
 (setq flycheck-display-errors-delay 0.5)
 (setq-default flycheck-emacs-lisp-load-path 'inhert)
 
+;;;; Modes
+(with-eval-after-load 'web-mode
+  (flycheck-add-mode 'html-tidy 'web-mode)
+  (flycheck-add-mode 'css-csslint 'web-mode)
+  (flycheck-add-mode 'javascript-jshint 'web-mode))
+
 (add-hook 'prog-mode-hook #'flycheck-mode)
 
 ;;;; Keymap
