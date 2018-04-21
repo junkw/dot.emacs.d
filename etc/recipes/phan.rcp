@@ -1,0 +1,6 @@
+(:name phan
+       :description "Emacs Utilities for Phan (PHP static analyzer)."
+       :website     "https://github.com/emacs-php/phan.el"
+       :depends     (composer f)
+       :type        github
+       :pkgname     "emacs-php/phan.el")
