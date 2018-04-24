@@ -76,7 +76,7 @@
                     highlight-symbol info+ js2-mode json-mode lispxmp magit magit-lfs magit-svn
                     markdown-mode monokai-theme multiple-cursors mwim neotree nlinum-relative org-mode
                     org-reveal ox-pandoc phan php-mode phpunit psvn rainbow-mode recentf-ext rg scratch-ext
-                    smart-newline ssh-deploy viewer web-mode wgrep yaml-mode))
+                    smart-newline ssh-deploy sqlup-mode viewer web-mode wgrep yaml-mode))
 
 (setq jkw:el-get-package-for-mu4e-list-from-recipe
   '())
