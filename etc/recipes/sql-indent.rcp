@@ -1,0 +1,5 @@
+(:name sql-indent
+       :description "indentation of SQL statements."
+       :website     "https://github.com/bsvingen/sql-indent"
+       :type        github
+       :pkgname     "bsvingen/sql-indent")
