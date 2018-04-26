@@ -69,6 +69,9 @@
 (defvar has-notifier-p (executable-find "terminal-notifier")
   "Return path if this system has terminal-notifier.")
 
+(defvar has-phan-p (executable-find "phan")
+  "Return path if this system has Phan.")
+
 ;;;; Paths
 (defun getenv-from-shell (variable)
   "Get the value of environment variable VARIABLE from the user's shell."
