@@ -42,13 +42,9 @@
   '()
   "List of packages I use straight from recipe files.")
 
-(defvar jkw:el-get-package-for-mu4e-list-from-recipe
+(defvar jkw:el-get-postloaded-package-list-from-recipe
   '()
-  "List of mu4e plugin packages I use straight from recipe files.")
-
-(defvar jkw:el-get-package-with-nodejs-list-from-recipe
-  '()
-  "List of packages with Node.js I use straight from recipe files.")
+  "List of packages that need to load after loading `jkw:el-get-package-list-from-recipe'.")
 
 ;;;; Internal functions
 (defun el-get--pre-initialize-el-get ()
@@ -68,8 +64,7 @@
 (defun el-get--list-installing-packages ()
   "[internal] Return a list of installing packages via el-get."
   (let* ((rcps (append jkw:el-get-package-list-from-recipe
-                       (when has-nodejs-p jkw:el-get-package-with-nodejs-list-from-recipe)
-                       (when has-mu-p     jkw:el-get-package-for-mu4e-list-from-recipe)))
+                       jkw:el-get-postloaded-package-list-from-recipe))
          (pkgs (append jkw:el-get-preloaded-package-list-from-recipe
                        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))
                        rcps)))

@@ -79,14 +79,12 @@
                     smart-newline ssh-deploy sql-indent sqlup-mode viewer web-mode wgrep yaml-mode))
 
 (when has-phan-p
-  (add-to-list 'jkw:el-get-package-list-from-recipe 'phan)
-  (add-to-list 'jkw:el-get-package-list-from-recipe 'flycheck-phanclient))
+  (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'phan)
+  (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'flycheck-phanclient))
 
-(setq jkw:el-get-package-for-mu4e-list-from-recipe
-  '())
-
-(setq jkw:el-get-package-with-nodejs-list-from-recipe
-  '(vmd-mode tern))
+(when has-nodejs-p
+  (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'vmd-mode)
+  (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'tern))
 
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)
