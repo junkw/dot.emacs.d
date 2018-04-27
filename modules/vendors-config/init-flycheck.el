@@ -36,7 +36,7 @@
 
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
 (setq flycheck-display-errors-delay 0.5)
-(setq-default flycheck-emacs-lisp-load-path 'inhert)
+(setq-default flycheck-emacs-lisp-load-path 'inherit)
 
 ;;;; Modes
 (with-eval-after-load 'web-mode
