@@ -72,7 +72,7 @@
 (defvar has-phan-p (executable-find "phan")
   "Return path if this system has Phan.")
 
-(defvar has-phan-p (executable-find "phpstan")
+(defvar has-phpstan-p (executable-find "phpstan")
   "Return path if this system has PHPStan.")
 
 ;;;; Paths
