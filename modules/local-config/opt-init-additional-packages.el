@@ -31,42 +31,40 @@
 
 ;;; Code:
 
-(require 'cl-lib)
 (require 'opt-init-packages)
 
 ;;;; Installed packages via el-get
 (setq el-get-sources
-      '((:name ac-php :depends (php-mode company-mode yasnippet xcscope f s) :lazy t :library php-mode)
-        (:name company-mode :depends yasnippet)
-        (:name company-statistics :depends company-mode)
-        (:name company-quickhelp :depends (company-mode pos-tip))
-        (:name company-tern :post-init nil)
-        (:name company-web :depends (company-mode dash cl-lib web-completion-data web-mode))
-        (:name helm :before (setq dired-bind-jump nil))
-        (:name helm-descbinds :before nil :lazy t :library helm :after (helm-descbinds-mode +1))
-        (:name helm-ls-git :depends (helm magit))
-        (:name helm-projectile :lazy t :library projectile :after (helm-projectile-on))
-        (:name highlight-indentation :features highlight-indentation)
-        (:name pcache
-               :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
-        (:name popwin :features popwin)
-        (:name powerline :autoloads nil)
-        (:name smartparens :features smartparens-config)
-        (:name tabulated-list :builtin "24")
-        (:name twittering-mode :features nil)
-        (:name undo-tree :features undo-tree)
-        (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)
-        (:name yasnippet-snippets :features yasnippet-snippets)
-        (:name zerodark-theme :after (load-theme 'zerodark t))))
-
-(when has-mu-p
-  (add-to-list 'el-get-sources '(:name mu4e-alert :depends (alert s ht) :lazy t :library mu4e)))
+      (append
+       '((:name ac-php :depends (php-mode company-mode yasnippet xcscope f s) :lazy t :library php-mode)
+         (:name company-mode :depends yasnippet)
+         (:name company-statistics :depends company-mode)
+         (:name company-quickhelp :depends (company-mode pos-tip))
+         (:name company-tern :post-init nil)
+         (:name company-web :depends (company-mode dash cl-lib web-completion-data web-mode))
+         (:name helm :before (setq dired-bind-jump nil))
+         (:name helm-descbinds :before nil :lazy t :library helm :after (helm-descbinds-mode +1))
+         (:name helm-ls-git :depends (helm magit))
+         (:name helm-projectile :lazy t :library projectile :after (helm-projectile-on))
+         (:name highlight-indentation :features highlight-indentation)
+         (:name pcache
+                :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
+         (:name popwin :features popwin)
+         (:name powerline :autoloads nil)
+         (:name smartparens :features smartparens-config)
+         (:name tabulated-list :builtin "24")
+         (:name twittering-mode :features nil)
+         (:name undo-tree :features undo-tree)
+         (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)
+         (:name yasnippet-snippets :features yasnippet-snippets)
+         (:name zerodark-theme :after (load-theme 'zerodark t)))
+       (when has-mu-p
+         '((:name mu4e-alert :depends (alert s ht) :lazy t :library mu4e)))))
 
 (setq jkw:el-get-preloaded-package-list-from-recipe
-  '(alert editorconfig origami smartrep projectile))
-
-(when has-migemo-p
-  (add-to-list 'jkw:el-get-preloaded-package-list-from-recipe 'migemo))
+      (append
+       '(alert editorconfig origami smartrep projectile)
+       (when has-migemo-p '(migemo))))
 
 (setq jkw:el-get-package-list-from-recipe
       '(ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile beginend cl-lib-highlight
@@ -78,16 +76,10 @@
                     org-reveal ox-pandoc php-mode phpunit psvn rainbow-mode recentf-ext rg scratch-ext
                     smart-newline ssh-deploy sql-indent sqlup-mode viewer web-mode wgrep yaml-mode))
 
-(when has-phan-p
-  (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'phan)
-  (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'flycheck-phanclient))
-
-(when has-phpstan-p
-  (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'phpstan))
-
-(when has-nodejs-p
-  (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'vmd-mode)
-  (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'tern))
+(append jkw:el-get-postloaded-package-list-from-recipe
+        (when has-phan-p    '(flycheck-phanclient phan))
+        (when has-phpstan-p '(phpstan))
+        (when has-nodejs-p  '(tern vmd-mode)))
 
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)
