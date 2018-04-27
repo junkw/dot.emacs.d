@@ -72,6 +72,9 @@
 (defvar has-phan-p (executable-find "phan")
   "Return path if this system has Phan.")
 
+(defvar has-phan-p (executable-find "phpstan")
+  "Return path if this system has PHPStan.")
+
 ;;;; Paths
 (defun getenv-from-shell (variable)
   "Get the value of environment variable VARIABLE from the user's shell."

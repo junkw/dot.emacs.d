@@ -82,6 +82,9 @@
   (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'phan)
   (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'flycheck-phanclient))
 
+(when has-phpstan-p
+  (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'phpstan))
+
 (when has-nodejs-p
   (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'vmd-mode)
   (add-to-list 'jkw:el-get-postloaded-package-list-from-recipe 'tern))

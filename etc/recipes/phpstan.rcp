@@ -1,0 +1,6 @@
+(:name phpstan
+       :description "Interface to PHPStan (PHP static analyzer)."
+       :website     "https://github.com/emacs-php/phpstan.el"
+       :depends     (php-mode flycheck)
+       :type        github
+       :pkgname     "emacs-php/phpstan.el")
