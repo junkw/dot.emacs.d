@@ -3,4 +3,5 @@
        :website     "https://github.com/emacs-php/phpstan.el"
        :depends     (php-mode flycheck)
        :type        github
-       :pkgname     "emacs-php/phpstan.el")
+       :pkgname     "emacs-php/phpstan.el"
+       :features    flycheck-phpstan)

@@ -2,8 +2,6 @@
        :description "A flycheck checker for phan, using the phan daemon."
        :website     "https://github.com/TysonAndre/flycheck-phanclient"
        :depends     flycheck
-       :lazy        t
-       :library     flycheck
        :type        github
        :pkgname     "TysonAndre/flycheck-phanclient"
-       :feature     flycheck-phanclient)
+       :features    flycheck-phanclient)
