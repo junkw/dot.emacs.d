@@ -76,10 +76,10 @@
                     org-reveal ox-pandoc php-mode phpunit psvn rainbow-mode recentf-ext rg scratch-ext
                     smart-newline ssh-deploy sql-indent sqlup-mode viewer web-mode wgrep yaml-mode))
 
-(append jkw:el-get-postloaded-package-list-from-recipe
-        (when has-phan-p    '(flycheck-phanclient phan))
-        (when has-phpstan-p '(phpstan))
-        (when has-nodejs-p  '(tern vmd-mode)))
+(setq jkw:el-get-postloaded-package-list-from-recipe
+      (append (when has-phan-p    '(flycheck-phanclient phan))
+              (when has-phpstan-p '(phpstan))
+              (when has-nodejs-p  '(tern vmd-mode))))
 
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)
