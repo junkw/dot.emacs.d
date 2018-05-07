@@ -44,7 +44,7 @@
   (flycheck-add-mode 'css-csslint 'web-mode)
   (flycheck-add-mode 'javascript-jshint 'web-mode))
 
-(add-hooks '(prog-mode markdown-mode) #'flycheck-mode)
+(add-hooks '(prog-mode markdown-mode yaml-mode) #'flycheck-mode)
 
 ;;;; Keymap
 (with-eval-after-load 'flycheck
