@@ -35,18 +35,11 @@
 
 (add-to-list 'origami-parser-alist '(php-mode . origami-c-style-parser))
 
-;;;; Commands
-(defun origami-cycle (recursive)
-  "`org-cycle' like visibility cycling action for origami-mode."
-  (interactive "P")
-  (call-interactively
-   (if recursive 'origami-toggle-all-nodes #'origami-toggle-node)))
-
 ;;;; Hooks
-(add-hooks (mapcar 'car origami-parser-alist) #'origami-mode)
+(add-hooks (mapcar #'car origami-parser-alist) #'origami-mode)
 
 ;;;; Keymap
-(define-key origami-mode-map (kbd "M-i") #'origami-cycle)
+(define-key origami-mode-map (kbd "M-i") #'origami-recursively-toggle-node)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
