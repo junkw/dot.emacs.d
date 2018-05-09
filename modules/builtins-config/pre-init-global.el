@@ -32,7 +32,9 @@
 ;;; Code:
 
 (require 'cl-lib)
-(require 'pre-init-environments)
+
+(eval-when-compile
+  (require 'pre-init-environments))
 (require 'pre-init-keymap-utils)
 
 ;;;; Paths

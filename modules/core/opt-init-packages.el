@@ -32,7 +32,8 @@
 ;;; Code:
 
 (require 'cl-lib)
-(require 'pre-init-environments)
+(eval-when-compile
+  (require 'pre-init-environments))
 
 (defvar jkw:el-get-preloaded-package-list-from-recipe
   '()

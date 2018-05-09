@@ -31,7 +31,8 @@
 
 ;;; Code:
 
-(require 'pre-init-environments)
+(eval-when-compile
+  (require 'pre-init-environments))
 
 ;;;; Init
 (setq helm-adaptive-history-file (concat user-emacs-directory "var/cache/helm-adaptive-history"))

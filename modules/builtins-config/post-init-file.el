@@ -32,7 +32,8 @@
 ;;; Code:
 
 (require 'cl-lib)
-(require 'pre-init-environments)
+(eval-when-compile
+  (require 'pre-init-environments))
 
 ;; Opening a file larger than 100 MB, asks for confirmation first.
 (setq large-file-warning-threshold 100000000)

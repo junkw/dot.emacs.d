@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(eval-when-compile
+  (require 'pre-init-environments))
 (require 'opt-init-packages)
 
 ;;;; Installed packages via el-get

@@ -31,7 +31,8 @@
 
 ;;; Code:
 
-(require 'pre-init-environments)
+(eval-when-compile
+  (require 'pre-init-environments))
 
 (with-eval-after-load 'e2wm
   (require 'e2wm-config)

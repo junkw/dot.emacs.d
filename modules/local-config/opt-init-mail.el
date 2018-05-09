@@ -31,7 +31,8 @@
 
 ;;; Code:
 
-(require 'pre-init-environments)
+(eval-when-compile
+  (require 'pre-init-environments))
 
 ;;;; Initialize
 (when has-mu-p
