@@ -54,9 +54,9 @@
   "Return t if this display size is 15-inch or less.")
 
 ;;;; Environment predicates
-(defvar jkw:installed-bins
+(defvar depended-bins
   '("cmigemo" "mu" "msmtp" "node" "terminal-notifier" "phan" "phpstan")
-  "List of installed binaries.")
+  "Prospectively registered binaries.")
 
 (defmacro defvar-has-bin-p (bin)
   "Define variable `has-BIN-p' for checking BIN's path."
@@ -66,7 +66,7 @@
 
 (mapcar #'(lambda (bin)
             `,(eval `(defvar-has-bin-p ,bin)))
-        jkw:installed-bins)
+        depended-bins)
 
 ;;;; Paths
 (defun getenv-from-shell (variable)
