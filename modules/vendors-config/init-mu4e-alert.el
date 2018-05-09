@@ -33,7 +33,7 @@
 
 (setq mu4e-alert-interesting-mail-query "flag:unread AND maildir:\"/inbox\"")
 
-(when has-notifier-p
+(when has-terminal-notifier-p
   (mu4e-alert-set-default-style 'notifier))
 
 (mu4e-alert-enable-notifications)

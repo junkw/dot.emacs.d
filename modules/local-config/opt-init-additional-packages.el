@@ -64,7 +64,7 @@
 (setq jkw:el-get-preloaded-package-list-from-recipe
       (append
        '(alert editorconfig origami smartrep projectile)
-       (when has-migemo-p '(migemo))))
+       (when has-cmigemo-p '(migemo))))
 
 (setq jkw:el-get-package-list-from-recipe
       '(ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile beginend cl-lib-highlight
@@ -79,7 +79,7 @@
 (setq jkw:el-get-postloaded-package-list-from-recipe
       (append (when has-phan-p    '(flycheck-phanclient phan))
               (when has-phpstan-p '(phpstan))
-              (when has-nodejs-p  '(tern vmd-mode))))
+              (when has-node-p    '(tern vmd-mode))))
 
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)

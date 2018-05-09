@@ -57,7 +57,7 @@
 (defun el-get--post-initialize-el-get ()
   "[internal] Need to initialize after loading el-get."
   (add-to-list 'el-get-recipe-path (file-name-as-directory (concat user-emacs-directory "etc/recipes")))
-  (when (not (and has-notifier-p (fboundp 'alert)))
+  (when (not (and has-terminal-notifier-p (fboundp 'alert)))
     (setq el-get-notify-type 'message))
   (el-get 'sync '(package el-get)))
 

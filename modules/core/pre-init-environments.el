@@ -54,26 +54,19 @@
   "Return t if this display size is 15-inch or less.")
 
 ;;;; Environment predicates
-(defvar has-migemo-p (executable-find "cmigemo")
-  "Return path if this system has cmigemo.")
+(defvar jkw:installed-bins
+  '("cmigemo" "mu" "msmtp" "node" "terminal-notifier" "phan" "phpstan")
+  "List of installed binaries.")
 
-(defvar has-mu-p (executable-find "mu")
-  "Return path if this system has mu.")
+(defmacro defvar-has-bin-p (bin)
+  "Define variable `has-BIN-p' for checking BIN's path."
+  `(defvar ,(intern (format "has-%s-p" bin))
+     ,(executable-find bin)
+     ,(format "Return path if this system has `%s'." bin)))
 
-(defvar has-msmtp-p (executable-find "msmtp")
-  "Return path if this system has msmtp.")
-
-(defvar has-nodejs-p (executable-find "node")
-  "Return path if this system has Node.js.")
-
-(defvar has-notifier-p (executable-find "terminal-notifier")
-  "Return path if this system has terminal-notifier.")
-
-(defvar has-phan-p (executable-find "phan")
-  "Return path if this system has Phan.")
-
-(defvar has-phpstan-p (executable-find "phpstan")
-  "Return path if this system has PHPStan.")
+(mapcar #'(lambda (bin)
+            `,(eval `(defvar-has-bin-p ,bin)))
+        jkw:installed-bins)
 
 ;;;; Paths
 (defun getenv-from-shell (variable)
