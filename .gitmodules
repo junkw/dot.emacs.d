@@ -1,0 +1,4 @@
+[submodule ".emacs.d/lib/reveal.js"]
+	path = .emacs.d/lib/reveal.js
+	url = https://github.com/hakimel/reveal.js.git
+	ignore = dirty
