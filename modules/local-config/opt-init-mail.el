@@ -80,6 +80,14 @@
   (setq message-kill-buffer-on-exit t)
   (setq mail-user-agent 'mu4e-user-agent)
 
+  ;; Headers
+  (setq mu4e-headers-sort-field :date)
+  (setq mu4e-headers-results-limit 1000)
+  (setq mu4e-headers-auto-update t)
+  (setq mu4e-headers-include-related nil)
+  (setq mu4e-headers-skip-duplicates t)
+  (setq mu4e-headers-show-threads nil)
+
   ;; View
   (when (not laptop-screen-p)
     (setq mu4e-split-view 'vertical)
