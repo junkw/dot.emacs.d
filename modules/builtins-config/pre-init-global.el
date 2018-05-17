@@ -89,7 +89,7 @@ Advice function for `abort-recursive-edit'."
   (setq mac-option-modifier  'meta))
 
 (global-set-key (kbd "C-M-g") #'keyboard-escape-quit)
-(define-vimlike-key-sets messages-buffer-mode-map)
+(define-vim-keys messages-buffer-mode-map)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

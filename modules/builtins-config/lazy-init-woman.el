@@ -55,7 +55,7 @@
 (setq Man-heading-regexp "\\`\\([A-Z][A-Z0-9 /-]+\\|\\cj+\\)\\'")
 
 ;;;; Keymap
-(define-vimlike-key-sets woman-mode-map)
+(define-vim-keys woman-mode-map)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

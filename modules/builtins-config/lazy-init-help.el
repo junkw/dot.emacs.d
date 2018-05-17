@@ -36,7 +36,7 @@
 (setq text-quoting-style 'straight)
 
 ;;;; Keymap
-(define-vimlike-key-sets help-mode-map)
+(define-vim-keys help-mode-map)
 (define-key help-mode-map (kbd "<") #'help-go-back)
 (define-key help-mode-map (kbd ">") #'help-go-forward)
 

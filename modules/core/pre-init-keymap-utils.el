@@ -31,22 +31,27 @@
 
 ;;; Code:
 
-(require 'cl-lib)
+(require 'misc)
 
-(defun define-vimlike-key-sets (map)
-  "Define vim-like keymap sets for MAP."
-  (define-key map (kbd "j") #'next-line)
-  (define-key map (kbd "k") #'previous-line)
-  (define-key map (kbd "J") #'scroll-up-line)
-  (define-key map (kbd "K") #'scroll-down-line)
-  (define-key map (kbd "b") #'scroll-down-command)
-  (define-key map (kbd "g") #'beginning-of-buffer)
-  (define-key map (kbd "G") #'end-of-buffer)
-  (define-key map (kbd "l") #'forward-char)
-  (define-key map (kbd "h") #'backward-char)
-  (define-key map (kbd "w") #'forward-word)
-  (define-key map (kbd "W") #'backward-word)
-  (define-key map (kbd "v") #'set-mark-command))
+(defun define-vim-keys (keymap)
+  "Define Vim's keybinds as KEYMAP."
+  (define-key keymap (kbd "0") #'beginning-of-line)
+  (define-key keymap (kbd "^") #'beginning-of-line-text)
+  (define-key keymap (kbd "$") #'end-of-line)
+  (define-key keymap (kbd "j") #'next-line)
+  (define-key keymap (kbd "k") #'previous-line)
+  (define-key keymap (kbd "J") #'scroll-up-line)
+  (define-key keymap (kbd "K") #'scroll-down-line)
+  (define-key keymap (kbd "b") #'scroll-down-command)
+  (define-key keymap (kbd "g") #'beginning-of-buffer)
+  (define-key keymap (kbd "G") #'end-of-buffer)
+  (define-key keymap (kbd "l") #'forward-char)
+  (define-key keymap (kbd "h") #'backward-char)
+  (define-key keymap (kbd "w") #'forward-to-word)
+  (define-key keymap (kbd "W") #'forward-word)
+  (define-key keymap (kbd "b") #'backward-to-word)
+  (define-key keymap (kbd "B") #'backward-word)
+  (define-key keymap (kbd "v") #'set-mark-command))
 
 (provide 'pre-init-keymap-utils)
 

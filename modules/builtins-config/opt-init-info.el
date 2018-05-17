@@ -38,7 +38,7 @@
 (add-to-list 'Info-additional-directory-list (concat user-emacs-directory "share/info"))
 
 ;;;; Keymap
-(define-vimlike-key-sets Info-mode-map)
+(define-vim-keys Info-mode-map)
 (define-key Info-mode-map (kbd "!")   #'Info-help)
 (define-key Info-mode-map (kbd "b")   #'Info-scroll-down)
 (define-key Info-mode-map (kbd "o")   #'Info-follow-nearest-node)
