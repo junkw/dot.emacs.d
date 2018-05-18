@@ -42,7 +42,8 @@
   (define-key keymap (kbd "k") #'previous-line)
   (define-key keymap (kbd "J") #'scroll-up-line)
   (define-key keymap (kbd "K") #'scroll-down-line)
-  (define-key keymap (kbd "b") #'scroll-down-command)
+  (define-key keymap (kbd "u") #'scroll-up-command)
+  (define-key keymap (kbd "d") #'scroll-down-command)
   (define-key keymap (kbd "g") #'beginning-of-buffer)
   (define-key keymap (kbd "G") #'end-of-buffer)
   (define-key keymap (kbd "l") #'forward-char)
@@ -51,7 +52,9 @@
   (define-key keymap (kbd "W") #'forward-word)
   (define-key keymap (kbd "b") #'backward-to-word)
   (define-key keymap (kbd "B") #'backward-word)
-  (define-key keymap (kbd "v") #'set-mark-command))
+  (define-key keymap (kbd "v") #'set-mark-command)
+  (define-key keymap (kbd "*") #'isearch-forward-symbol-at-point)
+  keymap)
 
 (provide 'pre-init-keymap-utils)
 

@@ -41,7 +41,6 @@
 (define-vim-keys view-mode-map)
 (define-key view-mode-map (kbd "J") #'View-scroll-line-forward)
 (define-key view-mode-map (kbd "K") #'View-scroll-line-forward)
-(define-key view-mode-map (kbd "b") #'View-scroll-page-backward)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

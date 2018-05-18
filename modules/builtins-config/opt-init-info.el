@@ -40,13 +40,18 @@
 ;;;; Keymap
 (define-vim-keys Info-mode-map)
 (define-key Info-mode-map (kbd "!")   #'Info-help)
-(define-key Info-mode-map (kbd "b")   #'Info-scroll-down)
-(define-key Info-mode-map (kbd "o")   #'Info-follow-nearest-node)
 (define-key Info-mode-map (kbd ":")   #'Info-goto-node)
+(define-key Info-mode-map (kbd "o")   #'Info-follow-nearest-node)
+(define-key Info-mode-map (kbd "D")   #'Info-directory)
+(define-key Info-mode-map (kbd "U")   #'Info-up)
+(define-key Info-mode-map (kbd "u")   #'Info-scroll-up)
+(define-key Info-mode-map (kbd "d")   #'Info-scroll-down)
+(define-key Info-mode-map (kbd "{")   #'Info-next-reference)
+(define-key Info-mode-map (kbd "}")   #'Info-prev-reference)
 (define-key Info-mode-map (kbd "M-n") #'Info-next-reference)
 (define-key Info-mode-map (kbd "M-p") #'Info-prev-reference)
-(define-key Info-mode-map (kbd "B")   #'Info-history-back)
-(define-key Info-mode-map (kbd "F")   #'Info-history-forward)
+(define-key Info-mode-map (kbd "H")   #'Info-history-back)
+(define-key Info-mode-map (kbd "L")   #'Info-history-forward)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
