@@ -1,4 +1,4 @@
-;;; lazy-init-help.el --- Emacs init file
+;;; opt-init-help.el --- Emacs init file
 
 ;; Copyright (C) 2016  Jumpei KAWAMI
 
@@ -36,9 +36,10 @@
 (setq text-quoting-style 'straight)
 
 ;;;; Keymap
-(define-vim-keys help-mode-map)
-(define-key help-mode-map (kbd "<") #'help-go-back)
-(define-key help-mode-map (kbd ">") #'help-go-forward)
+(with-eval-after-load 'help-mode
+  (define-vim-keys help-mode-map)
+  (define-key help-mode-map (kbd "<") #'help-go-back)
+  (define-key help-mode-map (kbd ">") #'help-go-forward))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -47,4 +48,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; lazy-init-help.el ends here
+;;; opt-init-help.el ends here
