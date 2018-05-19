@@ -31,9 +31,9 @@
 
 ;;; Code:
 
+;;;; General
 (require 'thingatpt)
 
-;;;; General
 ;; TAB
 (setq-default tab-width 4)
 
@@ -71,6 +71,12 @@
 
 (add-hook 'prog-mode-hook 'jkw:font-lock-comment-annotations)
 
+;;;; Documentation
+(require 'eldoc)
+(setq eldoc-idle-delay 0.2)
+(setq eldoc-minor-mode-string "")
+(setq eldoc-echo-area-use-multiline-p t)
+
 ;; Whitespace
 (require 'whitespace)
 (setq whitespace-space-regexp "\\( +\\|\x3000+\\)") ; mono and multi-byte space
@@ -86,14 +92,15 @@
         (newline-mark ?\n     [?$ ?\n])
         (tab-mark     ?\t     [?\u00BB ?\t]  [?\\ ?\t])))
 
-;; Remove unneeded whitespace when saving a file
 (defvar delete-trailing-whitespace--enabled-flag-p t)
 (defun delete-trailing-whitespace--enabled-flag (orig-fun &rest args)
-  "If `delete-trailing-whitespace--enabled-flag-p' is nil, don't excute `delete-trailing-whitespace'.
+  "Remove unneeded whitespace when saving a file.
 
-(set (make-local-variable 'delete-trailing-whitespace--enabled-flag-p) nil)
+If `delete-trailing-whitespace--enabled-flag-p' is nil, don't excute
+`delete-trailing-whitespace'.
+\"(set (make-local-variable 'delete-trailing-whitespace--enabled-flag-p) nil)\"
 
-Advice function for `delete-trailing-whitespace'."
+Advice function for ORIG-FUN `delete-trailing-whitespace' (the ARGS is region)."
   (if delete-trailing-whitespace--enabled-flag-p
       (apply orig-fun args)))
 (advice-add 'delete-trailing-whitespace :around #'delete-trailing-whitespace--enabled-flag)
@@ -114,7 +121,7 @@ Advice function for `delete-trailing-whitespace'."
 (defun kill-region--or-kill-word (orig-fun &rest args)
   "Typing `\\[kill-region]' without mark, kill the previous word.
 
-Advice function for `kill-region'."
+Advice function for ORIG-FUN `kill-region' (the ARGS is region)."
   (if (and (called-interactively-p 'any) transient-mark-mode (not mark-active))
       (backward-kill-word 1)
     (apply orig-fun args)))
@@ -206,12 +213,14 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 
 ;; Rectangle
 ;; https://twitter.com/rubikitch/status/718219606578589697
-(defun quote-rectangle (s e)
-  "Quote the region-rectangle."
+(defun quote-rectangle (start end)
+  "Quote region from START to END."
   (interactive "r")
-  (string-rectangle s e "> "))
+  (string-rectangle start end "> "))
 
 ;;;; Keymap
+(find-function-setup-keys)
+
 (global-set-key (kbd "M-/")   #'hippie-expand) ; replace `dabbrev-expand'
 (global-set-key (kbd "M-d")   #'kill-word-dwim)
 (global-set-key (kbd "M-SPC") #'cycle-spacing) ; replace `just-one-space'

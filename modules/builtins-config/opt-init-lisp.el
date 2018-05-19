@@ -31,17 +31,7 @@
 
 ;;; Code:
 
-(require 'cl-lib)
 (require 'pre-init-hook-utils)
-
-(find-function-setup-keys)
-
-;;;; Documentation
-(require 'eldoc)
-(setq eldoc-idle-delay 0.2)
-(setq eldoc-minor-mode-string "")
-(setq eldoc-echo-area-use-multiline-p t)
-(add-hook 'ielm-mode-hook #'eldoc-mode)
 
 ;;;; Hooks
 (defun jkw:lisp-mode-init ()
@@ -52,6 +42,7 @@
   (add-to-list 'imenu-generic-expression '("Sections" "\\`;;;; \\(.+\\)\\'" 1) t))
 
 (add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) #'jkw:lisp-mode-init)
+(add-hook 'ielm-mode-hook #'eldoc-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
