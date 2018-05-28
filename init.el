@@ -84,10 +84,11 @@
 (defvar init-module-errors nil)
 (setq package--init-file-ensured t)
 (setq package-enable-at-startup nil)
+(setq custom-file (concat init-module-local-config-directory "pre-init-private-custom-variables.el"))
 
 ;;;; Internal functions
 (defun init-module--list-files (directory regexp)
-  "[internal] Show init modules containing a match for REGEXP in DIRECTORY of `init-module-modules-directory'.
+  "[internal] Show init modules containing in DIRECTORY with matching REGEXP.
 
 If a elisp file has a byte-compiled file, show the byte-compiled file only."
   (cl-loop for el in (directory-files directory t)
