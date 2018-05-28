@@ -70,13 +70,13 @@
 
 (setq jkw:el-get-package-list-from-recipe
       '(ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile beginend cl-lib-highlight
-                    composer dash-at-point dumb-jump e2wm e2wm-bookmark electric-align eldoc-extension
-                    elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck flyspell-correct
-                    geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop highlight-defined
-                    highlight-symbol info+ js2-mode json-mode lispxmp magit magit-lfs magit-svn
-                    markdown-mode monokai-theme multiple-cursors mwim neotree nlinum-relative org-mode
-                    org-reveal ox-pandoc php-mode phpunit psvn rainbow-mode recentf-ext rg scratch-ext
-                    smart-newline ssh-deploy sql-indent sqlup-mode viewer web-mode wgrep yaml-mode))
+                    composer csv-mode dash-at-point dumb-jump e2wm e2wm-bookmark electric-align
+                    eldoc-extension elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck
+                    flyspell-correct geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop
+                    highlight-defined highlight-symbol info+ js2-mode json-mode lispxmp magit magit-lfs
+                    magit-svn markdown-mode monokai-theme multiple-cursors mwim neotree nlinum-relative
+                    org-mode org-reveal ox-pandoc php-mode phpunit psvn rainbow-mode recentf-ext rg
+                    scratch-ext smart-newline ssh-deploy sql-indent sqlup-mode viewer web-mode wgrep yaml-mode))
 
 (setq jkw:el-get-postloaded-package-list-from-recipe
       (append (when has-phan-p    '(flycheck-phanclient phan))
