@@ -37,7 +37,6 @@
 (add-to-list 'auto-mode-alist '("\\.html\\.php\\'" . web-mode))
 
 (with-eval-after-load 'web-mode
-  (add-to-list 'which-func-modes 'web-mode)
   (setq web-mode-engines-alist '(("php" . "\\.html\\.php\\'")))
   (setq web-mode-enable-auto-pairing nil)
   (setq web-mode-enable-auto-indentation nil)

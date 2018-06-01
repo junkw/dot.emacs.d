@@ -34,7 +34,6 @@
 (add-to-list 'auto-mode-alist '("\\.inc\\'" . php-mode))
 
 (with-eval-after-load 'php-mode
-  (add-to-list 'which-func-modes 'php-mode)
   (setq php-manual-url 'ja)
   (setq php-mode-coding-style 'psr2)
   (setq php-lineup-cascaded-calls t)

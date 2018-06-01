@@ -35,8 +35,7 @@
 
 (with-eval-after-load 'js2-mode
   (require 'js2-imenu-extras)
-  (js2-imenu-extras-setup)
-  (add-to-list 'which-func-modes 'js2-mode))
+  (js2-imenu-extras-setup))
 
 ;;;; Hooks
 (defun jkw:js2-mode-init ()
