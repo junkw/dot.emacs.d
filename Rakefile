@@ -74,9 +74,7 @@ task :tag do
 end
 
 task :install_elget do
-  s = '(setq el-get-dir (concat user-emacs-directory "vendor/")) (setq init-module-safe-mode-p t)'
-
-  sh "#{emacs_cmd} -L #{core_dir} --eval '#{s}' -l opt-init-packages -f el-get--installer"
+  sh "git clone --depth 1 --branch master https://github.com/dimitri/el-get.git vendor/el-get"
 end
 
 task :remove_var do
