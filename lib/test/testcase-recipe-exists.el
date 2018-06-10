@@ -1,4 +1,4 @@
-;;; test-package-depends.el --- test case for Emacs init file
+;;; testcase-recipe-exists.el --- test case for Emacs init file
 
 ;; Copyright (C) 2015  Jumpei KAWAMI
 
@@ -33,18 +33,19 @@
 
 (require 'cl-lib)
 (require 'ert)
-(require 'run-tests)
+(require 'test-utils)
 
-(defmacro deftest-package-depends (package)
-  "Define test `test-package-PACKAGE-depends' for checking PACKAGE dependencies."
-  `(ert-deftest ,(intern (format "test-package-%s-depends" package)) ()
-     ,(format "Check if origin dependencies of the %s is subset of the local" package)
-     (should (equal (el-get--difference-origin-and-local-dependencies ',package) nil))))
 
-(let ((packages (el-get--list-local-recipes)))
+(defmacro deftest-recipe-exists (package)
+  "Define test `test-PACKAGE-recipe-exists' for checking PACKAGE recipes."
+  `(ert-deftest ,(intern (format "test-%s-recipe-exists" package)) ()
+     ,(format "Check if the %s recipe exists" package)
+     (should (el-get--recipe-exists-p ',package))))
+
+(let ((packages (el-get--list-installing-packages)))
   (mapc #'(lambda (package)
-            `,(eval `(deftest-package-depends ,package)))
-          packages))
+            `,(eval `(deftest-recipe-exists ,package)))
+        packages))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -52,4 +53,4 @@
 ;; indent-tabs-mode: nil
 ;; End:
 
-;;; test-package-depends.el ends here
+;;; testcase-recipe-exists.el ends here

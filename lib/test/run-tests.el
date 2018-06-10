@@ -60,41 +60,13 @@
 (setq el-get-verbose t)
 (setq el-get-notify-type 'message)
 
-(defvar el-get-origin-recipe-path
-  (file-name-as-directory (concat user-emacs-directory "vendor/el-get/recipes")))
-(defvar el-get-local-recipe-path
-  (file-name-as-directory (concat user-emacs-directory "etc/recipes/")))
-(add-to-list 'el-get-recipe-path el-get-local-recipe-path)
-
 ;;;; Libraries
 (el-get 'sync 'dash)
-
-(require 'el-get-dependencies)
-(require 'dash)
-
-;;;; Internal functions
-(defun el-get--recipe-exists-p (package)
-  "[internal] Return non-nil if PACKAGE recipe exists."
-  (ignore-errors
-    (not (el-get-error-unless-package-p package))))
-
-(defun el-get--list-local-recipes ()
-  "[internal] Show el-get recipe files containing in `el-get-local-recipe-path'."
-  (cl-loop for rcp in (directory-files el-get-local-recipe-path t)
-           when (string-match "\\.rcp\\'" rcp)
-           collect (intern (file-name-base rcp))))
-
-(defun el-get--difference-origin-and-local-dependencies (package)
-  "[internal] Return PACKAGE dependencies list with only the :depends of origin that are not in local."
-  (let* ((el-get-recipe-path `(,el-get-origin-recipe-path ,el-get-local-recipe-path))
-         (origin-depends (el-get-dependencies package))
-         (el-get-recipe-path `(,el-get-local-recipe-path ,el-get-origin-recipe-path))
-         (local-depends (el-get-dependencies package)))
-    (-difference origin-depends local-depends)))
+(require 'test-utils)
 
 ;;;; Test case files
-(load "test-recipe-exists")
-(load "test-package-depends")
+(load "testcase-recipe-exists")
+(load "testcase-package-depends")
 
 ;;;; Run all tests
 (if noninteractive
