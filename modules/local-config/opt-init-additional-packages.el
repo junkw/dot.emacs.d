@@ -54,7 +54,6 @@
          (:name popwin :features popwin)
          (:name powerline :autoloads nil)
          (:name smartparens :features smartparens-config)
-         (:name tabulated-list :builtin "24")
          (:name twittering-mode :features nil)
          (:name undo-tree :features undo-tree)
          (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)
