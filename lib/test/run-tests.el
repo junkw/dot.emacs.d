@@ -37,11 +37,22 @@
 ;;;; Initialize
 (setq debug-on-error t)
 
-(add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "modules/core")))
-(add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "modules/local-config")))
+(defvar init-module-safe-mode-p t)
+(defvar init-module-modules-directory
+  (file-name-as-directory (concat user-emacs-directory "modules")))
+(defvar init-module-builtins-config-directory
+  (file-name-as-directory (concat init-module-modules-directory "builtins-config")))
+(defvar init-module-core-directory
+  (file-name-as-directory (concat init-module-modules-directory "core")))
+(defvar init-module-local-config-directory
+  (file-name-as-directory (concat init-module-modules-directory "local-config")))
+(defvar init-module-vendors-config-directory
+  (file-name-as-directory (concat init-module-modules-directory "vendors-config")))
+
+(add-to-list 'load-path init-module-core-directory)
+(add-to-list 'load-path init-module-local-config-directory)
 (add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "lib/test")))
 
-(defvar init-module-safe-mode-p t)
 (load "opt-init-packages.el" nil t)
 (load "opt-init-additional-packages.el" nil t)
 (require 'el-get)
