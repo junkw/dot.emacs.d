@@ -41,7 +41,7 @@
 (add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "modules/local-config")))
 (add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "lib/test")))
 
-(defvar init-module-test-mode-p t)
+(defvar init-module-safe-mode-p t)
 (load "opt-init-packages.el" nil t)
 (load "opt-init-additional-packages.el" nil t)
 (require 'el-get)
