@@ -49,8 +49,6 @@
          (:name helm-ls-git :depends (helm magit))
          (:name helm-projectile :lazy t :library projectile :after (helm-projectile-on))
          (:name highlight-indentation :features highlight-indentation)
-         (:name pcache
-                :before (setq pcache-directory (concat user-emacs-directory "var/cache/pcache/")))
          (:name popwin :features popwin)
          (:name powerline :autoloads nil)
          (:name smartparens :features smartparens-config)
