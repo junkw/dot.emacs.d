@@ -37,22 +37,11 @@
 ;;;; Initialize
 (setq debug-on-error t)
 
-(setq init-module-modules-directory
-      (file-name-as-directory (concat user-emacs-directory "modules")))
-(setq init-module-builtins-config-directory
-      (file-name-as-directory (concat init-module-modules-directory "builtins-config")))
-(setq init-module-core-directory
-      (file-name-as-directory (concat init-module-modules-directory "core")))
-(setq init-module-local-config-directory
-      (file-name-as-directory (concat init-module-modules-directory "local-config")))
-(setq init-module-vendors-config-directory
-      (file-name-as-directory (concat init-module-modules-directory "vendors-config")))
-
-(add-to-list 'load-path init-module-core-directory)
-(add-to-list 'load-path init-module-local-config-directory)
+(add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "modules/core")))
+(add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "modules/local-config")))
 (add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "lib/test")))
 
-(setq init-module-safe-mode-p t)
+(defvar init-module-test-mode-p t)
 (load "opt-init-packages.el" nil t)
 (load "opt-init-additional-packages.el" nil t)
 (require 'el-get)
@@ -79,13 +68,13 @@
     (not (el-get-error-unless-package-p package))))
 
 (defun el-get--list-local-recipes ()
-  "[internal] Show el-get recipe files containing in `el-get-local-recipe-path'. "
+  "[internal] Show el-get recipe files containing in `el-get-local-recipe-path'."
   (cl-loop for rcp in (directory-files el-get-local-recipe-path t)
            when (string-match "\\.rcp\\'" rcp)
            collect (intern (file-name-base rcp))))
 
 (defun el-get--difference-origin-and-local-dependencies (package)
-  "[internal] Return dependencies list with only the :depends of origin that are not in local."
+  "[internal] Return PACKAGE dependencies list with only the :depends of origin that are not in local."
   (let* ((el-get-recipe-path `(,el-get-origin-recipe-path ,el-get-local-recipe-path))
          (origin-depends (el-get-dependencies package))
          (el-get-recipe-path `(,el-get-local-recipe-path ,el-get-origin-recipe-path))

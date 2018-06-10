@@ -85,7 +85,7 @@
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)
 
-(unless init-module-safe-mode-p
+(unless (or init-module-safe-mode-p init-module-test-mode-p)
   (unless (require 'el-get nil t)
     ;; If el-get is not installed, install it
     (el-get--installer))

@@ -88,7 +88,7 @@
     (el-get 'sync pkg)))
 
 (defun el-get-byte-recompile-all ()
-  "Performs byte-recompile of all installed packages."
+  "Perform byte-recompile of all installed packages."
   (interactive)
   (cl-loop for pkg in (el-get--list-installing-packages)
            do (el-get-byte-compile pkg)

@@ -33,17 +33,19 @@
 
 (require 'cl-lib)
 (require 'ert)
+(require 'run-tests)
+
 
 (defmacro deftest-recipe-exists (package)
+  "Define test `test-PACKAGE-recipe-exists' for checking PACKAGE recipes."
   `(ert-deftest ,(intern (format "test-%s-recipe-exists" package)) ()
      ,(format "Check if the %s recipe exists" package)
      (should (el-get--recipe-exists-p ',package))))
 
-(defun deftest-recipe-exists-func (package)
-  (eval `(deftest-recipe-exists ,package)))
-
 (let ((packages (el-get--list-installing-packages)))
-  (mapcar 'deftest-recipe-exists-func packages))
+  (mapc #'(lambda (package)
+            `,(eval `(deftest-recipe-exists ,package)))
+        packages))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

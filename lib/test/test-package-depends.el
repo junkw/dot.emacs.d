@@ -33,17 +33,18 @@
 
 (require 'cl-lib)
 (require 'ert)
+(require 'run-tests)
 
 (defmacro deftest-package-depends (package)
+  "Define test `test-package-PACKAGE-depends' for checking PACKAGE dependencies."
   `(ert-deftest ,(intern (format "test-package-%s-depends" package)) ()
      ,(format "Check if origin dependencies of the %s is subset of the local" package)
      (should (equal (el-get--difference-origin-and-local-dependencies ',package) nil))))
 
-(defun deftest-package-depends-func (package)
-  (eval `(deftest-package-depends ,package)))
-
 (let ((packages (el-get--list-local-recipes)))
-  (mapcar 'deftest-package-depends-func packages))
+  (mapc #'(lambda (package)
+            `,(eval `(deftest-package-depends ,package)))
+          packages))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
