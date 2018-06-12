@@ -34,7 +34,7 @@
 (require 'pre-init-hook-utils)
 
 (defun jkw:company-backends-for-web-mode-init ()
-  "[inwebal] Set `company-backends' for web-mode."
+  "[inwebal] Set `company-backends' for `web-mode'."
   (add-to-list (make-local-variable 'company-backends) 'company-tern)
   (add-to-list (make-local-variable 'company-backends) 'company-css)
   (add-to-list (make-local-variable 'company-backends) 'company-web-html))

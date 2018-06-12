@@ -67,7 +67,7 @@
       (ssh-deploy-upload-handler)))
 
 (defun ssh-depoy-auto-store-remote-changes ()
-  "[internal] To setup automatic storing of base revisions and detection of remote changes do with `find-file-hook'."
+  "[internal] To setup automatic storing of base revisions and detection of remote change do with `find-file-hook'."
   (if ssh-deploy-automatically-detect-remote-changes
       (ssh-deploy-remote-changes-handler)))
 

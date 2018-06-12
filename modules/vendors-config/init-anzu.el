@@ -36,7 +36,7 @@
 (setq anzu-mode-lighter "")
 
 (defun jkw:anzu-update-format (here total)
-  "Set anzu format and face on mode line."
+  "Set format \"[HERE/TOTAL]\" and face for Anzu on mode line."
   (propertize (format " [%d/%d]" here total)
               'face '((:foreground "#CDF187" :weight bold))))
 (setq anzu-mode-line-update-function #'jkw:anzu-update-format)

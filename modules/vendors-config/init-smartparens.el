@@ -45,7 +45,9 @@
 
 ;;;; Functions
 (defun sp-point-on-web-mode-p (id action context)
-  "Return t if point is code on web-mode, nil otherwise."
+  "Return t if point is code on `web-mode', nil otherwise.
+
+Function `sp-show--pair-function' needs arguments ID, ACTION and CONTEXT."
   (when (and (eq action 'insert)
              (not (or (get-text-property (point) 'part-side)
                       (get-text-property (point) 'block-side))))
