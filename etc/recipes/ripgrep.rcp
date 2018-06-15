@@ -1,5 +1,0 @@
-(:name ripgrep
-       :description "Front-end for ripgrep, a command line search tool."
-       :website     "https://github.com/nlamirault/ripgrep.el"
-       :type        github
-       :pkgname     "nlamirault/ripgrep.el")

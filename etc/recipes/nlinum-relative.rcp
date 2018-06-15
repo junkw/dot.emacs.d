@@ -1,6 +1,0 @@
-(:name nlinum-relative
-       :description "Relative line number with nlinum."
-       :website     "https://github.com/CodeFalling/nlinum-relative"
-       :type        github
-       :pkgname     "CodeFalling/nlinum-relative"
-       :depends     nlinum)

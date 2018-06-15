@@ -1,6 +1,0 @@
-(:name elisp-lint
-       :description "basic linting for Emacs Lisp."
-       :website     "https://github.com/gonewest818/elisp-lint"
-       :type        github
-       :pkgname     "gonewest818/elisp-lint"
-       :features    elisp-lint)
