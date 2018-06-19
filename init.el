@@ -101,7 +101,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 (cl-defun init-module--load-file (file &optional (initerror nil))
   "[internal] Load elisp file."
   (let ((module (file-name-sans-extension file)))
-    (condition-case err
+    (condition-case-unless-debug err
         (load module)
       (error
        (message (format "[Error in module %s] %s" module (error-message-string err)))
@@ -124,7 +124,7 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 (cl-defun init-module--require-file (file &optional (initerror nil))
   "[internal] Require elisp file."
   (let ((feature (intern (file-name-base file))))
-    (condition-case err
+    (condition-case-unless-debug err
         (when (require feature)
           (message (format "Requiring %s...done" feature)))
       (error
