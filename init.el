@@ -81,7 +81,7 @@
 (defvar init-module-safe-mode-p (file-exists-p init-module-initerror-file)
   "Return t as safe mode if initerror file exists.")
 
-(defvar init-module-errors nil)
+(defvar init-module-has-critical-errors-p nil)
 (setq package--init-file-ensured t)
 (setq package-enable-at-startup nil)
 (setq custom-file (concat init-module-local-config-directory "pre-init-private-custom-variables.el"))
@@ -98,19 +98,19 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
                               (not (locate-library (concat el "c"))))))
            collect (file-name-nondirectory el)))
 
-(cl-defun init-module--load-file (file &optional (initerror nil))
+(cl-defun init-module--load-file (file &optional (noerror t))
   "[internal] Load elisp file."
   (let ((module (file-name-sans-extension file)))
     (condition-case-unless-debug err
-        (load module)
+        (load module noerror)
       (error
-       (message (format "[Error in module %s] %s" module (error-message-string err)))
-       (if initerror (setq init-module-errors t))))))
+       (setq init-module-has-critical-errors-p t)
+       (message (format "[Error in module %s] %s" module (error-message-string err)))))))
 
-(cl-defun init-module--load-files (directory regexp &optional (initerror nil))
+(cl-defun init-module--load-files (directory regexp &optional noerror)
   "[internal] Load init modules in DIRECTORY matching the REGEXP specified."
   (cl-loop for file in (init-module--list-files directory regexp)
-           do (init-module--load-file file initerror)))
+           do (init-module--load-file file (if debug-on-error nil noerror))))
 
 (cl-defun init-module--lazy-load-files (directory regexp)
   "[internal] Lazy load init modules in DIRECTORY matching the REGEXP specified."
@@ -121,24 +121,24 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
            do (eval-after-load feature
                 `(init-module--load-file ',file))))
 
-(cl-defun init-module--require-file (file &optional (initerror nil))
+(cl-defun init-module--require-file (file &optional (noerror t))
   "[internal] Require elisp file."
   (let ((feature (intern (file-name-base file))))
     (condition-case-unless-debug err
-        (when (require feature)
+        (when (require feature nil noerror)
           (message (format "Requiring %s...done" feature)))
       (error
-       (message (format "[Error in module %s] %s" feature (error-message-string err)))
-       (if initerror (setq init-feature-errors t))))))
+       (setq init-module-has-critical-errors-p t)
+       (message (format "[Error in module %s] %s" feature (error-message-string err)))))))
 
-(cl-defun init-module--require-files (directory regexp &optional (initerror nil))
+(cl-defun init-module--require-files (directory regexp &optional (noerror t))
   "[internal] Require init modules in DIRECTORY matching the REGEXP specified."
   (cl-loop for file in (init-module--list-files directory regexp)
-           do (init-module--require-file file initerror)))
+           do (init-module--require-file file (if debug-on-error nil noerror))))
 
 (defun init-module--save-initerror-file ()
   "[internal] Save error message on loading init modules."
-  (if init-module-errors
+  (if init-module-has-critical-errors-p
       (with-current-buffer "*Messages*"
         (write-file init-module-initerror-file))))
 
@@ -149,12 +149,12 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 
   (unless init-module-safe-mode-p
     (if (null window-system)
-        (init-module--load-files init-module-builtins-config-directory init-module-cui-init-regexp t)
-      (init-module--load-files init-module-builtins-config-directory init-module-gui-init-regexp t))
+        (init-module--load-files init-module-builtins-config-directory init-module-cui-init-regexp)
+      (init-module--load-files init-module-builtins-config-directory init-module-gui-init-regexp))
 
-    (init-module--load-files init-module-builtins-config-directory init-module-opt-init-regexp t)
+    (init-module--load-files init-module-builtins-config-directory init-module-opt-init-regexp)
     (init-module--lazy-load-files init-module-builtins-config-directory init-module-lazy-init-regexp)
-    (init-module--load-files init-module-builtins-config-directory init-module-post-init-regexp t)))
+    (init-module--load-files init-module-builtins-config-directory init-module-post-init-regexp)))
 
 (defun init-module--local-config-initialize ()
   "[internal] Initialize Emacs init files in `init-module-local-config-directory'."
@@ -163,12 +163,12 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 
   (unless init-module-safe-mode-p
     (if (null window-system)
-        (init-module--load-files init-module-local-config-directory init-module-cui-init-regexp t)
-      (init-module--load-files init-module-local-config-directory init-module-gui-init-regexp t))
+        (init-module--load-files init-module-local-config-directory init-module-cui-init-regexp)
+      (init-module--load-files init-module-local-config-directory init-module-gui-init-regexp))
 
-    (init-module--load-files init-module-local-config-directory init-module-opt-init-regexp t)
+    (init-module--load-files init-module-local-config-directory init-module-opt-init-regexp)
     (init-module--lazy-load-files init-module-local-config-directory init-module-lazy-init-regexp)
-    (init-module--load-files init-module-local-config-directory init-module-post-init-regexp t)))
+    (init-module--load-files init-module-local-config-directory init-module-post-init-regexp)))
 
 (defun init-module--core-initialize ()
   "[internal] Initialize Emacs init files in `init-module-core-directory'."
@@ -177,11 +177,11 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
 
   (unless init-module-safe-mode-p
     (if (null window-system)
-        (init-module--require-files init-module-core-directory init-module-cui-init-regexp t)
-      (init-module--require-files init-module-core-directory init-module-gui-init-regexp t))
+        (init-module--require-files init-module-core-directory init-module-cui-init-regexp)
+      (init-module--require-files init-module-core-directory init-module-gui-init-regexp))
 
-    (init-module--require-files init-module-core-directory init-module-opt-init-regexp t)
-    (init-module--require-files init-module-core-directory init-module-post-init-regexp t)))
+    (init-module--require-files init-module-core-directory init-module-opt-init-regexp)
+    (init-module--require-files init-module-core-directory init-module-post-init-regexp)))
 
 ;;;; Command
 (defun init-module-initialize ()
