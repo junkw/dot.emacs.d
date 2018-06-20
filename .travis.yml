@@ -25,4 +25,4 @@ before_script:
   - rake travis
 
 script:
-  - rake test
+  - rake tests
