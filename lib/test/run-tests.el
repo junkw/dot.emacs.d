@@ -41,8 +41,6 @@
 (defvar init-module-modules-path
   (file-name-as-directory (concat user-emacs-directory "modules")))
 (defvar init-module-core-path
-  (file-name-as-directory (concat init-module-modules-path "builtins-config")))
-(defvar init-module-core-directory
   (file-name-as-directory (concat init-module-modules-path "core")))
 (defvar init-module-local-config-path
   (file-name-as-directory (concat init-module-modules-path "local-config")))
