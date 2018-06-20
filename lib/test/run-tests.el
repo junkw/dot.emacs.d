@@ -38,19 +38,19 @@
 (setq debug-on-error t)
 
 (defvar init-module-safe-mode-p t)
-(defvar init-module-modules-directory
+(defvar init-module-modules-path
   (file-name-as-directory (concat user-emacs-directory "modules")))
-(defvar init-module-builtins-config-directory
-  (file-name-as-directory (concat init-module-modules-directory "builtins-config")))
+(defvar init-module-core-path
+  (file-name-as-directory (concat init-module-modules-path "builtins-config")))
 (defvar init-module-core-directory
-  (file-name-as-directory (concat init-module-modules-directory "core")))
-(defvar init-module-local-config-directory
-  (file-name-as-directory (concat init-module-modules-directory "local-config")))
-(defvar init-module-vendors-config-directory
-  (file-name-as-directory (concat init-module-modules-directory "vendors-config")))
+  (file-name-as-directory (concat init-module-modules-path "core")))
+(defvar init-module-local-config-path
+  (file-name-as-directory (concat init-module-modules-path "local-config")))
+(defvar init-module-vendors-config-path
+  (file-name-as-directory (concat init-module-modules-path "vendors-config")))
 
-(add-to-list 'load-path init-module-core-directory)
-(add-to-list 'load-path init-module-local-config-directory)
+(add-to-list 'load-path init-module-core-path)
+(add-to-list 'load-path init-module-local-config-path)
 (add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "lib/test")))
 
 (load "opt-init-packages.el" nil t)

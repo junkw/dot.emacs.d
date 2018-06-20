@@ -38,42 +38,42 @@
 
 ;;;; Variables
 (defvar init-module-pre-init-regexp "\\`pre-init-"
-  "Regular expression of init module names for pre loading.")
+  "Regular expression of init module name for pre loading.")
 
 (defvar init-module-cui-init-regexp "\\`cui-init-"
-  "Regular expression of no-window Emacs init module names.")
+  "Regular expression of init module name for no-window Emacs.")
 
 (defvar init-module-gui-init-regexp "\\`gui-init-"
-  "Regular expression of window Emacs init module names.")
+  "Regular expression of init module name for window Emacs.")
 
 (defvar init-module-opt-init-regexp "\\`opt-init-"
-  "Regular expression of init module names for optional loading.")
+  "Regular expression of init module name for optional loading.")
 
 (defvar init-module-lazy-init-regexp "\\`lazy-init-\\(.+\\)\\.elc?\\'"
-  "Regular expression of init module names for lazy loading.")
+  "Regular expression of init module name for lazy loading.")
 
 (defvar init-module-post-init-regexp "\\`post-init-"
-  "Regular expression of init module names for post loading.")
+  "Regular expression of init module name for post loading.")
 
-(defvar init-module-modules-directory
+(defvar init-module-modules-path
   (file-name-as-directory (concat user-emacs-directory "modules"))
-  "`init-module-modules-directory' contains init modules.")
+  "`init-module-modules-path' contains init modules.")
 
-(defvar init-module-builtins-config-directory
-  (file-name-as-directory (concat init-module-modules-directory "builtins-config"))
-  "`init-module-builtins-config-directory' contains built-in packages init files.")
+(defvar init-module-core-path
+  (file-name-as-directory (concat init-module-modules-path "core"))
+  "`init-module-core-path' contains libraries for initializetion.")
 
-(defvar init-module-core-directory
-  (file-name-as-directory (concat init-module-modules-directory "core"))
-  "`init-module-core-directory' contains library for initializetion.")
+(defvar init-module-builtins-config-path
+  (file-name-as-directory (concat init-module-modules-path "builtins-config"))
+  "`init-module-builtins-config-path' contains built-in packages' init files.")
 
-(defvar init-module-local-config-directory
-  (file-name-as-directory (concat init-module-modules-directory "local-config"))
-  "`init-module-local-config-directory' contains local init files.")
+(defvar init-module-local-config-path
+  (file-name-as-directory (concat init-module-modules-path "local-config"))
+  "`init-module-local-config-path' contains local or private init files.")
 
-(defvar init-module-vendors-config-directory
-  (file-name-as-directory (concat init-module-modules-directory "vendors-config"))
-  "`init-module-vendors-config-directory' contains el-get init files.")
+(defvar init-module-vendors-config-path
+  (file-name-as-directory (concat init-module-modules-path "vendors-config"))
+  "`init-module-vendors-config-path' contains el-get init files.")
 
 (defvar init-module-initerror-file (concat user-emacs-directory "var/initerror")
   "Log file on loading init modules.")
@@ -84,7 +84,9 @@
 (defvar init-module-has-critical-errors-p nil)
 (setq package--init-file-ensured t)
 (setq package-enable-at-startup nil)
-(setq custom-file (concat init-module-local-config-directory "pre-init-private-custom-variables.el"))
+
+(defvar custom-file--filename "pre-init-private-custom-variables.el")
+(setq custom-file (concat init-module-local-config-path custom-file--filename))
 
 ;;;; Internal functions
 (defun init-module--list-files (directory regexp)
@@ -105,7 +107,11 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
         (load module noerror)
       (error
        (setq init-module-has-critical-errors-p t)
-       (message (format "[Error in module %s] %s" module (error-message-string err)))))))
+       (message
+        (format "[Error in module %s] %s"
+                module
+                (error-message-string err))
+        )))))
 
 (cl-defun init-module--load-files (directory regexp &optional noerror)
   "[internal] Load init modules in DIRECTORY matching the REGEXP specified."
@@ -129,7 +135,11 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
           (message (format "Requiring %s...done" feature)))
       (error
        (setq init-module-has-critical-errors-p t)
-       (message (format "[Error in module %s] %s" feature (error-message-string err)))))))
+       (message
+        (format "[Error in module %s] %s"
+                feature
+                (error-message-string err))
+        )))))
 
 (cl-defun init-module--require-files (directory regexp &optional (noerror t))
   "[internal] Require init modules in DIRECTORY matching the REGEXP specified."
@@ -143,45 +153,45 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
         (write-file init-module-initerror-file))))
 
 (defun init-module--builtins-config-initialize ()
-  "[internal] Initialize Emacs init files in `init-module-builtins-config-directory'."
-  (add-to-list 'load-path init-module-builtins-config-directory)
-  (init-module--load-files init-module-builtins-config-directory init-module-pre-init-regexp)
+  "[internal] Initialize Emacs init files in `init-module-builtins-config-path'."
+  (add-to-list 'load-path init-module-builtins-config-path)
+  (init-module--load-files          init-module-builtins-config-path init-module-pre-init-regexp nil)
 
   (unless init-module-safe-mode-p
     (if (null window-system)
-        (init-module--load-files init-module-builtins-config-directory init-module-cui-init-regexp)
-      (init-module--load-files init-module-builtins-config-directory init-module-gui-init-regexp))
+        (init-module--load-files    init-module-builtins-config-path init-module-cui-init-regexp)
+      (init-module--load-files      init-module-builtins-config-path init-module-gui-init-regexp))
 
-    (init-module--load-files init-module-builtins-config-directory init-module-opt-init-regexp)
-    (init-module--lazy-load-files init-module-builtins-config-directory init-module-lazy-init-regexp)
-    (init-module--load-files init-module-builtins-config-directory init-module-post-init-regexp)))
+    (init-module--load-files        init-module-builtins-config-path init-module-opt-init-regexp)
+    (init-module--lazy-load-files   init-module-builtins-config-path init-module-lazy-init-regexp)
+    (init-module--load-files        init-module-builtins-config-path init-module-post-init-regexp)))
 
 (defun init-module--local-config-initialize ()
-  "[internal] Initialize Emacs init files in `init-module-local-config-directory'."
-  (add-to-list 'load-path init-module-local-config-directory)
-  (init-module--load-files init-module-local-config-directory init-module-pre-init-regexp)
+  "[internal] Initialize Emacs init files in `init-module-local-config-path'."
+  (add-to-list 'load-path init-module-local-config-path)
+  (init-module--load-files          init-module-local-config-path init-module-pre-init-regexp)
 
   (unless init-module-safe-mode-p
     (if (null window-system)
-        (init-module--load-files init-module-local-config-directory init-module-cui-init-regexp)
-      (init-module--load-files init-module-local-config-directory init-module-gui-init-regexp))
+        (init-module--load-files    init-module-local-config-path init-module-cui-init-regexp)
+      (init-module--load-files      init-module-local-config-path init-module-gui-init-regexp))
 
-    (init-module--load-files init-module-local-config-directory init-module-opt-init-regexp)
-    (init-module--lazy-load-files init-module-local-config-directory init-module-lazy-init-regexp)
-    (init-module--load-files init-module-local-config-directory init-module-post-init-regexp)))
+    (init-module--load-files        init-module-local-config-path init-module-opt-init-regexp)
+    (init-module--lazy-load-files   init-module-local-config-path init-module-lazy-init-regexp)
+    (init-module--load-files        init-module-local-config-path init-module-post-init-regexp)))
 
 (defun init-module--core-initialize ()
-  "[internal] Initialize Emacs init files in `init-module-core-directory'."
-  (add-to-list 'load-path init-module-core-directory)
-  (init-module--require-files init-module-core-directory init-module-pre-init-regexp)
+  "[internal] Initialize Emacs init files in `init-module-core-path'."
+  (add-to-list 'load-path init-module-core-path)
+  (init-module--require-files       init-module-core-path init-module-pre-init-regexp nil)
 
   (unless init-module-safe-mode-p
     (if (null window-system)
-        (init-module--require-files init-module-core-directory init-module-cui-init-regexp)
-      (init-module--require-files init-module-core-directory init-module-gui-init-regexp))
+        (init-module--require-files init-module-core-path init-module-cui-init-regexp)
+      (init-module--require-files   init-module-core-path init-module-gui-init-regexp))
 
-    (init-module--require-files init-module-core-directory init-module-opt-init-regexp)
-    (init-module--require-files init-module-core-directory init-module-post-init-regexp)))
+    (init-module--require-files     init-module-core-path init-module-opt-init-regexp)
+    (init-module--require-files     init-module-core-path init-module-post-init-regexp)))
 
 ;;;; Command
 (defun init-module-initialize ()
