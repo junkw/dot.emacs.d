@@ -7,12 +7,10 @@ emacs_cmd       = "emacs -Q --batch"
 site_lisp_dir   = '/usr/local/share/emacs/site-lisp'
 user_emacs_dir  = "#{Dir.home}/.emacs.d"
 init_module_dir = "#{user_emacs_dir}/modules"
-builtin_conf_dir = "#{init_module_dir}/builtins-config"
 core_dir        = "#{init_module_dir}/core"
-local_conf_dir  = "#{init_module_dir}/local-config"
-vendor_conf_dir = "#{init_module_dir}/vendors-config"
 vendor_dir      = "#{user_emacs_dir}/vendor"
 elget_dir       = "#{vendor_dir}/el-get"
+
 
 task :generate_loaddefs do
   site_lisp_dirs = Dir.glob("#{site_lisp_dir}/*/**/")
@@ -85,7 +83,7 @@ task :remove_elc do
   FileUtils.rm(Dir.glob("#{user_emacs_dir}/{init.elc,modules/*/*.elc}"))
 end
 
-task :run_tests do
+task :run_init_test do
   sh "#{emacs_cmd} -l #{user_emacs_dir}/lib/test/run-tests.el"
 end
 
@@ -102,10 +100,11 @@ task :set_config do
   end
 end
 
+
 task :default => [:generate_loaddefs, :compile]
 task :compile => [:compile_all, :tag]
 task :install => [:set_config, :generate_loaddefs, :link, :make_dir, :compile_init_module, :tag]
 task :travis  => [:link, :make_dir, :install_elget]
 task :clear   => [:remove_var]
 task :cleanup => [:remove_var, :remove_elc, :compile]
-task :test    => [:compile_init_module, :run_tests, :check_recipes]
+task :tests   => [:compile_init_module, :run_init_test, :check_recipes]
