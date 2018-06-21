@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(add-hook 'prog-mode 'highlight-indentation-current-column-mode)
+(add-hook 'prog-mode-hook #'highlight-indentation-current-column-mode)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
