@@ -4,4 +4,5 @@
        :type        github
        :pkgname     "NicolasPetton/zerodark-theme"
        :depends     (cl-lib all-the-icons)
-       :prepare     (add-to-list 'custom-theme-load-path default-directory))
+       :prepare     (add-to-list 'custom-theme-load-path default-directory)
+       :post-init   (load-theme 'zerodark t))

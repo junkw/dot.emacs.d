@@ -1,0 +1,9 @@
+(:name helm-descbinds
+       :description "A convenient `describe-bindings' with `helm'."
+       :website     "https://github.com/emacs-helm/helm-descbinds"
+       :depends     helm
+       :type        github
+       :pkgname     "emacs-helm/helm-descbinds"
+       :lazy        t
+       :library     helm
+       :post-init   (helm-descbinds-mode +1))

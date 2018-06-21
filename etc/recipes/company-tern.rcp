@@ -1,0 +1,6 @@
+(:name company-tern
+       :description "Tern backend for company-mode."
+       :website     "https://github.com/proofit404/company-tern"
+       :depends     (dash company-mode s tern)
+       :type        github
+       :pkgname     "proofit404/company-tern")

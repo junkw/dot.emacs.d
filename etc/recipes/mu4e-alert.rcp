@@ -1,0 +1,8 @@
+(:name mu4e-alert
+       :description "Desktop notifications and modeline display for mu4e."
+       :website     "https://github.com/iqbalansari/mu4e-alert"
+       :type        github
+       :depends     (alert s ht)
+       :pkgname     "iqbalansari/mu4e-alert"
+       :lazy        t
+       :library     mu4e)

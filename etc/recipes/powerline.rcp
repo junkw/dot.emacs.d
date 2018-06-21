@@ -1,0 +1,8 @@
+(:name powerline
+       :description "Rewrite of Powerline."
+       :website     "https://github.com/milkypostman/powerline"
+       :depends     cl-lib
+       :autoloads   nil
+       :type        github
+       :pkgname     "milkypostman/powerline"
+       :features    powerline)

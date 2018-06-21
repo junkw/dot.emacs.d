@@ -1,0 +1,7 @@
+(:name popwin
+       :description "Popup Window Manager for Emacs."
+       :website     "https://github.com/m2ym/popwin-el"
+       :type        github
+       :pkgname     "m2ym/popwin-el"
+       :load-path   ("." "misc")
+       :features    popwin)

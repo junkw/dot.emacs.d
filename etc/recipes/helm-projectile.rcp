@@ -1,0 +1,8 @@
+(:name helm-projectile
+       :description "Helm integration for Projectile."
+       :depends     (cl-lib helm projectile)
+       :type        github
+       :pkgname     "bbatsov/helm-projectile"
+       :lazy        t
+       :library     projectile
+       :post-init   (helm-projectile-on))

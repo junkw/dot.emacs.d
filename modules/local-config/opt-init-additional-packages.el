@@ -36,47 +36,26 @@
 (require 'opt-init-packages)
 
 ;;;; Installed packages via el-get
-(setq el-get-sources
-      (append
-       '((:name ac-php :depends (php-mode company-mode yasnippet xcscope f s) :lazy t :library php-mode)
-         (:name company-mode :depends yasnippet)
-         (:name company-statistics :depends company-mode)
-         (:name company-quickhelp :depends (company-mode pos-tip))
-         (:name company-tern :post-init nil)
-         (:name company-web :depends (company-mode dash cl-lib web-completion-data web-mode))
-         (:name helm :before (setq dired-bind-jump nil))
-         (:name helm-descbinds :before nil :lazy t :library helm :after (helm-descbinds-mode +1))
-         (:name helm-ls-git :depends (helm magit))
-         (:name helm-projectile :lazy t :library projectile :after (helm-projectile-on))
-         (:name highlight-indentation :features highlight-indentation)
-         (:name popwin :features popwin)
-         (:name powerline :autoloads nil)
-         (:name smartparens :features smartparens-config)
-         (:name twittering-mode :features nil)
-         (:name undo-tree :features undo-tree)
-         (:name yasnippet :autoloads "yasnippet.el" :features yasnippet)
-         (:name yasnippet-snippets :features yasnippet-snippets)
-         (:name zerodark-theme :after (load-theme 'zerodark t)))
-       (when has-mu-p
-         '((:name mu4e-alert :depends (alert s ht) :lazy t :library mu4e)))))
-
 (setq jkw:el-get-preloaded-package-list-from-recipe
       (append
-       '(alert editorconfig origami smartrep projectile)
-       (when has-cmigemo-p '(migemo))))
+       '(alert editorconfig origami smartrep projectile undo-tree yasnippet yasnippet-snippets)
+       (when has-cmigemo-p '(migemo))
+       (when has-mu-p      '(mu4e-alert))))
 
 (setq jkw:el-get-package-list-from-recipe
-      '(ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile beginend cl-lib-highlight
-                    composer csv-mode dash-at-point dumb-jump e2wm e2wm-bookmark electric-align
-                    eldoc-extension elisp-slime-nav emmet-mode expand-region foreign-regexp flycheck
-                    flyspell-correct geben gist git-gutter-fringe goto-chg grep-a-lot helm-ag helm-swoop
-                    highlight-defined highlight-symbol info+ js2-mode json-mode lispxmp magit magit-lfs
-                    magit-svn markdown-mode monokai-theme multiple-cursors mwim neotree org-mode org-reveal
-                    ox-pandoc php-mode phpunit psvn rainbow-mode recentf-ext rg scratch-ext smart-newline
-                    ssh-deploy sql-indent sqlup-mode viewer web-mode wgrep yaml-mode))
+      '(ac-php ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile beginend cl-lib-highlight
+               company-mode company-quickhelp company-statistics company-tern company-web composer csv-mode
+               dash-at-point dumb-jump e2wm e2wm-bookmark electric-align eldoc-extension elisp-slime-nav
+               emmet-mode expand-region foreign-regexp flycheck flyspell-correct geben gist git-gutter-fringe
+               goto-chg grep-a-lot helm helm-ag helm-descbinds helm-ls-git helm-projectile helm-swoop
+               highlight-defined highlight-indentation highlight-symbol info+ js2-mode json-mode lispxmp magit
+               magit-lfs magit-svn markdown-mode multiple-cursors mwim neotree org-mode org-reveal ox-pandoc
+               php-mode phpunit psvn rainbow-mode recentf-ext rg scratch-ext smart-newline ssh-deploy sql-indent
+               sqlup-mode twittering-mode viewer web-mode wgrep yaml-mode))
 
 (setq jkw:el-get-postloaded-package-list-from-recipe
-      (append (when has-phan-p    '(flycheck-phanclient phan))
+      (append '(monokai-theme popwin powerline smartparens zerodark-theme)
+              (when has-phan-p    '(flycheck-phanclient phan))
               (when has-phpstan-p '(phpstan))
               (when has-node-p    '(tern vmd-mode))))
 

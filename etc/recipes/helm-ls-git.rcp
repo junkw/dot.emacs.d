@@ -1,0 +1,6 @@
+(:name helm-ls-git
+       :description "Yet another helm to list git file."
+       :website     "https://github.com/emacs-helm/helm-ls-git"
+       :depends     (helm magit)
+       :type        github
+       :pkgname     "emacs-helm/helm-ls-git")

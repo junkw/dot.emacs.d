@@ -1,0 +1,8 @@
+(:name twittering-mode
+       :description "Major mode for Twitter."
+       :website     "http://twmode.sourceforge.net/"
+       :type        github
+       :pkgname     "hayamiz/twittering-mode"
+       :compile     "twittering-mode.el"
+       :prepare     (autoload 'twittering-mode "twittering-mode/twittering-mode"
+                      "Major mode for Twitter" nil t))
