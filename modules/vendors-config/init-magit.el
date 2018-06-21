@@ -1,6 +1,6 @@
 ;;; init-magit.el --- el-get init file for package magit
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Jan. 21, 2013

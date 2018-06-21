@@ -1,6 +1,6 @@
 ;;; init-ag.el --- el-get init file for package ag
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Sep. 4, 2013

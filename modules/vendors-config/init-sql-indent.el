@@ -1,6 +1,6 @@
 ;;; init-sql-indent.el --- el-get init file for package sql-indent
 
-;; Copyright (C) 2018  Jumpei KAWAMI
+;; (C) 2018  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Apr. 24, 2018

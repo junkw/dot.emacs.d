@@ -1,6 +1,6 @@
 ;;; init-org-mode.el --- el-get init file for package org-mode
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Apr. 2, 2013

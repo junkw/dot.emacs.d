@@ -1,6 +1,6 @@
 ;;; pre-init-keymap-utils.el --- Emacs init file
 
-;; Copyright (C) 2017  Jumpei KAWAMI
+;; (C) 2017  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Sep. 10, 2017

@@ -1,6 +1,6 @@
 ;;; init-smart-line.el --- el-get init file for package smart-line
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Dec. 8, 2013

@@ -1,6 +1,6 @@
 ;;; init-nlinum-relative.el --- el-get init file for package nlinum-relative
 
-;; Copyright (C) 2016  Jumpei KAWAMI
+;; (C) 2016  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: May. 17, 2016

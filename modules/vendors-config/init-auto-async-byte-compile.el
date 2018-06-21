@@ -1,6 +1,6 @@
 ;;; init-auto-async-byte-compile.el --- el-get init file for package auto-async-byte-compile
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; (C) 2012  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Oct. 8, 2012

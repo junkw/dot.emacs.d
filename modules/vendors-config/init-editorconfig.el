@@ -1,6 +1,6 @@
 ;;; init-editorconfig.el --- el-get init file for package editorconfig
 
-;; Copyright (C) 2016  Jumpei KAWAMI
+;; (C) 2016  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Jun. 11, 2016

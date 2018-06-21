@@ -1,6 +1,6 @@
 ;;; init-flycheck.el --- el-get init file for package flycheck
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Nov. 10, 2013

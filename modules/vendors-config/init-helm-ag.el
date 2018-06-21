@@ -1,6 +1,6 @@
 ;;; init-helm-ag.el --- el-get init file for package helm-ag
 
-;; Copyright (C) 2014  Jumpei KAWAMI
+;; (C) 2014  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Mar. 12, 2014

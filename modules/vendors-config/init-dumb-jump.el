@@ -1,6 +1,6 @@
 ;;; init-dumb-jump.el --- el-get init file for package dumb-jump
 
-;; Copyright (C) 2016  Jumpei KAWAMI
+;; (C) 2016  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: May. 28, 2016

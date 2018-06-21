@@ -1,6 +1,6 @@
 ;;; init-undo-tree.el --- el-get init file for package undo-tree
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Sep. 30, 2013

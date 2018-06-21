@@ -1,6 +1,6 @@
 ;;; init-el-get.el --- el-get init file for package el-get
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; (C) 2012  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Jul. 25, 2012

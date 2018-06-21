@@ -1,6 +1,6 @@
 ;;; init-ace-jump-mode.el --- el-get init file for package ace-jump-mode
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; (C) 2012  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Oct. 23, 2012

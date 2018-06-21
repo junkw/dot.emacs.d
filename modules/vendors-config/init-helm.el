@@ -1,6 +1,6 @@
 ;;; init-helm.el --- el-get init file for package helm
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Aug. 27, 2013

@@ -1,6 +1,6 @@
 ;;; init-dash-at-point.el --- el-get init file for package dash-at-point
 
-;; Copyright (C) 2013  Jumpei KAWAMI
+;; (C) 2013  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Dec. 1, 2013

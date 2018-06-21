@@ -1,6 +1,6 @@
 ;;; init-goto-chg.el --- el-get init file for package goto-chg
 
-;; Copyright (C) 2012  Jumpei KAWAMI
+;; (C) 2012  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Oct. 25, 2012

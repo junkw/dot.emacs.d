@@ -1,6 +1,6 @@
 ;;; opt-init-packages.el --- Emacs init file
 
-;; Copyright (C) 2015  Jumpei KAWAMI
+;; (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Feb. 21, 2015

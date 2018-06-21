@@ -1,6 +1,6 @@
 ;;; init-sqlup-mode.el --- el-get init file for package sqlup-mode
 
-;; Copyright (C) 2018  Jumpei KAWAMI
+;; (C) 2018  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Apr. 24, 2018

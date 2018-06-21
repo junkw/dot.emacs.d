@@ -1,6 +1,6 @@
 ;;; init-ace-window.el --- el-get init file for package ace-window
 
-;; Copyright (C) 2014  Jumpei KAWAMI
+;; (C) 2014  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Nov. 4, 2014

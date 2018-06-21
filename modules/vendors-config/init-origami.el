@@ -1,6 +1,6 @@
 ;;; init-origami.el --- el-get init file for package origami
 
-;; Copyright (C) 2015  Jumpei KAWAMI
+;; (C) 2015  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Mar. 14, 2015

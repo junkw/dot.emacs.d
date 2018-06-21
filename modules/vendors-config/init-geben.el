@@ -1,6 +1,6 @@
 ;;; init-geben.el --- el-get init file for package geben
 
-;; Copyright (C) 2014  Jumpei KAWAMI
+;; (C) 2014  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Oct. 30, 2014

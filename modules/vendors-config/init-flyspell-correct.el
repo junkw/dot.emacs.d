@@ -1,6 +1,6 @@
 ;;; init-flyspell-correct.el --- el-get init file for package flyspell-correct
 
-;; Copyright (C) 2016  Jumpei KAWAMI
+;; (C) 2016  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: May. 10, 2016

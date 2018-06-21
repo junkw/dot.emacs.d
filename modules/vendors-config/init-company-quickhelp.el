@@ -1,6 +1,6 @@
 ;;; init-company-quickhelp.el --- el-get init file for package company-quickhelp
 
-;; Copyright (C) 2017  Jumpei KAWAMI
+;; (C) 2017  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Sep. 18, 2017
