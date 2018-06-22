@@ -1,4 +1,5 @@
 #!/bin/sh
+
 if [ ${3} -eq 1 ] ; then
 	rake compile
 fi

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rake check_recipes && rake compile_all && rake run_init_test

@@ -1,3 +1,4 @@
 #!/bin/sh
+
 rake remove_elc
 rake compile
