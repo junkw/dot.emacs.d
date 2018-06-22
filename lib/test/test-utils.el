@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(require 'el-get-dependencies)
+(require 'el-get)
 (require 'dash)
 
 
@@ -42,6 +42,9 @@
   (file-name-as-directory (concat user-emacs-directory "etc/recipes/")))
 
 (add-to-list 'el-get-recipe-path el-get-local-recipe-path)
+
+(defvar testcase:ignore-depends '(auto-complete mu4e))
+
 
 ;;;; Internal functions
 (defun el-get--recipe-exists-p (package)
@@ -55,13 +58,21 @@
            when (string-match "\\.rcp\\'" rcp)
            collect (intern (file-name-base rcp))))
 
-(defun el-get--difference-origin-and-local-dependencies (package)
-  "[internal] Return PACKAGE dependencies list with only the :depends of origin that are not in local."
+(defun el-get--list-package-depends (package)
+  "[internal] Return PACKAGE's :depends list."
+  (let* ((source  (el-get-package-def (symbol-name package)))
+         (depends (el-get-as-list (plist-get source :depends))))
+    depends))
+
+(defun el-get--missing-local-dependes (package)
+  "[internal] Return migging dependencies of the local PACKAGE recipe."
   (let* ((el-get-recipe-path `(,el-get-origin-recipe-path ,el-get-local-recipe-path))
-         (origin-depends (el-get-dependencies package))
+         (origin              (el-get--list-package-depends package))
          (el-get-recipe-path `(,el-get-local-recipe-path ,el-get-origin-recipe-path))
-         (local-depends (el-get-dependencies package)))
-    (-difference origin-depends local-depends)))
+         (local               (el-get--list-package-depends package))
+         (missing             (-difference (-union testcase:ignore-depends (-difference origin local))
+                                           testcase:ignore-depends)))
+    missing))
 
 (provide 'test-utils)
 

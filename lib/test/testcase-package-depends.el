@@ -41,7 +41,7 @@
   "Define test `test-package-PACKAGE-depends' for checking PACKAGE dependencies."
   `(ert-deftest ,(intern (format "test-package-%s-depends" package)) ()
      ,(format "Check if origin dependencies of the %s is subset of the local" package)
-     (should (equal (el-get--difference-origin-and-local-dependencies ',package) nil))))
+     (should (equal (el-get--missing-local-dependes ',package) nil))))
 
 (let ((packages (el-get--list-local-recipes)))
   (mapc #'(lambda (package)
