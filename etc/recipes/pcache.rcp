@@ -1,0 +1,9 @@
+(:name pcache
+       :description "persistent caching for Emacs."
+       :website     "https://github.com/sigma/pcache"
+       :type        github
+       :pkgname     "sigma/pcache"
+       :prepare     (setq pcache-directory
+                          (let ((dir (concat user-emacs-directory "var/cache/pcache")))
+                            (make-directory dir t)
+                            dir)))
