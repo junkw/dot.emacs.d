@@ -152,6 +152,19 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
       (with-current-buffer "*Messages*"
         (write-file init-module-initerror-file))))
 
+(defun init-module--core-initialize ()
+  "[internal] Initialize Emacs init files in `init-module-core-path'."
+  (add-to-list 'load-path init-module-core-path)
+  (init-module--require-files       init-module-core-path init-module-pre-init-regexp nil)
+
+  (unless init-module-safe-mode-p
+    (if (null window-system)
+        (init-module--require-files init-module-core-path init-module-cui-init-regexp)
+      (init-module--require-files   init-module-core-path init-module-gui-init-regexp))
+
+    (init-module--require-files     init-module-core-path init-module-opt-init-regexp)
+    (init-module--require-files     init-module-core-path init-module-post-init-regexp)))
+
 (defun init-module--builtins-config-initialize ()
   "[internal] Initialize Emacs init files in `init-module-builtins-config-path'."
   (add-to-list 'load-path init-module-builtins-config-path)
@@ -179,19 +192,6 @@ If a elisp file has a byte-compiled file, show the byte-compiled file only."
     (init-module--load-files        init-module-local-config-path init-module-opt-init-regexp)
     (init-module--lazy-load-files   init-module-local-config-path init-module-lazy-init-regexp)
     (init-module--load-files        init-module-local-config-path init-module-post-init-regexp)))
-
-(defun init-module--core-initialize ()
-  "[internal] Initialize Emacs init files in `init-module-core-path'."
-  (add-to-list 'load-path init-module-core-path)
-  (init-module--require-files       init-module-core-path init-module-pre-init-regexp nil)
-
-  (unless init-module-safe-mode-p
-    (if (null window-system)
-        (init-module--require-files init-module-core-path init-module-cui-init-regexp)
-      (init-module--require-files   init-module-core-path init-module-gui-init-regexp))
-
-    (init-module--require-files     init-module-core-path init-module-opt-init-regexp)
-    (init-module--require-files     init-module-core-path init-module-post-init-regexp)))
 
 ;;;; Command
 (defun init-module-initialize ()

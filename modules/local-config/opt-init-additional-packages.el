@@ -36,28 +36,75 @@
 (require 'opt-init-packages)
 
 ;;;; Installed packages via el-get
-(setq jkw:el-get-preloaded-package-list-from-recipe
-      (append
-       '(alert editorconfig origami smartrep projectile undo-tree yasnippet yasnippet-snippets)
-       (when has-cmigemo-p '(migemo))
-       (when has-mu-p      '(mu4e-alert))))
+(setq jkw:el-get-used-packages-preload
+      (append '(alert
+                editorconfig
+                origami
+                smartrep
+                projectile
+                undo-tree
+                yasnippet yasnippet-snippets)
+              (when has-cmigemo-p '(migemo))
+              (when has-mu-p      '(mu4e-alert))))
 
-(setq jkw:el-get-package-list-from-recipe
-      '(ac-php ace-isearch ace-jump-mode ace-window ag anzu auto-async-byte-compile beginend cl-lib-highlight
-               company-mode company-quickhelp company-statistics company-tern company-web composer csv-mode
-               dash-at-point dumb-jump e2wm e2wm-bookmark electric-align eldoc-extension elisp-slime-nav
-               emmet-mode expand-region foreign-regexp flycheck flyspell-correct geben gist git-gutter-fringe
-               goto-chg grep-a-lot helm helm-ag helm-descbinds helm-ls-git helm-projectile helm-swoop
-               highlight-defined highlight-indentation highlight-symbol info+ js2-mode json-mode lispxmp magit
-               magit-lfs magit-svn markdown-mode multiple-cursors mwim neotree org-mode org-reveal ox-pandoc
-               php-mode phpunit psvn rainbow-mode recentf-ext rg scratch-ext smart-newline ssh-deploy sql-indent
-               sqlup-mode twittering-mode viewer web-mode wgrep yaml-mode))
+(setq jkw:el-get-used-packages
+      '(ac-php ace-isearch ace-jump-mode ace-window
+               ag
+               anzu
+               auto-async-byte-compile
+               beginend
+               cl-lib-highlight
+               company-mode company-quickhelp company-statistics company-tern company-web
+               composer
+               csv-mode
+               dash-at-point
+               dumb-jump
+               e2wm e2wm-bookmark
+               electric-align
+               eldoc-extension elisp-slime-nav
+               emmet-mode
+               expand-region
+               foreign-regexp
+               flycheck flyspell-correct
+               geben
+               gist git-gutter-fringe
+               goto-chg
+               grep-a-lot
+               helm helm-ag helm-descbinds helm-ls-git helm-projectile helm-swoop
+               highlight-defined highlight-indentation highlight-symbol
+               info+
+               js2-mode json-mode
+               lispxmp
+               magit magit-lfs magit-svn
+               markdown-mode
+               multiple-cursors
+               mwim
+               neotree
+               org-mode org-reveal ox-pandoc
+               php-mode phpunit
+               psvn
+               rainbow-mode
+               recentf-ext
+               rg
+               scratch-ext
+               smart-newline
+               ssh-deploy
+               sql-indent sqlup-mode
+               twittering-mode
+               viewer
+               web-mode
+               wgrep
+               yaml-mode))
 
-(setq jkw:el-get-postloaded-package-list-from-recipe
-      (append '(monokai-theme popwin powerline smartparens zerodark-theme)
+(setq jkw:el-get-used-packages-postload
+      (append '(monokai-theme zerodark-theme)
+              '(popwin
+                powerline
+                smartparens)
               (when has-phan-p    '(flycheck-phanclient phan))
               (when has-phpstan-p '(phpstan))
-              (when has-node-p    '(tern vmd-mode))))
+              (when has-node-p    '(tern
+                                    vmd-mode))))
 
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)

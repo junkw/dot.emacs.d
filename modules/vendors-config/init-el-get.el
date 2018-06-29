@@ -75,6 +75,13 @@ Advice function for `el-get-load-package-user-init-file'."
               #'el-get-load-package-user-init-file--with-debug))
 
 ;;;; Commands
+(defun el-get-byte-recompile-all ()
+  "Perform byte-recompile of all installed packages."
+  (interactive)
+  (cl-loop for pkg in (el-get--list-used-packages)
+           do (el-get-byte-compile pkg)
+           finally (message "All packages are byte-recompiled.")))
+
 ;; el-get package menu
 (defun el-get-package-menu-open-init-file ()
   "Open `el-get' init file for PACKAGE on package menu."

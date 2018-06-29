@@ -35,39 +35,33 @@
 (eval-when-compile
   (require 'pre-init-environments))
 
-(defvar jkw:el-get-preloaded-package-list-from-recipe
-  '()
-  "List of packages that need to load before loading `jkw:el-get-package-list-from-recipe'.")
+(defvar jkw:el-get-used-packages-preload '()
+  "List of packages that need to load before loading `jkw:el-get-used-packages'.")
 
-(defvar jkw:el-get-package-list-from-recipe
-  '()
+(defvar jkw:el-get-used-packages '()
   "List of packages I use straight from recipe files.")
 
-(defvar jkw:el-get-postloaded-package-list-from-recipe
-  '()
-  "List of packages that need to load after loading `jkw:el-get-package-list-from-recipe'.")
+(defvar jkw:el-get-used-packages-postload '()
+  "List of packages that need to load after loading `jkw:el-get-used-packages'.")
 
 ;;;; Internal functions
 (defun el-get--pre-initialize-el-get ()
   "[internal] Need to initialize before loading el-get."
   (setq el-get-dir (file-name-as-directory (concat user-emacs-directory "vendor")))
-  (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
   (setq el-get-user-package-directory init-module-vendors-config-path)
+  (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
   (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get"))))
 
 (defun el-get--post-initialize-el-get ()
   "[internal] Need to initialize after loading el-get."
   (add-to-list 'el-get-recipe-path (file-name-as-directory (concat user-emacs-directory "etc/recipes")))
-  (when (not (and has-terminal-notifier-p (fboundp 'alert)))
-    (setq el-get-notify-type 'message))
   (el-get 'sync '(package el-get)))
 
-(defun el-get--list-installing-packages ()
-  "[internal] Return a list of installing packages via el-get."
-  (let ((pkgs (append jkw:el-get-preloaded-package-list-from-recipe
-                      jkw:el-get-package-list-from-recipe
-                      jkw:el-get-postloaded-package-list-from-recipe)))
-    pkgs))
+(defun el-get--list-used-packages ()
+  "[internal] Return a list of installed packages via el-get."
+  (append jkw:el-get-used-packages-preload
+          jkw:el-get-used-packages
+          jkw:el-get-used-packages-postload))
 
 (defun el-get--installer ()
   "[internal] Install el-get and initialize ELPA."
@@ -82,15 +76,8 @@
 (defun el-get-initialize-packages ()
   "Install packages via `el-get', and initialize them."
   (interactive)
-  (let ((pkg (el-get--list-installing-packages)))
+  (let ((pkg (el-get--list-used-packages)))
     (el-get 'sync pkg)))
-
-(defun el-get-byte-recompile-all ()
-  "Perform byte-recompile of all installed packages."
-  (interactive)
-  (cl-loop for pkg in (el-get--list-installing-packages)
-           do (el-get-byte-compile pkg)
-           finally (message "All packages are byte-recompiled.")))
 
 (provide 'opt-init-packages)
 
