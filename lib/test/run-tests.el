@@ -51,15 +51,13 @@
 (add-to-list 'load-path init-module-local-config-path)
 (add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "lib/test")))
 
-(load "opt-init-packages.el" nil t)
-(load "opt-init-additional-packages.el" nil t)
-(require 'el-get)
-
-(setq el-get-verbose t)
-(setq el-get-notify-type 'message)
-
 ;;;; Libraries
+(require 'opt-init-packages)
+(load "opt-init-additional-packages.el" nil t)
+
+(require 'el-get)
 (el-get 'sync 'dash)
+
 (require 'test-utils)
 
 ;;;; Test case files

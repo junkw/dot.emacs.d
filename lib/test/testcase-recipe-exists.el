@@ -42,7 +42,7 @@
      ,(format "Check if the %s recipe exists" package)
      (should (el-get--recipe-exists-p ',package))))
 
-(let ((packages (el-get--list-installing-packages)))
+(let ((packages (el-get--list-used-packages)))
   (mapc #'(lambda (package)
             `,(eval `(deftest-recipe-exists ,package)))
         packages))
