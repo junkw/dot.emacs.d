@@ -52,8 +52,7 @@
 (add-to-list 'load-path (file-name-as-directory (concat user-emacs-directory "lib/test")))
 
 ;;;; Libraries
-(require 'opt-init-packages)
-(load "opt-init-additional-packages.el" nil t)
+(load "opt-init-vendors.el" nil t)
 
 (require 'el-get)
 (el-get 'sync 'dash)
