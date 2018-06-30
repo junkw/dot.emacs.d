@@ -1,10 +1,10 @@
-;;; opt-init-additional-packages.el --- Emacs init file
+;;; opt-init-vendors.el --- Emacs init file
 
-;; (C) 2017  Jumpei KAWAMI
+;; (C) 2018  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Sep. 10, 2017
-;; Keywords: .emacs, packages, el-get, ELPA
+;; Created: Jun. 30, 2018
+;; Keywords: .emacs, package, ELPA, el-get
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -34,6 +34,7 @@
 (eval-when-compile
   (require 'pre-init-environments))
 (require 'opt-init-packages)
+
 
 ;;;; Installed packages via el-get
 (setq jkw:el-get-used-packages-preload
@@ -111,7 +112,7 @@
 
 (unless init-module-safe-mode-p
   (unless (require 'el-get nil t)
-    ;; If el-get is not installed, install it
+    ;; If el-get doesn't exist, install it
     (el-get--installer))
   (el-get--post-initialize-el-get)
   (el-get-initialize-packages))
@@ -123,4 +124,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; opt-init-additional-packages.el ends here
+;;; opt-init-vendors.el ends here
