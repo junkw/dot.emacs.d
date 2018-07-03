@@ -65,7 +65,6 @@
                eldoc-extension elisp-slime-nav
                emmet-mode
                expand-region
-               foreign-regexp
                flycheck flyspell-correct
                geben
                gist git-gutter-fringe
@@ -93,6 +92,7 @@
                sql-indent sqlup-mode
                twittering-mode
                viewer
+               visual-regexp-steroids
                web-mode
                wgrep
                yaml-mode))
