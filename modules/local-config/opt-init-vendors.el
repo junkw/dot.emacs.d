@@ -69,7 +69,6 @@
                geben
                gist git-gutter-fringe
                goto-chg
-               grep-a-lot
                helm helm-ag helm-descbinds helm-ls-git helm-projectile helm-swoop
                highlight-defined highlight-indentation highlight-symbol
                info+
