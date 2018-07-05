@@ -31,9 +31,16 @@
 
 ;;; Code:
 
+(require 'goto-chg)
+(require 'smartrep)
+
 ;;;; Keymap
-(global-set-key (kbd "<f6>")   #'goto-last-change)
-(global-set-key (kbd "S-<f6>") #'goto-last-change-reverse)
+(global-set-key (kbd "M-g c") #'goto-last-change)
+(global-set-key (kbd "M-g C") #'goto-last-change-reverse)
+
+(smartrep-define-key global-map "M-g"
+  '(("c" . #'goto-last-change)
+    ("C" . #'goto-last-change-reverse)))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
