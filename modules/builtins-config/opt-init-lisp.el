@@ -44,6 +44,9 @@
 (add-hooks '(emacs-lisp-mode lisp-mode lisp-interaction-mode) #'jkw:lisp-mode-init)
 (add-hook 'ielm-mode-hook #'eldoc-mode)
 
+;;;; Keymap
+(find-function-setup-keys)
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8-emacs-unix

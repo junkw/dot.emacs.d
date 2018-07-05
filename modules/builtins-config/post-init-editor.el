@@ -219,8 +219,6 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
   (string-rectangle start end "> "))
 
 ;;;; Keymap
-(find-function-setup-keys)
-
 (global-set-key (kbd "M-/")   #'hippie-expand) ; replace `dabbrev-expand'
 (global-set-key (kbd "M-d")   #'kill-word-dwim)
 (global-set-key (kbd "M-SPC") #'cycle-spacing) ; replace `just-one-space'
