@@ -67,7 +67,7 @@
                expand-region
                flycheck flyspell-correct
                geben
-               gist git-gutter-fringe
+               gist git-gutter
                goto-chg
                helm helm-ag helm-descbinds helm-ls-git helm-projectile helm-swoop
                highlight-defined highlight-indentation highlight-symbol
@@ -101,7 +101,8 @@
               '(popwin
                 powerline
                 smartparens)
-              (when has-phan-p    '(flycheck-phanclient phan))
+              (when has-phan-p    '(flycheck-phanclient
+                                    phan))
               (when has-phpstan-p '(phpstan))
               (when has-node-p    '(tern
                                     vmd-mode))))
