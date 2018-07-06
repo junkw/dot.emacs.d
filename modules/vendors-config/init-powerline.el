@@ -64,6 +64,7 @@
                                      (powerline-narrow face1 'l)
                                      (powerline-raw " " face1)
                                      (funcall separator-left face1 face2)
+                                     (powerline-raw " " face2)
                                      (powerline-raw zerodark-modeline-vc mode-line 'r)
                                      (zerodark-modeline-flycheck-status)))
                           (rhs (list (powerline-raw global-mode-string face2 'r)
