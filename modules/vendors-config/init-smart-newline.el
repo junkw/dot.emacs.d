@@ -33,7 +33,8 @@
 
 (electric-indent-mode -1)
 
-(add-hook 'prog-mode-hook #'smart-newline-mode)
+;;;; Keymap
+(global-set-key (kbd "C-j") #'smart-newline)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
