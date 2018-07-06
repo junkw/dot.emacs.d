@@ -1,4 +1,4 @@
-;;; init-smart-line.el --- el-get init file for package smart-line
+;;; init-smart-newline.el --- el-get init file for package smart-newline
 
 ;; (C) 2013  Jumpei KAWAMI
 
@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(electric-indent-mode -1)
+
 (add-hook 'prog-mode-hook #'smart-newline-mode)
 
 ;; Local Variables:
@@ -40,4 +42,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-smart-line.el ends here
+;;; init-smart-newline.el ends here
