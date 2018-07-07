@@ -50,7 +50,12 @@
 (add-hook 'view-mode-hook #'origami-close-all-nodes-with-view-mode)
 
 ;;;; Keymap
-(define-key origami-mode-map (kbd "M-i") #'origami-recursively-toggle-node)
+(global-set-key (kbd "M-i") #'origami-recursively-toggle-node)
+
+(define-key view-mode-map (kbd "C-i") #'origami-recursively-toggle-node)
+(define-key view-mode-map (kbd "t")   #'origami-toggle-all-nodes)
+(define-key view-mode-map (kbd "[")   #'origami-previous-fold)
+(define-key view-mode-map (kbd "]")   #'origami-next-fold)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
