@@ -14,7 +14,6 @@ elget_dir       = "#{vendor_dir}/el-get"
 
 task :generate_loaddefs do
   site_lisp_dirs = Dir.glob("#{site_lisp_dir}/*/**/")
-
   paths = site_lisp_dirs.join(" ")
   s     = "(setq make-backup-files nil generated-autoload-file \"#{site_lisp_dir}/site-loaddefs.el\")"
 
@@ -29,8 +28,7 @@ task :link do
 end
 
 task :make_dir do
-  emacs_dirs = ["#{user_emacs_dir}/etc/auto-complete.dict",
-                "#{user_emacs_dir}/etc/snippets",
+  emacs_dirs = ["#{user_emacs_dir}/etc/snippets",
                 "#{user_emacs_dir}/lib",
                 "#{user_emacs_dir}/var/backup",
                 "#{user_emacs_dir}/var/bookmark",
@@ -42,18 +40,18 @@ task :make_dir do
 end
 
 task :compile_init_module do
-  els  = ["#{user_emacs_dir}/init.el"]
-  els += Dir.glob("#{init_module_dir}/*/*-init-*.el")
-
+  els = FileList.new("#{user_emacs_dir}/init.el", "#{init_module_dir}/*/*-init-*.el") do |el|
+    el.exclude(/.+\-init\-private\-.+\.el/)
+  end
   conf = els.join(" ")
 
   sh "#{emacs_cmd} -L #{core_dir}/ -f batch-byte-compile #{conf}"
 end
 
 task :compile_all do
-  els  = ["#{user_emacs_dir}/init.el"]
-  els += Dir.glob("#{init_module_dir}/*/*init-*.el")
-
+  els = FileList.new("#{user_emacs_dir}/init.el", "#{init_module_dir}/*/*init-*.el") do |el|
+    el.exclude(/.+\-init\-private\-.+\.el/)
+  end
   conf = els.join(" ")
   s    = "(let ((default-directory \"#{vendor_dir}\")) (normal-top-level-add-subdirs-to-load-path))"
 
