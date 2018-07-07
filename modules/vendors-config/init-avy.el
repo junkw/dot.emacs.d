@@ -1,10 +1,10 @@
-;;; init-ace-isearch.el --- el-get init file for package ace-isearch
+;;; init-avy.el --- el-get init file for package avy
 
-;; (C) 2014  Jumpei KAWAMI
+;; (C) 2018  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Nov. 4, 2014
-;; Keywords: .emacs, isearch
+;; Created: Jul. 7, 2018
+;; Keywords: .emacs
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,11 +31,15 @@
 
 ;;; Code:
 
-(setq ace-isearch-function 'avy-goto-char)
-(setq ace-isearch-lighter "")
-(setq ace-isearch-jump-delay 0.8)
+(setq avy-background t)
 
-(global-ace-isearch-mode +1)
+;;;; Keymap
+(global-set-key (kbd "M-g SPC") #'avy-goto-char-timer)
+(global-set-key (kbd "M-g f")   #'avy-goto-line)
+(global-set-key (kbd "M-g w")   #'avy-goto-word-1)
+(global-set-key (kbd "M-g r") #'avy-resume)
+
+(org-defkey org-mode-map (kbd "M-g j") #'avy-org-goto-heading-timer)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
@@ -44,4 +48,4 @@
 ;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
 ;; End:
 
-;;; init-ace-isearch.el ends here
+;;; init-avy.el ends here

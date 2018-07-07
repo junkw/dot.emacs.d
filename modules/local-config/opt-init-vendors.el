@@ -39,73 +39,80 @@
 ;;;; Installed packages via el-get
 (setq jkw:el-get-used-packages-preload
       (append '(alert
+                avy
                 editorconfig
                 origami
                 smartrep
                 projectile
                 undo-tree
                 yasnippet yasnippet-snippets)
-              (when has-cmigemo-p '(migemo))
-              (when has-mu-p      '(mu4e-alert))))
+              (when has-cmigemo-p
+                '(migemo))
+              (when has-mu-p
+                '(mu4e-alert))))
 
 (setq jkw:el-get-used-packages
-      '(ac-php ace-isearch ace-jump-mode ace-window
-               ag
-               anzu
-               auto-async-byte-compile
-               beginend
-               cl-lib-highlight
-               company-mode company-quickhelp company-statistics company-tern company-web
-               composer
-               csv-mode
-               dash-at-point
-               dumb-jump
-               e2wm e2wm-bookmark
-               electric-align
-               eldoc-extension elisp-slime-nav
-               emmet-mode
-               expand-region
-               flycheck flyspell-correct
-               geben
-               gist git-gutter
-               goto-chg
-               helm helm-ag helm-descbinds helm-ls-git helm-projectile helm-swoop
-               highlight-defined highlight-indentation highlight-symbol
-               info+
-               js2-mode json-mode
-               lispxmp
-               magit magit-lfs magit-svn
-               markdown-mode
-               multiple-cursors
-               mwim
-               neotree
-               org-mode org-reveal ox-pandoc
-               php-mode phpunit
-               psvn
-               rainbow-mode
-               recentf-ext
-               rg
-               scratch-ext
-               smart-newline
-               ssh-deploy
-               sql-indent sqlup-mode
-               twittering-mode
-               viewer
-               visual-regexp-steroids
-               web-mode
-               wgrep
-               yaml-mode))
+      '(ace-isearch ace-window
+                    ag
+                    anzu
+                    auto-async-byte-compile
+                    beginend
+                    cl-lib-highlight
+                    company-mode company-quickhelp company-statistics company-tern company-web
+                    composer
+                    csv-mode
+                    dash-at-point
+                    dumb-jump
+                    e2wm e2wm-bookmark
+                    electric-align
+                    eldoc-extension elisp-slime-nav
+                    emmet-mode
+                    expand-region
+                    flycheck flyspell-correct
+                    geben
+                    gist git-gutter
+                    goto-chg
+                    helm helm-ag helm-descbinds helm-ls-git helm-projectile helm-swoop
+                    highlight-defined highlight-indentation highlight-symbol
+                    info+
+                    js2-mode json-mode
+                    lispxmp
+                    magit magit-lfs magit-svn
+                    markdown-mode
+                    multiple-cursors
+                    mwim
+                    neotree
+                    org-mode org-reveal ox-pandoc
+                    php-mode phpunit
+                    psvn
+                    rainbow-mode
+                    recentf-ext
+                    rg
+                    scratch-ext
+                    smart-newline
+                    ssh-deploy
+                    sql-indent sqlup-mode
+                    twittering-mode
+                    viewer
+                    visual-regexp-steroids
+                    web-mode
+                    wgrep
+                    yaml-mode))
 
 (setq jkw:el-get-used-packages-postload
       (append '(monokai-theme zerodark-theme)
-              '(popwin
+              '(ac-php
+                popwin
                 powerline
                 smartparens)
-              (when has-phan-p    '(flycheck-phanclient
-                                    phan))
-              (when has-phpstan-p '(phpstan))
-              (when has-node-p    '(tern
-                                    vmd-mode))))
+              (when has-phan-p
+                '(flycheck-phanclient
+                  phan))
+              (when has-phpstan-p
+                '(phpstan))
+              (when has-node-p
+                '(tern
+                  vmd-mode))))
 
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)

@@ -1,0 +1,6 @@
+(:name ace-isearch
+       :description "A seamless bridge between isearch, ace-jump-mode, avy, helm-swoop and swiper."
+       :website     "https://github.com/tam17aki/ace-isearch"
+       :depends     (avy helm-swoop)
+       :type        github
+       :pkgname     "tam17aki/ace-isearch")
