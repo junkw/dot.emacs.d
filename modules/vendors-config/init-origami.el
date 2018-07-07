@@ -34,9 +34,20 @@
 (require 'pre-init-hook-utils)
 
 (add-to-list 'origami-parser-alist '(php-mode . origami-c-style-parser))
+(defvar origami-enabled-modes (mapcar #'car origami-parser-alist))
 
 ;;;; Hooks
-(add-hooks (mapcar #'car origami-parser-alist) #'origami-mode)
+(add-hooks origami-enabled-modes #'origami-mode)
+
+(defun origami-close-all-nodes-with-view-mode ()
+  "[internal] If `w/view-mode' is enabled, close every fold in the buffer."
+  (when (memq major-mode origami-enabled-modes)
+    (call-interactively
+     (if view-mode
+         #'origami-close-all-nodes
+       #'origami-reset))))
+
+(add-hook 'view-mode-hook #'origami-close-all-nodes-with-view-mode)
 
 ;;;; Keymap
 (define-key origami-mode-map (kbd "M-i") #'origami-recursively-toggle-node)
