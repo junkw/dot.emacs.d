@@ -43,7 +43,7 @@
 
 (add-to-list 'el-get-recipe-path el-get-local-recipe-path)
 
-(defvar testcase:ignore-depends '(auto-complete mu4e))
+(defvar testcase:ignore-depends '(ace-jump-mode auto-complete mu4e))
 
 
 ;;;; Internal functions
