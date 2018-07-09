@@ -37,9 +37,10 @@
 (global-set-key (kbd "M-g SPC") #'avy-goto-char-timer)
 (global-set-key (kbd "M-g f")   #'avy-goto-line)
 (global-set-key (kbd "M-g w")   #'avy-goto-word-1)
-(global-set-key (kbd "M-g r") #'avy-resume)
+(global-set-key (kbd "M-g r")   #'avy-resume)
 
-(org-defkey org-mode-map (kbd "M-g j") #'avy-org-goto-heading-timer)
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "M-g j") #'avy-org-goto-heading-timer))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
