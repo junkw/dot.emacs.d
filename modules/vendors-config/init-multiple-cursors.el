@@ -31,15 +31,33 @@
 
 ;;; Code:
 
+(require 'smartrep)
+
 (setq mc/list-file (concat user-emacs-directory "var/cache/multiple-cursors-list.el"))
 
 ;;;; Keymap
-(global-set-key (kbd "C-S-e")   #'mc/edit-lines)
-(global-set-key (kbd "C-c C-r") #'mc/mark-all-in-region)
-(global-set-key (kbd "C-c C-<") #'mc/mark-all-like-this)
-(global-set-key (kbd "C-c C-d") #'mc/mark-all-like-this-dwim)
-(global-set-key (kbd "C->")     #'mc/mark-next-like-this)
-(global-set-key (kbd "C-<")     #'mc/mark-previous-like-this)
+(define-prefix-command 'jkw:multiple-cursors-command-prefix-key)
+(global-set-key (kbd "C-t") 'jkw:multiple-cursors-command-prefix-key)
+
+(let ((prefix jkw:multiple-cursors-command-prefix-key))
+  (define-key prefix (kbd "e") #'mc/edit-lines)
+  (define-key prefix (kbd "r") #'mc/mark-all-in-region)
+  (define-key prefix (kbd "t") #'mc/mark-all-like-this)
+  (define-key prefix (kbd "d") #'mc/mark-all-dwim)
+  (define-key prefix (kbd "D") #'mc/mark-all-like-this-dwim)
+  (define-key prefix (kbd "i") #'mc/insert-numbers)
+  (define-key prefix (kbd "s") #'mc/sort-regions)
+  (define-key prefix (kbd "S") #'mc/reverse-regions)
+  prefix)
+
+(smartrep-define-key global-map "C-t"
+  '(("n" . #'mc/mark-next-like-this)
+    ("p" . #'mc/mark-previous-like-this)
+    ("N" . #'mc/skip-to-next-like-this)
+    ("P" . #'mc/skip-to-previous-like-this)
+    ("m" . #'mc/mark-more-like-this-extended)
+    ("u" . #'mc/unmark-next-like-this)
+    ("U" . #'mc/unmark-previous-like-this)))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
