@@ -42,10 +42,12 @@
 (define-prefix-command 'jkw:magit-command-prefix-key)
 (global-set-key (kbd "C-x g") 'jkw:magit-command-prefix-key)
 
-(define-key jkw:magit-command-prefix-key (kbd "g") #'magit-status)
-(define-key jkw:magit-command-prefix-key (kbd "G") #'magit-list-repositories)
-(define-key jkw:magit-command-prefix-key (kbd "f") #'magit-find-file)
-(define-key jkw:magit-command-prefix-key (kbd "F") #'magit-find-file-other-window)
+(let ((prefix jkw:magit-command-prefix-key))
+  (define-key prefix (kbd "g") #'magit-status)
+  (define-key prefix (kbd "G") #'magit-list-repositories)
+  (define-key prefix (kbd "f") #'magit-find-file)
+  (define-key prefix (kbd "F") #'magit-find-file-other-window)
+  prefix)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
