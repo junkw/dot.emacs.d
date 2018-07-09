@@ -226,6 +226,15 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 (global-set-key (kbd "C-c -") #'decrement-integer-at-point)
 (global-set-key (kbd "C-x r q") #'quote-rectangle)
 
+(global-unset-key (kbd "C-t"))          ; `transpose-chars'
+(global-unset-key (kbd "C-x C-t"))      ; `transpose-lines'
+(global-unset-key (kbd "C-M-t"))        ; `transpose-sexps'
+(global-unset-key (kbd "M-t"))          ; `transpose-words'
+(global-set-key (kbd "C-x t")     #'transpose-chars)
+(global-set-key (kbd "C-x T")     #'transpose-lines)
+(global-set-key (kbd "C-x C-M-t") #'transpose-sexps)
+(global-set-key (kbd "C-x M-t")   #'transpose-words)
+
 (with-eval-after-load 'flyspell
   (define-key flyspell-mode-map (kbd "C-;") nil))
 
