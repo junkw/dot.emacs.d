@@ -52,10 +52,11 @@
 ;;;; Keymap
 (global-set-key (kbd "M-i") #'origami-recursively-toggle-node)
 
-(define-key view-mode-map (kbd "C-i") #'origami-recursively-toggle-node)
-(define-key view-mode-map (kbd "t")   #'origami-toggle-all-nodes)
-(define-key view-mode-map (kbd "[")   #'origami-previous-fold)
-(define-key view-mode-map (kbd "]")   #'origami-next-fold)
+(with-eval-after-load 'view-mode
+  (define-key view-mode-map (kbd "C-i") #'origami-recursively-toggle-node)
+  (define-key view-mode-map (kbd "t")   #'origami-toggle-all-nodes)
+  (define-key view-mode-map (kbd "[")   #'origami-previous-fold)
+  (define-key view-mode-map (kbd "]")   #'origami-next-fold))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
