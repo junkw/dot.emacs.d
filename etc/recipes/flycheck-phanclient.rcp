@@ -1,7 +1,8 @@
 (:name flycheck-phanclient
        :description "A flycheck checker for phan, using the phan daemon."
        :website     "https://github.com/TysonAndre/flycheck-phanclient"
-       :depends     flycheck
+       :depends     (flycheck php-mode)
        :type        github
        :pkgname     "TysonAndre/flycheck-phanclient"
-       :features    flycheck-phanclient)
+       :post-init   (with-eval-after-load 'php-project
+                      (require 'flycheck-phanclient)))
