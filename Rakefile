@@ -42,6 +42,7 @@ end
 task :compile_init_module do
   els = FileList.new("#{user_emacs_dir}/init.el", "#{init_module_dir}/*/*-init-*.el") do |el|
     el.exclude(/.+\-init\-private\-.+\.el/)
+    el.exclude(/.+\/obsoleted-config\/.+\.el/)
   end
   conf = els.join(" ")
 
@@ -51,6 +52,7 @@ end
 task :compile_all do
   els = FileList.new("#{user_emacs_dir}/init.el", "#{init_module_dir}/*/*init-*.el") do |el|
     el.exclude(/.+\-init\-private\-.+\.el/)
+    el.exclude(/.+\/obsoleted-config\/.+\.el/)
   end
   conf = els.join(" ")
   s    = "(let ((default-directory \"#{vendor_dir}\")) (normal-top-level-add-subdirs-to-load-path))"
