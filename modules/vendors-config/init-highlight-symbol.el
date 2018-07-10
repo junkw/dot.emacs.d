@@ -31,15 +31,24 @@
 
 ;;; Code:
 
-;; Color
+(require 'smartrep)
+
+(setq highlight-symbol-idle-delay 0.8)
 (setq highlight-symbol-colors '("#FC5C94" "#FEB257" "#F3EA98" "#C1F161" "#BBF7EF" "#C2A1FF" "#FE87F4"))
 
+;;;; Hooks
+(add-hook 'prog-mode-hook 'highlight-symbol-mode)
+(add-hook 'prog-mode-hook 'highlight-symbol-nav-mode)
+
 ;;;; Keymap
-(global-set-key (kbd "C-x w .") #'highlight-symbol-at-point)
 (global-set-key (kbd "M-s h .") #'highlight-symbol-at-point)
-(global-set-key (kbd "M-s M-n") #'highlight-symbol-next)
-(global-set-key (kbd "M-s M-p") #'highlight-symbol-prev)
 (global-set-key (kbd "M-s h %") #'highlight-symbol-query-replace)
+(global-set-key (kbd "M-s h n") #'highlight-symbol-next)
+(global-set-key (kbd "M-s h p") #'highlight-symbol-prev)
+
+(smartrep-define-key global-map "M-s h"
+  '(("n" . #'highlight-symbol-next)
+    ("p" . #'highlight-symbol-prev)))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
