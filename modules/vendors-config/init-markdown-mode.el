@@ -31,6 +31,9 @@
 
 ;;; Code:
 
+(require 'smartrep)
+
+(setq markdown-command (executable-find "pandoc"))
 
 ;;;; Hooks
 (defun jkw:markdown-mode-init ()
@@ -38,6 +41,17 @@
   (set (make-local-variable 'delete-trailing-whitespace--enabled-flag-p) nil))
 
 (add-hook 'markdown-mode-hook #'jkw:markdown-mode-init)
+
+;;;; Keymap
+(when (executable-find "vmd")
+  (define-key markdown-mode-map (kbd "C-c C-c l") #'vmd-mode))
+
+(smartrep-define-key markdown-mode-map "C-c"
+  '(("C-n" . #'markdown-outline-next)
+    ("C-p" . #'markdown-outline-previous)
+    ("C-f" . #'markdown-outline-next-same-level)
+    ("C-b" . #'markdown-outline-previous-same-level)
+    ("C-u" . #'markdown-outline-up)))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

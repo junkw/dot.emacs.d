@@ -49,7 +49,10 @@
               (when has-cmigemo-p
                 '(migemo))
               (when has-mu-p
-                '(mu4e-alert))))
+                '(mu4e-alert))
+              (when has-node-p
+                '(tern
+                  vmd-mode))))
 
 (setq jkw:el-get-used-packages
       '(ace-isearch ace-window
@@ -109,10 +112,7 @@
                 '(flycheck-phanclient
                   phan))
               (when has-phpstan-p
-                '(phpstan))
-              (when has-node-p
-                '(tern
-                  vmd-mode))))
+                '(phpstan))))
 
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)

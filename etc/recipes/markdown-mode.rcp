@@ -1,0 +1,10 @@
+(:name markdown-mode
+       :description "Major mode for Markdown-formatted text."
+       :website     "http://jblevins.org/projects/markdown-mode/"
+       :depends     vmd-mode
+       :type        github
+       :pkgname     "jrblevin/markdown-mode"
+       :prepare     (progn
+                      (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+                      (add-to-list 'auto-mode-alist '("\\.mdown\\'" . markdown-mode))
+                      (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))))
