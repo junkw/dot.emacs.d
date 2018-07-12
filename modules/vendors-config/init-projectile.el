@@ -34,8 +34,8 @@
 (setq projectile-enable-caching t)
 (setq projectile-cache-file (concat user-emacs-directory "var/cache/projectile"))
 (setq projectile-known-projects-file (concat user-emacs-directory "var/bookmark/projectile.eld"))
-(when (featurep 'helm)
-  (setq projectile-completion-system 'helm))
+(setq projectile-completion-system 'helm)
+(setq projectile-tags-command "ctags -uRe -f \"%s\" %s")
 
 (add-hook 'prog-mode-hook #'projectile-mode)
 

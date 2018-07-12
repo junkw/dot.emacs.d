@@ -42,8 +42,8 @@
                 avy
                 editorconfig
                 origami
-                smartrep
                 projectile
+                smartrep
                 undo-tree
                 yasnippet yasnippet-snippets)
               (when has-cmigemo-p
