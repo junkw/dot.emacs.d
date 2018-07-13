@@ -31,8 +31,6 @@
 
 ;;; Code:
 
-(require 'smartrep)
-
 ;;;; Hooks
 (add-hook 'prog-mode-hook #'git-gutter-mode)
 
@@ -44,9 +42,10 @@
 (global-set-key (kbd "M-g v r")   #'git-gutter:revert-hunk)
 (global-set-key (kbd "M-g v SPC") #'git-gutter:mark-hunk)
 
-(smartrep-define-key prog-mode-map "M-g"
-  '(("n" . #'git-gutter:next-hunk)
-    ("p" . #'git-gutter:previous-hunk)))
+(with-eval-after-load 'smartrep
+  (smartrep-define-key prog-mode-map "M-g"
+    '(("n" . #'git-gutter:next-hunk)
+      ("p" . #'git-gutter:previous-hunk))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

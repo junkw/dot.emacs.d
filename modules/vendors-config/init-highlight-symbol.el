@@ -31,8 +31,6 @@
 
 ;;; Code:
 
-(require 'smartrep)
-
 (setq highlight-symbol-idle-delay 0.8)
 (setq highlight-symbol-colors '("#FC5C94" "#FEB257" "#F3EA98" "#C1F161" "#BBF7EF" "#C2A1FF" "#FE87F4"))
 
@@ -46,9 +44,10 @@
 (global-set-key (kbd "M-s h n") #'highlight-symbol-next)
 (global-set-key (kbd "M-s h p") #'highlight-symbol-prev)
 
-(smartrep-define-key global-map "M-s h"
-  '(("n" . #'highlight-symbol-next)
-    ("p" . #'highlight-symbol-prev)))
+(with-eval-after-load 'smartrep
+  (smartrep-define-key global-map "M-s h"
+    '(("n" . #'highlight-symbol-next)
+      ("p" . #'highlight-symbol-prev))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

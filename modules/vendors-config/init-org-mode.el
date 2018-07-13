@@ -31,8 +31,6 @@
 
 ;;; Code:
 
-(require 'smartrep)
-
 ;; Load modules
 (add-to-list 'org-modules 'org-habit)
 (add-to-list 'org-modules 'org-man)
@@ -200,9 +198,10 @@
 (org-defkey org-mode-map (kbd "C-c L")     #'org-shiftleft)
 (org-defkey org-mode-map (kbd "C-c R")     #'org-shiftright)
 
-(smartrep-define-key org-mode-map "C-c"
-  '(("C-n" . #'outline-next-visible-heading)
-    ("C-p" . #'outline-previous-visible-heading)))
+(with-eval-after-load 'smartrep
+  (smartrep-define-key org-mode-map "C-c"
+    '(("C-n" . #'outline-next-visible-heading)
+      ("C-p" . #'outline-previous-visible-heading))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

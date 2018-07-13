@@ -32,7 +32,6 @@
 ;;; Code:
 
 (require 'pre-init-hook-utils)
-(require 'smartrep)
 
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
 (setq flycheck-display-errors-delay 0.5)
@@ -47,7 +46,7 @@
 (add-hooks '(prog-mode markdown-mode yaml-mode) #'flycheck-mode)
 
 ;;;; Keymap
-(with-eval-after-load 'flycheck
+(with-eval-after-load 'smartrep
   (smartrep-define-key flycheck-mode-map "C-c !"
     '(("n" . #'flycheck-next-error)
       ("p" . #'flycheck-previous-error))))

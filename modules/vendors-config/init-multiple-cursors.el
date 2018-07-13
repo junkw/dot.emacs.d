@@ -31,8 +31,6 @@
 
 ;;; Code:
 
-(require 'smartrep)
-
 (setq mc/list-file (concat user-emacs-directory "var/cache/multiple-cursors-list.el"))
 
 ;;;; Keymap
@@ -50,14 +48,15 @@
   (define-key prefix (kbd "S") #'mc/reverse-regions)
   prefix)
 
-(smartrep-define-key global-map "C-t"
-  '(("n" . #'mc/mark-next-like-this)
-    ("p" . #'mc/mark-previous-like-this)
-    ("N" . #'mc/skip-to-next-like-this)
-    ("P" . #'mc/skip-to-previous-like-this)
-    ("m" . #'mc/mark-more-like-this-extended)
-    ("u" . #'mc/unmark-next-like-this)
-    ("U" . #'mc/unmark-previous-like-this)))
+(with-eval-after-load 'smartrep
+  (smartrep-define-key global-map "C-t"
+    '(("n" . #'mc/mark-next-like-this)
+      ("p" . #'mc/mark-previous-like-this)
+      ("N" . #'mc/skip-to-next-like-this)
+      ("P" . #'mc/skip-to-previous-like-this)
+      ("m" . #'mc/mark-more-like-this-extended)
+      ("u" . #'mc/unmark-next-like-this)
+      ("U" . #'mc/unmark-previous-like-this))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

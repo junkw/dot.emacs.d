@@ -31,8 +31,6 @@
 
 ;;; Code:
 
-(require 'smartrep)
-
 (setq markdown-command (executable-find "pandoc"))
 
 ;;;; Hooks
@@ -46,12 +44,13 @@
 (when (executable-find "vmd")
   (define-key markdown-mode-map (kbd "C-c C-c l") #'vmd-mode))
 
-(smartrep-define-key markdown-mode-map "C-c"
-  '(("C-n" . #'markdown-outline-next)
-    ("C-p" . #'markdown-outline-previous)
-    ("C-f" . #'markdown-outline-next-same-level)
-    ("C-b" . #'markdown-outline-previous-same-level)
-    ("C-u" . #'markdown-outline-up)))
+(with-eval-after-load 'smartrep
+  (smartrep-define-key markdown-mode-map "C-c"
+    '(("C-n" . #'markdown-outline-next)
+      ("C-p" . #'markdown-outline-previous)
+      ("C-f" . #'markdown-outline-next-same-level)
+      ("C-b" . #'markdown-outline-previous-same-level)
+      ("C-u" . #'markdown-outline-up))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
