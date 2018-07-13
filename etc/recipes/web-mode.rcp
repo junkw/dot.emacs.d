@@ -1,0 +1,9 @@
+(:name web-mode
+       :description "Major mode for editing web templates."
+       :website     "http://web-mode.org/"
+       :type        github
+       :pkgname     "fxbois/web-mode"
+       :lazy        t
+       :prepare     (progn
+                      (add-to-list 'auto-mode-alist '("\\.html?\\'"      . web-mode))
+                      (add-to-list 'auto-mode-alist '("\\.html\\.php\\'" . web-mode))))

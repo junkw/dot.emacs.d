@@ -31,37 +31,17 @@
 
 ;;; Code:
 
-(require 'smartrep)
+(setq web-mode-engines-alist '(("php" . "\\.html\\.php\\'")))
 
-(add-to-list 'auto-mode-alist '("\\.html?\\'"      . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html\\.php\\'" . web-mode))
-
-(with-eval-after-load 'web-mode
-  (setq web-mode-engines-alist '(("php" . "\\.html\\.php\\'")))
-  (setq web-mode-enable-auto-pairing nil)
-  (setq web-mode-enable-auto-indentation nil)
-  (setq web-mode-enable-auto-expanding t)
-  (setq web-mode-enable-comment-annotation t)
-  (setq web-mode-enable-comment-interpolation t)
-  (setq web-mode-enable-current-element-highlight t)
-  (setq web-mode-enable-heredoc-fontification t)
-  (setq web-mode-enable-sql-detection t)
-  (setq web-mode-part-padding 0)
-
-;;;; Keymap
-  (define-key web-mode-map (kbd "C-;") nil)
-
-  (smartrep-define-key web-mode-map "C-c C-b"
-    '(("n" . #'web-mode-block-next)
-      ("p" . #'web-mode-block-previous)))
-
-  (smartrep-define-key web-mode-map "C-c C-e"
-    '(("n" . #'web-mode-element-next)
-      ("p" . #'web-mode-element-previous)))
-
-  (smartrep-define-key web-mode-map "C-c C-t"
-    '(("n" . #'web-mode-tag-next)
-      ("p" . #'web-mode-tag-previous))))
+(setq web-mode-enable-auto-pairing nil)
+(setq web-mode-enable-auto-indentation nil)
+(setq web-mode-enable-auto-expanding t)
+(setq web-mode-enable-comment-annotation t)
+(setq web-mode-enable-comment-interpolation t)
+(setq web-mode-enable-current-element-highlight t)
+(setq web-mode-enable-heredoc-fontification t)
+(setq web-mode-enable-sql-detection t)
+(setq web-mode-part-padding 0)
 
 ;;;; Hooks
 (defun jkw:web-mode-init ()
@@ -76,6 +56,22 @@
     (setq web-mode-code-indent-offset 4)))
 
 (add-hook 'web-mode-hook #'jkw:web-mode-init)
+
+;;;; Keymap
+(define-key web-mode-map (kbd "C-;") nil)
+
+(with-eval-after-load 'smartrep
+  (smartrep-define-key web-mode-map "C-c C-b"
+    '(("n" . #'web-mode-block-next)
+      ("p" . #'web-mode-block-previous)))
+
+  (smartrep-define-key web-mode-map "C-c C-e"
+    '(("n" . #'web-mode-element-next)
+      ("p" . #'web-mode-element-previous)))
+
+  (smartrep-define-key web-mode-map "C-c C-t"
+    '(("n" . #'web-mode-tag-next)
+      ("p" . #'web-mode-tag-previous))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
