@@ -1,0 +1,8 @@
+(:name flycheck
+       :description "On-the-fly syntax checking"
+       :website     "http://www.flycheck.org"
+       :minimum-emacs-version "24.3"
+       :depends     (dash pkg-info let-alist seq)
+       :type        github
+       :pkgname     "flycheck/flycheck"
+       :features    flycheck)
