@@ -32,9 +32,12 @@
 ;;; Code:
 
 (setq helm-ls-git-status-command 'magit-status-internal)
+(setq helm-ls-git-fuzzy-match t)
+
+(add-to-list 'helm-for-files-preferred-list 'helm-source-ls-git-status)
 
 ;;;; Keymap
-(global-set-key (kbd "C-x c g") #'helm-ls-git-ls)
+(define-key helm-command-prefix (kbd "g") #'helm-ls-git-ls)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

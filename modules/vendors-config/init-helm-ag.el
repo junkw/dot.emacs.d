@@ -31,10 +31,11 @@
 
 ;;; Code:
 (setq helm-ag-base-command "ag -S --nocolor --nogroup")
-(setq helm-ag-thing-at-point 'symbol)
+(setq helm-ag-insert-at-point 'symbol)
 
 ;;;; Keymap
-(global-set-key (kbd "C-x c M-g a") #'helm-ag)
+(define-key helm-command-prefix (kbd "M-g a") #'helm-ag)
+(define-key helm-command-prefix (kbd "M-g A") #'helm-do-ag)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

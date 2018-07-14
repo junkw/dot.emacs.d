@@ -31,12 +31,27 @@
 
 ;;; Code:
 
+(setq helm-multi-swoop-edit-save t)
+(setq helm-swoop-split-with-multiple-windows nil)
+(setq helm-swoop-split-direction 'split-window-vertically)
 (setq helm-swoop-speed-or-color t)
+(setq helm-swoop-move-to-line-cycle t)
+(setq helm-swoop-use-fuzzy-match t)
 
 ;;;; Keymap
-(global-set-key (kbd "C-x c M-i") #'helm-swoop)
-(global-set-key (kbd "C-x c M-I") #'helm-multi-swoop)
-(global-set-key (kbd "C-x c M-a") #'helm-multi-swoop-all)
+(define-key helm-command-prefix (kbd "M-i") #'helm-swoop)
+(define-key helm-command-prefix (kbd "M-I") #'helm-multi-swoop)
+(define-key helm-command-prefix (kbd "M-a") #'helm-multi-swoop-all)
+
+(define-key isearch-mode-map (kbd "M-i") #'helm-swoop-from-isearch)
+
+(with-eval-after-load 'helm-swoop
+  (define-key helm-swoop-map (kbd "M-i") #'helm-multi-swoop-all-from-helm-swoop)
+  (define-key helm-swoop-map (kbd "C-r") #'helm-previous-line)
+  (define-key helm-swoop-map (kbd "C-s") #'helm-next-line)
+
+  (define-key helm-multi-swoop-map (kbd "C-r") #'helm-previous-line)
+  (define-key helm-multi-swoop-map (kbd "C-s") #'helm-next-line))
 
 ;; Local Variables:
 ;; mode: emacs-lisp

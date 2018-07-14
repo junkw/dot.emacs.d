@@ -36,15 +36,17 @@
 
 ;;;; Init
 (setq helm-adaptive-history-file (concat user-emacs-directory "var/cache/helm-adaptive-history"))
-(setq helm-candidate-number-limit 300)
-(setq helm-idle-delay 0.01)
+(setq helm-scroll-amount 8)
 (setq helm-input-idle-delay 0.01)
 (setq helm-exit-idle-delay 0.01)
-(setq helm-quick-update t)
-(setq helm-persistent-action-use-special-display t)
-(setq helm-yank-symbol-first t)
-
+(setq helm-google-suggest-use-curl-p t)
 (setq helm-completion-mode-string "")
+(setq helm-follow-mode-persistent t)
+(setq helm-split-window-in-side-p t)
+(setq helm-autoresize-max-height 0)
+(setq helm-autoresize-min-height 35)
+
+(helm-autoresize-mode +1)
 
 ;;;; Sources
 (when mac-p
@@ -57,26 +59,33 @@
           helm-source-mac-spotlight)))
 
 ;;;; Candidates
-(with-eval-after-load 'migemo
-  (helm-migemo-mode +1))
+(setq helm-candidate-number-limit 500)
+(setq helm-ff-search-library-in-sexp t)
+(setq helm-ff-file-name-history-use-recentf t)
 
 (setq helm-M-x-fuzzy-match t)
 (setq helm-apropos-fuzzy-match t)
 (setq helm-buffers-fuzzy-matching t)
+(setq helm-recentf-fuzzy-match t)
+(setq helm-semantic-fuzzy-match t)
+(setq helm-imenu-fuzzy-match t)
+
+(with-eval-after-load 'migemo
+  (helm-migemo-mode +1))
 
 ;;;; Keymap
+(global-unset-key (kbd "C-x c"))
+(global-set-key (kbd "C-c h")   #'helm-command-prefix)
+
 (global-set-key (kbd "M-x")     #'helm-M-x)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
 (global-set-key (kbd "C-x b")   #'helm-mini)
 (global-set-key (kbd "C-x C-b") #'helm-buffers-list)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
 (global-set-key (kbd "C-;")     #'helm-for-files)
-(global-set-key (kbd "C-M-y")   #'helm-show-kill-ring)
+(global-set-key (kbd "M-y")     #'helm-show-kill-ring)
 
 (define-key helm-map (kbd "C-k") nil)
-
-(define-key helm-map (kbd "C-q")   #'helm-delete-minibuffer-contents)
-(define-key helm-map (kbd "C-M-n") #'helm-next-source)
-(define-key helm-map (kbd "C-M-p") #'helm-previous-source)
+(define-key helm-map (kbd "C-q") #'helm-delete-minibuffer-contents)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

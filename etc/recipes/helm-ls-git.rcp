@@ -3,4 +3,5 @@
        :website     "https://github.com/emacs-helm/helm-ls-git"
        :depends     (helm magit)
        :type        github
-       :pkgname     "emacs-helm/helm-ls-git")
+       :pkgname     "emacs-helm/helm-ls-git"
+       :features    helm-ls-git)
