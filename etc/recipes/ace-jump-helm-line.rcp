@@ -1,0 +1,8 @@
+(:name ace-jump-helm-line
+       :description "Ace-jump to a candidate in helm window."
+       :website     "https://github.com/cute-jumper/ace-jump-helm-line"
+       :depends     (helm avy)
+       :type        github
+       :pkgname     "cute-jumper/ace-jump-helm-line"
+       :library     helm
+       :lazy        t)
