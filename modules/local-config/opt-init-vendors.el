@@ -61,7 +61,7 @@
                     auto-async-byte-compile
                     beginend
                     cl-lib-highlight
-                    company-mode company-quickhelp company-statistics company-tern company-web
+                    company-mode company-flx company-quickhelp company-statistics company-tern company-web
                     composer
                     csv-mode
                     dash-at-point

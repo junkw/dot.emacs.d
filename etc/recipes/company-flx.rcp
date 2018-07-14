@@ -1,0 +1,9 @@
+(:name company-flx
+       :description "Fuzzy matching for company."
+       :website     "https://github.com/PythonNut/company-flx"
+       :depends     (company-mode flx)
+       :type        github
+       :pkgname     "PythonNut/company-flx"
+       :library     company
+       :lazy        t
+       :post-init   (company-flx-mode +1))
