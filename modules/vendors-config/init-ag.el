@@ -35,7 +35,7 @@
 (setq ag-group-matches nil)
 
 ;;;; Keymap
-(global-set-key (kbd "<f5>") #'ag-project-at-point)
+(global-set-key (kbd "M-s a") #'ag-project-at-point)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

@@ -4,7 +4,7 @@
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Mar. 12, 2014
-;; Keywords: .emacs
+;; Keywords: .emacs, helm, ag
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -30,12 +30,13 @@
 ;;
 
 ;;; Code:
+
 (setq helm-ag-base-command "ag -S --nocolor --nogroup")
 (setq helm-ag-insert-at-point 'symbol)
 
 ;;;; Keymap
-(define-key helm-command-prefix (kbd "M-g a") #'helm-ag)
-(define-key helm-command-prefix (kbd "M-g A") #'helm-do-ag)
+(define-key helm-command-prefix (kbd "M-s a") #'helm-ag)
+(define-key helm-command-prefix (kbd "M-s A") #'helm-do-ag)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
