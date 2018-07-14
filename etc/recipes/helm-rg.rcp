@@ -1,0 +1,6 @@
+(:name helm-rg
+       :description "a helm interface to ripgrep."
+       :website     "https://github.com/cosmicexplorer/helm-rg"
+       :depends     (helm dash)
+       :type        github
+       :pkgname     "cosmicexplorer/helm-rg")

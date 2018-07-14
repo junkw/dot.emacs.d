@@ -75,7 +75,7 @@
                     geben
                     gist git-gutter
                     goto-chg
-                    helm helm-ag helm-descbinds helm-ls-git helm-projectile helm-swoop
+                    helm helm-ag helm-descbinds helm-ls-git helm-projectile helm-rg helm-swoop
                     highlight-defined highlight-indentation highlight-symbol
                     info+
                     js2-mode json-mode
