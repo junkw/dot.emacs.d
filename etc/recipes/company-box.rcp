@@ -1,0 +1,8 @@
+(:name company-box
+       :description "Company front-end with icons."
+       :website     "https://github.com/sebastiencs/company-box"
+       :depends     (company-mode dash)
+       :type        github
+       :pkgname     "sebastiencs/company-box"
+       :features    company-box
+       :post-init   (add-hook 'company-mode-hook #'company-box-mode))
