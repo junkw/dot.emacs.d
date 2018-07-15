@@ -100,6 +100,7 @@
                     visual-regexp-steroids
                     web-mode
                     wgrep
+                    which-key
                     yaml-mode))
 
 (setq jkw:el-get-used-packages-postload
