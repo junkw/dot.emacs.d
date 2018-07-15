@@ -52,13 +52,13 @@
 
     (setq e2wm:c-code-recipe
           (if laptop-screen-p
-              '(| (:left-max-size 42)
+              '(| (:right-max-size 45)
+                  (- (:upper-size-ratio 0.7)
+                     main sub)
                   (- (:upper-size-ratio 0.5)
                      imenu
                      (- (:upper-size-ratio 0.6)
-                        files bookmarks))
-                  (- (:upper-size-ratio 0.7)
-                     main sub))
+                        files bookmarks)))
             ;; for desktop
             '(| (:left-max-size 45)
                 (- (:upper-size-ratio 0.5)
@@ -72,6 +72,7 @@
 
   ;; two
   (setq e2wm:c-two-right-default 'prev))
+
 
 ;; Local Variables:
 ;; mode: emacs-lisp
