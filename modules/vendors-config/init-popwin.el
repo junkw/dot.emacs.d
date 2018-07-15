@@ -39,7 +39,7 @@
 (push '(" *auto-async-byte-compile*" :noselect t) popwin:special-display-config)
 (push '("*Backtrace*" :noselect t) popwin:special-display-config)
 (push '("*Compile-Log*" :height 10 :noselect t) popwin:special-display-config)
-(push '("*el-get packages*" :position bottom) popwin:special-display-config)
+(push '("*el-get packages*" :position bottom :height 25) popwin:special-display-config)
 (push '("*Flycheck errors*" :position bottom :height 10 :noselect t :stick t) popwin:special-display-config)
 (push '("*vc-log*" :stick t) popwin:special-display-config)
 
