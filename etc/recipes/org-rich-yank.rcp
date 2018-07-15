@@ -1,0 +1,6 @@
+(:name org-rich-yank
+       :description "Rich text clipboard for org-mode."
+       :website     "https://github.com/unhammer/org-rich-yank"
+       :depends     org-mode
+       :type        github
+       :pkgname     "unhammer/org-rich-yank")
