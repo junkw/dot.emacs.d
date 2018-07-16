@@ -58,6 +58,8 @@
           helm-source-files-in-current-dir
           helm-source-mac-spotlight)))
 
+(add-to-list 'helm-sources-using-default-as-input 'helm-source-info-pages t)
+
 ;;;; Candidates
 (setq helm-candidate-number-limit 500)
 (setq helm-ff-search-library-in-sexp t)
@@ -69,6 +71,7 @@
 (setq helm-recentf-fuzzy-match t)
 (setq helm-semantic-fuzzy-match t)
 (setq helm-imenu-fuzzy-match t)
+(setq helm-lisp-fuzzy-completion t)
 
 (with-eval-after-load 'migemo
   (helm-migemo-mode +1))
@@ -86,6 +89,8 @@
 
 (define-key helm-map (kbd "C-k") nil)
 (define-key helm-map (kbd "C-q") #'helm-delete-minibuffer-contents)
+
+(define-key minibuffer-local-map (kbd "C-c C-l") #'helm-minibuffer-history)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

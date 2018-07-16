@@ -42,6 +42,7 @@
 (define-key helm-command-prefix (kbd "M-i") #'helm-swoop)
 (define-key helm-command-prefix (kbd "M-I") #'helm-multi-swoop)
 (define-key helm-command-prefix (kbd "M-a") #'helm-multi-swoop-all)
+(define-key helm-command-prefix (kbd "M-p") #'helm-multi-swoop-projectile)
 
 (define-key isearch-mode-map (kbd "M-i") #'helm-swoop-from-isearch)
 

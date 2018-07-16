@@ -33,7 +33,7 @@
 
 
 ;;;; Keymap
-(define-key helm-map (kbd "@") #'ace-jump-helm-line)
+(define-key helm-map (kbd "C-'") #'ace-jump-helm-line)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
