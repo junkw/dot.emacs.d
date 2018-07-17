@@ -56,9 +56,6 @@
 ;; Comment style
 (setq-default comment-style 'multi-line)
 
-;; Semantic
-(semantic-mode +1)
-
 ;;;; Highlight
 (setq transient-mark-mode t)
 (global-hl-line-mode +1)
