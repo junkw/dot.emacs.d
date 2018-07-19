@@ -43,17 +43,17 @@
 ;; Garbage collection
 (setq garbage-collection-messages t)
 
-(defun jkw:set-gc-on-minibuffer ()
-  "[internal] set `gc-cons-threshold' for minibuffer."
+(defun jkw:set-gc-cons-threshold-biggest ()
+  "[internal] set `gc-cons-threshold' for packages useing big memory."
   (setq gc-cons-threshold most-positive-fixnum))
 
-(defun jkw:set-gc-default ()
+(defun jkw:set-gc-cons-threshold-default ()
   "[internal] set `gc-cons-threshold' as default."
   (setq gc-cons-threshold (* 10 gc-cons-threshold-origin)))
 
-(add-hook 'after-init-hook #'jkw:set-gc-default)
-(add-hook 'minibuffer-setup-hook #'jkw:set-gc-on-minibuffer)
-(add-hook 'minibuffer-exit-hook #'jkw:set-gc-default)
+(add-hook 'after-init-hook #'jkw:set-gc-cons-threshold-default)
+(add-hook 'minibuffer-setup-hook #'jkw:set-gc-cons-threshold-biggest)
+(add-hook 'minibuffer-exit-hook #'jkw:set-gc-cons-threshold-default)
 
 ;; Limit lisp binding
 (setq max-specpdl-size 5000)

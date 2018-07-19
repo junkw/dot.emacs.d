@@ -38,6 +38,12 @@
 ;;;; Alias
 (defalias 'magit 'magit-status)
 
+;;;; Hooks
+(add-hook 'magit-pre-display-buffer-hook #'jkw:set-gc-cons-threshold-biggest)
+(add-hook 'magit-post-display-buffer-hook #'jkw:set-gc-cons-threshold-default)
+(add-hook 'magit-pre-refresh-hook #'jkw:set-gc-cons-threshold-biggest)
+(add-hook 'magit-post-refresh-hook #'jkw:set-gc-cons-threshold-default)
+
 ;;;; Keymap
 (define-prefix-command 'jkw:magit-command-prefix-key)
 (global-set-key (kbd "C-x g") 'jkw:magit-command-prefix-key)
