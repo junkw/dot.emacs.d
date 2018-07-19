@@ -37,6 +37,9 @@
 (require 'site-loaddefs nil t)
 
 ;;;; Variables
+(defvar gc-cons-threshold-origin gc-cons-threshold)
+(setq gc-cons-threshold most-positive-fixnum)
+
 (defvar init-module-pre-init-regexp "\\`pre-init-"
   "Regular expression of init module name for pre loading.")
 
