@@ -36,7 +36,7 @@
 (setq helm-swoop-split-direction 'split-window-vertically)
 (setq helm-swoop-speed-or-color t)
 (setq helm-swoop-move-to-line-cycle t)
-(setq helm-swoop-use-fuzzy-match t)
+(setq helm-swoop-use-fuzzy-match nil)
 
 ;;;; Keymap
 (define-key helm-command-prefix (kbd "M-i") #'helm-swoop)
