@@ -49,7 +49,7 @@
 
 (defun jkw:set-gc-cons-threshold-default ()
   "[internal] set `gc-cons-threshold' as default."
-  (setq gc-cons-threshold (* 10 gc-cons-threshold-origin)))
+  (setq gc-cons-threshold (* 50 gc-cons-threshold-origin)))
 
 (add-hook 'after-init-hook #'jkw:set-gc-cons-threshold-default)
 (add-hook 'minibuffer-setup-hook #'jkw:set-gc-cons-threshold-biggest)
