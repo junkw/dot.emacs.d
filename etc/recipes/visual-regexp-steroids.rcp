@@ -1,0 +1,6 @@
+(:name visual-regexp-steroids
+       :description "Extends visual-regexp to support other regexp engines."
+       :website     "https://github.com/benma/visual-regexp-steroids.el"
+       :type        github
+       :depends     (cl-lib visual-regexp pcre2el)
+       :pkgname     "benma/visual-regexp-steroids.el")

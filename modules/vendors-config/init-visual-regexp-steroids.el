@@ -3,7 +3,7 @@
 ;; (C) 2018  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Jul. 3, 2013
+;; Created: Jul. 3, 2018
 ;; Keywords: .emacs, regexp
 
 ;;; This file is NOT part of GNU Emacs.
@@ -31,8 +31,8 @@
 
 ;;; Code:
 
-(global-set-key (kbd "M-%")     #'vr/replace)
-(global-set-key (kbd "C-M-%")   #'vr/query-replace)
+(global-set-key (kbd "M-%")   #'vr/replace)
+(global-set-key (kbd "C-M-%") #'vr/query-replace)
 
 (with-eval-after-load 'multiple-cursors
   (global-set-key (kbd "C-c m") #'vr/mc-mark))
