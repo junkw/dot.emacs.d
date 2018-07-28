@@ -31,18 +31,16 @@
 
 ;;; Code:
 
-(add-to-list 'auto-mode-alist '("\\.\\(js\\|json\\)\\'" . js2-mode))
-
-(with-eval-after-load 'js2-mode
-  (require 'js2-imenu-extras)
-  (js2-imenu-extras-setup))
+(require 'js2-imenu-extras)
 
 ;;;; Hooks
 (defun jkw:js2-mode-init ()
   "My config for js2 mode."
+  (js2-imenu-extras-mode +1)
+  (subword-mode +1)
+
   (unless editorconfig-mode
-    (setq indent-tabs-mode nil))
-  (subword-mode +1))
+    (setq indent-tabs-mode nil)))
 
 (add-hook 'js2-mode-hook #'jkw:js2-mode-init)
 

@@ -1,0 +1,11 @@
+(:name js2-mode
+       :description "Improved JavaScript editing mode."
+       :website     "https://github.com/mooz/js2-mode"
+       :type        github
+       :pkgname     "mooz/js2-mode"
+       :lazy        t
+       :library     js2-mode
+       :prepare     (progn
+                      (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+                      (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
+                      (add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))))
