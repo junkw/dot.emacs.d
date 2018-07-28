@@ -31,17 +31,10 @@
 
 ;;; Code:
 
-(add-to-list 'auto-mode-alist '("\\.inc\\'" . php-mode))
-
-(with-eval-after-load 'php-mode
-  (setq php-manual-url 'ja)
-  (setq php-mode-coding-style 'psr2)
-  (setq php-lineup-cascaded-calls t)
-  (setq php-template-compatibility nil)
-
-;;;; Keymap
-  (define-key php-mode-map (kbd "C-c C--") #'php-current-class)
-  (define-key php-mode-map (kbd "C-c C-=") #'php-current-namespace))
+(setq php-manual-url 'ja)
+(setq php-mode-coding-style 'psr2)
+(setq php-lineup-cascaded-calls t)
+(setq php-template-compatibility nil)
 
 ;;;; Hooks
 (defun jkw:php-mode-init ()
@@ -53,6 +46,10 @@
     (insert "<?php\n\n")))
 
 (add-hook 'php-mode-hook #'jkw:php-mode-init)
+
+;;;; Keymap
+(define-key php-mode-map (kbd "C-c C--") #'php-current-class)
+(define-key php-mode-map (kbd "C-c C-=") #'php-current-namespace)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

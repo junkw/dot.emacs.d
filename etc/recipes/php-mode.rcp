@@ -1,0 +1,10 @@
+(:name php-mode
+       :description "Major mode for editing PHP code."
+       :website     "https://github.com/ejmr/php-mode"
+       :type        github
+       :pkgname     "ejmr/php-mode"
+       :compile     ("php-mode.el" "php-project.el")
+       :autoloads   ("php-mode.el" "php-project.el")
+       :lazy        t
+       :library     php-mode
+       :prepare     (add-to-list 'auto-mode-alist '("\\.inc\\'" . php-mode)))
