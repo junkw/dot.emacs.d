@@ -104,13 +104,18 @@
 
 ;;;; Capture
 (setq org-capture-templates
-      '(("s" "Stuffs such as tasks, ideas, or other information" entry (file nil)
+      `(("i" "Stuffs such as tasks, ideas, or other information" entry (file ,org-default-notes-file)
          "* %?\n  %i"
          :empty-lines-before 1
          :clock-resume t
          :kill-buffer t)
-        ("c" "Code annotaion" entry (file nil)
-         "* %?%^G\n  %u\n  %a\n  %i"
+        ("s" "Process soon" entry (file ,org-default-notes-file)
+         "* NEXT %?\n  SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"today\")) DEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+1d\"))\n\n  %a"
+         :empty-lines-before 1
+         :clock-resume t
+         :kill-buffer t)
+        ("a" "Code annotaion" entry (file ,org-default-notes-file)
+         "* %?%^G\n  %U\n  %A\n  %i"
          :empty-lines-before 1
          :clock-resume t
          :kill-buffer t)))
