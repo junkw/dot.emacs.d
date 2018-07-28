@@ -31,7 +31,8 @@
 
 ;;; Code:
 
-(add-to-list 'auto-mode-alist '("\\.\\(xml\\|atom\\)\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.xml\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.wsdl\\'" . nxml-mode))
 
 ;;;; Hooks
 (defun jkw:nxml-mode-init ()
