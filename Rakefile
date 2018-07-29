@@ -12,6 +12,7 @@ vendor_dir      = "#{user_emacs_dir}/vendor"
 elget_dir       = "#{vendor_dir}/el-get"
 
 
+# Build
 task :generate_loaddefs do
   site_lisp_dirs = Dir.glob("#{site_lisp_dir}/*/**/")
   paths = site_lisp_dirs.join(" ")
@@ -39,16 +40,13 @@ task :make_dir do
   FileUtils.mkdir_p(emacs_dirs)
 end
 
-task :compile_init_module do
-  els = FileList.new("#{user_emacs_dir}/init.el", "#{init_module_dir}/*/*-init-*.el") do |el|
-    el.exclude(/.+\-init\-private\-.+\.el/)
-    el.exclude(/.+\/obsoleted-config\/.+\.el/)
+task :set_config do
+  if RUBY_PLATFORM.include?("darwin")
+    sh "defaults write org.gnu.Emacs TransparentTitleBar DARK"
   end
-  conf = els.join(" ")
-
-  sh "#{emacs_cmd} -L #{core_dir}/ -f batch-byte-compile #{conf}"
 end
 
+# Byte compile
 task :compile_all do
   els = FileList.new("#{user_emacs_dir}/init.el", "#{init_module_dir}/*/*init-*.el") do |el|
     el.exclude(/.+\-init\-private\-.+\.el/)
@@ -58,6 +56,16 @@ task :compile_all do
   s    = "(let ((default-directory \"#{vendor_dir}\")) (normal-top-level-add-subdirs-to-load-path))"
 
   sh "#{emacs_cmd} -L #{core_dir}/ --eval '#{s}' -f batch-byte-compile #{conf}"
+end
+
+task :compile_init_module do
+  els = FileList.new("#{user_emacs_dir}/init.el", "#{init_module_dir}/*/*-init-*.el") do |el|
+    el.exclude(/.+\-init\-private\-.+\.el/)
+    el.exclude(/.+\/obsoleted-config\/.+\.el/)
+  end
+  conf = els.join(" ")
+
+  sh "#{emacs_cmd} -L #{core_dir}/ -f batch-byte-compile #{conf}"
 end
 
 task :tag do
@@ -71,22 +79,16 @@ task :tag do
   end
 end
 
-task :install_elget do
-  sh "git clone --depth 1 --branch master https://github.com/dimitri/el-get.git vendor/el-get"
+# Cleanup
+task :remove_elc do
+  FileUtils.rm(Dir.glob("#{user_emacs_dir}/{init.elc,modules/*/*.elc}"))
 end
 
 task :remove_var do
   FileUtils.rm_r(Dir.glob("#{user_emacs_dir}/var/{initerror,{backup,bookmark,cache,log,tmp}/*}"))
 end
 
-task :remove_elc do
-  FileUtils.rm(Dir.glob("#{user_emacs_dir}/{init.elc,modules/*/*.elc}"))
-end
-
-task :run_init_test do
-  sh "#{emacs_cmd} -l #{user_emacs_dir}/lib/test/run-tests.el"
-end
-
+# Test
 task :check_recipes do
   args    = '-Wno-features -Wno-autoloads'
   recipes = "#{user_emacs_dir}/etc/recipes/*.rcp"
@@ -94,17 +96,22 @@ task :check_recipes do
   sh "#{emacs_cmd} -L #{elget_dir} -l #{elget_dir}/el-get-check.el -f el-get-check-recipe-batch #{args} #{recipes}"
 end
 
-task :set_config do
-  if RUBY_PLATFORM.include?("darwin")
-    sh "defaults write org.gnu.Emacs TransparentTitleBar DARK"
-  end
+task :install_elget do
+  sh "git clone --depth 1 --branch master https://github.com/dimitri/el-get.git vendor/el-get"
+end
+
+task :run_init_test do
+  sh "#{emacs_cmd} -l #{user_emacs_dir}/lib/test/run-tests.el"
 end
 
 
-task :default => [:generate_loaddefs, :compile]
+# Commands
 task :compile => [:compile_all, :tag]
-task :install => [:set_config, :generate_loaddefs, :link, :make_dir, :compile_init_module, :tag]
-task :travis  => [:link, :make_dir, :install_elget]
-task :clear   => [:remove_var]
+task :default => [:generate_loaddefs, :compile, :tag]
+
 task :cleanup => [:remove_var, :remove_elc, :compile]
+task :clear   => [:remove_var]
+
+task :install => [:set_config, :generate_loaddefs, :link, :make_dir, :compile_init_module, :tag]
 task :tests   => [:compile_init_module, :run_init_test, :check_recipes]
+task :travis  => [:link, :make_dir, :install_elget]
