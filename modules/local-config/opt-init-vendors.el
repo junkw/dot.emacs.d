@@ -68,7 +68,7 @@
                     dumb-jump
                     e2wm e2wm-bookmark
                     electric-align
-                    eldoc-extension elisp-slime-nav
+                    eldoc-extension elisp-def
                     emmet-mode
                     expand-region
                     flycheck flyspell-correct

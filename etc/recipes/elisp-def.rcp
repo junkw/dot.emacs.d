@@ -1,0 +1,7 @@
+(:name elisp-def
+       :description "Find Emacs Lisp definitions."
+       :website     "https://github.com/Wilfred/elisp-def"
+       :depends     (dash s f)
+       :type        github
+       :pkgname     "Wilfred/elisp-def"
+       :post-init   (add-hook emacs-lisp-mode-hook #'elisp-def-mode))
