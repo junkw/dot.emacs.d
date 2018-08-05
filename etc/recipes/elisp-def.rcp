@@ -4,4 +4,4 @@
        :depends     (dash s f)
        :type        github
        :pkgname     "Wilfred/elisp-def"
-       :post-init   (add-hook emacs-lisp-mode-hook #'elisp-def-mode))
+       :post-init   (add-hook 'emacs-lisp-mode-hook #'elisp-def-mode))
