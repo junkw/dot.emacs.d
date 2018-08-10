@@ -39,11 +39,4 @@
 (mu4e-alert-enable-notifications)
 (mu4e-alert-enable-mode-line-display)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-mu4e-alert.el ends here

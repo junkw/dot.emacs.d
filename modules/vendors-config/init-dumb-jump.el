@@ -45,11 +45,4 @@
 (define-key dumb-jump-mode-map (kbd "M-g b") #'dumb-jump-back)
 (define-key dumb-jump-mode-map (kbd "M-g ?") #'dumb-jump-quick-look)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-dumb-jump.el ends here

@@ -58,11 +58,4 @@
       ("u" . #'mc/unmark-next-like-this)
       ("U" . #'mc/unmark-previous-like-this))))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-multiple-cursors.el ends here

@@ -31,15 +31,8 @@
 
 ;;; Code:
 
-(global-undo-tree-mode +1)
-
 (setq undo-tree-mode-lighter "")
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
+(global-undo-tree-mode +1)
 
 ;;; init-undo-tree.el ends here

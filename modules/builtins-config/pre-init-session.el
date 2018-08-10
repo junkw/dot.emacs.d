@@ -131,11 +131,4 @@
 (setq bookmark-default-file (concat user-emacs-directory "var/bookmark/bookmarks"))
 (setq bookmark-save-flag 1)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; pre-init-session.el ends here

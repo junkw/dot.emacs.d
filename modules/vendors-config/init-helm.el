@@ -92,11 +92,4 @@
 
 (define-key minibuffer-local-map (kbd "C-c C-l") #'helm-minibuffer-history)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-helm.el ends here

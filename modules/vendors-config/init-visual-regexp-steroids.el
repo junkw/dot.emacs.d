@@ -31,17 +31,11 @@
 
 ;;; Code:
 
+;;;; Keymap
 (global-set-key (kbd "M-%")   #'vr/replace)
 (global-set-key (kbd "C-M-%") #'vr/query-replace)
 
 (with-eval-after-load 'multiple-cursors
   (global-set-key (kbd "C-c m") #'vr/mc-mark))
-
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
 
 ;;; init-visual-regexp-steroids.el ends here

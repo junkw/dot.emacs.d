@@ -54,11 +54,4 @@
   (define-key helm-multi-swoop-map (kbd "C-r") #'helm-previous-line)
   (define-key helm-multi-swoop-map (kbd "C-s") #'helm-next-line))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-helm-swoop.el ends here

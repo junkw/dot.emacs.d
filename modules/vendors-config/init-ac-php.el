@@ -60,11 +60,4 @@ Set `auto-complete-mode' or `company-backends' for php-mode."
 (define-key php-mode-map (kbd "C-,")   #'ac-php-find-symbol-at-point)
 (define-key php-mode-map (kbd "C-c <") #'ac-php-location-stack-back)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-ac-php.el ends here

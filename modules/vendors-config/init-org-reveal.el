@@ -34,11 +34,4 @@
 (add-to-list 'org-export-backends 'reveal)
 (setq org-reveal-root (concat user-emacs-directory "lib/reveal.js"))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-org-reveal.el ends here

@@ -39,11 +39,4 @@
 ;;;; Keymap
 (define-key helm-command-prefix (kbd "g") #'helm-ls-git-ls)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-helm-ls-git.el ends here

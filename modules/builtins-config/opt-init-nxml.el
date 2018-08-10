@@ -49,11 +49,4 @@
 
 (add-hook 'nxml-mode-hook #'jkw:nxml-mode-init)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; opt-init-nxml.el ends here

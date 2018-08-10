@@ -45,11 +45,4 @@
 
 (add-hooks '(web-mode nxml-mode css-mode) #'jkw:emmet-mode-init)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-emmet-mode.el ends here

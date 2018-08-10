@@ -53,11 +53,4 @@
 (define-key ac-mode-map (kbd "M-TAB") #'auto-complete)
 (define-key ac-completing-map (kbd "C-M-g") #'ac-stop)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-auto-complete.el ends here

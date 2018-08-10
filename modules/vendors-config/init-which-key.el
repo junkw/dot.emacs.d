@@ -39,11 +39,4 @@
 (setq which-key-idle-delay 2.5)
 (setq which-key-sort-order 'which-key-description-order)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-which-key.el ends here

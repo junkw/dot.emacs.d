@@ -98,11 +98,4 @@ Advice function for `el-get-load-package-user-init-file'."
 ;;;; Keymap
 (define-key el-get-package-menu-mode-map "o" #'el-get-package-menu-open-init-file)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-el-get.el ends here

@@ -37,11 +37,4 @@
 (with-eval-after-load 'flyspell
   (define-key flyspell-mode-map (kbd "C-<return>") #'flyspell-correct-word-generic))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-flyspell-correct.el ends here

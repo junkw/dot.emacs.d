@@ -42,11 +42,4 @@
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "M-g j") #'avy-org-goto-heading-timer))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-avy.el ends here

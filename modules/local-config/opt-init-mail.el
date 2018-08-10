@@ -211,11 +211,4 @@ Advice function for `mml-attach-file'."
   (define-key mu4e-headers-mode-map (kbd "C-c c") #'org-mu4e-store-and-capture)
   (define-key mu4e-view-mode-map (kbd "C-c c") #'org-mu4e-store-and-capture))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; opt-init-mail.el ends here

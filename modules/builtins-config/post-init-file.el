@@ -117,11 +117,4 @@ ARG is like in `dired-map-over-marks'."
 (define-key dired-mode-map (kbd "C-c C-e") #'wdired-change-to-wdired-mode)
 (define-key dired-mode-map (kbd "E") #'dired-do-convert-coding-system)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; post-init-file.el ends here

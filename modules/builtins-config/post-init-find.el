@@ -49,11 +49,4 @@ Advice function for `w/isearch-mode' (ORIG-FUN needs args FORWARD, REGEXP, OP-FU
 
 (advice-add 'isearch-mode :around #'isearch-mode--with-region)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; post-init-find.el ends here

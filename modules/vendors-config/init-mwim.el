@@ -35,11 +35,4 @@
 (global-set-key (kbd "C-a") #'mwim-beginning-of-code-or-line-or-comment)
 (global-set-key (kbd "C-e") #'mwim-end-of-code-or-line)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-mwim.el ends here

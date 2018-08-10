@@ -40,11 +40,4 @@
     '(("c" . #'goto-last-change)
       ("C" . #'goto-last-change-reverse))))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-goto-chg.el ends here

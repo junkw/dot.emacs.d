@@ -51,11 +51,4 @@
 (define-key php-mode-map (kbd "C-c C--") #'php-current-class)
 (define-key php-mode-map (kbd "C-c C-=") #'php-current-namespace)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-php-mode.el ends here

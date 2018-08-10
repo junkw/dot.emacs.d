@@ -40,11 +40,4 @@
                     'japanese-jisx0208
                     (font-spec :family "Ricty Diminished Discord")))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; pre-init-fonts.el ends here

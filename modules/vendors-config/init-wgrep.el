@@ -37,11 +37,4 @@
 (with-eval-after-load 'ag (require 'wgrep-ag))
 (with-eval-after-load 'rg (require 'wgrep-ag))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-wgrep.el ends here

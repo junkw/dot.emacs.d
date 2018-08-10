@@ -83,11 +83,4 @@
       (add-hook 'after-save-hook #'ssh-deploy-upload-on-save nil t)
     (remove-hook 'after-save-hook #'ssh-deploy-upload-on-save t)))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-ssh-deploy.el ends here

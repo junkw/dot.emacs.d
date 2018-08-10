@@ -42,11 +42,4 @@
 (define-key view-mode-map (kbd "J") #'View-scroll-line-forward)
 (define-key view-mode-map (kbd "K") #'View-scroll-line-forward)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; lazy-init-view.el ends here

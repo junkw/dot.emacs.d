@@ -43,11 +43,4 @@
 
 (provide 'gui-init-theme-utils)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; gui-init-theme-utils.el ends here

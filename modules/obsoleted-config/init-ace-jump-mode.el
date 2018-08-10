@@ -35,11 +35,4 @@
 (global-set-key (kbd "M-g SPC") #'ace-jump-mode)
 (global-set-key (kbd "M-g m")   #'ace-jump-mode-pop-mark)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-ace-jump-mode.el ends here

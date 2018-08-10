@@ -53,11 +53,4 @@
 (define-key Info-mode-map (kbd "H")   #'Info-history-back)
 (define-key Info-mode-map (kbd "L")   #'Info-history-forward)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; opt-init-info.el ends here

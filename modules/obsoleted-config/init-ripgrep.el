@@ -34,11 +34,4 @@
 (setq ripgrep-executable (executable-find "rg"))
 (setq ripgrep-arguments '("-S"))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-ripgrep.el ends here

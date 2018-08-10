@@ -34,11 +34,4 @@
 (setq pos-tip-foreground-color "#abb2bf")
 (setq pos-tip-background-color "#282c34")
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-pos-tip.el ends here

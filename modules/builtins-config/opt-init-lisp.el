@@ -47,11 +47,4 @@
 ;;;; Keymap
 (find-function-setup-keys)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; opt-init-lisp.el ends here

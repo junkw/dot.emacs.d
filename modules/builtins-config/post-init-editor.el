@@ -238,11 +238,4 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 (with-eval-after-load 'flyspell
   (define-key flyspell-mode-map (kbd "C-;") nil))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; post-init-editor.el ends here

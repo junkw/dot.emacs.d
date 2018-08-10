@@ -43,11 +43,4 @@
 ;;;; Hook
 (add-hook 'emacs-lisp-mode-hook #'highlight-defined-mode)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-highlight-defined.el ends here

@@ -49,11 +49,4 @@
     '(("n" . #'highlight-symbol-next)
       ("p" . #'highlight-symbol-prev))))
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-highlight-symbol.el ends here

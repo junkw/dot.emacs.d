@@ -36,11 +36,4 @@
 (setq ediff-split-window-function #'split-window-horizontally) ; split ediff window, side by side
 (setq ediff-keep-variants nil)          ; remove unmodified buffers
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; opt-init-diff.el ends here

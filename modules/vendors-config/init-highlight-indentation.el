@@ -34,11 +34,4 @@
 (add-hook 'prog-mode-hook #'highlight-indentation-mode)
 (add-hook 'web-mode-hook  #'highlight-indentation-current-column-mode)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-highlight-indentation.el ends here

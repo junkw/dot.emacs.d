@@ -41,11 +41,4 @@
 
 (add-hooks '(css-mode nxml-mode web-mode) #'jkw:company-backends-for-web-mode-init)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-company-web.el ends here

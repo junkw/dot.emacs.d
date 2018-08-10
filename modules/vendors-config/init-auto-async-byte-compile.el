@@ -35,11 +35,4 @@
 (setq auto-async-byte-compile-exclude-files-regexp
       "\\(\\(\\/\\(Dropbox\\|vendor\\|var\\|te?mp\\|tests?\\|obsoleted-config\\)\\/.+\\)\\|\\.dir-locals\\|.+-init-private-.+\\)\\.el\\'")
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-auto-async-byte-compile.el ends here

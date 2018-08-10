@@ -44,11 +44,4 @@
 
 (add-hooks '(sql-mode sql-interactive-mode) #'jkw:sql-indent-init)
 
-;; Local Variables:
-;; mode: emacs-lisp
-;; coding: utf-8-emacs-unix
-;; indent-tabs-mode: nil
-;; byte-compile-warnings: (not free-vars unresolved mapcar constants)
-;; End:
-
 ;;; init-sql-indent.el ends here
