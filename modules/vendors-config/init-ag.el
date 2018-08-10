@@ -35,6 +35,7 @@
 (setq ag-group-matches nil)
 
 ;;;; Keymap
-(global-set-key (kbd "M-s a") #'ag-project-at-point)
+(global-set-key (kbd "M-s a") #'ag)
+(global-set-key (kbd "M-s A") #'ag-project-at-point)
 
 ;;; init-ag.el ends here
