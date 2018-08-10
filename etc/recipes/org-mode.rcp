@@ -17,6 +17,6 @@
                       (add-to-list 'auto-mode-alist '("\\.org_archive\\'" . org-mode))
                       (global-set-key (kbd "C-c a") #'org-agenda)
                       (global-set-key (kbd "C-c c") #'org-capture)
-                      (global-set-key (kbd "C-c b") #'org-iswitchb)
+                      (global-set-key (kbd "C-c b") #'org-switchb)
                       (global-set-key (kbd "C-c l") #'org-store-link))
        :features    org-loaddefs)
