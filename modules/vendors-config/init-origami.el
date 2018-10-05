@@ -41,7 +41,7 @@
 
 (defun origami-close-all-nodes-with-view-mode ()
   "[internal] If `w/view-mode' is enabled, close every fold in the buffer."
-  (when (memq major-mode origami-enabled-modes)
+  (when (and (memq major-mode origami-enabled-modes) (not magit-blame-mode))
     (call-interactively
      (if view-mode
          #'origami-close-all-nodes
