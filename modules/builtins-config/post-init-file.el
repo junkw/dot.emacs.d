@@ -46,6 +46,9 @@
   (setq trash-directory "~/.Trash"))
 (setq delete-by-moving-to-trash t)
 
+;;;; FFAP
+(setq ffap-machine-p-known 'accept)
+
 ;;;; Dired
 (setq dired-dwim-target t)
 (setq dired-recursive-copies 'always)
