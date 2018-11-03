@@ -41,8 +41,6 @@
   (server-start))
 
 ;; Garbage collection
-(setq garbage-collection-messages t)
-
 (defun jkw:set-gc-cons-threshold-biggest ()
   "[internal] set `gc-cons-threshold' for packages useing big memory."
   (setq gc-cons-threshold most-positive-fixnum))
