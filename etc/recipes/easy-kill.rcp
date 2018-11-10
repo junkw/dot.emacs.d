@@ -1,0 +1,5 @@
+(:name easy-kill
+       :description "Kill & Mark Things Easily in Emacs."
+       :website     "https://github.com/leoliu/easy-kill"
+       :type        github
+       :pkgname     "leoliu/easy-kill")
