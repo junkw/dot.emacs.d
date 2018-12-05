@@ -33,6 +33,7 @@
 
 (which-key-mode +1)
 
+(setq which-key-lighter "")
 (setq which-key-popup-type 'side-window)
 (setq which-key-side-window-location 'bottom)
 (setq which-key-side-window-max-height 0.2)
