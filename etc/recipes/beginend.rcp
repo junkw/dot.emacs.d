@@ -4,4 +4,4 @@
        :type        github
        :pkgname     "DamienCassou/beginend"
        :features    beginend
-       :post-init   (beginend-global-mode))
+       :post-init   (beginend-setup-all))
