@@ -56,6 +56,7 @@
 (setq dired-listing-switches (purecopy "-alh"))
 
 (require 'wdired)
+(setq wdired-create-parent-directories t)
 (setq wdired-allow-to-change-permissions t)
 
 (require 'ls-lisp)
