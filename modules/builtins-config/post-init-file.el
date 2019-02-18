@@ -49,6 +49,22 @@
 ;;;; FFAP
 (setq ffap-machine-p-known 'accept)
 
+;; http://mbork.pl/2019-02-17_Inserting_the_current_file_name_at_point
+(defun insert-current-file-name-at-point (&optional full-path)
+  "Insert the current filename at point.
+
+With prefix argument, use FULL-PATH."
+  (interactive "P")
+  (let* ((buffer
+	  (if (minibufferp)
+	      (window-buffer
+	       (minibuffer-selected-window))
+	    (current-buffer)))
+	 (filename (buffer-file-name buffer)))
+    (if filename
+	(insert (if full-path filename (file-name-nondirectory filename)))
+      (error (format "Buffer %s is not visiting a file" (buffer-name buffer))))))
+
 ;;;; Dired
 (setq dired-dwim-target t)
 (setq dired-recursive-copies 'always)
@@ -118,6 +134,8 @@ ARG is like in `dired-map-over-marks'."
    (function dired-convert-coding-system) arg 'convert-coding-system t))
 
 ;;;; Keymap
+(global-set-key (kbd "M-o") #'insert-current-file-name-at-point)
+
 (define-key dired-mode-map (kbd "C-c C-e") #'wdired-change-to-wdired-mode)
 (define-key dired-mode-map (kbd "E") #'dired-do-convert-coding-system)
 
