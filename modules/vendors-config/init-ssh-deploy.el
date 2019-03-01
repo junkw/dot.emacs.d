@@ -31,8 +31,6 @@
 
 ;;; Code:
 
-(require 'ssh-deploy)
-
 (setq ssh-deploy-revision-folder (concat user-emacs-directory "var/backup/"))
 
 ;;;; Keymap
