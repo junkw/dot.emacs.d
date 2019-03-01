@@ -125,7 +125,7 @@
   (defun jkw:mu4e-select-account ()
     "Select an account from `jkw:mu4e-account-alist'."
     (funcall mu4e-completing-read-function "Compose with account: "
-             (mapcar #'(lambda (var) (car var)) jkw:mu4e-account-alist)))
+             (mapcar #'car jkw:mu4e-account-alist)))
 
   (defun jkw:mu4e-get-field (field-name)
     "Get a field var with FIELD-NAME."
