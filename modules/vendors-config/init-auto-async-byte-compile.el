@@ -33,6 +33,6 @@
 
 (setq auto-async-byte-compile-init-file (concat init-module-core-path "pre-init-environments.el"))
 (setq auto-async-byte-compile-exclude-files-regexp
-      "\\(\\(\\/\\(Dropbox\\|vendor\\|var\\|te?mp\\|tests?\\|obsoleted-config\\)\\/.+\\)\\|\\.dir-locals\\|.+-init-private-.+\\)\\.el\\'")
+      "\\(\\(\\/\\(Desktop\\|Dropbox\\|vendor\\|var\\|te?mp\\|tests?\\|obsoleted-config\\)\\/.+\\)\\|\\.dir-locals\\|.+-init-private-.+\\)\\.el\\'")
 
 ;;; init-auto-async-byte-compile.el ends here
