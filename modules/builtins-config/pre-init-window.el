@@ -52,22 +52,15 @@
 
 ;; Show the function in the header line
 ;; http://www.emacswiki.org/emacs/WhichFuncMode
-(require 'which-func)
 (which-function-mode)
-
-(setq mode-line-misc-info
-      (assq-delete-all 'which-func-mode mode-line-misc-info))
-(setq which-func-header-line-format
-      '(which-func-mode ("" which-func-format)))
+(setq-default mode-line-misc-info (assq-delete-all 'which-function-mode mode-line-misc-info))
 
 (defun which-func-ff-hook--header-line ()
   "File find hook to use Which Function mode in header line.
 
 Advice function for `which-func-ff-hook'."
   (when which-func-mode
-    (setq mode-line-misc-info
-          (assq-delete-all 'which-func-mode mode-line-misc-info))
-    (setq header-line-format which-func-header-line-format)))
+    (setq header-line-format '(which-function-mode ("" which-func-format)))))
 
 (advice-add 'which-func-ff-hook :after #'which-func-ff-hook--header-line)
 
