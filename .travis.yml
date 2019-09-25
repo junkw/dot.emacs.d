@@ -3,7 +3,8 @@ language: emacs-lisp
 
 env:
   matrix:
-    - EMACS=emacs-26.1-travis
+    - EMACS=emacs-26.2-travis
+    - EMACS=emacs-26.3-travis
     - EMACS=emacs-git-snapshot-travis
 
 branches:
