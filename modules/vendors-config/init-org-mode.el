@@ -35,6 +35,8 @@
 (add-to-list 'org-modules 'org-habit)
 (add-to-list 'org-modules 'org-man)
 
+(require 'org-tempo)
+
 ;; Org file
 (setq org-insert-mode-line-in-empty-file t)
 (setq org-directory "~/Documents/org/")
@@ -53,8 +55,6 @@
 (setq org-catch-invisible-edits 'show-and-error) ; Editing invisible region, expands it and warns
 (setq org-return-follows-link t)        ; Open URL with RET
 (setq org-use-speed-commands t)
-
-(add-to-list 'org-structure-template-alist '("C" "#+BEGIN_COMMENT\n?\n#+END_COMMENT" "<!--\n?\n-->"))
 
 ;;;; Link
 (add-to-list 'org-link-abbrev-alist '("isbn" . "https://www.amazon.co.jp/gp/product/%s"))
