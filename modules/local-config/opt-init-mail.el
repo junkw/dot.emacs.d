@@ -72,7 +72,7 @@
       (progn
         (setq message-send-mail-function #'message-send-mail-with-sendmail)
         (setq message-sendmail-extra-arguments '("--read-envelope-from"))
-        (setq message-sendmail-f-is-evil 't))
+        (setq message-sendmail-f-is-evil t))
     (require 'starttls)
     (setq message-send-mail-function #'smtpmail-send-it)
     (setq starttls-use-gnutls t))
