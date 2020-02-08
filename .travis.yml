@@ -17,6 +17,7 @@ before_install:
   - sudo mkdir /usr/local/evm
   - sudo chown travis:travis /usr/local/evm
   - git clone https://github.com/rejeep/evm.git /usr/local/evm
+  - export PATH=/usr/local/evm/bin:${PATH}
   - evm config path /tmp
 
 install:
