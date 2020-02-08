@@ -1,11 +1,17 @@
 # -*- mode: yaml; coding: utf-8; indent-tabs-mode: nil; tab-width: 2 -*-
 language: emacs-lisp
 
-env:
-  matrix:
-    - EMACS=emacs-26.2-travis
-    - EMACS=emacs-26.3-travis
-    - EMACS=emacs-git-snapshot-travis
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      env: EMACS=emacs-26.2-travis
+    - os: linux
+      dist: trusty
+      env: EMACS=emacs-26.3-travis
+    - os: linux
+      dist: trusty
+      env: EMACS=emacs-git-snapshot-travis
 
 branches:
   only:
@@ -25,7 +31,7 @@ install:
   - evm use ${EMACS}
 
 before_script:
-  - emacs --version
+  - $(evm bin ${EMACS}) --version
   - rake travis
 
 script:
