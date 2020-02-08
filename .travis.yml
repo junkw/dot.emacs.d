@@ -20,10 +20,8 @@ branches:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq -yy install-info
-  - sudo mkdir /usr/local/evm
-  - sudo chown travis:travis /usr/local/evm
-  - git clone https://github.com/rejeep/evm.git /usr/local/evm
-  - export PATH=/usr/local/evm/bin:${PATH}
+  - git clone https://github.com/rejeep/evm.git ${HOME}/.evm
+  - export PATH=${HOME}/.evm/bin:${PATH}
   - evm config path /tmp
 
 install:
@@ -31,7 +29,7 @@ install:
   - evm use ${EMACS}
 
 before_script:
-  - $(evm bin ${EMACS}) --version
+  - emacs --version
   - rake travis
 
 script:
