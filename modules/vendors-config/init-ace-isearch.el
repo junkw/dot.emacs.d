@@ -4,7 +4,7 @@
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
 ;; Created: Nov. 4, 2014
-;; Keywords: .emacs, isearch
+;; Keywords: .emacs, isearch, ace-jump, helm-swoop
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,10 +31,20 @@
 
 ;;; Code:
 
-(setq ace-isearch-function 'avy-goto-char)
 (setq ace-isearch-lighter "")
+
+(setq ace-isearch-use-jump 'printing-char)
 (setq ace-isearch-jump-delay 0.8)
+(setq ace-isearch-function 'avy-goto-char)
+
+(setq ace-isearch-use-function-from-isearch t)
+(setq ace-isearch-input-length 8)
+(setq ace-isearch-func-delay 0.8)
+(setq ace-isearch-function-from-isearch 'helm-swoop-from-isearch)
 
 (global-ace-isearch-mode +1)
+
+;;;; Keymap
+(define-key isearch-mode-map (kbd "C-'") #'ace-isearch-jump-during-isearch)
 
 ;;; init-ace-isearch.el ends here
