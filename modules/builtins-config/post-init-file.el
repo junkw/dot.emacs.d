@@ -68,7 +68,7 @@ With prefix argument, use FULL-PATH."
 ;;;; Dired
 (setq dired-dwim-target t)
 (setq dired-recursive-copies 'always)
-(setq directory-free-space-args (purecopy "-kH"))
+(setq file-system-info (purecopy "-kH"))
 (setq dired-listing-switches (purecopy "-alh"))
 
 (require 'wdired)

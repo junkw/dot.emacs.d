@@ -102,8 +102,8 @@
                   (map-values org-structure-template-alist)))))
 
   (defun company-org-block--template-p (template)
-    (seq-contains (map-values org-structure-template-alist)
-                  template))
+    (seq-contains-p (map-values org-structure-template-alist)
+                    template))
 
   (defun company-org-block--expand (insertion)
     "Replace INSERTION with actual source block."
