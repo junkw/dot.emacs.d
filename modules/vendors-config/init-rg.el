@@ -37,6 +37,6 @@
 (add-hook 'rg-mode-hook #'wgrep-ag-setup)
 
 ;;;; Keymap
-(rg-enable-default-bindings (kbd "M-s"))
+(rg-enable-default-bindings (kbd "M-s r"))
 
 ;;; init-rg.el ends here
