@@ -39,13 +39,13 @@
 (add-hook 'prog-mode-hook 'highlight-symbol-nav-mode)
 
 ;;;; Keymap
-(global-set-key (kbd "M-s h .") #'highlight-symbol-at-point)
-(global-set-key (kbd "M-s h %") #'highlight-symbol-query-replace)
-(global-set-key (kbd "M-s h n") #'highlight-symbol-next)
-(global-set-key (kbd "M-s h p") #'highlight-symbol-prev)
+(define-key goto-map (kbd "h .") #'highlight-symbol-at-point)
+(define-key goto-map (kbd "h %") #'highlight-symbol-query-replace)
+(define-key goto-map (kbd "h n") #'highlight-symbol-next)
+(define-key goto-map (kbd "h p") #'highlight-symbol-prev)
 
 (with-eval-after-load 'smartrep
-  (smartrep-define-key global-map "M-s h"
+  (smartrep-define-key goto-map "h"
     '(("n" . #'highlight-symbol-next)
       ("p" . #'highlight-symbol-prev))))
 
