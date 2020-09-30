@@ -49,7 +49,7 @@
   "[internal] set `gc-cons-threshold' as default."
   (setq gc-cons-threshold (* 50 gc-cons-threshold-origin)))
 
-(add-hook 'after-init-hook #'jkw:set-gc-cons-threshold-default)
+(add-hook 'emacs-startup-hook #'jkw:set-gc-cons-threshold-default)
 (add-hook 'minibuffer-setup-hook #'jkw:set-gc-cons-threshold-biggest)
 (add-hook 'minibuffer-exit-hook #'jkw:set-gc-cons-threshold-default)
 

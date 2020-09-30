@@ -79,8 +79,8 @@ Advice function for `abort-recursive-edit'."
        (setq default-input-method "MacOSX")
        (setq mac-use-input-method-on-system t)
        (mac-translate-from-yen-to-backslash)
-       (add-hook 'after-init-hook 'mac-change-language-to-us)
-       (add-hook 'minibuffer-setup-hook 'mac-change-language-to-us)))
+       (add-hook 'emacs-startup-hook #'mac-change-language-to-us)
+       (add-hook 'minibuffer-setup-hook #'mac-change-language-to-us)))
 
 ;;;; Keyboard quit
 ;; https://with-emacs.com/posts/tips/quit-current-context/
