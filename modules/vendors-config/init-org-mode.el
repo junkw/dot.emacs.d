@@ -57,7 +57,8 @@
 (setq org-use-speed-commands t)
 
 ;;;; Link
-(add-to-list 'org-link-abbrev-alist '("isbn" . "https://www.amazon.co.jp/gp/product/%s"))
+(add-to-list 'org-link-abbrev-alist '("asin"   . "https://www.amazon.co.jp/dp/"))
+(add-to-list 'org-link-abbrev-alist '("github" . "https://github.com/"))
 
 ;;;; ToDo
 (setq org-use-fast-todo-selection t)
