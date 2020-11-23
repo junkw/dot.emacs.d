@@ -31,8 +31,8 @@
 
 ;;; Code:
 
-(require 'cl-lib)
 (eval-when-compile
+  (require 'cl-lib)
   (require 'pre-init-environments))
 
 (defvar jkw:el-get-used-packages-preload '()

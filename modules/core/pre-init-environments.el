@@ -31,7 +31,8 @@
 
 ;;; Code:
 
-(require 'cl-lib)
+(eval-when-compile
+  (require 'cl-lib))
 
 ;;;; System type predicates
 (defvar cocoa-p (featurep 'ns)

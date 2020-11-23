@@ -31,9 +31,8 @@
 
 ;;; Code:
 
-(require 'cl-lib)
-
 (eval-when-compile
+  (require 'cl-lib)
   (require 'pre-init-environments))
 (require 'pre-init-keymap-utils)
 

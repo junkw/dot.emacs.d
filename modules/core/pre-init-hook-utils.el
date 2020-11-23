@@ -31,7 +31,8 @@
 
 ;;; Code:
 
-(require 'cl-lib)
+(eval-when-compile
+  (require 'cl-lib))
 
 (defun add-hooks (modes function)
   "`add-hook' extension for batch adding to the list of MODES the function FUNCTION."

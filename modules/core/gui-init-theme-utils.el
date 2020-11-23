@@ -31,7 +31,8 @@
 
 ;;; Code:
 
-(require 'cl-lib)
+(eval-when-compile
+  (require 'cl-lib))
 
 (defsubst custom-active-theme ()
   "Get current theme name as string."
