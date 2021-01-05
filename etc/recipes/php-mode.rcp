@@ -4,7 +4,7 @@
        :type        github
        :pkgname     "emacs-php/php-mode"
        :build       (("make"))
-       :load-path   "lisp"
+       :load-path   ("./lisp")
        :autoloads   nil
        :lazy        t
        :library     php-mode
