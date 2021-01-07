@@ -48,7 +48,8 @@
 (add-hook 'php-mode-hook #'jkw:php-mode-init)
 
 ;;;; Keymap
-(define-key php-mode-map (kbd "C-c C--") #'php-current-class)
-(define-key php-mode-map (kbd "C-c C-=") #'php-current-namespace)
+(with-eval-after-load 'php-mode
+  (define-key php-mode-map (kbd "C-c C--") #'php-current-class)
+  (define-key php-mode-map (kbd "C-c C-=") #'php-current-namespace))
 
 ;;; init-php-mode.el ends here

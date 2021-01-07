@@ -6,6 +6,4 @@
        :build       (("make"))
        :load-path   ("./lisp")
        :autoloads   nil
-       :lazy        t
-       :library     php-mode
-       :load        "php-mode-autoloads")
+       :load        "lisp/php-mode-autoloads.el")
