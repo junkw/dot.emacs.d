@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(add-to-list 'auto-mode-alist '("\\.inc\\'" . php-mode))
+
 (setq php-manual-url 'ja)
 (setq php-mode-coding-style 'psr2)
 (setq php-lineup-cascaded-calls t)
