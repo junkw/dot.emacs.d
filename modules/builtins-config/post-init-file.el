@@ -48,6 +48,7 @@
 
 ;;;; FFAP
 (setq ffap-machine-p-known 'accept)
+(remove-hook 'file-name-at-point-functions #'ffap-guess-file-name-at-point)
 
 ;; http://mbork.pl/2019-02-17_Inserting_the_current_file_name_at_point
 (defun insert-current-file-name-at-point (&optional full-path)
