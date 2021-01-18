@@ -1,0 +1,8 @@
+(:name smart-jump
+       :description "Smart go to definition."
+       :website     "https://github.com/jojojames/smart-jump"
+       :type        github
+       :pkgname     "jojojames/smart-jump"
+       :features    smart-jump
+       :prepare     (require 'xref)
+       :post-init   (smart-jump-setup-default-registers))

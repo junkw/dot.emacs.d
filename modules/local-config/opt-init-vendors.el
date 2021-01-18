@@ -92,6 +92,7 @@
                     recentf-ext
                     rg
                     scratch-ext
+                    smart-jump
                     smart-newline
                     ssh-deploy
                     sql-indent sqlup-mode
