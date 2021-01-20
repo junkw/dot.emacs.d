@@ -50,23 +50,25 @@
                           company-preview-frontend))
 
 ;; Modes
-(setq company-etags-everywhere '(nxml-mode))
-
 (with-eval-after-load 'php-mode
-  (add-to-list 'company-etags-modes 'php-mode)
-  (add-to-list 'company-etags-everywhere 'php-mode)
   (add-to-list 'company-dabbrev-code-modes 'php-mode))
 
 (with-eval-after-load 'web-mode
-  (add-to-list 'company-etags-modes 'web-mode)
-  (add-to-list 'company-etags-everywhere 'web-mode)
   (add-to-list 'company-dabbrev-code-modes 'web-mode))
 
+(with-eval-after-load 'js2-mode
+  (add-to-list 'company-dabbrev-code-modes 'js2-mode))
+
 ;; Backends
-(setq company-backends '(company-capf company-dabbrev-code
-                                      company-yasnippet company-etags
-                                      company-files company-ispell
-                                      (company-dabbrev company-abbrev)))
+(setq company-backends '(company-dabbrev-code company-capf company-files
+                                              company-yasnippet company-ispell
+                                              (company-dabbrev company-abbrev)))
+
+(defun jkw:company-backends-for-emacs-lisp-mode-init ()
+  "[internal] Set `company-backends' for `emacs-lisp-mode'."
+  (add-to-list (make-local-variable 'company-backends) '(company-elisp company-etags)))
+
+(add-hook 'emacs-lisp-mode-hook #'jkw:company-backends-for-emacs-lisp-mode-init)
 
 (with-eval-after-load 'org
   ;; http://xenodium.com/emacs-org-block-company-completion/
@@ -145,12 +147,6 @@ For example: \"<e\" -> (\"e\" . t)"
     (add-to-list (make-local-variable 'company-backends) 'company-org-block))
 
   (add-hook 'org-mode-hook #'jkw:company-backends-for-org-mode-init))
-
-(defun jkw:company-backends-for-emacs-lisp-mode-init ()
-  "[internal] Set `company-backends' for `emacs-lisp-mode'."
-  (add-to-list (make-local-variable 'company-backends) 'company-elisp))
-
-(add-hook 'emacs-lisp-mode-hook #'jkw:company-backends-for-emacs-lisp-mode-init)
 
 ;; Enalbe company-mode
 (global-company-mode +1)
