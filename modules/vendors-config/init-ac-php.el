@@ -40,21 +40,13 @@
 (setq ac-php-tags-path (substitute-in-file-name "$XDG_DATA_HOME/ac-php"))
 
 ;;;; Hooks
-(defun jkw:ac-php-hooks ()
-  "[internal] My config for ac-php.
-
-Set `auto-complete-mode' or `company-backends' for php-mode."
-  (when (featurep 'auto-complete-mode)
-    (auto-complete-mode +1)
-    (add-to-list 'ac-sources 'ac-source-php))
-
-  (when (featurep 'company-mode)
-    (company-mode +1)
-    (add-to-list (make-local-variable 'company-backends) 'company-ac-php-backend))
-
+(defun jkw:company-backends-for-ac-php-init ()
+  "[internal] Set `company-backends' for php-mode."
+  (company-mode +1)
+  (add-to-list (make-local-variable 'company-backends) 'company-ac-php-backend)
   (ac-php-core-eldoc-setup))
 
-(add-hook 'php-mode-hook #'jkw:ac-php-hooks)
+(add-hook 'php-mode-hook #'jkw:company-backends-for-ac-php-init)
 
 ;;;; Keymap
 (define-key php-mode-map (kbd "C-,")   #'ac-php-find-symbol-at-point)

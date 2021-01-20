@@ -98,7 +98,7 @@
 
 If `delete-trailing-whitespace--enabled-flag-p' is nil, don't excute
 `delete-trailing-whitespace'.
-\"(set (make-local-variable 'delete-trailing-whitespace--enabled-flag-p) nil)\"
+\"(setq-local delete-trailing-whitespace--enabled-flag-p nil)\"
 
 Advice function for ORIG-FUN `delete-trailing-whitespace' (the ARGS is region)."
   (if delete-trailing-whitespace--enabled-flag-p

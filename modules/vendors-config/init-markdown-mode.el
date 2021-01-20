@@ -36,7 +36,7 @@
 ;;;; Hooks
 (defun jkw:markdown-mode-init ()
   "Config for markdown mode."
-  (set (make-local-variable 'delete-trailing-whitespace--enabled-flag-p) nil))
+  (setq-local delete-trailing-whitespace--enabled-flag-p nil))
 
 (add-hook 'markdown-mode-hook #'jkw:markdown-mode-init)
 
