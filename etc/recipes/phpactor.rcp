@@ -1,0 +1,9 @@
+(:name phpactor
+       :description "Interface to Phpactor"
+       :website     "https://github.com/emacs-php/phpactor.el"
+       :depends     (company-mode smart-jump)
+       :type        github
+       :pkgname     "emacs-php/phpactor.el"
+       :library     php-mode
+       :lazy        t
+       :prepare     (setq phpactor-install-directory (concat user-emacs-directory "vendor/phpactor/")))

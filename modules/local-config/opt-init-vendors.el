@@ -106,8 +106,8 @@
 
 (setq jkw:el-get-used-packages-postload
       (append '(monokai-theme zerodark-theme)
-              '(ac-php
-                ace-jump-helm-line
+              '(ace-jump-helm-line
+                phpactor
                 popwin
                 powerline
                 smartparens)
