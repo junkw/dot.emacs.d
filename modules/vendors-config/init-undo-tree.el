@@ -32,6 +32,7 @@
 ;;; Code:
 
 (setq undo-tree-mode-lighter "")
+(setq undo-tree-auto-save-history nil)
 
 (global-undo-tree-mode +1)
 
