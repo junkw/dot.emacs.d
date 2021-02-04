@@ -136,6 +136,7 @@ ARG is like in `dired-map-over-marks'."
 
 ;;;; Keymap
 (global-set-key (kbd "M-o") #'insert-current-file-name-at-point)
+(global-set-key (kbd "C-x C-q") #'view-mode)
 
 (define-key dired-mode-map (kbd "C-c C-e") #'wdired-change-to-wdired-mode)
 (define-key dired-mode-map (kbd "E") #'dired-do-convert-coding-system)
