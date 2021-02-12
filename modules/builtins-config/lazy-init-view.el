@@ -41,5 +41,6 @@
 (define-vim-keys view-mode-map)
 (define-key view-mode-map (kbd "J") #'View-scroll-line-forward)
 (define-key view-mode-map (kbd "K") #'View-scroll-line-forward)
+(define-key view-mode-map (kbd ";") #'recenter-top-bottom)
 
 ;;; lazy-init-view.el ends here
