@@ -2,14 +2,14 @@
        :description "Outline-based notes management and organizer."
        :website     "http://orgmode.org/"
        :type        git
-       :url         "https://code.orgmode.org/bzg/org-mode.git"
-       :branch      "maint"
+       :url         "https://git.savannah.gnu.org/git/emacs/org-mode.git"
+       :branch      "main"
        :info        "doc"
        :build       `,(mapcar
                        (lambda (target)
                          (list "make" target (concat "EMACS=" (shell-quote-argument el-get-emacs))))
-                       '("oldorg" "card"))
-       :load-path   ("contrib/lisp" "lisp")
+                       '("all"))
+       :load-path   ("lisp")
        :autoloads   nil
        :library     org
        :lazy        t
