@@ -54,6 +54,7 @@
 (setq org-special-ctrl-k t)
 (setq org-catch-invisible-edits 'show-and-error) ; Editing invisible region, expands it and warns
 (setq org-return-follows-link t)        ; Open URL with RET
+(setq org-adapt-indentation t)
 (setq org-use-speed-commands t)
 
 ;;;; Link
