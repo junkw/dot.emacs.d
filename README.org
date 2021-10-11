@@ -13,7 +13,7 @@
 
 #+BEGIN_SRC sh
 brew tap railwaycat/emacsmacport
-brew install emacs-mac --with-dbus --with-emacs-sexy-icon --with-glib --with-imagemagick --with-natural-title-bar
+brew install emacs-mac --with-dbus --with-emacs-sexy-icon --with-mac-metal --with-glib --with-imagemagick --with-natural-title-bar
 git clone --recursive https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
 cd /path/to/local/repo
 rake install
