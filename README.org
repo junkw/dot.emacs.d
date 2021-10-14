@@ -1,6 +1,8 @@
 # -*- mode: org; coding: utf-8; indent-tabs-mode: nil -*-
 
-* My Emacs config [[https://travis-ci.org/junkw/dot.emacs.d][https://api.travis-ci.org/junkw/dot.emacs.d.svg]]
+* My Emacs config
+
+@@html:<a href="https://github.com/junkw/dot.emacs.d/actions">@@@@html:<img src="https://github.com/junkw/dot.emacs.d/actions/workflows/test.yml/badge.svg?branch=master" alt="Build Status" style="max-width: 100%;">@@@@html:</a>@@
 
 ** Requirements
 

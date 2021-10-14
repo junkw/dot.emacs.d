@@ -9,7 +9,6 @@ user_emacs_dir  = "#{Dir.home}/.emacs.d"
 init_module_dir = "#{user_emacs_dir}/modules"
 core_dir        = "#{init_module_dir}/core"
 vendor_dir      = "#{user_emacs_dir}/vendor"
-elget_dir       = "#{vendor_dir}/el-get"
 
 
 # Build
@@ -88,30 +87,12 @@ task :remove_var do
   FileUtils.rm_r(Dir.glob("#{user_emacs_dir}/var/{initerror,{backup,bookmark,cache,log,tmp}/*}"))
 end
 
-# Test
-task :check_recipes do
-  args    = '-Wno-features -Wno-autoloads'
-  recipes = "#{user_emacs_dir}/etc/recipes/*.rcp"
-
-  sh "#{emacs_cmd} -L #{elget_dir} -l #{elget_dir}/el-get-check.el -f el-get-check-recipe-batch #{args} #{recipes}"
-end
-
-task :install_elget do
-  sh "git clone --depth 1 --branch master https://github.com/dimitri/el-get.git vendor/el-get"
-end
-
-task :run_init_test do
-  sh "#{emacs_cmd} -l #{user_emacs_dir}/lib/test/run-tests.el"
-end
-
 
 # Commands
 task :compile => [:compile_all, :tag]
-task :default => [:generate_loaddefs, :compile, :tag]
+task :install => [:set_config, :generate_loaddefs, :link, :make_dir, :compile_init_module, :tag]
 
 task :cleanup => [:remove_var, :remove_elc, :compile]
 task :clear   => [:remove_var]
 
-task :install => [:set_config, :generate_loaddefs, :link, :make_dir, :compile_init_module, :tag]
-task :tests   => [:compile_init_module, :run_init_test, :check_recipes]
-task :travis  => [:link, :make_dir, :install_elget]
+task :default => [:generate_loaddefs, :compile, :tag]

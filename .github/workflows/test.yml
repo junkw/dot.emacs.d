@@ -1,0 +1,54 @@
+# -*- mode: yaml; coding: utf-8; indent-tabs-mode: nil; tab-width: 2 -*-
+
+name: "Tests for my Emacs config"
+on:
+  push:
+    paths-ignore:
+    - '.dir-locals.el'
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-11]
+        emacs_version: [27.2, snapshot]
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: purcell/setup-emacs@master
+      with:
+        version: ${{ matrix.emacs_version }}
+
+    - name: "Emacs version"
+      run: |
+        emacs --version
+
+    - name: "Preparation"
+      run: |
+        source bin/github-actions.sh
+        install_pkgs
+
+    - name: "Test : Compile init module"
+      run: |
+        source bin/github-actions.sh
+        compile_init_module
+
+    - name: "Test : Check documentation style"
+      uses: leotaku/elisp-check@master
+      with:
+        check: checkdoc
+        file: modules/*/*.el
+
+    - name: "Test : Check format of my el-get recipes"
+      run: |
+        source bin/github-actions.sh
+        check_recipes
+
+    - name: "Test : Run ert testcases"
+      run: |
+        source bin/github-actions.sh
+        ert_tests
