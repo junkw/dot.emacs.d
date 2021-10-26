@@ -33,7 +33,7 @@
 
 ;; Load modules
 (add-to-list 'org-modules 'org-habit)
-(add-to-list 'org-modules 'org-man)
+(add-to-list 'org-modules 'ox-man)
 
 (require 'org-tempo)
 
