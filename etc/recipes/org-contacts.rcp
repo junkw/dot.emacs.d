@@ -1,0 +1,9 @@
+(:name org-contacts
+       :description "Contacts management system for Org mode."
+       :website     "https://github.com/stardiviner/org-contacts.el"
+       :depends     org-mode
+       :type        github
+       :pkgname     "stardiviner/org-contacts.el"
+       :lazy        t
+       :library     org
+       :features    org-contacts)

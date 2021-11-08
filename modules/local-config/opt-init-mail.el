@@ -161,11 +161,12 @@
   (add-hook 'mu4e-compose-pre-hook #'jkw:mu4e-set-account)
 
   ;; Contacts
-  (setq mu4e-org-contacts-file (expand-file-name "contacts.org" org-directory))
-  (add-to-list 'mu4e-headers-actions
-               '("org-contact-add" . mu4e-action-add-org-contact) t)
-  (add-to-list 'mu4e-view-actions
-               '("org-contact-add" . mu4e-action-add-org-contact) t)
+  (with-eval-after-load 'org-contacts
+    (setq mu4e-org-contacts-file (expand-file-name "contacts.org" org-directory))
+    (add-to-list 'mu4e-headers-actions
+                 '("org-contact-add" . mu4e-action-add-org-contact) t)
+    (add-to-list 'mu4e-view-actions
+                 '("org-contact-add" . mu4e-action-add-org-contact) t))
 
   ;; Compose
   (setq mu4e-context-policy 'pick-first)
