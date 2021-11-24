@@ -85,7 +85,7 @@
                     multiple-cursors
                     mwim
                     neotree
-                    org-mode org-reveal org-rich-yank orgit ox-pandoc
+                    org-mode org-contacts org-reveal org-rich-yank orgit ox-pandoc
                     php-mode phpunit
                     psvn
                     rainbow-mode

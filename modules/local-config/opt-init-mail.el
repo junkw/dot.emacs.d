@@ -45,7 +45,7 @@
 
   ;; Maildir
   (setq mu4e-mu-home        (substitute-in-file-name "$XDG_CACHE_HOME/mu/"))
-  (setq mu4e-maildir        (substitute-in-file-name "$XDG_DATA_HOME/gmail/"))
+  (setq mu4e-root-maildir   (substitute-in-file-name "$XDG_DATA_HOME/gmail/"))
   (setq mu4e-drafts-folder  "/drafts")
   (setq mu4e-refile-folder  "/archive")
   (setq mu4e-sent-folder    "/sent")
@@ -161,7 +161,7 @@
   (add-hook 'mu4e-compose-pre-hook #'jkw:mu4e-set-account)
 
   ;; Contacts
-  (with-eval-after-load 'org-contacts
+  (when (require 'org-contacts nil t)
     (setq mu4e-org-contacts-file (expand-file-name "contacts.org" org-directory))
     (add-to-list 'mu4e-headers-actions
                  '("org-contact-add" . mu4e-action-add-org-contact) t)
