@@ -4,6 +4,7 @@
        :depends     org-mode
        :type        github
        :pkgname     "stardiviner/org-contacts.el"
+       :autoloads   nil
        :lazy        t
        :library     org
        :features    org-contacts)
