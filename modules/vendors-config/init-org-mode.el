@@ -57,6 +57,8 @@
 (setq org-adapt-indentation t)
 (setq org-use-speed-commands t)
 
+(setq org-id-locations-file (concat user-emacs-directory "var/cache/org-id-locations"))
+
 ;;;; Link
 (add-to-list 'org-link-abbrev-alist '("asin"   . "https://www.amazon.co.jp/dp/"))
 (add-to-list 'org-link-abbrev-alist '("github" . "https://github.com/"))
