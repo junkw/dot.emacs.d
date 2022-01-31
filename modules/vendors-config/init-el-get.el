@@ -36,6 +36,7 @@
 (require 'el-get-list-packages)
 (require 'el-get-recipes)
 
+(setq el-get-emacswiki-base-url "https://www.emacswiki.org/emacs/download/")
 (setq el-get-package-menu-sort-key "Status")
 
 ;;;; Functions
