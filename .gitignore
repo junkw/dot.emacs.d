@@ -6,6 +6,7 @@
 TAGS
 
 *-init-private-*.el
+eln-cache/
 etc/auto-complete.dict
 etc/snippets
 etc/*.gpg
