@@ -20,14 +20,13 @@ task :generate_loaddefs do
   sh "#{emacs_cmd} --eval '#{s}' -f batch-update-autoloads #{paths}"
 end
 
-task :link do
-  FileUtils.ln_sf(Dir.pwd, user_emacs_dir)
-
+task :link_hooks do
   git_hooks = Dir.glob("#{user_emacs_dir}/etc/git-hooks/*")
   FileUtils.ln_sf(git_hooks, "#{user_emacs_dir}/.git/hooks/")
 end
 
 task :make_dir do
+  FileUtils.ln_sf(Dir.pwd, user_emacs_dir)
   emacs_dirs = ["#{user_emacs_dir}/etc/snippets",
                 "#{user_emacs_dir}/lib",
                 "#{user_emacs_dir}/var/backup",
@@ -90,9 +89,9 @@ end
 
 # Commands
 task :compile => [:compile_all, :tag]
-task :install => [:set_config, :generate_loaddefs, :link, :make_dir, :tag]
+task :install => [:set_config, :generate_loaddefs, :make_dir, :tag]
 
 task :cleanup => [:remove_var, :remove_elc]
 task :clear   => [:remove_var]
 
-task :default => [:set_config, :generate_loaddefs, :link, :make_dir, :compile_init_module, :tag]
+task :default => [:set_config, :generate_loaddefs, :make_dir, :link_hooks, :compile_init_module, :tag]
