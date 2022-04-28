@@ -1,9 +1,9 @@
 (:name org-contacts
        :description "Contacts management system for Org mode."
-       :website     "https://github.com/stardiviner/org-contacts.el"
+       :website     "https://git.sr.ht/~bzg/org-contrib/blob/master/lisp/org-contacts.el"
        :depends     org-mode
-       :type        github
-       :pkgname     "stardiviner/org-contacts.el"
+       :type        http
+       :url         "https://git.sr.ht/~bzg/org-contrib/blob/master/lisp/org-contacts.el"
        :autoloads   nil
        :lazy        t
        :library     org
