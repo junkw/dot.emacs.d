@@ -1,0 +1,4 @@
+(:name compat
+       :description "Compatibility Library."
+       :website     "https://sr.ht/~pkal/compat"
+       :type        elpa)

@@ -40,6 +40,7 @@
 (setq jkw:el-get-used-packages-preload
       (append '(alert
                 avy
+                compat
                 editorconfig
                 origami
                 projectile
