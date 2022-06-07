@@ -1,10 +1,9 @@
 (:name org-contacts
        :description "Contacts management system for Org mode."
-       :website     "https://git.sr.ht/~bzg/org-contrib/blob/master/lisp/org-contacts.el"
+       :website     "https://repo.or.cz/org-contacts.git"
        :depends     org-mode
-       :type        http
-       :url         "https://git.sr.ht/~bzg/org-contrib/blob/master/lisp/org-contacts.el"
-       :autoloads   nil
+       :type        git
+       :url         "https://repo.or.cz/org-contacts.git"
        :lazy        t
        :library     org
        :features    org-contacts)
