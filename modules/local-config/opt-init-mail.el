@@ -44,13 +44,13 @@
     (setq sendmail-program has-msmtp-p))
 
   ;; Maildir
-  (setq mu4e-mu-home        (substitute-in-file-name "$XDG_CACHE_HOME/mu/"))
-  (setq mu4e-root-maildir   (substitute-in-file-name "$XDG_DATA_HOME/gmail/"))
+  (setq mu4e-mu-home        (substitute-in-file-name "${XDG_CACHE_HOME}/mu/"))
+  (setq mu4e-root-maildir   (substitute-in-file-name "${XDG_DATA_HOME}/mail/"))
   (setq mu4e-drafts-folder  "/drafts")
   (setq mu4e-refile-folder  "/archive")
   (setq mu4e-sent-folder    "/sent")
   (setq mu4e-trash-folder   "/trash")
-  (setq mu4e-attachment-dir "~/Downloads")
+  (setq mu4e-attachment-dir (substitute-in-file-name "${HOME}/Downloads"))
 
   (defvar jkw:mu4e-inbox-folder   "/inbox")
   (defvar jkw:mu4e-starred-folder "/starred"))
