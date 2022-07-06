@@ -129,7 +129,7 @@
 
   (defun jkw:mu4e-get-field (field-name)
     "Get a field var with FIELD-NAME."
-    (let ((field-var (cdar (mu4e-message-field mu4e-compose-parent-message field-name))))
+    (let* ((field-var (plist-get (car (mu4e-message-field mu4e-compose-parent-message field-name)) :email)))
       (string-match "@\\(.*\\)\\..*" field-var)
       (match-string 1 field-var)))
 
