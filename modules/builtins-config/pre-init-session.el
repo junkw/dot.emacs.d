@@ -50,7 +50,7 @@
   (setq gc-cons-threshold (* 50 gc-cons-threshold-origin)))
 
 (run-with-idle-timer
- 5 nil
+ 60.0 t
  #'jkw:set-gc-cons-threshold-default)
 
 (add-hook 'minibuffer-setup-hook #'jkw:set-gc-cons-threshold-biggest)
