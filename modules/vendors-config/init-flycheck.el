@@ -37,13 +37,16 @@
 (setq flycheck-display-errors-delay 0.5)
 (setq-default flycheck-emacs-lisp-load-path 'inherit)
 
+(setq flycheck-textlint-config (substitute-in-file-name "${HOME}/.textlintrc"))
+(add-to-list 'flycheck-textlint-plugin-alist '(org-mode . "org"))
+
 ;;;; Modes
 (with-eval-after-load 'web-mode
   (flycheck-add-mode 'html-tidy 'web-mode)
   (flycheck-add-mode 'css-csslint 'web-mode)
   (flycheck-add-mode 'javascript-jshint 'web-mode))
 
-(add-hooks '(prog-mode markdown-mode yaml-mode) #'flycheck-mode)
+(add-hooks '(prog-mode markdown-mode org-mode yaml-mode) #'flycheck-mode)
 
 ;;;; Keymap
 (with-eval-after-load 'smartrep
