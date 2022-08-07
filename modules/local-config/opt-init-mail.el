@@ -172,6 +172,7 @@
   (setq mu4e-context-policy 'pick-first)
   (setq mu4e-compose-context-policy nil)
   (setq mu4e-sent-messages-behavior 'delete)
+  (setq message-confirm-send t)
 
   (require 'org-mu4e)
   (setq org-mu4e-convert-to-html t)
@@ -185,6 +186,22 @@
 
   (add-hook 'mu4e-compose-mode-hook #'jkw:mu4e-compose-mode-init)
 
+  (defun jkw:mu4e-confirm-empty-subject ()
+    "Ask for confirmation when current message subject is empty."
+    (or (message-field-value "Subject")
+        (yes-or-no-p "Really send without Subject? ")
+        (signal 'quit nil)))
+
+  (add-hook 'message-send-hook #'jkw:mu4e-confirm-empty-subject)
+
+  (defun jkw:mu4e-confirm-empty-to ()
+    "Ask for confirmation when current message address is empty."
+    (or (message-field-value "To")
+        (yes-or-no-p "Really send without To? ")
+        (signal 'quit nil)))
+
+  (add-hook 'message-send-hook #'jkw:mu4e-confirm-empty-to)
+
   ;; http://mbork.pl/2015-11-28_Fixing_mml-attach-file_using_advice
   (defun mml-attach-file--attach-on-eob (orig-fun &rest args)
     "Attach files on the end of buffer.
@@ -197,6 +214,38 @@ Advice function for `mml-attach-file'."
         (apply orig-fun args))))
 
   (advice-add 'mml-attach-file :around #'mml-attach-file--attach-on-eob)
+
+  ;; http://mbork.pl/2016-02-06_An_attachment_reminder_in_mu4e
+  (defvar jkw:message-attachment-intent-re
+    (regexp-opt '("添付"
+                  "ファイル"
+                  "docx"
+                  "pdf"
+                  "pptx"
+                  "xlsx"))
+    "A regex which - if found in the message, and if there's no attachment - should
+launch the no-attachment warning.")
+
+  (defun jkw:message-attachment-present-p ()
+    "Return t if an attachment is found in the current message."
+    (save-excursion
+      (save-restriction
+        (widen)
+        (goto-char (point-min))
+        (when (search-forward "<#part" nil t) t))))
+
+  (defun jkw:message-warn-if-no-attachments ()
+    "Ask user if they wants to send the message even though there're no attachments."
+    (when (and (save-excursion
+	             (save-restriction
+		           (widen)
+		           (goto-char (point-min))
+		           (re-search-forward jkw:message-attachment-intent-re nil t)))
+	           (not (jkw:message-attachment-present-p)))
+      (unless (y-or-n-p "Are you sure you want to send this message without any attachment? ")
+        (signal 'quit nil))))
+
+  (add-hook 'message-send-hook #'jkw:message-warn-if-no-attachments)
 
 ;;;; Keymap
   (setq mu4e-maildir-shortcuts
