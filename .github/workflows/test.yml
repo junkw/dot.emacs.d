@@ -6,7 +6,7 @@ on:
     paths-ignore:
     - '.dir-locals.el'
     branches:
-      - master
+      - main
 
 jobs:
   test:
