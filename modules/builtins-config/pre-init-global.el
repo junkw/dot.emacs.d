@@ -47,8 +47,8 @@
 (setq system-time-locale "C")
 
 ;;;; Character Encoding
-(set-language-environment 'utf-8)
-(prefer-coding-system 'utf-8)
+(set-language-environment "Japanese")
+(prefer-coding-system 'utf-8-unix)
 (set-default-coding-systems 'utf-8-unix)
 (when mac-p
   (require 'ucs-normalize)
@@ -73,13 +73,10 @@ Advice function for `abort-recursive-edit'."
 
 ;;;; Input Method
 (cond (mac-port-p
+       (setq default-input-method "japanese")
        (mac-auto-ascii-mode +1))
-      ((and cocoa-p (fboundp 'mac-input-method-mode))
-       (setq default-input-method "MacOSX")
-       (setq mac-use-input-method-on-system t)
-       (mac-translate-from-yen-to-backslash)
-       (add-hook 'emacs-startup-hook #'mac-change-language-to-us)
-       (add-hook 'minibuffer-setup-hook #'mac-change-language-to-us)))
+      (cocoa-p
+       (setq default-input-method "macOS")))
 
 ;;;; Keyboard quit
 ;; https://with-emacs.com/posts/tips/quit-current-context/
@@ -123,6 +120,7 @@ with some parts omitted and some custom behavior added."
 (global-unset-key (kbd "C-h"))
 (global-set-key (kbd "C-x ?") #'help-command)
 (global-set-key [remap keyboard-quit] #'keyboard-quit-dwim)
+(define-key global-map (kbd "C-\\") #'toggle-input-method)
 
 (define-vim-keys messages-buffer-mode-map)
 
