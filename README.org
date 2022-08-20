@@ -6,7 +6,7 @@
 
 ** Requirements
 
-   - macOS Big Sur
+   - macOS Monterey
    - [[https://bitbucket.org/mituharu/emacs-mac/][Emacs Mac Port]]
    - Homebrew
      - [[https://github.com/junkw/dotfiles/blob/master/Brewfile][Installed packages]]
