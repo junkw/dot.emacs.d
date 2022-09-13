@@ -54,8 +54,7 @@
               (when has-mu-p
                 '(mu4e-alert))
               (when has-node-p
-                '(tern
-                  vmd-mode))))
+                '(tern))))
 
 (setq jkw:el-get-used-packages
       '(ace-isearch ace-window
@@ -83,7 +82,7 @@
                     js2-mode json-mode
                     lispxmp
                     magit magit-lfs magit-svn
-                    markdown-mode
+                    markdown-mode markdown-preview-mode
                     multiple-cursors
                     mwim
                     neotree
