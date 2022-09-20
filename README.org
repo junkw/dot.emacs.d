@@ -18,7 +18,7 @@ After [[https://github.com/junkw/dotfiles][preparation]]:
 #+BEGIN_SRC sh
 brew tap railwaycat/emacsmacport
 brew install emacs-mac  --with-dbus --with-glib --with-imagemagick --with-jansson --with-libxml2 --with-rsvg  --with-mac-metal --with-native-comp --with-natural-title-bar --with-starter  --with-emacs-sexy-icon
-osascript -e 'tell application "Finder" to make alias file to POSIX file "/usr/local/opt/emacs-mac/Emacs.app" at POSIX file "/Applications"'
+osascript -e 'tell application "Finder" to make alias file to POSIX file "/opt/homebrew/opt/emacs-mac/Emacs.app" at POSIX file "/Applications"'
 
 git clone --recursive https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
 cd /path/to/local/repo
