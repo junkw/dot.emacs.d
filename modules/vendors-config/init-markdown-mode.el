@@ -41,15 +41,13 @@
 (add-hook 'markdown-mode-hook #'jkw:markdown-mode-init)
 
 ;;;; Keymap
-(when (executable-find "vmd")
-  (define-key markdown-mode-map (kbd "C-c C-c l") #'vmd-mode))
-
-(with-eval-after-load 'smartrep
-  (smartrep-define-key markdown-mode-map "C-c"
-    '(("C-n" . #'markdown-outline-next)
-      ("C-p" . #'markdown-outline-previous)
-      ("C-f" . #'markdown-outline-next-same-level)
-      ("C-b" . #'markdown-outline-previous-same-level)
-      ("C-u" . #'markdown-outline-up))))
+(with-eval-after-load 'markdown-mode
+ (with-eval-after-load 'smartrep
+   (smartrep-define-key markdown-mode-map "C-c"
+     '(("C-n" . #'markdown-outline-next)
+       ("C-p" . #'markdown-outline-previous)
+       ("C-f" . #'markdown-outline-next-same-level)
+       ("C-b" . #'markdown-outline-previous-same-level)
+       ("C-u" . #'markdown-outline-up)))))
 
 ;;; init-markdown-mode.el ends here
