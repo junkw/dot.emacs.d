@@ -51,7 +51,7 @@
   "Return t if this system is Windows.")
 
 ;;;; Display size predicates
-(defvar laptop-screen-p (<= (display-pixel-height) 900)
+(defvar laptop-screen-p (<= (display-pixel-height) 1000)
   "Return t if this display size is 15-inch or less.")
 
 ;;;; Environment predicates
