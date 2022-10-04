@@ -4,7 +4,12 @@ require 'fileutils'
 
 emacs_cmd       = "emacs -Q --batch"
 
-site_lisp_dir   = '/usr/local/share/emacs/site-lisp'
+if FileTest::directory?("/opt/homebrew/")
+  site_lisp_dir = '/opt/homebrew/share/emacs/site-lisp'
+else
+  site_lisp_dir = '/usr/local/share/emacs/site-lisp'
+end
+
 user_emacs_dir  = "#{Dir.home}/.emacs.d"
 init_module_dir = "#{user_emacs_dir}/modules"
 core_dir        = "#{init_module_dir}/core"
