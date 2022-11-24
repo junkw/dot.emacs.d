@@ -84,11 +84,12 @@ end
 
 # Cleanup
 task :remove_elc do
-  FileUtils.rm(Dir.glob("#{user_emacs_dir}/{init.elc,modules/*/*.elc}"))
+  FileUtils.rm(Dir.glob("#{user_emacs_dir}/{early-init.elc,init.elc,modules/*/*.elc}"))
+  FileUtils.rm_r(Dir.glob("#{user_emacs_dir}/var/eln-cache/*}"))
 end
 
-task :remove_var do
-  FileUtils.rm_r(Dir.glob("#{user_emacs_dir}/var/{initerror,{backup,bookmark,cache,log,tmp}/*}"))
+task :remove_cache do
+  FileUtils.rm_r(Dir.glob("#{user_emacs_dir}/var/{initerror,{backup,cache,log,tmp}/*}"))
 end
 
 
@@ -96,7 +97,7 @@ end
 task :compile => [:compile_all, :tag]
 task :install => [:set_config, :generate_loaddefs, :make_dir, :tag]
 
-task :cleanup => [:remove_var, :remove_elc]
-task :clear   => [:remove_var]
+task :cleanup => [:remove_cache, :remove_elc]
+task :clear   => [:remove_cache]
 
 task :default => [:set_config, :generate_loaddefs, :make_dir, :link_hooks, :compile_init_module, :tag]
