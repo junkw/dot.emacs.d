@@ -37,20 +37,6 @@
   (require 'cl-lib))
 (require 'site-loaddefs nil t)
 
-;; Disable Magic File Name temporary
-(defconst file-name-handler-alist-origin file-name-handler-alist)
-(setq file-name-handler-alist nil)
-
-(defun jkw:restore-file-name-handler-alist ()
-  "[internal] restore `file-name-handler-alist'."
-  (setq file-name-handler-alist file-name-handler-alist-origin))
-
-(add-hook 'emacs-startup-hook #'jkw:restore-file-name-handler-alist)
-
-;; Set big GC temporary
-(defconst gc-cons-threshold-origin gc-cons-threshold)
-(setq gc-cons-threshold most-positive-fixnum)
-
 ;;;; Variables
 (defvar init-module-pre-init-regexp "\\`pre-init-"
   "Regular expression of init module name for pre loading.")

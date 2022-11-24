@@ -52,8 +52,6 @@
 
 ;; Bar
 (setq frame-title-format "%f")
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
 
 ;; Line number
 (setq display-line-numbers-type 'relative)
