@@ -48,20 +48,6 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+*") ; ignore buffer with "*"
 
-;; Show the function in the header line
-;; http://www.emacswiki.org/emacs/WhichFuncMode
-(which-function-mode)
-(setq-default mode-line-misc-info (assq-delete-all 'which-function-mode mode-line-misc-info))
-
-(defun which-func-ff-hook--header-line ()
-  "File find hook to use Which Function mode in header line.
-
-Advice function for `which-func-ff-hook'."
-  (when which-func-mode
-    (setq header-line-format '(which-function-mode ("" which-func-format)))))
-
-(advice-add 'which-func-ff-hook :after #'which-func-ff-hook--header-line)
-
 ;;;; Echo line
 (setq echo-keystrokes 0.1)              ; display rate (sec.)
 

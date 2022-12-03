@@ -1,0 +1,6 @@
+(:name topsy
+       :description "Simple sticky header."
+       :website     "https://github.com/alphapapa/topsy.el"
+       :type        github
+       :pkgname     "alphapapa/topsy.el"
+       :post-init   (add-hook 'prog-mode-hook #'topsy-mode))

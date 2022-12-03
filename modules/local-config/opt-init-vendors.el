@@ -86,7 +86,7 @@
                     multiple-cursors
                     mwim
                     neotree
-                    org-mode org-contacts org-reveal org-rich-yank orgit ox-pandoc
+                    org-mode org-contacts org-sticky-header org-reveal org-rich-yank orgit ox-pandoc
                     php-mode phpunit
                     psvn
                     rainbow-mode
@@ -97,6 +97,7 @@
                     smart-newline
                     ssh-deploy
                     sql-indent sqlup-mode
+                    topsy
                     twittering-mode
                     viewer
                     visual-regexp-steroids

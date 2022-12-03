@@ -1,0 +1,6 @@
+(:name org-sticky-header
+       :description "Show off-screen Org heading at top of window."
+       :website     "https://github.com/alphapapa/org-sticky-header"
+       :type        github
+       :pkgname     "alphapapa/org-sticky-header"
+       :post-init   (add-hook 'org-mode-hook #'org-sticky-header-mode))
