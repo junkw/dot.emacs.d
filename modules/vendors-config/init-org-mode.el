@@ -52,7 +52,7 @@
 
 (setq org-special-ctrl-a/e t)
 (setq org-special-ctrl-k t)
-(setq org-catch-invisible-edits 'show-and-error) ; Editing invisible region, expands it and warns
+(setq org-fold-catch-invisible-edits 'show-and-error) ; Editing invisible region, expands it and warns
 (setq org-return-follows-link t)        ; Open URL with RET
 (setq org-adapt-indentation t)
 (setq org-use-speed-commands t)
@@ -126,7 +126,7 @@
 
 ;;;; Agenda
 (setq org-agenda-restore-windows-after-quit t)
-(setq org-agenda-files `(,org-directory "~/Dropbox/org/"))
+(setq org-agenda-files `(,org-directory "~/Dropbox/Documents/org/"))
 (setq org-agenda-show-log t)
 (setq org-agenda-skip-scheduled-if-done t)
 (setq org-agenda-skip-deadline-if-done t)
