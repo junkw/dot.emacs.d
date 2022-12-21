@@ -51,7 +51,7 @@ end
 
 # Byte compile
 task :compile_all do
-  els = FileList.new("#{user_emacs_dir}/init.el", "#{init_module_dir}/*/*init-*.el") do |el|
+  els = FileList.new("#{user_emacs_dir}/*init.el", "#{init_module_dir}/*/*init-*.el") do |el|
     el.exclude(/.+\-init\-private\-.+\.el/)
     el.exclude(/.+\/obsoleted-config\/.+\.el/)
   end
@@ -62,7 +62,7 @@ task :compile_all do
 end
 
 task :compile_init_module do
-  els = FileList.new("#{user_emacs_dir}/init.el", "#{init_module_dir}/*/*-init-*.el") do |el|
+  els = FileList.new("#{user_emacs_dir}/*init.el", "#{init_module_dir}/*/*-init-*.el") do |el|
     el.exclude(/.+\-init\-private\-.+\.el/)
     el.exclude(/.+\/obsoleted-config\/.+\.el/)
   end
@@ -73,7 +73,7 @@ end
 
 task :tag do
   tag = "#{user_emacs_dir}/TAGS"
-  els = "#{user_emacs_dir}/init.el #{init_module_dir}/"
+  els = "#{user_emacs_dir}/*init.el #{init_module_dir}/"
 
   if File.exist?(tag)
     sh "ctags -e -u -f #{tag} -R #{els}"
