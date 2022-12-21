@@ -95,9 +95,9 @@ end
 
 # Commands
 task :compile => [:compile_all, :tag]
-task :install => [:set_config, :generate_loaddefs, :make_dir, :tag]
+task :install => [:set_config, :generate_loaddefs, :make_dir, :link_hooks, :compile_init_module, :tag]
 
 task :cleanup => [:remove_cache, :remove_elc]
 task :clear   => [:remove_cache]
 
-task :default => [:set_config, :generate_loaddefs, :make_dir, :link_hooks, :compile_init_module, :tag]
+task :default => [:cleanup, :compile]

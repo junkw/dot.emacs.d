@@ -47,8 +47,6 @@
                 smartrep
                 undo-tree
                 yasnippet yasnippet-snippets)
-			  (unless (native-comp-available-p)
-				'(auto-async-byte-compile))
               (when has-cmigemo-p
                 '(migemo))
               (when has-mu-p
@@ -60,6 +58,7 @@
       '(ace-isearch ace-window
                     ag
                     anzu
+                    auto-async-byte-compile
                     beginend
                     cl-lib-highlight
                     company-mode company-flx company-quickhelp company-statistics company-tern company-web

@@ -50,11 +50,7 @@
   (setq el-get-dir (file-name-as-directory (concat user-emacs-directory "vendor")))
   (setq el-get-user-package-directory init-module-vendors-config-path)
   (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
-  (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get")))
-
-  (if (native-comp-available-p)
-	  (setq el-get-byte-compile nil)
-	(setq el-get-byte-compile t)))
+  (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get"))))
 
 (defun el-get--post-initialize-el-get ()
   "[internal] Need to initialize after loading el-get."
