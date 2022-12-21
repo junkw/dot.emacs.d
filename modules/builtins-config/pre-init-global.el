@@ -56,6 +56,22 @@
   (setq locale-coding-system 'utf-8-hfs)
   (add-to-list 'process-coding-system-alist '("mdfind" . utf-8-hfs)))
 
+;;;; Native Compile
+(with-eval-after-load 'comp
+  (setq native-comp-async-jobs-number 8)
+  (setq native-comp-speed 3))
+
+(defun jkw:native-comp-all-packages ()
+  "Native compile my all packages."
+  (interactive)
+  (native-compile-async (concat user-emacs-directory "init.el"))
+  (native-compile-async (concat user-emacs-directory "early-init.el"))
+  (native-compile-async init-module-core-path 'recursively)
+  (native-compile-async init-module-builtins-config-path 'recursively)
+  (native-compile-async init-module-local-config-path 'recursively)
+  (native-compile-async init-module-vendors-config-path 'recursively)
+  (native-compile-async el-get-dir 'recursively))
+
 ;;;; Minibuffer Edit
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq enable-recursive-minibuffers t)
