@@ -126,7 +126,7 @@
 
 ;;;; Agenda
 (setq org-agenda-restore-windows-after-quit t)
-(setq org-agenda-files `(,org-directory "~/Dropbox/Documents/org/"))
+(setq org-agenda-files `(,org-directory ,(substitute-in-file-name "${HOME}/Library/CloudStorage/Dropbox/Documents/org/")))
 (setq org-agenda-show-log t)
 (setq org-agenda-skip-scheduled-if-done t)
 (setq org-agenda-skip-deadline-if-done t)
