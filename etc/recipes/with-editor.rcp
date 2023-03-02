@@ -1,0 +1,9 @@
+(:name with-editor
+       :description "Use the Emacsclient as $EDITOR"
+       :website     "https://github.com/magit/with-editor"
+       :type        github
+       :pkgname     "magit/with-editor"
+       :info        "docs"
+       :load-path   "lisp/"
+       :compile     "lisp/"
+       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info")))

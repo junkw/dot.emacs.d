@@ -1,0 +1,11 @@
+(:name magit
+       :description "It's Magit! An Emacs mode for Git."
+       :website     "https://magit.vc"
+       :depends     (compat dash transient with-editor)
+       :type        github
+       :pkgname     "magit/magit"
+       :branch      "main"
+       :info        "docs"
+       :load-path   "lisp/"
+       :compile     "lisp/"
+       :build       `(("make" ,(format "EMACSBIN=%s" el-get-emacs)) "info"))
