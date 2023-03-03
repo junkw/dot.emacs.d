@@ -8,4 +8,4 @@
        :info        "docs"
        :load-path   "lisp/"
        :compile     "lisp/"
-       :build       `(("make" ,(format "EMACSBIN=%s" el-get-emacs)) "info"))
+       :build       `(("make" ,(concat "EMACS=" (shell-quote-argument el-get-emacs)) "info")))
