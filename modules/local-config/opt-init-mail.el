@@ -174,10 +174,6 @@
   (setq mu4e-sent-messages-behavior 'delete)
   (setq message-confirm-send t)
 
-  (require 'org-mu4e)
-  (setq org-mu4e-convert-to-html t)
-  (setq org-mu4e-link-query-in-headers-mode nil)
-
   (defun jkw:mu4e-compose-mode-init ()
     "My config for message composition."
     (when (fboundp 'yas-minor-mode)
@@ -255,9 +251,6 @@ launch the no-attachment warning.")
           (,mu4e-sent-folder        . ?t)
           (,jkw:mu4e-starred-folder . ?s)))
 
-  (define-key message-mode-map (kbd "C-x C-s") #'message-dont-send)
-
-  (define-key mu4e-headers-mode-map (kbd "C-c c") #'org-mu4e-store-and-capture)
-  (define-key mu4e-view-mode-map (kbd "C-c c") #'org-mu4e-store-and-capture))
+  (define-key message-mode-map (kbd "C-x C-s") #'message-dont-send))
 
 ;;; opt-init-mail.el ends here
