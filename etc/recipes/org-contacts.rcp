@@ -2,8 +2,7 @@
        :description "Contacts management system for Org mode."
        :website     "https://repo.or.cz/org-contacts.git"
        :depends     org-mode
-       :type        git
-       :url         "https://repo.or.cz/org-contacts.git"
+       :type        elpa
        :lazy        t
        :library     org
        :features    org-contacts)
