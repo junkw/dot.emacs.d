@@ -37,6 +37,6 @@
 (add-to-list 'helm-for-files-preferred-list 'helm-source-ls-git-status)
 
 ;;;; Keymap
-(define-key helm-command-prefix (kbd "g") #'helm-ls-git-ls)
+(define-key helm-command-map (kbd "g") #'helm-ls-git)
 
 ;;; init-helm-ls-git.el ends here
