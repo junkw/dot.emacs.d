@@ -32,12 +32,26 @@
 ;;; Code:
 
 ;;;; Font
-(when (find-font (font-spec :name "Ricty Diminished Discord"))
-  (set-face-attribute 'default nil
-                      :family "Ricty Diminished Discord"
-                      :height 140)
-  (set-fontset-font nil
-                    'japanese-jisx0208
-                    (font-spec :family "Ricty Diminished Discord")))
+(cond ((find-font (font-spec :name "UDEV Gothic JPDOC"))
+       (set-face-attribute 'default nil
+                           :family "UDEV Gothic JPDOC"
+                           :height 130)
+       (set-fontset-font nil
+                         'japanese-jisx0208
+                         (font-spec :family "UDEV Gothic JPDOC")))
+      ((find-font (font-spec :name "Ricty Diminished Discord"))
+       (set-face-attribute 'default nil
+                           :family "Ricty Diminished Discord"
+                           :height 140)
+       (set-fontset-font nil
+                         'japanese-jisx0208
+                         (font-spec :family "Ricty Diminished Discord")))
+      (t
+       (set-face-attribute 'default nil
+                           :family "Osaka-Mono"
+                           :height 130)
+       (set-fontset-font nil
+                         'japanese-jisx0208
+                         (font-spec :family "Osaka-Mono"))))
 
 ;;; pre-init-fonts.el ends here
