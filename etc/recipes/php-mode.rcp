@@ -3,7 +3,10 @@
        :website     "https://github.com/emacs-php/php-mode"
        :type        github
        :pkgname     "emacs-php/php-mode"
-       :build       (("make"))
+       :build       `,(mapcar
+                       (lambda (target)
+                         (list "make" target (concat "EMACS=" (shell-quote-argument el-get-emacs))))
+                       '("compile" "autoloads"))
        :load-path   ("./lisp")
        :autoloads   nil
        :load        "lisp/php-mode-autoloads.el")
