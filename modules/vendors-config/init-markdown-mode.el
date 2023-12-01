@@ -31,7 +31,10 @@
 
 ;;; Code:
 
-(setq markdown-command (executable-find "pandoc"))
+(setq markdown-command `(,(executable-find "pandoc") "--from=markdown" "--to=html5"))
+(setq markdown-fontify-code-blocks-natively t)
+(setq markdown-header-scaling t)
+(setq markdown-indent-on-enter 'indent-and-new-item)
 
 ;;;; Hooks
 (defun jkw:markdown-mode-init ()
@@ -42,12 +45,14 @@
 
 ;;;; Keymap
 (with-eval-after-load 'markdown-mode
- (with-eval-after-load 'smartrep
-   (smartrep-define-key markdown-mode-map "C-c"
-     '(("C-n" . #'markdown-outline-next)
-       ("C-p" . #'markdown-outline-previous)
-       ("C-f" . #'markdown-outline-next-same-level)
-       ("C-b" . #'markdown-outline-previous-same-level)
-       ("C-u" . #'markdown-outline-up)))))
+  (define-key markdown-mode-map (kbd "<S-tab>") #'markdown-shifttab)
+
+  (with-eval-after-load 'smartrep
+    (smartrep-define-key markdown-mode-map "C-c"
+      '(("C-n" . #'markdown-outline-next)
+        ("C-p" . #'markdown-outline-previous)
+        ("C-f" . #'markdown-outline-next-same-level)
+        ("C-b" . #'markdown-outline-previous-same-level)
+        ("C-u" . #'markdown-outline-up)))))
 
 ;;; init-markdown-mode.el ends here
