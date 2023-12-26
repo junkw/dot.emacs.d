@@ -5,8 +5,8 @@
        :pkgname     "magit/transient"
        :branch      "main"
        :info        "docs"
-       :load-path   "lisp/"
-       :compile     "lisp/"
+       :load-path   "lisp"
+       :compile     "lisp"
        :build       `(("make" ,(concat "EMACS=" (shell-quote-argument el-get-emacs)) "info"))
        :prepare     (setq transient-history-file
                           (concat user-emacs-directory "var/cache/transient-history.el")))

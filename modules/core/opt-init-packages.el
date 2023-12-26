@@ -72,7 +72,7 @@
       (goto-char (point-max))
       (eval-print-last-sexp))))
 
-;;;; Command
+;;;; Commands
 (defun el-get-initialize-packages ()
   "Install packages via `el-get', and initialize them."
   (interactive)

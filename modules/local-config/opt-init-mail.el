@@ -36,7 +36,7 @@
 
 ;;;; Initialize
 (when has-mu-p
-  ;; Commands
+  ;; bin
   (setq mu4e-mu-binary has-mu-p)
   (setq mu4e-get-mail-command (format "%s -a -c %s/mbsync/config"
                                       (executable-find "mbsync") (getenv "XDG_CONFIG_HOME")))

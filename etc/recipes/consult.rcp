@@ -1,0 +1,7 @@
+(:name consult
+       :description "Consulting completing-read."
+       :website     "https://github.com/minad/consult"
+       :type        github
+       :depends     compat
+       :pkgname     "minad/consult"
+       :features    consult)

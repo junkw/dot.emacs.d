@@ -1,10 +1,10 @@
-;;; init-ace-isearch.el --- el-get init file for package ace-isearch
+;;; init-marginalia.el --- el-get init file for package helm
 
-;; (C) 2014  Jumpei KAWAMI
+;; (C) 2023  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Nov. 4, 2014
-;; Keywords: .emacs, isearch, ace-jump, helm-swoop
+;; Created: Dec. 13, 2023
+;; Keywords: .emacs, completion
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,22 +31,12 @@
 
 ;;; Code:
 
-(require 'consult)
+(setq marginalia-max-relative-age 0)
+(setq marginalia-align 'right)
 
-(setq ace-isearch-lighter "")
-
-(setq ace-isearch-use-jump 'printing-char)
-(setq ace-isearch-jump-delay 0.8)
-(setq ace-isearch-function 'avy-goto-char)
-
-(setq ace-isearch-use-function-from-isearch t)
-(setq ace-isearch-input-length 8)
-(setq ace-isearch-func-delay 0.8)
-(setq ace-isearch-function-from-isearch 'ace-isearch-consult-line-from-isearch)
-
-(global-ace-isearch-mode +1)
+(marginalia-mode +1)
 
 ;;;; Keymap
-(define-key isearch-mode-map (kbd "C-'") #'ace-isearch-jump-during-isearch)
+(define-key minibuffer-local-map (kbd "M-A") #'marginalia-cycle)
 
-;;; init-ace-isearch.el ends here
+;;; init-marginalia.el ends here

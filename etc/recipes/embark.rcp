@@ -1,0 +1,7 @@
+(:name embark
+       :description "Emacs Mini-Buffer Actions Rooted in Keymaps."
+       :website     "https://github.com/oantolin/embark"
+       :type        github
+       :depends     (consult wgrep)
+       :pkgname     "oantolin/embark"
+       :features    embark)

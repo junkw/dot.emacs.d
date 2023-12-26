@@ -4,6 +4,6 @@
        :type        github
        :pkgname     "magit/with-editor"
        :info        "docs"
-       :load-path   "lisp/"
-       :compile     "lisp/"
+       :load-path   "lisp"
+       :compile     "lisp"
        :build       `(("make" ,(concat "EMACS=" (shell-quote-argument el-get-emacs)) "info")))

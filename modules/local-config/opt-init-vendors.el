@@ -75,7 +75,6 @@
                     geben
                     gist git-gutter
                     goto-chg
-                    helm helm-ag helm-descbinds helm-ls-git helm-projectile helm-rg helm-swoop
                     highlight-defined highlight-indentation highlight-symbol
                     info+
                     js2-mode json-mode
@@ -107,8 +106,7 @@
 
 (setq jkw:el-get-used-packages-postload
       (append '(monokai-theme zerodark-theme)
-              '(ace-jump-helm-line
-                phpactor
+              '(phpactor
                 popwin
                 powerline
                 smartparens)
@@ -116,7 +114,8 @@
                 '(flycheck-phanclient
                   phan))
               (when has-phpstan-p
-                '(phpstan))))
+                '(phpstan))
+              '(consult vertico vertico-truncate orderless marginalia all-the-icons-completion embark)))
 
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)

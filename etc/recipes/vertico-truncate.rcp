@@ -1,0 +1,8 @@
+(:name vertico-truncate
+       :description "Smart truncation of long vertico candidates."
+       :website     "https://github.com/jdtsmith/vertico-truncate"
+       :type        github
+       :depends     vertico
+       :pkgname     "jdtsmith/vertico-truncate"
+       :features    vertico-truncate
+       :post-init   (vertico-truncate-mode +1))

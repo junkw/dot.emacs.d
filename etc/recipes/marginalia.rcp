@@ -1,0 +1,7 @@
+(:name marginalia
+       :description "Marginalia in the minibuffer."
+       :website     "https://github.com/minad/marginalia"
+       :type        github
+       :depends     (compat vertico consult)
+       :pkgname     "minad/marginalia"
+       :features    marginalia)

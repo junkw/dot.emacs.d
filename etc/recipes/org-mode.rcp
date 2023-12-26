@@ -9,7 +9,7 @@
                        (lambda (target)
                          (list "make" target (concat "EMACS=" (shell-quote-argument el-get-emacs))))
                        '("all"))
-       :load-path   ("lisp")
+       :load-path   "lisp"
        :autoloads   nil
        :library     org
        :lazy        t

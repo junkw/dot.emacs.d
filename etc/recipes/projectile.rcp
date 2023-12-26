@@ -1,7 +1,7 @@
 (:name projectile
        :description "Manage and navigate projects in Emacs easily."
        :website     "https://github.com/bbatsov/projectile"
-       :depends     (pkg-info helm)
+       :depends     pkg-info
        :type        github
        :pkgname     "bbatsov/projectile"
 	   :autoloads   nil

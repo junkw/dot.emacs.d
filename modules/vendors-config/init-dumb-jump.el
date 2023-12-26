@@ -35,7 +35,7 @@
 
 (setq dumb-jump-default-project "~/Code/")
 (setq dumb-jump-force-searcher 'rg)
-(setq dumb-jump-selector 'helm)
+(setq dumb-jump-selector 'completing-read)
 
 ;;;; Hooks
 (add-hooks '(emacs-lisp-mode js2-mode php-mode) #'dumb-jump-mode)

@@ -1,0 +1,9 @@
+(:name vertico
+       :description "VERTical Interactive COmpletion."
+       :website     "https://github.com/minad/vertico"
+       :type        github
+       :depends     (compat consult)
+       :load-path   ("." "extensions")
+       :compile     ("." "extensions")
+       :pkgname     "minad/vertico"
+       :features    vertico)

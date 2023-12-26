@@ -6,6 +6,6 @@
        :pkgname     "magit/magit"
        :branch      "main"
        :info        "docs"
-       :load-path   "lisp/"
-       :compile     "lisp/"
+       :load-path   "lisp"
+       :compile     "lisp"
        :build       `(("make" ,(concat "EMACS=" (shell-quote-argument el-get-emacs)) "info")))

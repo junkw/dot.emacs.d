@@ -73,8 +73,6 @@
   (native-compile-async el-get-dir 'recursively))
 
 ;;;; Minibuffer Edit
-(fset 'yes-or-no-p 'y-or-n-p)
-(setq enable-recursive-minibuffers t)
 (minibuffer-depth-indicate-mode +1)
 
 ;; http://d.hatena.ne.jp/rubikitch/20091216/minibuffer

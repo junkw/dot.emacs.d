@@ -1,0 +1,6 @@
+(:name all-the-icons-completion
+       :description "Add icons to completion candidates"
+       :website     "https://github.com/iyefrat/all-the-icons-completion"
+       :type        github
+       :depends     (marginalia all-the-icons)
+       :pkgname     "iyefrat/all-the-icons-completion")

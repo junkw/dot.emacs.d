@@ -1,0 +1,7 @@
+(:name orderless
+       :description "Completion style for matching regexps in any order."
+       :website     "https://github.com/oantolin/orderless"
+       :type        github
+       :depends     vertico
+       :pkgname     "oantolin/orderless"
+       :features    orderless)

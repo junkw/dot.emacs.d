@@ -1,10 +1,10 @@
-;;; init-ace-isearch.el --- el-get init file for package ace-isearch
+;;; init-all-the-icons-completion.el --- el-get init file for package helm
 
-;; (C) 2014  Jumpei KAWAMI
+;; (C) 2023  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Nov. 4, 2014
-;; Keywords: .emacs, isearch, ace-jump, helm-swoop
+;; Created: Dec. 13, 2023
+;; Keywords: .emacs, completion
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,22 +31,17 @@
 
 ;;; Code:
 
-(require 'consult)
+(eval-when-compile
+  (require 'pre-init-environments))
 
-(setq ace-isearch-lighter "")
+;;;; Init
+(add-hook 'marginalia-mode #'all-the-icons-completion-marginalia-setup)
+(all-the-icons-completion-mode +1)
 
-(setq ace-isearch-use-jump 'printing-char)
-(setq ace-isearch-jump-delay 0.8)
-(setq ace-isearch-function 'avy-goto-char)
+;;;; Sources
 
-(setq ace-isearch-use-function-from-isearch t)
-(setq ace-isearch-input-length 8)
-(setq ace-isearch-func-delay 0.8)
-(setq ace-isearch-function-from-isearch 'ace-isearch-consult-line-from-isearch)
-
-(global-ace-isearch-mode +1)
+;;;; Candidates
 
 ;;;; Keymap
-(define-key isearch-mode-map (kbd "C-'") #'ace-isearch-jump-during-isearch)
 
-;;; init-ace-isearch.el ends here
+;;; init-all-the-icons-completion.el ends here

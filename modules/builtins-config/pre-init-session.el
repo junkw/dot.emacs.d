@@ -120,7 +120,12 @@
 (setq recentf-max-saved-items 100)
 (setq recentf-exclude `(,tramp-file-name-regexp
                         "/\\.loaddefs\\.elc?\\'" "/TAGS\\'"
-                        "/\\.cache/" "/\\.git/" "/\\.svn/" "/gmail/" "/tmp/" "/var/"))
+                        "/\\.cache/" "/\\.git/" "/\\.svn/"
+                        "/mail/" "/tmp/" "/var/"))
+(setq recentf-auto-cleanup 'never)
+
+(setq recentf-auto-save-timer
+      (run-with-idle-timer 30 t #'recentf-save-list))
 (recentf-mode +1)
 
 ;; Save cursor's place
