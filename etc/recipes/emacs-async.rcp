@@ -3,4 +3,6 @@
        :website     "https://github.com/jwiegley/emacs-async"
        :type        github
        :pkgname     "jwiegley/emacs-async"
-       :features    async)
+       :build       `(("make" ,(concat "EMACS_COMMAND=" (shell-quote-argument el-get-emacs))))
+       :autoloads   nil
+       :features    async-autoloads)
