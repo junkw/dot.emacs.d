@@ -39,6 +39,7 @@
 ;;;; Installed packages via el-get
 (setq jkw:el-get-used-packages-preload
       (append '(alert
+                async
                 avy
                 compat
                 editorconfig

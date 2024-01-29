@@ -1,0 +1,6 @@
+(:name async
+       :description "Simple library for asynchronous processing in Emacs"
+       :website     "https://github.com/jwiegley/emacs-async"
+       :type        elpa
+       :autoloads   nil
+       :load        "async-autoloads.el")
