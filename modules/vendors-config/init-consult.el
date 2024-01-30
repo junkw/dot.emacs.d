@@ -1,4 +1,4 @@
-;;; init-consult.el --- el-get init file for package helm  -*- lexical-binding: t -*-
+;;; init-consult.el --- el-get init file for package consult  -*- lexical-binding: t -*-
 
 ;; (C) 2023  Jumpei KAWAMI
 
@@ -72,13 +72,29 @@ DIR and GIVEN-INITIAL match the method signature of `consult-wrapper'."
 
 ;;;; Keymap
 
+(global-set-key [remap switch-to-buffer] #'consult-buffer)
+(global-set-key [remap switch-to-buffer-other-window] #'consult-buffer-other-window)
+(global-set-key [remap switch-to-buffer-other-frame] #'consult-buffer-other-frame)
+
 (global-set-key (kbd "C-;") #'consult-locate)
-(global-set-key (kbd "M-g o") #'consult-outline)
-(global-set-key (kbd "M-s d") #'consult-fd)
-(global-set-key (kbd "M-s r") #'consult-ripgrep-dwim)
-(global-set-key (kbd "M-s l") #'consult-line)
-(global-set-key (kbd "M-s L") #'consult-line-multi)
+(global-set-key (kbd "M-y") #'consult-yank-pop)
 
 (define-key consult-narrow-map (vconcat consult-narrow-key "?") #'consult-narrow-help)
+
+(define-key goto-map (kbd "g") #'consult-goto-line)
+(define-key goto-map (kbd "o") #'consult-outline)
+(define-key goto-map (kbd "i") #'consult-imenu)
+(define-key goto-map (kbd "I") #'consult-imenu-multi)
+
+(define-key search-map (kbd "l") #'consult-line)
+(define-key search-map (kbd "e") #'consult-isearch-history)
+(define-key search-map (kbd "d") #'consult-fd)
+(define-key search-map (kbd "r") #'consult-ripgrep-dwim)
+
+(define-key minibuffer-local-map (kbd "M-r") #'consult-history)
+(define-key minibuffer-local-map (kbd "M-s") #'consult-history)
+
+(define-key isearch-mode-map (kbd "M-h") #'consult-isearch-history)
+(define-key isearch-mode-map (kbd "M-l") #'consult-line)
 
 ;;; init-consult.el ends here

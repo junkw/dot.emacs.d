@@ -1,4 +1,4 @@
-;;; init-vertico.el --- el-get init file for package helm
+;;; init-vertico.el --- el-get init file for package vertico
 
 ;; (C) 2023  Jumpei KAWAMI
 

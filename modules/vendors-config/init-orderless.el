@@ -1,4 +1,4 @@
-;;; init-orderless.el --- el-get init file for package helm
+;;; init-orderless.el --- el-get init file for package orderless
 
 ;; (C) 2023  Jumpei KAWAMI
 

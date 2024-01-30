@@ -1,4 +1,4 @@
-;;; init-all-the-icons-completion.el --- el-get init file for package helm
+;;; init-all-the-icons-completion.el --- el-get init file for package all-the-icons-completion
 
 ;; (C) 2023  Jumpei KAWAMI
 

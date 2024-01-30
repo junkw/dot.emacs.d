@@ -1,4 +1,4 @@
-;;; init-marginalia.el --- el-get init file for package helm
+;;; init-marginalia.el --- el-get init file for package marginalia
 
 ;; (C) 2023  Jumpei KAWAMI
 

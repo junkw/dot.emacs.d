@@ -1,4 +1,4 @@
-;;; init-embark.el --- el-get init file for package helm
+;;; init-embark.el --- el-get init file for package embark
 
 ;; (C) 2023  Jumpei KAWAMI
 
