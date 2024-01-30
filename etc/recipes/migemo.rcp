@@ -20,6 +20,7 @@
                         (setq migemo-pattern-alist-file (concat user-emacs-directory "var/cache/migemo"))
                         (setq migemo-pattern-alist-length 1024)
 
-                        (setq migemo-isearch-enable-p nil)  ; toggle with <M-m>
-                        (migemo-init)                       ; Initialize when emacs startup
-                        ))
+                        ;; Initialize when emacs startup
+                        (setq migemo-isearch-enable-p nil)
+                        (setq migemo-use-default-isearch-keybinding nil)
+                        (migemo-init)))
