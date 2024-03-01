@@ -97,7 +97,6 @@
                     ssh-deploy
                     sql-indent sqlup-mode
                     topsy
-                    twittering-mode
                     viewer
                     visual-regexp-steroids
                     web-mode
