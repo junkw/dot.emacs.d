@@ -36,4 +36,6 @@
 (add-to-list 'completion-at-point-functions #'cape-keyword)
 (add-to-list 'completion-at-point-functions #'cape-file)
 
+(advice-add 'eglot-completion-at-point :around #'cape-wrap-buster)
+
 ;;; init-cape.el ends here

@@ -41,14 +41,16 @@
 (add-to-list 'flycheck-textlint-plugin-alist '(org-mode . "org"))
 
 ;;;; Modes
+
 (with-eval-after-load 'web-mode
   (flycheck-add-mode 'html-tidy 'web-mode)
   (flycheck-add-mode 'css-csslint 'web-mode)
   (flycheck-add-mode 'javascript-jshint 'web-mode))
 
-(add-hooks '(prog-mode markdown-mode org-mode yaml-mode) #'flycheck-mode)
+(add-hooks '(markdown-mode org-mode yaml-mode) #'flycheck-mode)
 
 ;;;; Keymap
+
 (with-eval-after-load 'smartrep
   (smartrep-define-key flycheck-mode-map "C-c !"
     '(("n" . #'flycheck-next-error)

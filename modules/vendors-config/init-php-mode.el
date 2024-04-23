@@ -39,17 +39,21 @@
 (setq php-template-compatibility nil)
 
 ;;;; Hooks
+
 (defun jkw:php-mode-init ()
   "My config for PHP mode."
   (subword-mode +1)
   (setq c-basic-offset 4)
 
   (when (eq (buffer-size) 0)
-    (insert "<?php\n\n")))
+    (insert "<?php\n\n"))
+
+  (eglot-ensure))
 
 (add-hook 'php-mode-hook #'jkw:php-mode-init)
 
 ;;;; Keymap
+
 (with-eval-after-load 'php-mode
   (define-key php-mode-map (kbd "C-c C--") #'php-current-class)
   (define-key php-mode-map (kbd "C-c C-=") #'php-current-namespace))
