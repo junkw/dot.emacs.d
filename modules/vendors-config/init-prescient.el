@@ -1,10 +1,10 @@
-;;; init-phpactor.el --- el-get init file for package phpactor
+;;; init-prescient.el --- el-get init file for package prescient
 
-;; (C) 2021  Jumpei KAWAMI
+;; (C) 2024  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Jan. 18, 2021
-;; Keywords: .emacs, completion, php
+;; Created: Apr. 23, 2024
+;; Keywords: .emacs, completion
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,8 +31,12 @@
 
 ;;; Code:
 
-;;;; Keymap
-(when (require 'smart-jump nil t)
-  (phpactor-smart-jump-register))
+(setq prescient-aggressive-file-save t)
 
-;;; init-phpactor.el ends here
+(with-eval-after-load 'orderless
+  (setq corfu-prescient-enable-filtering nil))
+
+(prescient-persist-mode +1)
+(corfu-prescient-mode +1)
+
+;;; init-prescient.el ends here

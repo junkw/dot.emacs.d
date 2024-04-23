@@ -1,10 +1,10 @@
-;;; init-phpactor.el --- el-get init file for package phpactor
+;;; init-kind-icon.el --- el-get init file for package kind-icon
 
-;; (C) 2021  Jumpei KAWAMI
+;; (C) 2024  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Jan. 18, 2021
-;; Keywords: .emacs, completion, php
+;; Created: Apr. 23, 2024
+;; Keywords: .emacs, icon
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,8 +31,8 @@
 
 ;;; Code:
 
-;;;; Keymap
-(when (require 'smart-jump nil t)
-  (phpactor-smart-jump-register))
+(setq kind-icon-default-face 'corfu-default)
 
-;;; init-phpactor.el ends here
+(add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
+
+;;; init-kind-icon.el ends here

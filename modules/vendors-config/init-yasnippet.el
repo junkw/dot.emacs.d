@@ -33,9 +33,21 @@
 
 (require 'pre-init-hook-utils)
 
+;;;; Init
+
 (setq yas-snippet-dirs `(,(concat user-emacs-directory "etc/snippets")))
 
 (add-hook 'emacs-startup-hook #'yas-reload-all)
 (add-hooks '(prog-mode org-mode) #'yas-minor-mode)
+
+;;;; Keymap
+
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-keymap (kbd "TAB") nil)
+(define-key yas-keymap (kbd "S-TAB") nil)
+
+(define-key yas-minor-mode-map (kbd "C-u TAB") #'yas-expand)
+(define-key yas-keymap (kbd "M-{") #'yas-next-field-or-maybe-expand)
+(define-key yas-keymap (kbd "M-}") #'yas-prev-field)
 
 ;;; init-yasnippet.el ends here

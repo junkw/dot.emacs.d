@@ -1,10 +1,10 @@
-;;; init-phpactor.el --- el-get init file for package phpactor
+;;; init-cape.el --- el-get init file for package cape
 
-;; (C) 2021  Jumpei KAWAMI
+;; (C) 2024  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Jan. 18, 2021
-;; Keywords: .emacs, completion, php
+;; Created: Apr. 23, 2024
+;; Keywords: .emacs, completion
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,8 +31,9 @@
 
 ;;; Code:
 
-;;;; Keymap
-(when (require 'smart-jump nil t)
-  (phpactor-smart-jump-register))
+(add-to-list 'completion-at-point-functions #'cape-line)
+(add-to-list 'completion-at-point-functions #'cape-dabbrev)
+(add-to-list 'completion-at-point-functions #'cape-keyword)
+(add-to-list 'completion-at-point-functions #'cape-file)
 
-;;; init-phpactor.el ends here
+;;; init-cape.el ends here

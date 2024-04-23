@@ -1,0 +1,6 @@
+(:name kind-icon
+       :description "Colorful icons for completion in Emacs."
+       :website     "https://github.com/jdtsmith/kind-icon"
+       :type        github
+       :pkgname     "jdtsmith/kind-icon"
+       :features    kind-icon)

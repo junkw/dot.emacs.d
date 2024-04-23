@@ -1,0 +1,6 @@
+(:name cape
+       :description "Completion At Point Extensions."
+       :website     "https://github.com/minad/cape"
+       :type        github
+       :pkgname     "minad/cape"
+       :features    cape)

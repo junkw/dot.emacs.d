@@ -62,7 +62,6 @@
                     auto-async-byte-compile
                     beginend
                     cl-lib-highlight
-                    company-mode company-flx company-quickhelp company-statistics company-tern company-web
                     composer
                     csv-mode
                     dash-at-point
@@ -115,7 +114,8 @@
                   phan))
               (when has-phpstan-p
                 '(phpstan))
-              '(consult vertico vertico-truncate orderless marginalia all-the-icons-completion embark)))
+              '(consult vertico vertico-truncate orderless marginalia embark
+                corfu)))
 
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)

@@ -1,0 +1,7 @@
+(:name prescient
+       :description "Simple but effective sorting and filtering for Emacs."
+       :website     "https://github.com/radian-software/prescient.el"
+       :type        github
+       :depends     (corfu)
+       :pkgname     "radian-software/prescient.el"
+       :features    corfu-prescient)

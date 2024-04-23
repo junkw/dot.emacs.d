@@ -1,0 +1,9 @@
+(:name corfu
+       :description "COmpletion in Region FUnction."
+       :website     "https://github.com/minad/corfu"
+       :type        github
+       :depends     (cape kind-icon orderless)
+       :load-path   ("." "extensions")
+       :compile     ("." "extensions")
+       :pkgname     "minad/corfu"
+       :features    corfu)
