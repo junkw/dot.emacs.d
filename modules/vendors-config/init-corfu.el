@@ -41,9 +41,10 @@
 (setq corfu-auto-prefix 1)
 (setq corfu-cycle t)
 (setq corfu-on-exact-match nil)
+(setq corfu-quit-no-match 'separator)
 (setq tab-always-indent 'complete)
 
-(global-corfu-mode +1)
+(add-hook 'prog-mode-hook #'corfu-mode)
 
 ;;;; Candidates
 

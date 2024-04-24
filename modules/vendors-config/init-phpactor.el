@@ -34,12 +34,9 @@
 (defun jkw:phpactor-init ()
   "My config for phpactor."
   (make-local-variable 'eldoc-documentation-function)
-  (setq eldoc-documentation-function 'phpactor-hover)
-  (add-to-list 'exec-path (concat user-emacs-directory "vendor/phpactor/vendor/bin")))
+  (setq eldoc-documentation-function 'phpactor-hover))
 
 (add-hook 'php-mode-hook #'jkw:phpactor-init)
-
-;;;; Keymap
 
 (when (require 'smart-jump nil t)
   (phpactor-smart-jump-register))

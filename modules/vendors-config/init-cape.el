@@ -31,11 +31,25 @@
 
 ;;; Code:
 
-(add-to-list 'completion-at-point-functions #'cape-line)
+;;;; Init
+
 (add-to-list 'completion-at-point-functions #'cape-dabbrev)
 (add-to-list 'completion-at-point-functions #'cape-keyword)
 (add-to-list 'completion-at-point-functions #'cape-file)
 
 (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster)
+
+;;;; Hooks
+
+(defun jkw:cape-elisp-mode-init ()
+  "My cape config for Emacs Lisp mode."
+  (setq-local completion-at-point-functions
+            '(cape-elisp-symbol
+              tags-completion-at-point-function
+              cape-file
+              cape-keyword
+              cape-dabbrev)))
+
+(add-hook 'emacs-lisp-mode #'jkw:cape-elisp-mode-init)
 
 ;;; init-cape.el ends here

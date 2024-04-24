@@ -46,7 +46,7 @@
 (define-key yas-keymap (kbd "TAB") nil)
 (define-key yas-keymap (kbd "S-TAB") nil)
 
-(define-key yas-minor-mode-map (kbd "C-u TAB") #'yas-expand)
+(define-key yas-minor-mode-map (kbd "C-+") #'yas-expand)
 (define-key yas-keymap (kbd "M-{") #'yas-next-field-or-maybe-expand)
 (define-key yas-keymap (kbd "M-}") #'yas-prev-field)
 
