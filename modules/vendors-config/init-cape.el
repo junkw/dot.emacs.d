@@ -37,8 +37,6 @@
 (add-to-list 'completion-at-point-functions #'cape-keyword)
 (add-to-list 'completion-at-point-functions #'cape-file)
 
-(advice-add 'eglot-completion-at-point :around #'cape-wrap-buster)
-
 ;;;; Hooks
 
 (defun jkw:cape-elisp-mode-init ()

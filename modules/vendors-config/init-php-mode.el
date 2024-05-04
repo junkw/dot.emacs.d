@@ -46,9 +46,7 @@
   (setq c-basic-offset 4)
 
   (when (eq (buffer-size) 0)
-    (insert "<?php\n\n"))
-
-  (eglot-ensure))
+    (insert "<?php\n\n")))
 
 (add-hook 'php-mode-hook #'jkw:php-mode-init)
 

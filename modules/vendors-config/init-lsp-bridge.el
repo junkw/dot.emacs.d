@@ -1,10 +1,10 @@
-;;; init-phpactor.el --- el-get init file for package phpactor
+;;; init-lsp-bridge.el --- el-get init file for package lsp-bridge
 
-;; (C) 2021  Jumpei KAWAMI
+;; (C) 2024  Jumpei KAWAMI
 
 ;; Author: Jumpei KAWAMI <don.t.be.trapped.by.dogma@gmail.com>
-;; Created: Jan. 18, 2021
-;; Keywords: .emacs, LSP, completion, php
+;; Created: May. 4, 2024
+;; Keywords: .emacs, LSP, completion
 
 ;;; This file is NOT part of GNU Emacs.
 
@@ -31,15 +31,13 @@
 
 ;;; Code:
 
+(defun jkw:lsp-bridge--php-mode-init ()
+  "My lsp-bridge config for PHP mode."
+  (corfu-mode -1)
+  (lsp-bridge-mode +1))
+
 (with-eval-after-load 'php-mode
- (defun jkw:phpactor-init ()
-   "My config for phpactor."
-   (make-local-variable 'eldoc-documentation-function)
-   (setq eldoc-documentation-function 'phpactor-hover))
+  (custom-set-variables '(lsp-bridge-php-lsp-server . "phpactor"))
+  (add-hook 'php-mode-hook #'jkw:lsp-bridge--php-mode-init))
 
- (add-hook 'php-mode-hook #'jkw:phpactor-init))
-
-(with-eval-after-load 'smart-jump
-  (phpactor-smart-jump-register))
-
-;;; init-phpactor.el ends here
+;;; init-lsp-bridge.el ends here

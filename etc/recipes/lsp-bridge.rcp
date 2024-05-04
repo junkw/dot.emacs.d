@@ -1,0 +1,7 @@
+(:name lsp-bridge
+       :description "LSP bridge"
+       :website     "https://github.com/manateelazycat/lsp-bridge"
+       :type        github
+       :depends     (posframe markdown-mode yasnippet)
+       :compile     nil
+       :pkgname     "manateelazycat/lsp-bridge")
