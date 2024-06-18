@@ -79,6 +79,7 @@
                     info+
                     js2-mode json-mode
                     lispxmp
+                    lua-mode
                     magit magit-lfs magit-svn
                     markdown-mode markdown-preview-mode
                     multiple-cursors
