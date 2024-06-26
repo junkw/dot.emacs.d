@@ -57,7 +57,6 @@
 (add-hook 'minibuffer-exit-hook #'jkw:set-gc-cons-threshold-default)
 
 ;; Limit lisp binding
-(setq max-specpdl-size 5000)
 (setq max-lisp-eval-depth 5000)
 
 ;; History size

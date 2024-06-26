@@ -152,7 +152,7 @@ With argument ARG, do kill commands that many times."
 ;; http://emacsredux.com/blog/2013/07/25/increment-and-decrement-integer-at-point/
 (defun thing-at-point-goto-end-of-integer ()
   "Go to end of integer at point."
-  (let ((inhibit-changing-match-data t))
+  (let ((save-match-data t))
     ;; Skip over optional sign
     (when (looking-at "[+-]")
       (forward-char 1))
@@ -165,7 +165,7 @@ With argument ARG, do kill commands that many times."
 
 (defun thing-at-point-goto-beginning-of-integer ()
   "Go to end of integer at point."
-  (let ((inhibit-changing-match-data t))
+  (let ((save-match-data t))
     ;; Skip backward over digits
     (skip-chars-backward "[[:digit:]]")
     ;; Check for digits and optional sign
