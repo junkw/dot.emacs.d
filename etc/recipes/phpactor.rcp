@@ -6,5 +6,4 @@
        :pkgname     "emacs-php/phpactor.el"
        :library     php-mode
        :lazy        t
-       :prepare     (setq phpactor-install-directory (concat user-emacs-directory "vendor/phpactor/"))
-       :post-init   (add-to-list 'exec-path (concat phpactor-install-directory "vendor/bin")))
+       :prepare     (setq phpactor-install-directory (concat user-emacs-directory "vendor/phpactor/")))

@@ -31,13 +31,18 @@
 
 ;;; Code:
 
+;; LSP server
+
+(setq lsp-bridge-php-lsp-server "phpactor")
+
+;; Mode
+
 (defun jkw:lsp-bridge--php-mode-init ()
   "My lsp-bridge config for PHP mode."
   (corfu-mode -1)
   (lsp-bridge-mode +1))
 
 (with-eval-after-load 'php-mode
-  (custom-set-variables '(lsp-bridge-php-lsp-server . "phpactor"))
   (add-hook 'php-mode-hook #'jkw:lsp-bridge--php-mode-init))
 
 ;;; init-lsp-bridge.el ends here

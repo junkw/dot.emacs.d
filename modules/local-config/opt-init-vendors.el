@@ -115,7 +115,8 @@
               (when has-phpstan-p
                 '(phpstan))
               '(consult vertico vertico-truncate orderless marginalia embark
-                corfu)))
+                corfu
+                lsp-bridge)))
 
 ;;;; Initialize packages
 (el-get--pre-initialize-el-get)
