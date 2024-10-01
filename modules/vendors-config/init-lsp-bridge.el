@@ -33,8 +33,6 @@
 
 ;; LSP server
 
-(setq lsp-bridge-php-lsp-server "phpactor")
-
 ;; Mode
 
 (defun jkw:lsp-bridge--php-mode-init ()

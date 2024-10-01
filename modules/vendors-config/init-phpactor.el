@@ -31,14 +31,6 @@
 
 ;;; Code:
 
-(with-eval-after-load 'php-mode
- (defun jkw:phpactor-init ()
-   "My config for phpactor."
-   (make-local-variable 'eldoc-documentation-function)
-   (setq eldoc-documentation-function 'phpactor-hover))
-
- (add-hook 'php-mode-hook #'jkw:phpactor-init))
-
 (with-eval-after-load 'smart-jump
   (phpactor-smart-jump-register))
 

@@ -39,7 +39,7 @@
 
 ;;;; Hooks
 
-(defun jkw:cape-elisp-mode-init ()
+(defun jkw:cape--elisp-mode-init ()
   "My cape config for Emacs Lisp mode."
   (setq-local completion-at-point-functions
             '(cape-elisp-symbol
@@ -48,6 +48,6 @@
               cape-keyword
               cape-dabbrev)))
 
-(add-hook 'emacs-lisp-mode #'jkw:cape-elisp-mode-init)
+(add-hook 'emacs-lisp-mode #'jkw:cape--elisp-mode-init)
 
 ;;; init-cape.el ends here
