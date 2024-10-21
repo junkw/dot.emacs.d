@@ -5,5 +5,4 @@
        :pkgname     "joaotavora/yasnippet"
        :submodule   nil
        :compile     "yasnippet.el"
-       :autoloads   "yasnippet.el"
        :features    yasnippet)
