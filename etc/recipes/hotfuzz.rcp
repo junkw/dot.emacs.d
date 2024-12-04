@@ -1,0 +1,6 @@
+(:name hotfuzz
+       :description "Fuzzy completion style."
+       :website     "https://github.com/axelf4/hotfuzz"
+       :type        github
+       :pkgname     "axelf4/hotfuzz"
+       :features    hotfuzz)
