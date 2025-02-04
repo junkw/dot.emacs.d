@@ -1,0 +1,6 @@
+(:name llama
+       :description "Compact syntax for short lambda"
+       :website     "https://github.com/tarsius/llama"
+       :depends     compat
+       :type        github
+       :pkgname     "tarsius/llama")
