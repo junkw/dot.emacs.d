@@ -43,6 +43,7 @@
                 avy
                 compat
                 editorconfig
+                hotfuzz
                 origami
                 projectile
                 smartrep

@@ -50,8 +50,8 @@
 
 (defun jkw:corfu-mode-init ()
   "My config for corfu mode."
-  (with-eval-after-load 'orderless
-    (setq-local orderless-matching-styles '(orderless-flex)))
+  (with-eval-after-load 'hotfuzz
+    (setq-local completion-styles '(hotfuzz)))
   (corfu-popupinfo-mode +1))
 
 (add-hook 'corfu-mode-hook #'jkw:corfu-mode-init)

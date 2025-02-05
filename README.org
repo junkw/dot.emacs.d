@@ -29,6 +29,9 @@ git clone --recursive https://github.com/junkw/dot.emacs.d.git /path/to/local/re
 cd /path/to/local/repo
 rake install
 open -a Emacs
+
+cd ~/.emacs.d/vendor/hotfuzz
+cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS=-march=native -DEMACS_ROOT=/opt/homebrew/Cellar/emacs-mac/emacs-29.1-mac-10.0/ && cmake --build build
 #+END_SRC
 
 ** Structure
