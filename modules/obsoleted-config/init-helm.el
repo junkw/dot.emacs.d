@@ -77,19 +77,19 @@
   (helm-migemo-mode +1))
 
 ;;;; Keymap
-(global-unset-key (kbd "C-x c"))
-(global-set-key (kbd "C-c h")   #'helm-command-prefix)
+(keymap-global-unset "C-x c")
+(keymap-global-set "C-c h"   #'helm-command-prefix)
 
-(global-set-key (kbd "M-x")     #'helm-M-x)
-(global-set-key (kbd "C-x b")   #'helm-mini)
-(global-set-key (kbd "C-x C-b") #'helm-buffers-list)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
-(global-set-key (kbd "C-;")     #'helm-for-files)
-(global-set-key (kbd "M-y")     #'helm-show-kill-ring)
+(keymap-global-set "M-x"     #'helm-M-x)
+(keymap-global-set "C-x b"   #'helm-mini)
+(keymap-global-set "C-x C-b" #'helm-buffers-list)
+(keymap-global-set "C-x C-f" #'helm-find-files)
+(keymap-global-set "C-;"     #'helm-for-files)
+(keymap-global-set "M-y"     #'helm-show-kill-ring)
 
-(define-key helm-map (kbd "C-k") nil)
-(define-key helm-map (kbd "C-q") #'helm-delete-minibuffer-contents)
+(keymap-set helm-map "C-k" nil)
+(keymap-set helm-map "C-q" #'helm-delete-minibuffer-contents)
 
-(define-key minibuffer-local-map (kbd "C-c C-l") #'helm-minibuffer-history)
+(keymap-set minibuffer-local-map "C-c C-l" #'helm-minibuffer-history)
 
 ;;; init-helm.el ends here

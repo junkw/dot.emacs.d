@@ -219,23 +219,23 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
   (string-rectangle start end "> "))
 
 ;;;; Keymap
-(global-set-key (kbd "M-/")   #'hippie-expand)  ; replace `dabbrev-expand'
-(global-set-key (kbd "M-d")   #'kill-word-dwim) ; override when `easy-kill' is used
-(global-set-key (kbd "M-SPC") #'cycle-spacing)  ; replace `just-one-space'
-(global-set-key (kbd "C-c +") #'increment-integer-at-point)
-(global-set-key (kbd "C-c -") #'decrement-integer-at-point)
-(global-set-key (kbd "C-x r q") #'quote-rectangle)
+(keymap-global-set "M-/"   #'hippie-expand)  ; replace `dabbrev-expand'
+(keymap-global-set "M-d"   #'kill-word-dwim) ; override when `easy-kill' is used
+(keymap-global-set "M-SPC" #'cycle-spacing)  ; replace `just-one-space'
+(keymap-global-set "C-c +" #'increment-integer-at-point)
+(keymap-global-set "C-c -" #'decrement-integer-at-point)
+(keymap-global-set "C-x r q" #'quote-rectangle)
 
-(global-unset-key (kbd "C-t"))          ; `transpose-chars'
-(global-unset-key (kbd "C-x C-t"))      ; `transpose-lines'
-(global-unset-key (kbd "C-M-t"))        ; `transpose-sexps'
-(global-unset-key (kbd "M-t"))          ; `transpose-words'
-(global-set-key (kbd "C-x t")     #'transpose-chars)
-(global-set-key (kbd "C-x T")     #'transpose-lines)
-(global-set-key (kbd "C-x C-M-t") #'transpose-sexps)
-(global-set-key (kbd "C-x M-t")   #'transpose-words)
+(keymap-global-unset "C-t")          ; `transpose-chars'
+(keymap-global-unset "C-x C-t")      ; `transpose-lines'
+(keymap-global-unset "C-M-t")        ; `transpose-sexps'
+(keymap-global-unset "M-t")          ; `transpose-words'
+(keymap-global-set "C-x t"     #'transpose-chars)
+(keymap-global-set "C-x T"     #'transpose-lines)
+(keymap-global-set "C-x C-M-t" #'transpose-sexps)
+(keymap-global-set "C-x M-t"   #'transpose-words)
 
 (with-eval-after-load 'flyspell
-  (define-key flyspell-mode-map (kbd "C-;") nil))
+  (keymap-set flyspell-mode-map "C-;" nil))
 
 ;;; post-init-editor.el ends here

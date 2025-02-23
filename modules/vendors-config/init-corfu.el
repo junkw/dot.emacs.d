@@ -71,9 +71,9 @@
 
 ;;;; Keymap
 
-(define-key corfu-map (kbd "TAB") #'corfu-next)
-(define-key corfu-map (kbd "S-TAB") #'corfu-previous)
-(define-key corfu-map (kbd "M-q") #'corfu-quick-complete)
-(define-key corfu-map (kbd "C-q") #'corfu-quick-insert)
+(keymap-set corfu-map "TAB" #'corfu-next)
+(keymap-set corfu-map "S-TAB" #'corfu-previous)
+(keymap-set corfu-map "M-q" #'corfu-quick-complete)
+(keymap-set corfu-map "C-q" #'corfu-quick-insert)
 
 ;;; init-corfu.el ends here

@@ -35,7 +35,7 @@
 (setq ag-group-matches nil)
 
 ;;;; Keymap
-(define-key search-map (kbd "a") #'ag)
-(define-key search-map (kbd "A") #'ag-project-at-point)
+(keymap-set search-map "a" #'ag)
+(keymap-set search-map "A" #'ag-project-at-point)
 
 ;;; init-ag.el ends here

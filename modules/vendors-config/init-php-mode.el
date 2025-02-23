@@ -53,7 +53,7 @@
 ;;;; Keymap
 
 (with-eval-after-load 'php-mode
-  (define-key php-mode-map (kbd "C-c C--") #'php-current-class)
-  (define-key php-mode-map (kbd "C-c C-=") #'php-current-namespace))
+  (keymap-set php-mode-map "C-c C--" #'php-current-class)
+  (keymap-set php-mode-map "C-c C-=" #'php-current-namespace))
 
 ;;; init-php-mode.el ends here

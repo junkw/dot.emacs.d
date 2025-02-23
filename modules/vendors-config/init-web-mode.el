@@ -58,7 +58,7 @@
 (add-hook 'web-mode-hook #'jkw:web-mode-init)
 
 ;;;; Keymap
-(define-key web-mode-map (kbd "C-;") nil)
+(keymap-set web-mode-map "C-;" nil)
 
 (with-eval-after-load 'smartrep
   (smartrep-define-key web-mode-map "C-c C-b"

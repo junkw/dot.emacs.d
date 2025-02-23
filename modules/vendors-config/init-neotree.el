@@ -47,6 +47,6 @@
       (neotree-find path)))
 
 ;;;; Keymap
-  (global-set-key (kbd "C-x C-d") #'neotree-find-project-root-or-current-directory))
+  (keymap-global-set "C-x C-d" #'neotree-find-project-root-or-current-directory))
 
 ;;; init-neotree.el ends here

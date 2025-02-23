@@ -34,12 +34,12 @@
 (setq avy-background t)
 
 ;;;; Keymap
-(global-set-key (kbd "M-g SPC") #'avy-goto-char-timer)
-(global-set-key (kbd "M-g f")   #'avy-goto-line)
-(global-set-key (kbd "M-g w")   #'avy-goto-word-1)
-(global-set-key (kbd "M-g r")   #'avy-resume)
+(keymap-global-set "M-g SPC" #'avy-goto-char-timer)
+(keymap-global-set "M-g f"   #'avy-goto-line)
+(keymap-global-set "M-g w"   #'avy-goto-word-1)
+(keymap-global-set "M-g r"   #'avy-resume)
 
 (with-eval-after-load 'org
-  (define-key org-mode-map (kbd "M-g j") #'avy-org-goto-heading-timer))
+  (keymap-set org-mode-map "M-g j" #'avy-org-goto-heading-timer))
 
 ;;; init-avy.el ends here

@@ -135,10 +135,10 @@ ARG is like in `dired-map-over-marks'."
    (function dired-convert-coding-system) arg 'convert-coding-system t))
 
 ;;;; Keymap
-(global-set-key (kbd "M-o") #'insert-current-file-name-at-point)
-(global-set-key (kbd "C-x C-q") #'view-mode)
+(keymap-global-set "M-o" #'insert-current-file-name-at-point)
+(keymap-global-set "C-x C-q" #'view-mode)
 
-(define-key dired-mode-map (kbd "C-c C-e") #'wdired-change-to-wdired-mode)
-(define-key dired-mode-map (kbd "E") #'dired-do-convert-coding-system)
+(keymap-set dired-mode-map "C-c C-e" #'wdired-change-to-wdired-mode)
+(keymap-set dired-mode-map "E" #'dired-do-convert-coding-system)
 
 ;;; post-init-file.el ends here

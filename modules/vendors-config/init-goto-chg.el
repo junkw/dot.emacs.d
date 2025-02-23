@@ -32,8 +32,8 @@
 ;;; Code:
 
 ;;;; Keymap
-(global-set-key (kbd "M-g c") #'goto-last-change)
-(global-set-key (kbd "M-g C") #'goto-last-change-reverse)
+(keymap-global-set "M-g c" #'goto-last-change)
+(keymap-global-set "M-g C" #'goto-last-change-reverse)
 
 (with-eval-after-load 'smartrep
   (smartrep-define-key global-map "M-g"

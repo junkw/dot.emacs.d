@@ -54,11 +54,11 @@
 ;;;; Keymap
 (setq prefix-help-command #'embark-prefix-help-command)
 
-(global-set-key (kbd "C-.") #'embark-act)
-(global-set-key (kbd "M-.") #'embark-dwim)
-(global-set-key (kbd "C-h B") #'embark-bindings)
+(keymap-global-set "C-." #'embark-act)
+(keymap-global-set "M-." #'embark-dwim)
+(keymap-global-set "C-h B" #'embark-bindings)
 
 (with-eval-after-load 'wgrep
-  (define-key minibuffer-mode-map (kbd "C-c C-e") #'embark-wgrep-rg-results))
+  (keymap-set minibuffer-mode-map "C-c C-e" #'embark-wgrep-rg-results))
 
 ;;; init-embark.el ends here

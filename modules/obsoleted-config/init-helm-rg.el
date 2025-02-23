@@ -32,6 +32,6 @@
 ;;; Code:
 
 ;;;; Keymap
-(define-key helm-command-map (kbd "M-s r") #'helm-rg)
+(keymap-set helm-command-map "M-s r" #'helm-rg)
 
 ;;; init-helm-rg.el ends here

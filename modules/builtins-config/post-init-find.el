@@ -52,6 +52,6 @@ Advice function for `w/isearch-mode' (ORIG-FUN needs args FORWARD, REGEXP, OP-FU
 
 ;;;; Keymap
 
-(define-key isearch-mode-map (kbd "M-y") #'isearch-yank-pop)
+(keymap-set isearch-mode-map "M-y" #'isearch-yank-pop)
 
 ;;; post-init-find.el ends here

@@ -97,6 +97,6 @@ Advice function for `el-get-load-package-user-init-file'."
         (find-file package-init-file)))))
 
 ;;;; Keymap
-(define-key el-get-package-menu-mode-map "o" #'el-get-package-menu-open-init-file)
+(keymap-set el-get-package-menu-mode-map "o" #'el-get-package-menu-open-init-file)
 
 ;;; init-el-get.el ends here

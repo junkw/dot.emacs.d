@@ -46,13 +46,13 @@
 
 ;;;; Keymap
 (define-prefix-command 'jkw:magit-command-prefix-key)
-(global-set-key (kbd "C-x g") 'jkw:magit-command-prefix-key)
+(keymap-global-set "C-x g" 'jkw:magit-command-prefix-key)
 
 (let ((prefix jkw:magit-command-prefix-key))
-  (define-key prefix (kbd "g") #'magit-status)
-  (define-key prefix (kbd "G") #'magit-list-repositories)
-  (define-key prefix (kbd "f") #'magit-find-file)
-  (define-key prefix (kbd "F") #'magit-find-file-other-window)
+  (keymap-set prefix "g" #'magit-status)
+  (keymap-set prefix "G" #'magit-list-repositories)
+  (keymap-set prefix "f" #'magit-find-file)
+  (keymap-set prefix "F" #'magit-find-file-other-window)
   prefix)
 
 ;;; init-magit.el ends here

@@ -35,17 +35,17 @@
 
 ;;;; Keymap
 (define-prefix-command 'jkw:multiple-cursors-command-prefix-key)
-(global-set-key (kbd "C-t") 'jkw:multiple-cursors-command-prefix-key)
+(keymap-global-set "C-t" 'jkw:multiple-cursors-command-prefix-key)
 
 (let ((prefix jkw:multiple-cursors-command-prefix-key))
-  (define-key prefix (kbd "e") #'mc/edit-lines)
-  (define-key prefix (kbd "r") #'mc/mark-all-in-region)
-  (define-key prefix (kbd "t") #'mc/mark-all-like-this)
-  (define-key prefix (kbd "d") #'mc/mark-all-dwim)
-  (define-key prefix (kbd "D") #'mc/mark-all-like-this-dwim)
-  (define-key prefix (kbd "i") #'mc/insert-numbers)
-  (define-key prefix (kbd "s") #'mc/sort-regions)
-  (define-key prefix (kbd "S") #'mc/reverse-regions)
+  (keymap-set prefix "e" #'mc/edit-lines)
+  (keymap-set prefix "r" #'mc/mark-all-in-region)
+  (keymap-set prefix "t" #'mc/mark-all-like-this)
+  (keymap-set prefix "d" #'mc/mark-all-dwim)
+  (keymap-set prefix "D" #'mc/mark-all-like-this-dwim)
+  (keymap-set prefix "i" #'mc/insert-numbers)
+  (keymap-set prefix "s" #'mc/sort-regions)
+  (keymap-set prefix "S" #'mc/reverse-regions)
   prefix)
 
 (with-eval-after-load 'smartrep

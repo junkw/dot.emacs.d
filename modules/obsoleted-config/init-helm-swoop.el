@@ -39,19 +39,19 @@
 (setq helm-swoop-use-fuzzy-match nil)
 
 ;;;; Keymap
-(define-key helm-command-map (kbd "M-i") #'helm-swoop)
-(define-key helm-command-map (kbd "M-I") #'helm-multi-swoop)
-(define-key helm-command-map (kbd "M-a") #'helm-multi-swoop-all)
-(define-key helm-command-map (kbd "M-p") #'helm-multi-swoop-projectile)
+(keymap-set helm-command-map "M-i" #'helm-swoop)
+(keymap-set helm-command-map "M-I" #'helm-multi-swoop)
+(keymap-set helm-command-map "M-a" #'helm-multi-swoop-all)
+(keymap-set helm-command-map "M-p" #'helm-multi-swoop-projectile)
 
-(define-key isearch-mode-map (kbd "M-i") #'helm-swoop-from-isearch)
+(keymap-set isearch-mode-map "M-i" #'helm-swoop-from-isearch)
 
 (with-eval-after-load 'helm-swoop
-  (define-key helm-swoop-map (kbd "M-i") #'helm-multi-swoop-all-from-helm-swoop)
-  (define-key helm-swoop-map (kbd "C-r") #'helm-previous-line)
-  (define-key helm-swoop-map (kbd "C-s") #'helm-next-line)
+  (keymap-set helm-swoop-map "M-i" #'helm-multi-swoop-all-from-helm-swoop)
+  (keymap-set helm-swoop-map "C-r" #'helm-previous-line)
+  (keymap-set helm-swoop-map "C-s" #'helm-next-line)
 
-  (define-key helm-multi-swoop-map (kbd "C-r") #'helm-previous-line)
-  (define-key helm-multi-swoop-map (kbd "C-s") #'helm-next-line))
+  (keymap-set helm-multi-swoop-map "C-r" #'helm-previous-line)
+  (keymap-set helm-multi-swoop-map "C-s" #'helm-next-line))
 
 ;;; init-helm-swoop.el ends here

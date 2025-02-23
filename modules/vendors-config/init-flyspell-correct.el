@@ -35,6 +35,6 @@
 
 ;;;; Keymap
 (with-eval-after-load 'flyspell
-  (define-key flyspell-mode-map (kbd "C-<return>") #'flyspell-correct-word-generic))
+  (keymap-set flyspell-mode-map "C-RET" #'flyspell-correct-word-generic))
 
 ;;; init-flyspell-correct.el ends here

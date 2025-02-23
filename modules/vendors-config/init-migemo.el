@@ -33,9 +33,9 @@
 
 ;;;; Keymap
 
-(define-key isearch-mode-map (kbd "M-m") #'migemo-isearch-toggle-migemo)
-(define-key isearch-mode-map (kbd "C-d") #'migemo-isearch-yank-char)
-(define-key isearch-mode-map (kbd "C-w") #'migemo-isearch-yank-word)
-(define-key isearch-mode-map (kbd "M-e") #'migemo-isearch-yank-line)
+(keymap-set isearch-mode-map "M-m" #'migemo-isearch-toggle-migemo)
+(keymap-set isearch-mode-map "C-d" #'migemo-isearch-yank-char)
+(keymap-set isearch-mode-map "C-w" #'migemo-isearch-yank-word)
+(keymap-set isearch-mode-map "M-e" #'migemo-isearch-yank-line)
 
 ;;; init-migemo.el ends here

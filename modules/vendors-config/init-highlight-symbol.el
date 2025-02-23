@@ -39,10 +39,10 @@
 (add-hook 'prog-mode-hook 'highlight-symbol-nav-mode)
 
 ;;;; Keymap
-(define-key goto-map (kbd "h .") #'highlight-symbol-at-point)
-(define-key goto-map (kbd "h %") #'highlight-symbol-query-replace)
-(define-key goto-map (kbd "h n") #'highlight-symbol-next)
-(define-key goto-map (kbd "h p") #'highlight-symbol-prev)
+(keymap-set goto-map "h ." #'highlight-symbol-at-point)
+(keymap-set goto-map "h %" #'highlight-symbol-query-replace)
+(keymap-set goto-map "h n" #'highlight-symbol-next)
+(keymap-set goto-map "h p" #'highlight-symbol-prev)
 
 (with-eval-after-load 'smartrep
   (smartrep-define-key goto-map "h"

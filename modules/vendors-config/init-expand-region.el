@@ -32,7 +32,7 @@
 ;;; Code:
 
 ;;;; Keymap
-(global-set-key (kbd "C-@")   #'er/expand-region)
-(global-set-key (kbd "C-M-@") #'er/contract-region)
+(keymap-global-set "C-@"   #'er/expand-region)
+(keymap-global-set "C-M-@" #'er/contract-region)
 
 ;;; init-expand-region.el ends here

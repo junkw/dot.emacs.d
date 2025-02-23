@@ -44,6 +44,6 @@
 (push '("*vc-log*" :stick t) popwin:special-display-config)
 
 ;;;; Keymap
-(global-set-key (kbd "C-z") popwin:keymap)
+(keymap-global-set "C-z" popwin:keymap)
 
 ;;; init-popwin.el ends here

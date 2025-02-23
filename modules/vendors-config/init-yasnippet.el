@@ -42,12 +42,12 @@
 
 ;;;; Keymap
 
-(define-key yas-minor-mode-map (kbd "TAB") nil)
-(define-key yas-keymap (kbd "TAB") nil)
-(define-key yas-keymap (kbd "S-TAB") nil)
+(keymap-set yas-minor-mode-map "TAB" nil)
+(keymap-set yas-keymap "TAB" nil)
+(keymap-set yas-keymap "S-TAB" nil)
 
-(define-key yas-minor-mode-map (kbd "C-+") #'yas-expand)
-(define-key yas-keymap (kbd "M-{") #'yas-next-field-or-maybe-expand)
-(define-key yas-keymap (kbd "M-}") #'yas-prev-field)
+(keymap-set yas-minor-mode-map "C-+" #'yas-expand)
+(keymap-set yas-keymap "M-{" #'yas-next-field-or-maybe-expand)
+(keymap-set yas-keymap "M-}" #'yas-prev-field)
 
 ;;; init-yasnippet.el ends here

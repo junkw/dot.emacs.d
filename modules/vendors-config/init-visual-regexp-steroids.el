@@ -32,10 +32,10 @@
 ;;; Code:
 
 ;;;; Keymap
-(global-set-key (kbd "M-%")   #'vr/replace)
-(global-set-key (kbd "C-M-%") #'vr/query-replace)
+(keymap-global-set "M-%"   #'vr/replace)
+(keymap-global-set "C-M-%" #'vr/query-replace)
 
 (with-eval-after-load 'multiple-cursors
-  (global-set-key (kbd "C-c m") #'vr/mc-mark))
+  (keymap-global-set "C-c m" #'vr/mc-mark))
 
 ;;; init-visual-regexp-steroids.el ends here

@@ -49,7 +49,7 @@
 (add-hook 'php-mode-hook #'jkw:company-backends-for-ac-php-init)
 
 ;;;; Keymap
-(define-key php-mode-map (kbd "C-,")   #'ac-php-find-symbol-at-point)
-(define-key php-mode-map (kbd "C-c <") #'ac-php-location-stack-back)
+(keymap-set php-mode-map "C-,"   #'ac-php-find-symbol-at-point)
+(keymap-set php-mode-map "C-c <" #'ac-php-location-stack-back)
 
 ;;; init-ac-php.el ends here

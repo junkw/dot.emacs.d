@@ -131,11 +131,11 @@ with some parts omitted and some custom behavior added."
   (setq mac-command-modifier 'control)
   (setq mac-option-modifier  'meta))
 
-(define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
-(global-unset-key (kbd "C-h"))
-(global-set-key (kbd "C-x ?") #'help-command)
-(global-set-key [remap keyboard-quit] #'keyboard-quit-dwim)
-(define-key global-map (kbd "C-\\") #'toggle-input-method)
+(keymap-set key-translation-map "C-h" "DEL")
+(keymap-global-unset "C-h")
+(keymap-global-set "C-x ?" #'help-command)
+(keymap-global-set "<remap> <keyboard-quit>" #'keyboard-quit-dwim)
+(keymap-set global-map "C-\\" #'toggle-input-method)
 
 (define-vim-keys messages-buffer-mode-map)
 

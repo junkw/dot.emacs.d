@@ -38,7 +38,7 @@
 ;;;; Keymap
 (with-eval-after-load 'help-mode
   (define-vim-keys help-mode-map)
-  (define-key help-mode-map (kbd "<") #'help-go-back)
-  (define-key help-mode-map (kbd ">") #'help-go-forward))
+  (keymap-set help-mode-map "<" #'help-go-back)
+  (keymap-set help-mode-map ">" #'help-go-forward))
 
 ;;; opt-init-help.el ends here

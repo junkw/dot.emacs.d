@@ -41,8 +41,8 @@
 (add-hooks '(emacs-lisp-mode js2-mode php-mode) #'dumb-jump-mode)
 
 ;;;; Keymap
-(define-key dumb-jump-mode-map (kbd "M-g d") #'dumb-jump-go)
-(define-key dumb-jump-mode-map (kbd "M-g b") #'dumb-jump-back)
-(define-key dumb-jump-mode-map (kbd "M-g ?") #'dumb-jump-quick-look)
+(keymap-set dumb-jump-mode-map "M-g d" #'dumb-jump-go)
+(keymap-set dumb-jump-mode-map "M-g b" #'dumb-jump-back)
+(keymap-set dumb-jump-mode-map "M-g ?" #'dumb-jump-quick-look)
 
 ;;; init-dumb-jump.el ends here

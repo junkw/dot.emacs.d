@@ -38,6 +38,6 @@
 (add-to-list 'dash-at-point-mode-alist '(web-mode  . "html"))
 
 ;;;; Keymap
-(global-set-key (kbd "C-c d") #'dash-at-point)
+(keymap-global-set "C-c d" #'dash-at-point)
 
 ;;; init-dash-at-point.el ends here

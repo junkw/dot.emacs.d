@@ -47,6 +47,6 @@
 (global-ace-isearch-mode +1)
 
 ;;;; Keymap
-(define-key isearch-mode-map (kbd "C-'") #'ace-isearch-jump-during-isearch)
+(keymap-set isearch-mode-map "C-'" #'ace-isearch-jump-during-isearch)
 
 ;;; init-ace-isearch.el ends here

@@ -37,6 +37,6 @@
 (add-hooks '(sql-mode sql-interactive-mode) #'sqlup-mode)
 
 ;;;; Keymap
-(global-set-key (kbd "C-c C-u") #'sqlup-capitalize-keywords-in-region)
+(keymap-global-set "C-c C-u" #'sqlup-capitalize-keywords-in-region)
 
 ;;; init-sqlup-mode.el ends here

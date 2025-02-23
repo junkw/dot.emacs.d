@@ -35,7 +35,7 @@
 (setq helm-ag-insert-at-point 'symbol)
 
 ;;;; Keymap
-(define-key helm-command-map (kbd "M-s a") #'helm-ag)
-(define-key helm-command-map (kbd "M-s A") #'helm-do-ag)
+(keymap-set helm-command-map "M-s a" #'helm-ag)
+(keymap-set helm-command-map "M-s A" #'helm-do-ag)
 
 ;;; init-helm-ag.el ends here

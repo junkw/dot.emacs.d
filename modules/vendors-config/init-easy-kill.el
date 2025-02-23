@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(global-set-key (kbd "M-d")       #'easy-kill) ; replace `kill-word-dwim'
-(global-set-key [remap mark-sexp] #'easy-mark)
+(keymap-global-set "M-d"       #'easy-kill) ; replace `kill-word-dwim'
+(keymap-global-set "<remap> <mark-sexp>" #'easy-mark)
 
 ;;; init-easy-kill.el ends here

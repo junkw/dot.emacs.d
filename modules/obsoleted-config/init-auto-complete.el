@@ -50,7 +50,7 @@
 
 ;;;; Keymap
 (ac-set-trigger-key "TAB")
-(define-key ac-mode-map (kbd "M-TAB") #'auto-complete)
-(define-key ac-completing-map (kbd "C-M-g") #'ac-stop)
+(keymap-set ac-mode-map "M-TAB" #'auto-complete)
+(keymap-set ac-completing-map "C-M-g" #'ac-stop)
 
 ;;; init-auto-complete.el ends here

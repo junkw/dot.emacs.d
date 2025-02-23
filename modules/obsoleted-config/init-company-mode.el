@@ -176,31 +176,31 @@ In that case, insert the number."
       (company-complete-number (string-to-number k)))))
 
 ;;;; Keymap
-(global-set-key (kbd "C-c y") #'company-yasnippet)
+(keymap-global-set "C-c y" #'company-yasnippet)
 
-(define-key company-active-map (kbd "C-h") #'delete-backward-char)
-(define-key company-active-map (kbd "C-?") #'company-show-doc-buffer)
-(define-key company-active-map (kbd "TAB") #'company-complete-common-or-cycle-if-tooltip-visible-or-complete-selection)
-(define-key company-active-map (kbd "C-i") #'company-complete-common-or-cycle-if-tooltip-visible-or-complete-selection)
-(define-key company-active-map (kbd "C-n") #'company-select-next)
-(define-key company-active-map (kbd "C-p") #'company-select-previous)
-(define-key company-active-map (kbd "C-v") #'company-next-page)
-(define-key company-active-map (kbd "M-v") #'company-previous-page)
-(define-key company-active-map (kbd "C-s") #'company-filter-candidates)
-(define-key company-active-map (kbd "C-M-s") #'company-search-candidates)
+(keymap-set company-active-map "C-h" #'delete-backward-char)
+(keymap-set company-active-map "C-?" #'company-show-doc-buffer)
+(keymap-set company-active-map "TAB" #'company-complete-common-or-cycle-if-tooltip-visible-or-complete-selection)
+(keymap-set company-active-map "C-i" #'company-complete-common-or-cycle-if-tooltip-visible-or-complete-selection)
+(keymap-set company-active-map "C-n" #'company-select-next)
+(keymap-set company-active-map "C-p" #'company-select-previous)
+(keymap-set company-active-map "C-v" #'company-next-page)
+(keymap-set company-active-map "M-v" #'company-previous-page)
+(keymap-set company-active-map "C-s" #'company-filter-candidates)
+(keymap-set company-active-map "C-M-s" #'company-search-candidates)
 
-(define-key company-search-map (kbd "C-n") #'company-select-next)
-(define-key company-search-map (kbd "C-p") #'company-select-previous)
+(keymap-set company-search-map "C-n" #'company-select-next)
+(keymap-set company-search-map "C-p" #'company-select-previous)
 
 (let ((map company-active-map))
   (mapc
    (lambda (x)
-     (define-key map (format "%d" x) #'company-do-complete-number))
+     (keymap-set map (format "%d" x) #'company-do-complete-number))
    (number-sequence 0 9))
-  (define-key map " " (lambda ()
+  (keymap-set map " " (lambda ()
                         (interactive)
                         (company-abort)
                         (self-insert-command 1)))
-  (define-key map (kbd "<RET>") nil))
+  (keymap-set map "RET" nil))
 
 ;;; init-company-mode.el ends here

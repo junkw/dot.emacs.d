@@ -45,7 +45,7 @@
 
 ;;;; Keymap
 (with-eval-after-load 'markdown-mode
-  (define-key markdown-mode-map (kbd "<S-tab>") #'markdown-shifttab)
+  (keymap-set markdown-mode-map "S-TAB" #'markdown-shifttab)
 
   (with-eval-after-load 'smartrep
     (smartrep-define-key markdown-mode-map "C-c"

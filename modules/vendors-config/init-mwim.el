@@ -32,7 +32,7 @@
 ;;; Code:
 
 ;;;; Keymap
-(global-set-key (kbd "C-a") #'mwim-beginning-of-code-or-line-or-comment)
-(global-set-key (kbd "C-e") #'mwim-end-of-code-or-line)
+(keymap-global-set "C-a" #'mwim-beginning-of-code-or-line-or-comment)
+(keymap-global-set "C-e" #'mwim-end-of-code-or-line)
 
 ;;; init-mwim.el ends here

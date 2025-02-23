@@ -109,18 +109,18 @@
       (embark-act arg))))
 
 ;;;; Keymap
-(define-key vertico-map (kbd "?") #'minibuffer-completion-help)
-(define-key vertico-map (kbd "TAB") #'vertico-insert)
-(define-key vertico-map (kbd "C-i") #'vertico-insert)
-(define-key vertico-map (kbd "C-o") #'vertico-quick-insert)
-(define-key vertico-map (kbd "C-O") #'vertico-quick-embark)
-(define-key vertico-map (kbd "C-e") #'vertico-quick-exit)
-(define-key vertico-map (kbd "ESC") #'minibuffer-keyboard-quit)
+(keymap-set vertico-map "?" #'minibuffer-completion-help)
+(keymap-set vertico-map "TAB" #'vertico-insert)
+(keymap-set vertico-map "C-i" #'vertico-insert)
+(keymap-set vertico-map "C-o" #'vertico-quick-insert)
+(keymap-set vertico-map "C-O" #'vertico-quick-embark)
+(keymap-set vertico-map "C-e" #'vertico-quick-exit)
+(keymap-set vertico-map "ESC" #'minibuffer-keyboard-quit)
 
-(define-key vertico-map (kbd "RET") #'vertico-directory-enter)
-(define-key vertico-map (kbd "C-l") #'vertico-directory-up)
-(define-key vertico-map (kbd "<backspace>") #'vertico-directory-delete-char)
-(define-key vertico-map (kbd "C-w") #'vertico-directory-delete-word)
-(define-key vertico-map (kbd "M-<backspace>") #'vertico-directory-delete-word)
+(keymap-set vertico-map "RET" #'vertico-directory-enter)
+(keymap-set vertico-map "C-l" #'vertico-directory-up)
+(keymap-set vertico-map "<backspace>" #'vertico-directory-delete-char)
+(keymap-set vertico-map "C-w" #'vertico-directory-delete-word)
+(keymap-set vertico-map "M-<backspace>" #'vertico-directory-delete-word)
 
 ;;; init-vertico.el ends here

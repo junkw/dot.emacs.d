@@ -32,7 +32,7 @@
 ;;; Code:
 
 ;;;; Keymap
-(global-set-key (kbd "M-g SPC") #'ace-jump-mode)
-(global-set-key (kbd "M-g m")   #'ace-jump-mode-pop-mark)
+(keymap-global-set "M-g SPC" #'ace-jump-mode)
+(keymap-global-set "M-g m"   #'ace-jump-mode-pop-mark)
 
 ;;; init-ace-jump-mode.el ends here

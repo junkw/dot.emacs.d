@@ -50,12 +50,12 @@
 (add-hook 'view-mode-hook #'origami-close-all-nodes-with-view-mode)
 
 ;;;; Keymap
-(global-set-key (kbd "M-i") #'origami-recursively-toggle-node)
+(keymap-global-set "M-i" #'origami-recursively-toggle-node)
 
 (with-eval-after-load 'view-mode
-  (define-key view-mode-map (kbd "C-i") #'origami-recursively-toggle-node)
-  (define-key view-mode-map (kbd "t")   #'origami-toggle-all-nodes)
-  (define-key view-mode-map (kbd "[")   #'origami-previous-fold)
-  (define-key view-mode-map (kbd "]")   #'origami-next-fold))
+  (keymap-set view-mode-map "C-i" #'origami-recursively-toggle-node)
+  (keymap-set view-mode-map "t"   #'origami-toggle-all-nodes)
+  (keymap-set view-mode-map "["   #'origami-previous-fold)
+  (keymap-set view-mode-map "]"   #'origami-next-fold))
 
 ;;; init-origami.el ends here

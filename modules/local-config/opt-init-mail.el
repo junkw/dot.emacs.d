@@ -251,6 +251,6 @@ launch the no-attachment warning.")
           (,mu4e-sent-folder        . ?t)
           (,jkw:mu4e-starred-folder . ?s)))
 
-  (define-key message-mode-map (kbd "C-x C-s") #'message-dont-send))
+  (keymap-set message-mode-map "C-x C-s" #'message-dont-send))
 
 ;;; opt-init-mail.el ends here

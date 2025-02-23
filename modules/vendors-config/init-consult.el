@@ -72,29 +72,29 @@ DIR and GIVEN-INITIAL match the method signature of `consult-wrapper'."
 
 ;;;; Keymap
 
-(global-set-key [remap switch-to-buffer] #'consult-buffer)
-(global-set-key [remap switch-to-buffer-other-window] #'consult-buffer-other-window)
-(global-set-key [remap switch-to-buffer-other-frame] #'consult-buffer-other-frame)
+(keymap-global-set "<remap> <switch-to-buffer>" #'consult-buffer)
+(keymap-global-set "<remap> <switch-to-buffer-other-window>" #'consult-buffer-other-window)
+(keymap-global-set "<remap> <switch-to-buffer-other-frame>" #'consult-buffer-other-frame)
 
-(global-set-key (kbd "C-;") #'consult-locate)
-(global-set-key (kbd "M-y") #'consult-yank-pop)
+(keymap-global-set "C-;" #'consult-locate)
+(keymap-global-set "M-y" #'consult-yank-pop)
 
-(define-key consult-narrow-map (vconcat consult-narrow-key "?") #'consult-narrow-help)
+(keymap-set consult-narrow-map (concat consult-narrow-key " ?") #'consult-narrow-help)
 
-(define-key goto-map (kbd "g") #'consult-goto-line)
-(define-key goto-map (kbd "o") #'consult-outline)
-(define-key goto-map (kbd "i") #'consult-imenu)
-(define-key goto-map (kbd "I") #'consult-imenu-multi)
+(keymap-set goto-map "g" #'consult-goto-line)
+(keymap-set goto-map "o" #'consult-outline)
+(keymap-set goto-map "i" #'consult-imenu)
+(keymap-set goto-map "I" #'consult-imenu-multi)
 
-(define-key search-map (kbd "l") #'consult-line)
-(define-key search-map (kbd "e") #'consult-isearch-history)
-(define-key search-map (kbd "d") #'consult-fd)
-(define-key search-map (kbd "r") #'consult-ripgrep-dwim)
+(keymap-set search-map "l" #'consult-line)
+(keymap-set search-map "e" #'consult-isearch-history)
+(keymap-set search-map "d" #'consult-fd)
+(keymap-set search-map "r" #'consult-ripgrep-dwim)
 
-(define-key minibuffer-local-map (kbd "M-r") #'consult-history)
-(define-key minibuffer-local-map (kbd "M-s") #'consult-history)
+(keymap-set minibuffer-local-map "M-r" #'consult-history)
+(keymap-set minibuffer-local-map "M-s" #'consult-history)
 
-(define-key isearch-mode-map (kbd "M-h") #'consult-isearch-history)
-(define-key isearch-mode-map (kbd "M-l") #'consult-line)
+(keymap-set isearch-mode-map "M-h" #'consult-isearch-history)
+(keymap-set isearch-mode-map "M-l" #'consult-line)
 
 ;;; init-consult.el ends here

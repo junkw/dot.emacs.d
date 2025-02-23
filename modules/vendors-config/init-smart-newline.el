@@ -34,6 +34,6 @@
 (electric-indent-mode -1)
 
 ;;;; Keymap
-(global-set-key (kbd "C-j") #'smart-newline)
+(keymap-global-set "C-j" #'smart-newline)
 
 ;;; init-smart-newline.el ends here

@@ -37,6 +37,6 @@
 (marginalia-mode +1)
 
 ;;;; Keymap
-(define-key minibuffer-local-map (kbd "M-A") #'marginalia-cycle)
+(keymap-set minibuffer-local-map "M-A" #'marginalia-cycle)
 
 ;;; init-marginalia.el ends here

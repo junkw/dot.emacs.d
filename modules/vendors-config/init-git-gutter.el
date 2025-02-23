@@ -35,12 +35,12 @@
 (add-hook 'prog-mode-hook #'git-gutter-mode)
 
 ;;;; Keymap
-(global-set-key (kbd "M-g n")     #'git-gutter:next-hunk)
-(global-set-key (kbd "M-g p")     #'git-gutter:previous-hunk)
-(global-set-key (kbd "M-g v =")   #'git-gutter:popup-hunk)
-(global-set-key (kbd "M-g v s")   #'git-gutter:stage-hunk)
-(global-set-key (kbd "M-g v r")   #'git-gutter:revert-hunk)
-(global-set-key (kbd "M-g v SPC") #'git-gutter:mark-hunk)
+(keymap-global-set "M-g n"     #'git-gutter:next-hunk)
+(keymap-global-set "M-g p"     #'git-gutter:previous-hunk)
+(keymap-global-set "M-g v ="   #'git-gutter:popup-hunk)
+(keymap-global-set "M-g v s"   #'git-gutter:stage-hunk)
+(keymap-global-set "M-g v r"   #'git-gutter:revert-hunk)
+(keymap-global-set "M-g v SPC" #'git-gutter:mark-hunk)
 
 (with-eval-after-load 'smartrep
   (smartrep-define-key prog-mode-map "M-g"

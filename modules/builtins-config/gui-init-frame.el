@@ -60,9 +60,9 @@
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 ;;;; Keymap
-(global-set-key (kbd "<f10>") nil)
-(global-set-key (kbd "<f11>") nil)
+(keymap-global-set "<f10>" nil)
+(keymap-global-set "<f11>" nil)
 
-(global-set-key (kbd "<f8>") #'toggle-frame-fullscreen)
+(keymap-global-set "<f8>" #'toggle-frame-fullscreen)
 
 ;;; gui-init-frame.el ends here

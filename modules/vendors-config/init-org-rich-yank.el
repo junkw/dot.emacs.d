@@ -33,6 +33,6 @@
 
 ;;;; Keymap
 (with-eval-after-load 'org
-  (define-key org-mode-map (kbd "C-M-y") #'org-rich-yank))
+  (keymap-set org-mode-map "C-M-y" #'org-rich-yank))
 
 ;;; init-org-rich-yank.el ends here

@@ -32,6 +32,6 @@
 ;;; Code:
 
 ;;;; Keymap
-(define-key helm-map (kbd "C-'") #'ace-jump-helm-line)
+(keymap-set helm-map "C-'" #'ace-jump-helm-line)
 
 ;;; init-ace-jump-helm-line.el ends here
