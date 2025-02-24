@@ -37,7 +37,7 @@
 (require 'corfu-quick)
 
 (setopt corfu-auto t)
-(setopt corfu-auto-delay 0)
+(setopt corfu-auto-delay 0.1)
 (setopt corfu-auto-prefix 1)
 (setopt corfu-cycle t)
 (setopt corfu-on-exact-match nil)

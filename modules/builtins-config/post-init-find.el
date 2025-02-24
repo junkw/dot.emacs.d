@@ -35,7 +35,8 @@
 (defun isearch-mode--with-region (orig-fun forward &optional regexp op-fun recursive-edit word)
   "Start isearch with mark-set keywords.
 
-Advice function for `w/isearch-mode' (ORIG-FUN needs args FORWARD, REGEXP, OP-FUN, RECURSIVE-EDIT and WORD)."
+Advice function for `w/isearch-mode'
+(ORIG-FUN needs args FORWARD, REGEXP, OP-FUN, RECURSIVE-EDIT and WORD)."
   (if (and transient-mark-mode mark-active (not (eq (mark) (point))))
       (progn
         (isearch-update-ring (buffer-substring-no-properties (mark) (point)))

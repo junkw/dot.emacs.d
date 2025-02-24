@@ -89,7 +89,8 @@ With prefix argument, use FULL-PATH."
   '(".7z" ".Z" ".a" ".ace" ".alz" ".arc" ".arj" ".bz" ".bz2" ".cab" ".cpio" ".deb" ".gz"
     ".jar" ".lha" ".lrz" ".lz" ".lzh" ".lzma" ".lzo" ".rar" ".rpm" ".rz" ".t7z" ".tZ"
     ".tar" ".tbz" ".tbz2" ".tgz" ".tlz" ".txz" ".tzo" ".war" ".xz" ".zip")
-  "Suffixes for compression and uncompression adding in `dired-compress-file-suffixes'.")
+  "Suffixes for compression and uncompression
+adding in `dired-compress-file-suffixes'.")
 
 (when (executable-find "atool")
   (cl-loop for suffix in jkw:dired-additional-compression-suffixes

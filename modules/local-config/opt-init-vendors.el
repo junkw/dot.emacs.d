@@ -116,7 +116,7 @@
                   phan))
               (when has-phpstan-p
                 '(phpstan))
-              '(consult vertico vertico-truncate orderless marginalia embark
+              '(consult vertico vertico-truncate prescient orderless marginalia embark
                 corfu
                 lsp-bridge)))
 

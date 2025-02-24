@@ -36,7 +36,8 @@
   "Regexp of directories with Contributing repository such as Github.")
 
 (defun editorconfig-mode--enable-on-contributing-repository ()
-  "Enable `editorconfig-mode' at opening file in directories with Contributing repository such as Github."
+  "Enable `editorconfig-mode' at opening file in directories
+with Contributing repository such as Github."
   (when (and buffer-file-name editorconfig-mode--enable-on-contributing-repository-regexp
              (string-match editorconfig-mode--enable-on-contributing-repository-regexp buffer-file-name))
     (editorconfig-mode +1)))

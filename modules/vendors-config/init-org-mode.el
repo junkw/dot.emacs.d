@@ -64,7 +64,7 @@
 (add-to-list 'org-link-abbrev-alist '("github" . "https://github.com/"))
 
 ;;;; ToDo
-(setopt org-use-fast-todo-selection t)
+(setopt org-use-fast-todo-selection 'auto)
 (setopt org-todo-keywords
       '((sequence "TODO(t)" "MIT(m)" "NEXT(n)" "DOING(d!)" "PENDING(p@/!)" "|" "DONE(D)" "NOTTODO(N@)")))
 
@@ -130,15 +130,7 @@
 (setq org-agenda-show-log t)
 (setopt org-agenda-skip-scheduled-if-done t)
 (setopt org-agenda-skip-deadline-if-done t)
-(setopt org-agenda-time-grid
-        '((daily today require-timed)
-          (900 1000 1100 1200 1300 1400 1500 1600 1700 1800)
-          "----------------"))
 (setopt org-columns-default-format "%50ITEM %TODO %3PRIORITY %SCHEDULED %Effort{:} %10CLOCKSUM")
-(setopt org-stuck-projects
-        '("+TODO={PENDING}|+LEVEL=1+BIGROCK+TODO={TODO}"
-          ("+LEVEL=2/TODO" "+LEVEL=2/NEXT" "+LEVEL=2/DOING") ("DELEGATE") nil))
-
 (setopt org-agenda-custom-commands
         '(("n" "Next Action" tags-todo "-DELEGATE/+MIT|NEXT|DOING"
            ((org-agenda-overriding-header "Next Action")
