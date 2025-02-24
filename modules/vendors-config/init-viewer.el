@@ -37,7 +37,7 @@
 (viewer-stay-in-setup)
 
 ;; Open log and README files as read only
-(setq view-mode-by-default-regexp "/\\(ChangeLog\\|NEWS\\|README\\)\\|.+\\.log\\'")
+(setopt view-mode-by-default-regexp "/\\(ChangeLog\\|NEWS\\|README\\)\\|.+\\.log\\'")
 
 (defun view-mode-by-default-setup--with-case-sensitive ()
   "Use `view-mode-by-default-regexp' as a case sensitive.
@@ -53,8 +53,8 @@ Advice function for `view-mode-by-default-setup'."
 
 ;; Mode line color
 (setq viewer-modeline-color-default (face-foreground 'mode-line-buffer-id))
-(setq viewer-modeline-color-unwritable "#F92672")
-(setq viewer-modeline-color-view       "#FD971F")
+(setopt viewer-modeline-color-unwritable "#F92672")
+(setopt viewer-modeline-color-view       "#FD971F")
 
 (defun viewer-change-modeline-color--buffer-id-switcher ()
   "Change `mode-line-buffer-id' color.

@@ -31,8 +31,8 @@
 
 ;;; Code:
 
-(setq helm-ls-git-status-command 'magit-status-internal)
-(setq helm-ls-git-fuzzy-match t)
+(setopt helm-ls-git-status-command 'magit-status-internal)
+(setopt helm-ls-git-fuzzy-match t)
 
 (add-to-list 'helm-for-files-preferred-list 'helm-source-ls-git-status)
 

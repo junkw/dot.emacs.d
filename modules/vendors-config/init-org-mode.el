@@ -38,38 +38,38 @@
 (require 'org-tempo)
 
 ;; Org file
-(setq org-insert-mode-line-in-empty-file t)
-(setq org-directory "~/Documents/org/")
-(setq org-default-notes-file (expand-file-name "inbox.org" org-directory))
+(setopt org-insert-mode-line-in-empty-file t)
+(setopt org-directory (concat jkw:doc-path "org/"))
+(setopt org-default-notes-file (expand-file-name "inbox.org" org-directory))
 
 ;;;; General
-(setq org-startup-truncated nil)        ; Don't display continuation lines
-(setq org-startup-folded 'content)      ; Show all headlines at startup of org mode
-(setq org-activate-links '(date bracket radio tag date footnote angle)) ; Fix link face with multibyte chars
-(setq org-src-fontify-natively t)       ; Syntax highlight in code blocks
-(setq calendar-week-start-day 1)        ; Beginning of week is Mon.
-(setq org-list-allow-alphabetical t)    ; XXX avoid error by typing C-e
+(setopt org-startup-truncated nil)        ; Don't display continuation lines
+(setopt org-startup-folded 'content)      ; Show all headlines at startup of org mode
+(setopt org-activate-links '(date bracket radio tag date footnote angle)) ; Fix link face with multibyte chars
+(setopt org-src-fontify-natively t)       ; Syntax highlight in code blocks
+(setopt calendar-week-start-day 1)        ; Beginning of week is Mon.
+(setopt org-list-allow-alphabetical t)    ; XXX avoid error by typing C-e
 
-(setq org-special-ctrl-a/e t)
-(setq org-special-ctrl-k t)
-(setq org-fold-catch-invisible-edits 'show-and-error) ; Editing invisible region, expands it and warns
-(setq org-return-follows-link t)        ; Open URL with RET
-(setq org-adapt-indentation t)
-(setq org-use-speed-commands t)
+(setopt org-special-ctrl-a/e t)
+(setopt org-special-ctrl-k t)
+(setopt org-fold-catch-invisible-edits 'show-and-error) ; Editing invisible region, expands it and warns
+(setopt org-return-follows-link t)        ; Open URL with RET
+(setopt org-adapt-indentation t)
+(setopt org-use-speed-commands t)
 
-(setq org-id-locations-file (concat user-emacs-directory "var/cache/org-id-locations"))
+(setopt org-id-locations-file (concat user-emacs-directory "var/cache/org-id-locations"))
 
 ;;;; Link
 (add-to-list 'org-link-abbrev-alist '("asin"   . "https://www.amazon.co.jp/dp/"))
 (add-to-list 'org-link-abbrev-alist '("github" . "https://github.com/"))
 
 ;;;; ToDo
-(setq org-use-fast-todo-selection t)
-(setq org-todo-keywords
+(setopt org-use-fast-todo-selection t)
+(setopt org-todo-keywords
       '((sequence "TODO(t)" "MIT(m)" "NEXT(n)" "DOING(d!)" "PENDING(p@/!)" "|" "DONE(D)" "NOTTODO(N@)")))
 
-(setq org-log-done 'time)               ; Logging completion time
-(setq org-log-into-drawer t)            ; Logging into :LOGBOOK:
+(setopt org-log-done 'time)               ; Logging completion time
+(setopt org-log-into-drawer t)            ; Logging into :LOGBOOK:
 
 ;; http://emacs.stackexchange.com/questions/10206/limit-number-of-org-todo-items-in-a-certain-state
 (defvar org-wip-limit 3
@@ -101,70 +101,70 @@
 (add-hook 'org-blocker-hook #'org-wip-limitter)
 
 ;;;; Tags
-(setq org-tag-alist
+(setopt org-tag-alist
       '(("@work" . ?w) ("@home" . ?h) ("@out" . ?o) ; context on place
         ("@idle" . ?i) ("@batch" . ?b)              ; context on time
         ("BIGROCK" . ?r) ("CONTACT" . ?c) ("DELEGATE" . ?d))) ; action
 
 ;;;; Capture
-(setq org-capture-templates
-      `(("i" "Stuffs such as tasks, ideas, or other information" entry (file ,org-default-notes-file)
-         "* %?\n  %i"
-         :empty-lines-before 1
-         :clock-resume t
-         :kill-buffer t)
-        ("s" "Process soon" entry (file ,org-default-notes-file)
-         "* NEXT %?\n  SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"today\")) DEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+1d\"))\n\n  %a"
-         :empty-lines-before 1
-         :clock-resume t
-         :kill-buffer t)
-        ("a" "Code annotaion" entry (file ,org-default-notes-file)
-         "* %?%^G\n  %U\n  %A\n  %i"
-         :empty-lines-before 1
-         :clock-resume t
-         :kill-buffer t)))
+(setopt org-capture-templates
+        `(("i" "Stuffs such as tasks, ideas, or other information" entry (file ,org-default-notes-file)
+           "* %?\n  %i"
+           :empty-lines-before 1
+           :clock-resume t
+           :kill-buffer t)
+          ("s" "Process soon" entry (file ,org-default-notes-file)
+           "* NEXT %?\n  SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"today\")) DEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+1d\"))\n\n  %a"
+           :empty-lines-before 1
+           :clock-resume t
+           :kill-buffer t)
+          ("a" "Code annotaion" entry (file ,org-default-notes-file)
+           "* %?%^G\n  %U\n  %A\n  %i"
+           :empty-lines-before 1
+           :clock-resume t
+           :kill-buffer t)))
 
 ;;;; Agenda
-(setq org-agenda-restore-windows-after-quit t)
-(setq org-agenda-files `(,org-directory ,(substitute-in-file-name "${HOME}/Library/CloudStorage/Dropbox/Documents/org/")))
+(setopt org-agenda-restore-windows-after-quit t)
+(setopt org-agenda-files `(,org-directory ,(substitute-in-file-name "${HOME}/Library/CloudStorage/Dropbox/Documents/org/")))
 (setq org-agenda-show-log t)
-(setq org-agenda-skip-scheduled-if-done t)
-(setq org-agenda-skip-deadline-if-done t)
-(setq org-agenda-time-grid
-      '((daily today require-timed)
-        "----------------"
-        (900 1000 1100 1200 1300 1400 1500 1600 1700 1800)))
-(setq org-columns-default-format "%50ITEM %TODO %3PRIORITY %SCHEDULED %Effort{:} %10CLOCKSUM")
-(setq org-stuck-projects
-      '("+TODO={PENDING}|+LEVEL=1+BIGROCK+TODO={TODO}"
-        ("+LEVEL=2/TODO" "+LEVEL=2/NEXT" "+LEVEL=2/DOING") ("DELEGATE") nil))
+(setopt org-agenda-skip-scheduled-if-done t)
+(setopt org-agenda-skip-deadline-if-done t)
+(setopt org-agenda-time-grid
+        '((daily today require-timed)
+          (900 1000 1100 1200 1300 1400 1500 1600 1700 1800)
+          "----------------"))
+(setopt org-columns-default-format "%50ITEM %TODO %3PRIORITY %SCHEDULED %Effort{:} %10CLOCKSUM")
+(setopt org-stuck-projects
+        '("+TODO={PENDING}|+LEVEL=1+BIGROCK+TODO={TODO}"
+          ("+LEVEL=2/TODO" "+LEVEL=2/NEXT" "+LEVEL=2/DOING") ("DELEGATE") nil))
 
-(setq org-agenda-custom-commands
-      '(("n" "Next Action" tags-todo "-DELEGATE/+MIT|NEXT|DOING"
-         ((org-agenda-overriding-header "Next Action")
-          (org-agenda-span 'week)
-          (org-deadline-warning-days 3)
-          (org-agenda-sorting-strategy '(todo-state-up deadline-down priority-down category-keep))))))
+(setopt org-agenda-custom-commands
+        '(("n" "Next Action" tags-todo "-DELEGATE/+MIT|NEXT|DOING"
+           ((org-agenda-overriding-header "Next Action")
+            (org-agenda-span 'week)
+            (org-deadline-warning-days 3)
+            (org-agenda-sorting-strategy '(todo-state-up deadline-down priority-down category-keep))))))
 
 ;;;; Refile
-(setq org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
+(setopt org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
 
 ;;;; Babel
 ;; PlantUML
-(setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
+(setopt org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
 
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((plantuml . t)))
 
 ;;;; Export
-(setq org-export-default-language "ja")
+(setopt org-export-default-language "ja")
 
-(setq org-html-doctype "html5")
+(setopt org-html-doctype "html5")
 
-(setq org-latex-pdf-process '("lualatex %b" "lualatex %b"))
-(setq org-latex-classes '(("document"
-                           "\\documentclass{ltjsarticle}
+(setopt org-latex-pdf-process '("lualatex %b" "lualatex %b"))
+(setopt org-latex-classes '(("document"
+                             "\\documentclass{ltjsarticle}
 \\usepackage{amsmath,amssymb}
 \\usepackage{atbegshi}
 \\usepackage{bookmark}
@@ -176,12 +176,12 @@
 [NO-DEFAULT-PACKAGES]
 [PACKAGES]
 [EXTRA]"
-                           ("\\section{%s}" . "\\section*{%s}")
-                           ("\\subsection{%s}" . "\\subsection*{%s}")
-                           ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                           ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                           ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-(setq org-latex-default-class "document")
+                             ("\\section{%s}" . "\\section*{%s}")
+                             ("\\subsection{%s}" . "\\subsection*{%s}")
+                             ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                             ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                             ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+(setopt org-latex-default-class "document")
 
 ;;;; Color
 ;; https://fuco1.github.io/2017-05-25-Fontify-done-checkbox-items-in-org-mode.html

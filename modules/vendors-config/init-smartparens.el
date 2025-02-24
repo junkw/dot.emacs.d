@@ -39,8 +39,8 @@
 (add-hooks sp-lisp-modes #'smartparens-strict-mode)
 
 ;; Highlight matching pairs
-(setq sp-show-pair-delay 0)
-(setq sp-show-pair-from-inside t)
+(setopt sp-show-pair-delay 0)
+(setopt sp-show-pair-from-inside t)
 (show-smartparens-global-mode +1)
 
 ;;;; Functions

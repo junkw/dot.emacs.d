@@ -31,21 +31,21 @@
 
 ;;; Code:
 
-(setq company-idle-delay 0.3)
-(setq company-minimum-prefix-length 3)
-(setq company-selection-wrap-around t)
-(setq company-require-match nil)
-(setq company-show-numbers t)
-(setq company-dabbrev-downcase nil)
+(setopt company-idle-delay 0.3)
+(setopt company-minimum-prefix-length 3)
+(setopt company-selection-wrap-around t)
+(setopt company-require-match nil)
+(setopt company-show-numbers t)
+(setopt company-dabbrev-downcase nil)
 
 (defun company-visible-and-explicit-action-p ()
   "[internal] Return t if tooltip is visible and user explicit action took place."
   (and (company-tooltip-visible-p)
        (company-explicit-action-p)))
-(setq company-auto-complete #'company-visible-and-explicit-action-p)
+(setopt company-auto-complete #'company-visible-and-explicit-action-p)
 
-(setq company-transformers '(company-sort-by-backend-importance))
-(setq company-frontends '(company-echo-metadata-frontend
+(setopt company-transformers '(company-sort-by-backend-importance))
+(setopt company-frontends '(company-echo-metadata-frontend
                           company-pseudo-tooltip-unless-just-one-frontend-with-delay
                           company-preview-frontend))
 
@@ -60,7 +60,7 @@
   (add-to-list 'company-dabbrev-code-modes 'js2-mode))
 
 ;; Backends
-(setq company-backends '(company-dabbrev-code company-capf company-files
+(setopt company-backends '(company-dabbrev-code company-capf company-files
                                               company-yasnippet company-ispell
                                               (company-dabbrev company-abbrev)))
 

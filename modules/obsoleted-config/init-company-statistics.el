@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq company-statistics-file (concat user-emacs-directory "var/cache/company-statistics-cache.el"))
+(setopt company-statistics-file (concat user-emacs-directory "var/cache/company-statistics-cache.el"))
 
 (with-eval-after-load 'company
   (company-statistics-mode +1))

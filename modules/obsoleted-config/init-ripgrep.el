@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq ripgrep-executable (executable-find "rg"))
-(setq ripgrep-arguments '("-S"))
+(setopt ripgrep-executable (executable-find "rg"))
+(setopt ripgrep-arguments '("-S"))
 
 ;;; init-ripgrep.el ends here

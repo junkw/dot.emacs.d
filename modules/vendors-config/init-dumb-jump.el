@@ -33,9 +33,9 @@
 
 (require 'pre-init-hook-utils)
 
-(setq dumb-jump-default-project "~/Code/")
-(setq dumb-jump-force-searcher 'rg)
-(setq dumb-jump-selector 'completing-read)
+(setopt dumb-jump-default-project jkw:code-path)
+(setopt dumb-jump-force-searcher 'rg)
+(setopt dumb-jump-selector 'completing-read)
 
 ;;;; Hooks
 (add-hooks '(emacs-lisp-mode js2-mode php-mode) #'dumb-jump-mode)

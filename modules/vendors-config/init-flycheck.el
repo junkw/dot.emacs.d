@@ -33,11 +33,11 @@
 
 (require 'pre-init-hook-utils)
 
-(setq flycheck-check-syntax-automatically '(mode-enabled save))
-(setq flycheck-display-errors-delay 0.5)
+(setopt flycheck-check-syntax-automatically '(mode-enabled save))
+(setopt flycheck-display-errors-delay 0.5)
 (setq-default flycheck-emacs-lisp-load-path 'inherit)
 
-(setq flycheck-textlint-config (substitute-in-file-name "${HOME}/.textlintrc"))
+(setopt flycheck-textlint-config (substitute-in-file-name "${HOME}/.textlintrc"))
 (add-to-list 'flycheck-textlint-plugin-alist '(org-mode . "org"))
 
 ;;;; Modes

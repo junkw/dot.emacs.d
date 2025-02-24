@@ -32,24 +32,24 @@
 ;;; Code:
 
 ;;;; Window
-(setq initial-major-mode 'emacs-lisp-mode)
-(setq use-dialog-box nil)
+(setopt initial-major-mode 'emacs-lisp-mode)
+(setopt use-dialog-box nil)
 
 ;;;; Mode line
-(setq eol-mnemonic-dos  "+CR/LF")
-(setq eol-mnemonic-mac  "+CR")
-(setq eol-mnemonic-unix "+LF")
-(setq eol-mnemonic-undecided "")
+(setopt eol-mnemonic-dos  "+CR/LF")
+(setopt eol-mnemonic-mac  "+CR")
+(setopt eol-mnemonic-unix "+LF")
+(setopt eol-mnemonic-undecided "")
 
 (column-number-mode +1)
 (size-indication-mode +1)
 
 (require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-(setq uniquify-ignore-buffers-re "*[^*]+*") ; ignore buffer with "*"
+(setopt uniquify-buffer-name-style 'post-forward-angle-brackets)
+(setopt uniquify-ignore-buffers-re "*[^*]+*") ; ignore buffer with "*"
 
 ;;;; Echo line
-(setq echo-keystrokes 0.1)              ; display rate (sec.)
+(setopt echo-keystrokes 0.1)              ; display rate (sec.)
 
 ;; Disable BiDi
 (setq-default bidi-display-reordering nil)

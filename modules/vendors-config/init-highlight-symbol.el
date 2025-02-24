@@ -31,8 +31,8 @@
 
 ;;; Code:
 
-(setq highlight-symbol-idle-delay 0.8)
-(setq highlight-symbol-colors '("#FC5C94" "#FEB257" "#F3EA98" "#C1F161" "#BBF7EF" "#C2A1FF" "#FE87F4"))
+(setopt highlight-symbol-idle-delay 0.8)
+(setopt highlight-symbol-colors '("#FC5C94" "#FEB257" "#F3EA98" "#C1F161" "#BBF7EF" "#C2A1FF" "#FE87F4"))
 
 ;;;; Hooks
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)

@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq mu4e-alert-interesting-mail-query "flag:unread AND maildir:\"/inbox\"")
+(setopt mu4e-alert-interesting-mail-query "flag:unread AND maildir:\"/inbox\"")
 
 (when has-terminal-notifier-p
   (mu4e-alert-set-default-style 'notifier))

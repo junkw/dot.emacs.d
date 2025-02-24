@@ -35,16 +35,16 @@
 
 ;; Paths
 (add-to-list 'woman-manpath (concat user-emacs-directory "share/man"))
-(setq woman-cache-filename (concat user-emacs-directory "var/cache/woman")) ; Update cache: C-u M-x woman
+(setopt woman-cache-filename (concat user-emacs-directory "var/cache/woman")) ; Update cache: C-u M-x woman
 
 ;; Doesn't make new frame
-(setq woman-use-own-frame nil)
+(setopt woman-use-own-frame nil)
 
 ;; For imenu
-(setq woman-imenu t)
-(setq woman-imenu-generic-expression
-      '((nil "\n\\([A-Z].*\\|\\cj.*\\)" 1)
-        ("*Subsections*" "\\` \\{3,4\\}\\([A-Z].*\\|\\cj.*\\)" 1)))
+(setopt woman-imenu t)
+(setopt woman-imenu-generic-expression
+        '((nil "\n\\([A-Z].*\\|\\cj.*\\)" 1)
+          ("*Subsections*" "\\` \\{3,4\\}\\([A-Z].*\\|\\cj.*\\)" 1)))
 
 ;; Jump to SEE ALSO by <r>
 (setq Man-see-also-regexp "\\(SEE ALSO\\|関連項目\\)")

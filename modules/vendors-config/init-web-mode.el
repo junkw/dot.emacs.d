@@ -31,17 +31,17 @@
 
 ;;; Code:
 
-(setq web-mode-engines-alist '(("php" . "\\.html\\.php\\'")))
+(setopt web-mode-engines-alist '(("php" . "\\.html\\.php\\'")))
 
-(setq web-mode-enable-auto-pairing nil)
-(setq web-mode-enable-auto-indentation nil)
-(setq web-mode-enable-auto-expanding t)
-(setq web-mode-enable-comment-annotation t)
-(setq web-mode-enable-comment-interpolation t)
-(setq web-mode-enable-current-element-highlight t)
-(setq web-mode-enable-heredoc-fontification t)
-(setq web-mode-enable-sql-detection t)
-(setq web-mode-part-padding 0)
+(setopt web-mode-enable-auto-pairing nil)
+(setopt web-mode-enable-auto-indentation nil)
+(setopt web-mode-enable-auto-expanding t)
+(setopt web-mode-enable-comment-annotation t)
+(setopt web-mode-enable-comment-interpolation t)
+(setopt web-mode-enable-current-element-highlight t)
+(setopt web-mode-enable-heredoc-fontification t)
+(setopt web-mode-enable-sql-detection t)
+(setopt web-mode-part-padding 0)
 
 ;;;; Hooks
 (defun jkw:web-mode-init ()

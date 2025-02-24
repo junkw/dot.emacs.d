@@ -47,9 +47,9 @@
 ;;;; Internal functions
 (defun el-get--pre-initialize-el-get ()
   "[internal] Need to initialize before loading el-get."
-  (setq el-get-dir (file-name-as-directory (concat user-emacs-directory "vendor")))
-  (setq el-get-user-package-directory init-module-vendors-config-path)
-  (setq package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
+  (setopt el-get-dir (file-name-as-directory (concat user-emacs-directory "vendor")))
+  (setopt el-get-user-package-directory init-module-vendors-config-path)
+  (setopt package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
   (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get"))))
 
 (defun el-get--post-initialize-el-get ()

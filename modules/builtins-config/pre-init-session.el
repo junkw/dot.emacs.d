@@ -57,11 +57,11 @@
 (add-hook 'minibuffer-exit-hook #'jkw:set-gc-cons-threshold-default)
 
 ;; Limit lisp binding
-(setq max-lisp-eval-depth 5000)
+(setopt max-lisp-eval-depth 5000)
 
 ;; History size
-(setq message-log-max 5000)             ; Message log buffer
-(setq history-length 1000)              ; Minibuffer
+(setopt message-log-max 5000)             ; Message log buffer
+(setopt history-length 1000)              ; Minibuffer
 
 ;; Auth
 (require 'auth-source)
@@ -69,71 +69,71 @@
   (add-to-list 'auth-sources 'macos-keychain-generic)
   (add-to-list 'auth-sources 'macos-keychain-internet))
 
-(setq nsm-settings-file (concat user-emacs-directory "var/cache/network-security.data"))
+(setopt nsm-settings-file (concat user-emacs-directory "var/cache/network-security.data"))
 
 ;; Remote access
-(setq tramp-persistency-file-name (concat user-emacs-directory "var/cache/tramp"))
-(setq tramp-auto-save-directory temporary-file-directory)
-(setq tramp-backup-directory-alist `((".*" . ,temporary-file-directory)))
+(setopt tramp-persistency-file-name (concat user-emacs-directory "var/cache/tramp"))
+(setopt tramp-auto-save-directory temporary-file-directory)
+(setopt tramp-backup-directory-alist `((".*" . ,temporary-file-directory)))
 
 ;; Lock file
-(setq create-lockfiles nil)
+(setopt create-lockfiles nil)
 
 ;; Auto save file
-(setq auto-save-default t)
-(setq auto-save-file-name-transforms
-      `(("\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'" ; for tramp
-         ,(concat temporary-file-directory "\\2") t)
-        ("\\`/?\\([^/]*/\\)*\\([^/]*\\)\\'"
-         ,(expand-file-name (concat user-emacs-directory "var/tmp/\\2")) t)))
-(setq delete-auto-save-files t)
-(setq auto-save-timeout 300)            ; 5 min.
-(setq auto-save-interval 500)           ; 500 types
+(setopt auto-save-default t)
+(setopt auto-save-file-name-transforms
+        `(("\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'" ; for tramp
+           ,(concat temporary-file-directory "\\2") t)
+          ("\\`/?\\([^/]*/\\)*\\([^/]*\\)\\'"
+           ,(expand-file-name (concat user-emacs-directory "var/tmp/\\2")) t)))
+(setopt delete-auto-save-files t)
+(setopt auto-save-timeout 300)            ; 5 min.
+(setopt auto-save-interval 500)           ; 500 types
 
-(setq auto-save-list-file-prefix (concat user-emacs-directory "var/tmp/auto-saves-"))
+(setopt auto-save-list-file-prefix (concat user-emacs-directory "var/tmp/auto-saves-"))
 
 ;; Backup file
-(setq make-backup-files t)
-(setq backup-directory-alist
-      `(("/\\.\\(bzr\\|git\\|hg\\|svn\\)/" . ,temporary-file-directory)
-        ("/\\(Code\\|Documents\\)/"        . ,(concat user-emacs-directory "var/backup/"))
-        (".*"                              . ,temporary-file-directory)))
-(setq backup-by-copying t)
-(setq version-control t)
-(setq kept-new-versions 3)
-(setq kept-old-versions 3)
-(setq delete-old-versions t)
+(setopt make-backup-files t)
+(setopt backup-directory-alist
+        `(("/\\.\\(bzr\\|git\\|hg\\|svn\\)/" . ,temporary-file-directory)
+          ("/\\(Code\\|Documents\\)/"        . ,(concat user-emacs-directory "var/backup/"))
+          (".*"                              . ,temporary-file-directory)))
+(setopt backup-by-copying t)
+(setopt version-control t)
+(setopt kept-new-versions 3)
+(setopt kept-old-versions 3)
+(setopt delete-old-versions t)
 
 ;; Save mini buffer historys
 (require 'savehist)
-(setq savehist-file (concat user-emacs-directory "var/cache/savehist"))
-(setq savehist-additional-variables '(search-ring regexp-search-ring))
-(setq savehist-ignored-variables '(file-name-history buffer-name-history))
-(setq savehist-autosave-interval (* 10 60)) ; sec.
+(setopt savehist-file (concat user-emacs-directory "var/cache/savehist"))
+(setopt savehist-additional-variables '(search-ring regexp-search-ring))
+(setopt savehist-ignored-variables '(file-name-history buffer-name-history))
+(setopt savehist-autosave-interval (* 10 60)) ; sec.
 (savehist-mode +1)
 
 ;; Recently used file
 (require 'recentf)
-(setq recentf-save-file (concat user-emacs-directory "var/cache/recentf"))
-(setq recentf-max-menu-items 25)
-(setq recentf-max-saved-items 100)
-(setq recentf-exclude `(,tramp-file-name-regexp
-                        "/\\.loaddefs\\.elc?\\'" "/TAGS\\'"
-                        "/\\.cache/" "/\\.git/" "/\\.svn/"
-                        "/mail/" "/tmp/" "/var/"))
-(setq recentf-auto-cleanup 'never)
+(setopt recentf-save-file (concat user-emacs-directory "var/cache/recentf"))
+(setopt recentf-max-menu-items 25)
+(setopt recentf-max-saved-items 100)
+(setopt recentf-exclude `(,tramp-file-name-regexp
+                          "/\\.loaddefs\\.elc?\\'" "/TAGS\\'"
+                          "/\\.cache/" "/\\.git/" "/\\.svn/"
+                          "/mail/" "/tmp/" "/var/"))
+(setopt recentf-auto-cleanup 'never)
 
 (setq recentf-auto-save-timer
       (run-with-idle-timer 30 t #'recentf-save-list))
 (recentf-mode +1)
 
 ;; Save cursor's place
-(setq save-place-file (concat user-emacs-directory "var/cache/saveplace"))
+(setopt save-place-file (concat user-emacs-directory "var/cache/saveplace"))
 (save-place-mode +1)
 
 ;; Bookmark
 (require 'bookmark)
-(setq bookmark-default-file (concat user-emacs-directory "var/bookmark/bookmarks"))
-(setq bookmark-save-flag 1)
+(setopt bookmark-default-file (concat user-emacs-directory "var/bookmark/bookmarks"))
+(setopt bookmark-save-flag 1)
 
 ;;; pre-init-session.el ends here

@@ -31,9 +31,9 @@
 
 ;;; Code:
 
-(setq wgrep-auto-save-buffer t)
-(setq wgrep-enable-key (kbd "C-c C-e"))
-(setq wgrep-change-readonly-file t)
+(setopt wgrep-auto-save-buffer t)
+(setopt wgrep-enable-key (kbd "C-c C-e"))
+(setopt wgrep-change-readonly-file t)
 (with-eval-after-load 'ag (require 'wgrep-ag))
 (with-eval-after-load 'rg (require 'wgrep-ag))
 

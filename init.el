@@ -84,10 +84,11 @@
 
 (defvar init-module-has-critical-errors-p nil)
 (setq package--init-file-ensured t)
-(setq package-enable-at-startup nil)
+(with-eval-after-load 'package
+  (setopt package-enable-at-startup nil))
 
 (defvar custom-file--filename "pre-init-private-custom-variables.el")
-(setq custom-file (concat init-module-local-config-path custom-file--filename))
+(setopt custom-file (concat init-module-local-config-path custom-file--filename))
 
 ;;;; Internal functions
 (defun init-module--list-files (directory regexp)

@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq ssh-deploy-revision-folder (concat user-emacs-directory "var/backup/"))
+(setopt ssh-deploy-revision-folder (concat user-emacs-directory "var/backup/"))
 
 ;;;; Keymap
 (define-prefix-command 'ssh-deploy-command-prefix-key)

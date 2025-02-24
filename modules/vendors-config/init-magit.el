@@ -32,8 +32,8 @@
 ;;; Code:
 
 (defvar with-editor-file-name-history-exclude '())
-(setq magit-repository-directories '(("~/Code/" . 3)
-                                     ("~/etc/conf.d/" . 1)))
+(setopt magit-repository-directories `((,jkw:code-path . 3)
+                                       ("~/etc/conf.d/" . 1)))
 
 ;;;; Alias
 (defalias 'magit 'magit-status)

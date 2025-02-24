@@ -33,16 +33,16 @@
 
 (require 'consult)
 
-(setq ace-isearch-lighter "")
+(setopt ace-isearch-lighter "")
 
-(setq ace-isearch-use-jump 'printing-char)
-(setq ace-isearch-jump-delay 0.8)
-(setq ace-isearch-function 'avy-goto-char)
+(setopt ace-isearch-use-jump 'printing-char)
+(setopt ace-isearch-jump-delay 0.8)
+(setopt ace-isearch-function 'avy-goto-char)
 
-(setq ace-isearch-use-function-from-isearch t)
-(setq ace-isearch-input-length 8)
-(setq ace-isearch-func-delay 0.8)
-(setq ace-isearch-function-from-isearch 'ace-isearch-consult-line-from-isearch)
+(setopt ace-isearch-use-function-from-isearch t)
+(setopt ace-isearch-input-length 8)
+(setopt ace-isearch-func-delay 0.8)
+(setopt ace-isearch-function-from-isearch 'ace-isearch-consult-line-from-isearch)
 
 (global-ace-isearch-mode +1)
 

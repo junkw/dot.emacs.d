@@ -33,6 +33,6 @@
 
 ;;;; Keymap
 (keymap-global-set "C-x o" #'ace-window) ; replace `other-window'
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(setopt aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
 ;;; init-ace-window.el ends here

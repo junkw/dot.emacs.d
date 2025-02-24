@@ -33,10 +33,10 @@
 
 (add-to-list 'auto-mode-alist '("\\.inc\\'" . php-mode))
 
-(setq php-manual-url 'ja)
-(setq php-mode-coding-style 'psr2)
-(setq php-lineup-cascaded-calls t)
-(setq php-template-compatibility nil)
+(setopt php-manual-url 'ja)
+(setopt php-mode-coding-style 'psr2)
+(setopt php-lineup-cascaded-calls t)
+(setopt php-template-compatibility nil)
 
 ;;;; Hooks
 

@@ -31,8 +31,8 @@
 
 ;;; Code:
 
-(setq ag-highlight-search t)
-(setq ag-group-matches nil)
+(setopt ag-highlight-search t)
+(setopt ag-group-matches nil)
 
 ;;;; Keymap
 (keymap-set search-map "a" #'ag)

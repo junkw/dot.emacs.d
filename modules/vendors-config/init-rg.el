@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq rg-ignore-case 'smart)
+(setopt rg-ignore-case 'smart)
 
 ;;;; Hooks
 (add-hook 'rg-mode-hook #'wgrep-ag-setup)

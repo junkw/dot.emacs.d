@@ -32,7 +32,7 @@
 ;;; Code:
 
 (with-eval-after-load 'corfu
-  (setq kind-icon-default-face 'corfu-default)
+  (setopt kind-icon-default-face 'corfu-default)
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
 ;;; init-kind-icon.el ends here

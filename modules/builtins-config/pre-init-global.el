@@ -42,6 +42,9 @@
            do (setenv-path-from-shell path)))
 (add-to-list 'exec-path (concat user-emacs-directory "bin"))
 
+(defvar jkw:code-path (file-name-as-directory "${HOME}/Code/"))
+(defvar jkw:doc-path (file-name-as-directory "${HOME}/Documents/"))
+
 ;;;; Locales
 (setenv "LANG" "ja_JP.UTF-8")
 (setq system-time-locale "C")
@@ -58,8 +61,8 @@
 
 ;;;; Native Compile
 (with-eval-after-load 'comp
-  (setq native-comp-async-jobs-number 8)
-  (setq native-comp-speed 3))
+  (setopt native-comp-async-jobs-number 8)
+  (setopt native-comp-speed 3))
 
 (defun jkw:native-comp-all-packages ()
   "Native compile my all packages."
@@ -73,7 +76,7 @@
   (native-compile-async el-get-dir 'recursively))
 
 ;;;; Minibuffer Edit
-(setq use-short-answers t)
+(setopt use-short-answers t)
 (minibuffer-depth-indicate-mode +1)
 
 ;; http://d.hatena.ne.jp/rubikitch/20091216/minibuffer
@@ -88,10 +91,10 @@ Advice function for `abort-recursive-edit'."
 
 ;;;; Input Method
 (cond (mac-port-p
-       (setq default-input-method "japanese")
+       (setopt default-input-method "japanese")
        (mac-auto-ascii-mode +1))
       (cocoa-p
-       (setq default-input-method "macOS")))
+       (setopt default-input-method "macOS")))
 
 ;;;; Keyboard quit
 ;; https://with-emacs.com/posts/tips/quit-current-context/
@@ -128,8 +131,8 @@ with some parts omitted and some custom behavior added."
 
 ;;;; Keymap
 (when mac-p
-  (setq mac-command-modifier 'control)
-  (setq mac-option-modifier  'meta))
+  (setopt mac-command-modifier 'control)
+  (setopt mac-option-modifier  'meta))
 
 (keymap-set key-translation-map "C-h" "DEL")
 (keymap-global-unset "C-h")

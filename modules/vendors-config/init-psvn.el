@@ -34,8 +34,8 @@
 (add-to-list 'process-coding-system-alist '("svn" . utf-8))
 (setq svn-status-svn-process-coding-system 'utf-8)
 (setq svn-status-svn-file-coding-system 'utf-8)
-(setq svn-status-default-commit-arguments '("--encoding" "UTF-8"))
-(setq svn-status-verbose nil)
-(setq svn-status-hide-unmodified t)
+(setopt svn-status-default-commit-arguments '("--encoding" "UTF-8"))
+(setopt svn-status-verbose nil)
+(setopt svn-status-hide-unmodified t)
 
 ;;; init-psvn.el ends here

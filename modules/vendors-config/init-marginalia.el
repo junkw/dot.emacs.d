@@ -31,8 +31,8 @@
 
 ;;; Code:
 
-(setq marginalia-max-relative-age 0)
-(setq marginalia-align 'right)
+(setopt marginalia-max-relative-age 0)
+(setopt marginalia-align 'right)
 
 (marginalia-mode +1)
 

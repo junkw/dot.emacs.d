@@ -31,12 +31,12 @@
 
 ;;; Code:
 
-(setq helm-multi-swoop-edit-save t)
-(setq helm-swoop-split-with-multiple-windows nil)
-(setq helm-swoop-split-direction 'split-window-vertically)
-(setq helm-swoop-speed-or-color t)
-(setq helm-swoop-move-to-line-cycle t)
-(setq helm-swoop-use-fuzzy-match nil)
+(setopt helm-multi-swoop-edit-save t)
+(setopt helm-swoop-split-with-multiple-windows nil)
+(setopt helm-swoop-split-direction 'split-window-vertically)
+(setopt helm-swoop-speed-or-color t)
+(setopt helm-swoop-move-to-line-cycle t)
+(setopt helm-swoop-use-fuzzy-match nil)
 
 ;;;; Keymap
 (keymap-set helm-command-map "M-i" #'helm-swoop)

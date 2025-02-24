@@ -33,7 +33,7 @@
 
 (require 'pre-init-keymap-utils)
 
-(setq text-quoting-style 'straight)
+(setopt text-quoting-style 'straight)
 
 ;;;; Keymap
 (with-eval-after-load 'help-mode

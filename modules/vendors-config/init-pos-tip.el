@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq pos-tip-foreground-color "#abb2bf")
-(setq pos-tip-background-color "#282c34")
+(setopt pos-tip-foreground-color "#abb2bf")
+(setopt pos-tip-background-color "#282c34")
 
 ;;; init-pos-tip.el ends here

@@ -33,18 +33,18 @@
 
 (require 'consult)
 
-(setq register-preview-delay 0.5)
+(setopt register-preview-delay 0.5)
 (setq register-preview-function #'consult-register-format)
 (advice-add #'register-preview :override #'consult-register-window)
 
-(setq xref-show-xrefs-function #'consult-xref)
-(setq xref-show-definitions-function #'consult-xref)
+(setopt xref-show-xrefs-function #'consult-xref)
+(setopt xref-show-definitions-function #'consult-xref)
 
-(setq consult-async-refresh-delay 0.2)
-(setq consult-goto-line-numbers t)
-(setq consult-narrow-key "<")
+(setopt consult-async-refresh-delay 0.2)
+(setopt consult-goto-line-numbers t)
+(setopt consult-narrow-key "<")
 
-(setq consult-locate-args "mdfind -name")
+(setopt consult-locate-args "mdfind -name")
 
 (consult-customize
  consult-locate consult-ripgrep consult-git-grep

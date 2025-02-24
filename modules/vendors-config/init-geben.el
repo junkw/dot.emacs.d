@@ -31,6 +31,6 @@
 
 ;;; Code:
 
-(setq geben-temporary-file-directory (concat user-emacs-directory "var/tmp/geben"))
+(setopt geben-temporary-file-directory (concat user-emacs-directory "var/tmp/geben"))
 
 ;;; init-geben.el ends here

@@ -31,9 +31,9 @@
 
 ;;; Code:
 
-(setq nlinum-relative-redisplay-delay 0.01)
-(setq nlinum-relative-current-symbol "  >")
-(setq nlinum-relative-offset 1)
+(setopt nlinum-relative-redisplay-delay 0.01)
+(setopt nlinum-relative-current-symbol "  >")
+(setopt nlinum-relative-offset 1)
 (add-hook 'prog-mode-hook #'nlinum-relative-mode)
 
 ;;; init-nlinum-relative.el ends here

@@ -54,9 +54,9 @@
 (setq frame-title-format "%f")
 
 ;; Line number
-(setq display-line-numbers-type 'relative)
-(setq display-line-numbers-grow-only t)
-(setq display-line-numbers-width-start t)
+(setopt display-line-numbers-type 'relative)
+(setopt display-line-numbers-grow-only t)
+(setopt display-line-numbers-width-start t)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 ;;;; Keymap

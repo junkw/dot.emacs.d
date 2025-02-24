@@ -33,8 +33,8 @@
 
 (require 'smartrep)
 
-(setq smartrep-mode-line-string-activated nil)
-(setq smartrep-mode-line-active-bg nil)
+(setopt smartrep-mode-line-string-activated nil)
+(setopt smartrep-mode-line-active-bg nil)
 
 (smartrep-define-key prog-mode-map "M-g !"
   '(("n" . #'next-error)

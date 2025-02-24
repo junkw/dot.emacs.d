@@ -31,10 +31,10 @@
 
 ;;; Code:
 
-(setq neo-theme 'nerd)
-(setq neo-persist-show nil)
-(setq neo-smart-open t)
-(setq neo-cwd-line-style 'button)
+(setopt neo-theme 'nerd)
+(setopt neo-persist-show nil)
+(setopt neo-smart-open t)
+(setopt neo-cwd-line-style 'button)
 
 (with-eval-after-load 'projectile
 ;;;; Commands

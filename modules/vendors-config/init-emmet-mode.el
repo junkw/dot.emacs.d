@@ -34,13 +34,13 @@
 (require 'pre-init-hook-utils)
 
 (with-eval-after-load 'emmet-mode
-  (setq emmet-preview-default nil)
-  (setq emmet-move-cursor-between-quotes t))
+  (setopt emmet-preview-default nil)
+  (setopt emmet-move-cursor-between-quotes t))
 
 ;;;; Hooks
 (defun jkw:emmet-mode-init ()
   "My config for emmet mode."
-  (setq emmet-indentation 2)
+  (setopt emmet-indentation 2)
   (emmet-mode +1))
 
 (add-hooks '(web-mode nxml-mode css-mode) #'jkw:emmet-mode-init)

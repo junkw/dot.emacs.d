@@ -31,10 +31,10 @@
 
 ;;; Code:
 
-(setq prescient-aggressive-file-save t)
+(setopt prescient-aggressive-file-save t)
 
 (with-eval-after-load 'orderless
-  (setq corfu-prescient-enable-filtering nil))
+  (setopt corfu-prescient-enable-filtering nil))
 
 (prescient-persist-mode +1)
 (corfu-prescient-mode +1)

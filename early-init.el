@@ -46,7 +46,7 @@
 (setq gc-cons-threshold most-positive-fixnum)
 
 ;; Loading elisp files
-(setq load-prefer-newer t)
+(setopt load-prefer-newer t)
 
 (when (fboundp 'startup-redirect-eln-cache)
   (startup-redirect-eln-cache
@@ -54,14 +54,14 @@
 	  (expand-file-name  "var/eln-cache/" user-emacs-directory))))
 
 ;; Disable startup screen
-(setq inhibit-startup-screen t)
-(setq inhibit-splash-screen t)
-(setq initial-scratch-message nil)
+(setopt inhibit-startup-screen t)
+(setopt inhibit-splash-screen t)
+(setopt initial-scratch-message nil)
 
 ;; GUI
 (if (window-system)
   ;; Window
-  (setq frame-inhibit-implied-resize t)
+  (setopt frame-inhibit-implied-resize t)
 
   ;; Bar
   (push '(menu-bar-lines . 0) default-frame-alist)

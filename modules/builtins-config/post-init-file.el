@@ -36,18 +36,18 @@
   (require 'pre-init-environments))
 
 ;; Opening a file larger than 100 MB, asks for confirmation first.
-(setq large-file-warning-threshold 100000000)
+(setopt large-file-warning-threshold 100000000)
 
 ;; Make the file executable if it is a shell script
 (add-hook 'after-save-hook #'executable-make-buffer-file-executable-if-script-p)
 
 ;; File deletion makes use of the Trash.
 (when mac-p
-  (setq trash-directory "~/.Trash"))
-(setq delete-by-moving-to-trash t)
+  (setopt trash-directory "~/.Trash"))
+(setopt delete-by-moving-to-trash t)
 
 ;;;; FFAP
-(setq ffap-machine-p-known 'accept)
+(setopt ffap-machine-p-known 'accept)
 (remove-hook 'file-name-at-point-functions #'ffap-guess-file-name-at-point)
 
 ;; http://mbork.pl/2019-02-17_Inserting_the_current_file_name_at_point
@@ -67,21 +67,21 @@ With prefix argument, use FULL-PATH."
       (error (format "Buffer %s is not visiting a file" (buffer-name buffer))))))
 
 ;;;; Dired
-(setq dired-dwim-target t)
-(setq dired-recursive-copies 'always)
+(setopt dired-dwim-target t)
+(setopt dired-recursive-copies 'always)
 (setq file-system-info (purecopy "-kH"))
-(setq dired-listing-switches (purecopy "-alh"))
+(setopt dired-listing-switches (purecopy "-alh"))
 
 (require 'wdired)
-(setq wdired-create-parent-directories t)
-(setq wdired-allow-to-change-permissions t)
+(setopt wdired-create-parent-directories t)
+(setopt wdired-allow-to-change-permissions t)
 
 (require 'ls-lisp)
-(setq ls-lisp-use-insert-directory-program nil)
-(setq ls-lisp-dirs-first t)
+(setopt ls-lisp-use-insert-directory-program nil)
+(setopt ls-lisp-dirs-first t)
 
 (require 'dired-aux)
-(setq dired-isearch-filenames 'dwim)
+(setopt dired-isearch-filenames 'dwim)
 
 ;; Compression and uncompression with atool
 ;; http://d.hatena.ne.jp/mooz/20110911/p1

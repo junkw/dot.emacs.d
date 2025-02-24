@@ -31,8 +31,8 @@
 
 ;;; Code:
 
-(setq company-quickhelp-use-propertized-text t)
-(setq company-quickhelp-max-lines 10)
+(setopt company-quickhelp-use-propertized-text t)
+(setopt company-quickhelp-max-lines 10)
 
 (with-eval-after-load 'company
   (company-quickhelp-mode +1))

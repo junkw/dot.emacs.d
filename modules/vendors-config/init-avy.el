@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq avy-background t)
+(setopt avy-background t)
 
 ;;;; Keymap
 (keymap-global-set "M-g SPC" #'avy-goto-char-timer)

@@ -31,10 +31,10 @@
 
 ;;; Code:
 
-(setq markdown-command `(,(executable-find "pandoc") "--from=markdown" "--to=html5"))
-(setq markdown-fontify-code-blocks-natively t)
-(setq markdown-header-scaling t)
-(setq markdown-indent-on-enter 'indent-and-new-item)
+(setopt markdown-command `(,(executable-find "pandoc") "--from=markdown" "--to=html5"))
+(setopt markdown-fontify-code-blocks-natively t)
+(setopt markdown-header-scaling t)
+(setopt markdown-indent-on-enter 'indent-and-new-item)
 
 ;;;; Hooks
 (defun jkw:markdown-mode-init ()

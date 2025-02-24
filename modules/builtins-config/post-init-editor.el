@@ -38,26 +38,26 @@
 (setq-default tab-width 4)
 
 ;; Trun at EOL
-(setq truncate-lines nil)
-(setq truncate-partial-width-windows nil)
+(setopt truncate-lines nil)
+(setopt truncate-partial-width-windows nil)
 
 ;; Disable auto indentation
 (electric-indent-mode -1)
 
 ;; Scroll without moving cursor
-(setq scroll-preserve-screen-position t)
+(setopt scroll-preserve-screen-position t)
 
 ;; If mark is active, any typed text replaces the selection.
 (delete-selection-mode +1)
 
 ;; Enable to pop `mark-ring' repeatedly like C-u C-SPC C-SPC...
-(setq set-mark-command-repeat-pop t)
+(setopt set-mark-command-repeat-pop t)
 
 ;; Comment style
 (setq-default comment-style 'multi-line)
 
 ;;;; Highlight
-(setq transient-mark-mode t)
+(setopt transient-mark-mode t)
 (global-hl-line-mode +1)
 
 (require 'generic-x)
@@ -73,24 +73,24 @@
 
 ;;;; Documentation
 (require 'eldoc)
-(setq eldoc-idle-delay 0.2)
-(setq eldoc-minor-mode-string "")
-(setq eldoc-echo-area-use-multiline-p t)
+(setopt eldoc-idle-delay 0.2)
+(setopt eldoc-minor-mode-string "")
+(setopt eldoc-echo-area-use-multiline-p t)
 
 ;; Whitespace
 (require 'whitespace)
-(setq whitespace-space-regexp "\\( +\\|\x3000+\\)") ; mono and multi-byte space
-(setq whitespace-style
-      '(face tabs spaces trailing newline empty space-mark tab-mark newline-mark))
-(setq whitespace-display-mappings
-      '((space-mark   ?\xA0   [?\u00A4]      [?_])
-        (space-mark   ?\x8A0  [?\x8A4]       [?_])
-        (space-mark   ?\x920  [?\x924]       [?_])
-        (space-mark   ?\xE20  [?\xE24]       [?_])
-        (space-mark   ?\xF20  [?\xF24]       [?_])
-        (space-mark   ?\u3000 [?\u25a1])
-        (newline-mark ?\n     [?$ ?\n])
-        (tab-mark     ?\t     [?\u00BB ?\t]  [?\\ ?\t])))
+(setopt whitespace-space-regexp "\\( +\\|\x3000+\\)") ; mono and multi-byte space
+(setopt whitespace-style
+        '(face tabs spaces trailing newline empty space-mark tab-mark newline-mark))
+(setopt whitespace-display-mappings
+        '((space-mark   ?\xA0   [?\u00A4]      [?_])
+          (space-mark   ?\x8A0  [?\x8A4]       [?_])
+          (space-mark   ?\x920  [?\x924]       [?_])
+          (space-mark   ?\xE20  [?\xE24]       [?_])
+          (space-mark   ?\xF20  [?\xF24]       [?_])
+          (space-mark   ?\u3000 [?\u25a1])
+          (newline-mark ?\n     [?$ ?\n])
+          (tab-mark     ?\t     [?\u00BB ?\t]  [?\\ ?\t])))
 
 (defvar delete-trailing-whitespace--enabled-flag-p t)
 (defun delete-trailing-whitespace--enabled-flag (orig-fun &rest args)
@@ -109,11 +109,11 @@ Advice function for ORIG-FUN `delete-trailing-whitespace' (the ARGS is region)."
 ;;;; Spell check
 (let ((hunspell (executable-find "hunspell")))
   (when hunspell
-    (setq-default ispell-program-name hunspell)
-    (setq ispell-local-dictionary "en_US")
-    (setq ispell-local-dictionary-alist
-          '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
-    (setq ispell-really-hunspell t)))
+    (setopt ispell-program-name hunspell)
+    (setopt ispell-local-dictionary "en_US")
+    (setopt ispell-local-dictionary-alist
+            '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
+    (setopt ispell-really-hunspell t)))
 (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")) ; for Japanese
 
 ;;;; Killing

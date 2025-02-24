@@ -36,13 +36,13 @@
 (require 'corfu-popupinfo)
 (require 'corfu-quick)
 
-(setq corfu-auto t)
-(setq corfu-auto-delay 0)
-(setq corfu-auto-prefix 1)
-(setq corfu-cycle t)
-(setq corfu-on-exact-match nil)
-(setq corfu-quit-no-match 'separator)
-(setq tab-always-indent 'complete)
+(setopt corfu-auto t)
+(setopt corfu-auto-delay 0)
+(setopt corfu-auto-prefix 1)
+(setopt corfu-cycle t)
+(setopt corfu-on-exact-match nil)
+(setopt corfu-quit-no-match 'separator)
+(setopt tab-always-indent 'complete)
 
 (add-hook 'prog-mode-hook #'corfu-mode)
 

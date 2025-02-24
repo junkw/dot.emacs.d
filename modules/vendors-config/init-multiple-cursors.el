@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq mc/list-file (concat user-emacs-directory "var/cache/multiple-cursors-list.el"))
+(setopt mc/list-file (concat user-emacs-directory "var/cache/multiple-cursors-list.el"))
 
 ;;;; Keymap
 (define-prefix-command 'jkw:multiple-cursors-command-prefix-key)

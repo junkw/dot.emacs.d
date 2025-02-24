@@ -37,20 +37,20 @@
 ;;;; Initialize
 (when has-mu-p
   ;; bin
-  (setq mu4e-mu-binary has-mu-p)
-  (setq mu4e-get-mail-command (format "%s -a -c %s/mbsync/config"
+  (setopt mu4e-mu-binary has-mu-p)
+  (setopt mu4e-get-mail-command (format "%s -a -c %s/mbsync/config"
                                       (executable-find "mbsync") (getenv "XDG_CONFIG_HOME")))
   (when has-msmtp-p
-    (setq sendmail-program has-msmtp-p))
+    (setopt sendmail-program has-msmtp-p))
 
   ;; Maildir
-  (setq mu4e-mu-home        (substitute-in-file-name "${XDG_CACHE_HOME}/mu/"))
-  (setq mu4e-root-maildir   (substitute-in-file-name "${XDG_DATA_HOME}/mail/"))
-  (setq mu4e-drafts-folder  "/drafts")
-  (setq mu4e-refile-folder  "/archive")
-  (setq mu4e-sent-folder    "/sent")
-  (setq mu4e-trash-folder   "/trash")
-  (setq mu4e-attachment-dir (substitute-in-file-name "${HOME}/Downloads"))
+  (setopt mu4e-mu-home        (substitute-in-file-name "${XDG_CACHE_HOME}/mu/"))
+  (setopt mu4e-root-maildir   (substitute-in-file-name "${XDG_DATA_HOME}/mail/"))
+  (setopt mu4e-drafts-folder  "/drafts")
+  (setopt mu4e-refile-folder  "/archive")
+  (setopt mu4e-sent-folder    "/sent")
+  (setopt mu4e-trash-folder   "/trash")
+  (setopt mu4e-attachment-dir (substitute-in-file-name "${HOME}/Downloads"))
 
   (defvar jkw:mu4e-inbox-folder   "/inbox")
   (defvar jkw:mu4e-starred-folder "/starred"))
@@ -58,45 +58,45 @@
 ;;;; Post-init
 (with-eval-after-load 'mu4e
   ;; Sync
-  (setq mu4e-update-interval (* 30 60))      ; 30 mins.
-  (setq mu4e-change-filenames-when-moving t)
-  (setq mu4e-cache-maildir-list nil)
-  (setq mu4e-hide-index-messages nil)
-  (setq mu4e-index-cleanup t)
-  (setq mu4e-index-lazy-check t)
+  (setopt mu4e-update-interval (* 30 60))      ; 30 mins.
+  (setopt mu4e-change-filenames-when-moving t)
+  (setopt mu4e-cache-maildir-list nil)
+  (setopt mu4e-hide-index-messages nil)
+  (setopt mu4e-index-cleanup t)
+  (setopt mu4e-index-lazy-check t)
 
   ;; SMTP
   (require 'smtpmail)
 
   (if has-msmtp-p
       (progn
-        (setq message-send-mail-function #'message-send-mail-with-sendmail)
-        (setq message-sendmail-extra-arguments '("--read-envelope-from"))
-        (setq message-sendmail-f-is-evil t))
+        (setopt message-send-mail-function #'message-send-mail-with-sendmail)
+        (setopt message-sendmail-extra-arguments '("--read-envelope-from"))
+        (setopt message-sendmail-f-is-evil t))
     (require 'starttls)
-    (setq message-send-mail-function #'smtpmail-send-it)
-    (setq starttls-use-gnutls t))
+    (setopt message-send-mail-function #'smtpmail-send-it)
+    (setopt starttls-use-gnutls t))
 
-  (setq message-kill-buffer-on-exit t)
-  (setq mail-user-agent 'mu4e-user-agent)
+  (setopt message-kill-buffer-on-exit t)
+  (setopt mail-user-agent 'mu4e-user-agent)
 
   ;; Headers
-  (setq mu4e-headers-sort-field :date)
-  (setq mu4e-headers-results-limit 1000)
-  (setq mu4e-headers-auto-update t)
-  (setq mu4e-headers-include-related nil)
-  (setq mu4e-headers-skip-duplicates t)
-  (setq mu4e-headers-show-threads nil)
+  (setopt mu4e-headers-sort-field :date)
+  (setopt mu4e-headers-results-limit 1000)
+  (setopt mu4e-headers-auto-update t)
+  (setopt mu4e-headers-include-related nil)
+  (setopt mu4e-headers-skip-duplicates t)
+  (setopt mu4e-headers-show-threads nil)
 
   ;; View
   (when (not laptop-screen-p)
-    (setq mu4e-split-view 'vertical)
-    (setq mu4e-headers-visible-columns 90))
+    (setopt mu4e-split-view 'vertical)
+    (setopt mu4e-headers-visible-columns 90))
 
   (require 'mu4e-contrib)
-  (setq mu4e-html2text-command #'mu4e-shr2text)
+  (setopt mu4e-html2text-command #'mu4e-shr2text)
 
-  (setq mu4e-view-show-images t)
+  (setopt mu4e-view-show-images t)
   (when (fboundp 'imagemagick-register-types)
     (imagemagick-register-types))
 
@@ -162,17 +162,17 @@
 
   ;; Contacts
   (when (require 'org-contacts nil t)
-    (setq mu4e-org-contacts-file (expand-file-name "contacts.org" org-directory))
+    (setopt mu4e-org-contacts-file (expand-file-name "contacts.org" org-directory))
     (add-to-list 'mu4e-headers-actions
                  '("org-contact-add" . mu4e-action-add-org-contact) t)
     (add-to-list 'mu4e-view-actions
                  '("org-contact-add" . mu4e-action-add-org-contact) t))
 
   ;; Compose
-  (setq mu4e-context-policy 'pick-first)
-  (setq mu4e-compose-context-policy nil)
-  (setq mu4e-sent-messages-behavior 'delete)
-  (setq message-confirm-send t)
+  (setopt mu4e-context-policy 'pick-first)
+  (setopt mu4e-compose-context-policy nil)
+  (setopt mu4e-sent-messages-behavior 'delete)
+  (setopt message-confirm-send t)
 
   (defun jkw:mu4e-compose-mode-init ()
     "My config for message composition."
@@ -244,12 +244,12 @@ launch the no-attachment warning.")
   (add-hook 'message-send-hook #'jkw:message-warn-if-no-attachments)
 
 ;;;; Keymap
-  (setq mu4e-maildir-shortcuts
-        `((,mu4e-refile-folder      . ?a)
-          (,mu4e-drafts-folder      . ?d)
-          (,jkw:mu4e-inbox-folder   . ?i)
-          (,mu4e-sent-folder        . ?t)
-          (,jkw:mu4e-starred-folder . ?s)))
+  (setopt mu4e-maildir-shortcuts
+          `((,mu4e-refile-folder      . ?a)
+            (,mu4e-drafts-folder      . ?d)
+            (,jkw:mu4e-inbox-folder   . ?i)
+            (,mu4e-sent-folder        . ?t)
+            (,jkw:mu4e-starred-folder . ?s)))
 
   (keymap-set message-mode-map "C-x C-s" #'message-dont-send))
 

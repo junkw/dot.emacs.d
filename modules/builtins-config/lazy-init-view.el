@@ -35,7 +35,7 @@
 
 ;; View mode
 ;; Opening read-only file, enable view mode.
-(setq view-read-only t)
+(setopt view-read-only t)
 
 ;;;; Keymap
 (define-vim-keys view-mode-map)

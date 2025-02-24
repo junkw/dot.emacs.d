@@ -35,22 +35,22 @@
   (require 'pre-init-environments))
 
 ;;;; Init
-(setq helm-adaptive-history-file (concat user-emacs-directory "var/cache/helm-adaptive-history"))
-(setq helm-scroll-amount 8)
-(setq helm-input-idle-delay 0.01)
-(setq helm-exit-idle-delay 0.01)
-(setq helm-google-suggest-use-curl-p t)
-(setq helm-completion-mode-string "")
-(setq helm-follow-mode-persistent t)
-(setq helm-split-window-in-side-p t)
-(setq helm-autoresize-max-height 0)
-(setq helm-autoresize-min-height 35)
+(setopt helm-adaptive-history-file (concat user-emacs-directory "var/cache/helm-adaptive-history"))
+(setopt helm-scroll-amount 8)
+(setopt helm-input-idle-delay 0.01)
+(setopt helm-exit-idle-delay 0.01)
+(setopt helm-google-suggest-use-curl-p t)
+(setopt helm-completion-mode-string "")
+(setopt helm-follow-mode-persistent t)
+(setopt helm-split-window-in-side-p t)
+(setopt helm-autoresize-max-height 0)
+(setopt helm-autoresize-min-height 35)
 
 (helm-autoresize-mode +1)
 
 ;;;; Sources
 (when mac-p
-  (setq helm-for-files-preferred-list
+  (setopt helm-for-files-preferred-list
         '(helm-source-buffers-list
           helm-source-recentf
           helm-source-bookmarks
@@ -61,17 +61,17 @@
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-info-pages t)
 
 ;;;; Candidates
-(setq helm-candidate-number-limit 500)
-(setq helm-ff-search-library-in-sexp t)
-(setq helm-ff-file-name-history-use-recentf t)
+(setopt helm-candidate-number-limit 500)
+(setopt helm-ff-search-library-in-sexp t)
+(setopt helm-ff-file-name-history-use-recentf t)
 
-(setq helm-M-x-fuzzy-match t)
-(setq helm-apropos-fuzzy-match t)
-(setq helm-buffers-fuzzy-matching t)
-(setq helm-recentf-fuzzy-match t)
-(setq helm-semantic-fuzzy-match t)
-(setq helm-imenu-fuzzy-match t)
-(setq helm-lisp-fuzzy-completion t)
+(setopt helm-M-x-fuzzy-match t)
+(setopt helm-apropos-fuzzy-match t)
+(setopt helm-buffers-fuzzy-matching t)
+(setopt helm-recentf-fuzzy-match t)
+(setopt helm-semantic-fuzzy-match t)
+(setopt helm-imenu-fuzzy-match t)
+(setopt helm-lisp-fuzzy-completion t)
 
 (with-eval-after-load 'migemo
   (helm-migemo-mode +1))

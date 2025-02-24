@@ -33,14 +33,15 @@
 
 (require 'vertico-multiform)
 (require 'vertico-quick)
+(require 'vertico-buffer)
 (require 'vertico-directory)
 
 ;;;; Init
 
-(setq vertico-count 15)
-(setq vertico-resize t)
-(setq vertico-cycle nil)
-(setq vertico-buffer-display-action '(display-buffer-reuse-window))
+(setopt vertico-count 15)
+(setopt vertico-resize t)
+(setopt vertico-cycle nil)
+(setopt vertico-buffer-display-action '(display-buffer-reuse-window))
 
 (vertico-mode +1)
 
@@ -68,17 +69,17 @@
                  "  ")
                cand)))
 
-(setq vertico-multiform-commands
-      '((consult-line (vertico-sort-override-function . vertico-sort-alpha))
-        (consult-imenu buffer indexed)
-        (consult-yank-pop indexed)
-        (org-refile grid reverse indexed)))
+(setopt vertico-multiform-commands
+        '((consult-line (vertico-sort-override-function . vertico-sort-alpha))
+          (consult-imenu buffer indexed)
+          (consult-yank-pop indexed)
+          (org-refile grid reverse indexed)))
 
-(setq vertico-multiform-categories
-      '((symbol (vertico-sort-function . vertico-sort-alpha))
-        (file reverse (vertico-sort-function . sort-directories-first))
-        (consult-locate reverse)
-        (consult-ripgrep buffer)))
+(setopt vertico-multiform-categories
+        '((symbol (vertico-sort-function . vertico-sort-alpha))
+          (file reverse (vertico-sort-function . sort-directories-first))
+          (consult-locate reverse)
+          (consult-ripgrep buffer)))
 
 (defun sort-directories-first (files)
   "[internal] Still sort by history position, length and alphabetically."

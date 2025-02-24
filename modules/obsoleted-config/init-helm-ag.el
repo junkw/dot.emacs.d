@@ -31,8 +31,8 @@
 
 ;;; Code:
 
-(setq helm-ag-base-command "ag -S --nocolor --nogroup")
-(setq helm-ag-insert-at-point 'symbol)
+(setopt helm-ag-base-command "ag -S --nocolor --nogroup")
+(setopt helm-ag-insert-at-point 'symbol)
 
 ;;;; Keymap
 (keymap-set helm-command-map "M-s a" #'helm-ag)

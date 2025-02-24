@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq flyspell-correct-interface 'flyspell-correct-popup)
+(setopt flyspell-correct-interface 'flyspell-correct-popup)
 
 ;;;; Keymap
 (with-eval-after-load 'flyspell

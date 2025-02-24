@@ -32,14 +32,14 @@
 ;;; Code:
 
 (when (featurep 'migemo)
-  (setq anzu-use-migemo t))
-(setq anzu-mode-lighter "")
+  (setopt anzu-use-migemo t))
+(setopt anzu-mode-lighter "")
 
 (defun jkw:anzu-update-format (here total)
   "Set format \"[HERE/TOTAL]\" and face for Anzu on mode line."
   (propertize (format " [%d/%d]" here total)
               'face '((:foreground "#CDF187" :weight bold))))
-(setq anzu-mode-line-update-function #'jkw:anzu-update-format)
+(setopt anzu-mode-line-update-function #'jkw:anzu-update-format)
 
 (setq anzu-cons-mode-line-p nil)
 (setcar (cdr (assq 'isearch-mode minor-mode-alist))

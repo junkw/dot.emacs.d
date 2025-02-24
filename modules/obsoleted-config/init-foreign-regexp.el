@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(setq foreign-regexp/regexp-type 'perl)
-(setq reb-re-syntax 'foreign-regexp)
+(setopt foreign-regexp/regexp-type 'perl)
+(setopt reb-re-syntax 'foreign-regexp)
 
 ;;; init-foreign-regexp.el ends here

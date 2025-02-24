@@ -36,13 +36,13 @@
 ;; Candidates
 (add-to-list 'ac-dictionary-directories
              (concat (el-get-package-directory "auto-complete") "dict"))
-(setq ac-user-dictionary-files (concat user-emacs-directory "etc/auto-complete.dict"))
-(setq ac-comphist-file (concat user-emacs-directory "var/cache/ac-comphist.dat"))
+(setopt ac-user-dictionary-files (concat user-emacs-directory "etc/auto-complete.dict"))
+(setopt ac-comphist-file (concat user-emacs-directory "var/cache/ac-comphist.dat"))
 
 ;; Enable default settings
-(setq ac-auto-start 3)
-(setq ac-use-menu-map t)
-(setq ac-fuzzy-cursor-color "#F92672")
+(setopt ac-auto-start 3)
+(setopt ac-use-menu-map t)
+(setopt ac-fuzzy-cursor-color "#F92672")
 
 (add-to-list 'ac-modes 'web-mode)
 (ac-config-default)

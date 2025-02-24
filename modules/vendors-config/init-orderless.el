@@ -31,13 +31,13 @@
 
 ;;; Code:
 
-(setq completion-styles '(substring orderless partial-completion basic))
+(setopt completion-styles '(substring orderless partial-completion basic))
 (setq completion-category-defaults nil)
-(setq completion-category-overrides '((file (styles partial-completion))))
-(setq orderless-matching-styles '(orderless-literal
-                                  orderless-prefixes
-                                  orderless-initialism
-                                  orderless-flex
-                                  orderless-regexp))
+(setopt completion-category-overrides '((file (styles partial-completion))))
+(setopt orderless-matching-styles '(orderless-literal
+                                    orderless-prefixes
+                                    orderless-initialism
+                                    orderless-flex
+                                    orderless-regexp))
 
 ;;; init-orderless.el ends here

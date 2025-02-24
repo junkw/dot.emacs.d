@@ -35,7 +35,7 @@
 
 ;;;; Init
 
-(setq yas-snippet-dirs `(,(concat user-emacs-directory "etc/snippets")))
+(setopt yas-snippet-dirs `(,(concat user-emacs-directory "etc/snippets")))
 
 (add-hook 'emacs-startup-hook #'yas-reload-all)
 (add-hooks '(prog-mode org-mode) #'yas-minor-mode)

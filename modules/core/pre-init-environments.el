@@ -89,7 +89,7 @@ If argument PATH is environment variable $PATH, set `exec-path' dynamically."
   (let ((path-from-shell (getenv-from-shell path)))
     (setenv path path-from-shell)
     (when (string-equal path "PATH")
-      (setq exec-path (split-string path-from-shell path-separator)))))
+      (setopt exec-path (split-string path-from-shell path-separator)))))
 
 (provide 'pre-init-environments)
 

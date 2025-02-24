@@ -33,11 +33,11 @@
 
 (which-key-mode +1)
 
-(setq which-key-lighter "")
-(setq which-key-popup-type 'side-window)
-(setq which-key-side-window-location 'bottom)
-(setq which-key-side-window-max-height 0.2)
-(setq which-key-idle-delay 2.5)
-(setq which-key-sort-order 'which-key-description-order)
+(setopt which-key-lighter "")
+(setopt which-key-popup-type 'side-window)
+(setopt which-key-side-window-location 'bottom)
+(setopt which-key-side-window-max-height 0.2)
+(setopt which-key-idle-delay 2.5)
+(setopt which-key-sort-order 'which-key-description-order)
 
 ;;; init-which-key.el ends here
