@@ -35,7 +35,8 @@
   (require 'cl-lib))
 
 (defun add-hooks (modes function)
-  "`add-hook' extension for batch adding to the list of MODES the function FUNCTION."
+  "`add-hook' extension
+for batch adding to the listof MODES the function FUNCTION."
   (cl-loop for mode in modes
            when (fboundp mode)
            do (add-hook (intern (format "%s-hook" mode)) function)))
