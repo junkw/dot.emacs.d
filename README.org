@@ -6,7 +6,7 @@
 
 ** Requirements
 
-   - macOS Ventura
+   - macOS Ventura, Sequoia
    - [[https://bitbucket.org/mituharu/emacs-mac/][Emacs Mac Port]] (latest)
    - Homebrew
      - [[https://github.com/junkw/dotfiles/blob/master/Brewfile][Installed packages]]
