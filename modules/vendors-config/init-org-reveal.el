@@ -33,9 +33,6 @@
 
 (add-to-list 'org-export-backends 'reveal)
 (setopt org-reveal-root (concat user-emacs-directory "lib/reveal.js"))
-
-;; Workaround for changing `org-structure-template-alist' format in Org 9.2
-(setopt org-reveal-note-key-char "")
-(add-to-list 'org-structure-template-alist '("n" . "note"))
+(setopt org-reveal-note-key-char "n")
 
 ;;; init-org-reveal.el ends here
