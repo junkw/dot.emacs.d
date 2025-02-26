@@ -59,6 +59,9 @@
 
 (setopt org-id-locations-file (concat user-emacs-directory "var/cache/org-id-locations"))
 
+;;;; Syntax
+(add-to-list 'org-structure-template-alist '("n" . "note"))
+
 ;;;; Link
 (add-to-list 'org-link-abbrev-alist '("asin"   . "https://www.amazon.co.jp/dp/"))
 (add-to-list 'org-link-abbrev-alist '("github" . "https://github.com/"))

@@ -33,6 +33,6 @@
 
 (add-to-list 'org-export-backends 'reveal)
 (setopt org-reveal-root (concat user-emacs-directory "lib/reveal.js"))
-(setopt org-reveal-note-key-char "n")
+(setq org-reveal-note-key-char nil)
 
 ;;; init-org-reveal.el ends here
