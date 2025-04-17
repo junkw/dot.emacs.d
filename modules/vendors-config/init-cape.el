@@ -33,20 +33,31 @@
 
 ;;;; Init
 
-(add-to-list 'completion-at-point-functions #'cape-dabbrev)
-(add-to-list 'completion-at-point-functions #'cape-keyword)
-(add-to-list 'completion-at-point-functions #'cape-file)
+(require 'pre-init-hook-utils)
+
+(add-to-list 'completion-at-point-functions #'cape-file t)
+(add-to-list 'completion-at-point-functions #'cape-dabbrev t)
+(add-to-list 'completion-at-point-functions #'cape-keyword t)
 
 ;;;; Hooks
 
-(defun jkw:cape--elisp-mode-init ()
+(defun jkw:cape--elisp-mode-init (&optional arg)
   "My cape config for Emacs Lisp mode."
   (setq-local completion-at-point-functions
-            '(cape-elisp-symbol
-              tags-completion-at-point-function
-              cape-file
-              cape-keyword
-              cape-dabbrev)))
+              (list (cape-capf-noninterruptible
+                     (cape-capf-buster
+                      (cape-capf-properties
+                       (cape-capf-super
+                        (if arg
+                            arg
+                          (car completion-at-point-functions))
+                        #'cape-elisp-symbol
+                        #'tags-completion-at-point-function
+                        #'cape-dabbrev
+                        #'cape-file
+                        #'cape-keyword)
+                       :sort t
+                       :exclusive 'no))))))
 
 (add-hook 'emacs-lisp-mode #'jkw:cape--elisp-mode-init)
 
