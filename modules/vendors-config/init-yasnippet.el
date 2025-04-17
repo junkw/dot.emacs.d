@@ -35,7 +35,26 @@
 
 ;;;; Init
 
-(setopt yas-snippet-dirs `(,(concat user-emacs-directory "etc/snippets")))
+(setq yas--default-user-snippets-dir (concat user-emacs-directory "etc/snippets"))
+
+(defun yas-load-snippet-dirs--wrapper (&optional nojit)
+  "Don't make `yas--default-user-snippets-dir'.
+
+Advice function for `yas--load-snippet-dirs'"
+  (let (errors)
+    (if (null yas-snippet-dirs)
+        (call-interactively 'yas-load-directory)
+      (dolist (directory (reverse (yas-snippet-dirs)))
+        (cond ((file-directory-p directory)
+               (yas-load-directory directory (not nojit))
+               (if nojit
+                   (yas--message 4 "Loaded %s" directory)
+                 (yas--message 4 "Prepared just-in-time loading for %s" directory)))
+              (t
+               (push (yas--message 1 "Check your `yas-snippet-dirs': %s is not a directory" directory) errors)))))
+    errors))
+
+(advice-add 'yas--load-snippet-dirs :override #'yas-load-snippet-dirs--wrapper)
 
 (add-hook 'emacs-startup-hook #'yas-reload-all)
 (add-hooks '(prog-mode org-mode) #'yas-minor-mode)
