@@ -50,6 +50,7 @@
   (setopt el-get-dir (file-name-as-directory (concat user-emacs-directory "vendor")))
   (setopt el-get-user-package-directory init-module-vendors-config-path)
   (setopt package-user-dir (file-name-as-directory (concat el-get-dir "package/elpa")))
+  (setopt package-gnupghome-dir (file-name-as-directory (concat el-get-dir "package/elpa/gnupg")))
   (add-to-list 'load-path (file-name-as-directory (concat el-get-dir "el-get"))))
 
 (defun el-get--post-initialize-el-get ()
