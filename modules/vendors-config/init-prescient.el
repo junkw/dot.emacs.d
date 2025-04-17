@@ -32,6 +32,7 @@
 ;;; Code:
 
 (setopt prescient-aggressive-file-save t)
+(setopt prescient-save-file (concat user-emacs-directory "var/cache/prescient-save.el"))
 
 (with-eval-after-load 'orderless
   (setopt corfu-prescient-enable-filtering nil))

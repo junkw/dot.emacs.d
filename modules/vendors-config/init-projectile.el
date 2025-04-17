@@ -32,8 +32,8 @@
 ;;; Code:
 
 (setopt projectile-enable-caching t)
-(setopt projectile-cache-file (concat user-emacs-directory "var/cache/projectile"))
-(setopt projectile-known-projects-file (concat user-emacs-directory "var/bookmark/projectile.eld"))
+(setopt projectile-cache-file (concat user-emacs-directory "var/cache/projectile-cache.eld"))
+(setopt projectile-known-projects-file (concat user-emacs-directory "var/cache/projectile-bookmarks.eld"))
 (setopt projectile-tags-command "ctags -uRe -f \"%s\" %s")
 
 (add-hook 'prog-mode-hook #'projectile-mode)
