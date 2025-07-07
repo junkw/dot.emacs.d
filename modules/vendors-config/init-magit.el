@@ -32,6 +32,7 @@
 ;;; Code:
 
 (defvar with-editor-file-name-history-exclude '())
+(setopt magit-git-executable (executable-find "git"))
 (setopt magit-repository-directories `((,jkw:code-path . 3)
                                        ("~/etc/conf.d/" . 1)))
 
