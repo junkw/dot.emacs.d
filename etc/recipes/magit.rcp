@@ -1,7 +1,7 @@
 (:name magit
        :description "It's Magit! An Emacs mode for Git."
        :website     "https://magit.vc"
-       :depends     (compat llama seq transient with-editor)
+       :depends     (compat cond-let llama seq transient with-editor)
        :type        github
        :pkgname     "magit/magit"
        :branch      "main"

@@ -1,0 +1,4 @@
+(:name cond-let
+       :description "Additional and improved binding conditionals"
+       :website     "https://github.com/tarsius/cond-let"
+       :type        elpa)
