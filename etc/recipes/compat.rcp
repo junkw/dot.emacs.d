@@ -1,0 +1,5 @@
+(:name compat
+       :description "COMPATibility Library for Emacs"
+       :website     "https://github.com/emacs-compat/compat"
+       :type        github
+       :pkgname     "emacs-compat/compat")
