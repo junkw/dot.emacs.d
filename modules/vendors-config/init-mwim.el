@@ -1,4 +1,4 @@
-;;; init-mwim.el --- el-get init file for package mwim
+;;; init-mwim.el --- el-get init file for package mwim  -*- lexical-binding: t; -*-
 
 ;; (C) 2015  Jumpei KAWAMI
 

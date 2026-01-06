@@ -1,4 +1,4 @@
-;;; init-powerline.el --- el-get init file for package powerline
+;;; init-powerline.el --- el-get init file for package powerline  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

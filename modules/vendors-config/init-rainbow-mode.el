@@ -1,4 +1,4 @@
-;;; init-rainbow-mode.el --- el-get init file for package rainbow-mode
+;;; init-rainbow-mode.el --- el-get init file for package rainbow-mode  -*- lexical-binding: t; -*-
 
 ;; (C) 2012  Jumpei KAWAMI
 

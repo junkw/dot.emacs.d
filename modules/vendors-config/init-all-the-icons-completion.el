@@ -1,4 +1,4 @@
-;;; init-all-the-icons-completion.el --- el-get init file for package all-the-icons-completion
+;;; init-all-the-icons-completion.el --- el-get init file for package all-the-icons-completion  -*- lexical-binding: t; -*-
 
 ;; (C) 2023  Jumpei KAWAMI
 

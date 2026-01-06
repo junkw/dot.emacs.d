@@ -1,4 +1,4 @@
-;;; pre-init-window.el --- Emacs init file
+;;; pre-init-window.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2015  Jumpei KAWAMI
 

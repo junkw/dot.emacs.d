@@ -1,4 +1,4 @@
-;;; init-vertico.el --- el-get init file for package vertico
+;;; init-vertico.el --- el-get init file for package vertico  -*- lexical-binding: t; -*-
 
 ;; (C) 2023  Jumpei KAWAMI
 

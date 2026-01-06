@@ -1,4 +1,4 @@
-;;; init-which-key.el --- el-get init file for package which-key
+;;; init-which-key.el --- el-get init file for package which-key  -*- lexical-binding: t; -*-
 
 ;; (C) 2018  Jumpei KAWAMI
 

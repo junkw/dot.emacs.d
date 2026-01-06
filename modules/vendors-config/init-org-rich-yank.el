@@ -1,4 +1,4 @@
-;;; init-org-rich-yank.el --- el-get init file for package org-rich-yank
+;;; init-org-rich-yank.el --- el-get init file for package org-rich-yank  -*- lexical-binding: t; -*-
 
 ;; (C) 2018  Jumpei KAWAMI
 

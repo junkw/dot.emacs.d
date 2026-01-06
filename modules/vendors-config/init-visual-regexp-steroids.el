@@ -1,4 +1,4 @@
-;;; init-visual-regexp-steroids.el --- el-get init file for package visual-regexp-steroids
+;;; init-visual-regexp-steroids.el --- el-get init file for package visual-regexp-steroids  -*- lexical-binding: t; -*-
 
 ;; (C) 2018  Jumpei KAWAMI
 

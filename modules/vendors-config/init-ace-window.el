@@ -1,4 +1,4 @@
-;;; init-ace-window.el --- el-get init file for package ace-window
+;;; init-ace-window.el --- el-get init file for package ace-window  -*- lexical-binding: t; -*-
 
 ;; (C) 2014  Jumpei KAWAMI
 

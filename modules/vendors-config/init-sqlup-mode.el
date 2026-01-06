@@ -1,4 +1,4 @@
-;;; init-sqlup-mode.el --- el-get init file for package sqlup-mode
+;;; init-sqlup-mode.el --- el-get init file for package sqlup-mode  -*- lexical-binding: t; -*-
 
 ;; (C) 2018  Jumpei KAWAMI
 

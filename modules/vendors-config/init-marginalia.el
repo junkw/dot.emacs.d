@@ -1,4 +1,4 @@
-;;; init-marginalia.el --- el-get init file for package marginalia
+;;; init-marginalia.el --- el-get init file for package marginalia  -*- lexical-binding: t; -*-
 
 ;; (C) 2023  Jumpei KAWAMI
 

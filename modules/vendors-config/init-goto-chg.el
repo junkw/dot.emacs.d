@@ -1,4 +1,4 @@
-;;; init-goto-chg.el --- el-get init file for package goto-chg
+;;; init-goto-chg.el --- el-get init file for package goto-chg  -*- lexical-binding: t; -*-
 
 ;; (C) 2012  Jumpei KAWAMI
 

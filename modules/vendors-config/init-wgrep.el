@@ -1,4 +1,4 @@
-;;; init-wgrep.el --- el-get init file for package wgrep
+;;; init-wgrep.el --- el-get init file for package wgrep  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

@@ -1,4 +1,4 @@
-;;; init-anzu.el --- el-get init file for package anzu
+;;; init-anzu.el --- el-get init file for package anzu  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

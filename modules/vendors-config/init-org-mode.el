@@ -1,4 +1,4 @@
-;;; init-org-mode.el --- el-get init file for package org-mode
+;;; init-org-mode.el --- el-get init file for package org-mode  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

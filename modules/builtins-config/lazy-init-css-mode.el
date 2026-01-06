@@ -1,4 +1,4 @@
-;;; lazy-init-css-mode.el --- Emacs init file
+;;; lazy-init-css-mode.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2015  Jumpei KAWAMI
 

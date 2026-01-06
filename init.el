@@ -1,4 +1,4 @@
-;;; init.el --- Emacs init file
+;;; init.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2012  Jumpei KAWAMI
 

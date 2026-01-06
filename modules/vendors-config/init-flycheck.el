@@ -1,4 +1,4 @@
-;;; init-flycheck.el --- el-get init file for package flycheck
+;;; init-flycheck.el --- el-get init file for package flycheck  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

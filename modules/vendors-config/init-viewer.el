@@ -1,4 +1,4 @@
-;;; init-viewer.el --- el-get init file for package viewer
+;;; init-viewer.el --- el-get init file for package viewer  -*- lexical-binding: t; -*-
 
 ;; (C) 2012  Jumpei KAWAMI
 

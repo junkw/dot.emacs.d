@@ -1,4 +1,4 @@
-;;; init-tern.el --- el-get init file for package tern
+;;; init-tern.el --- el-get init file for package tern  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

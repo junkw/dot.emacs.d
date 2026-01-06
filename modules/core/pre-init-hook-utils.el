@@ -1,4 +1,4 @@
-;;; pre-init-hook-utils.el --- Emacs init file
+;;; pre-init-hook-utils.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2017  Jumpei KAWAMI
 

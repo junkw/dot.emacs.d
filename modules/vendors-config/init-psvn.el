@@ -1,4 +1,4 @@
-;;; init-psvn.el --- el-get init file for package psvn
+;;; init-psvn.el --- el-get init file for package psvn  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

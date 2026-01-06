@@ -1,4 +1,4 @@
-;;; init-smartparens.el --- el-get init file for package smartparens
+;;; init-smartparens.el --- el-get init file for package smartparens  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

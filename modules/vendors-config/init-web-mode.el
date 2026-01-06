@@ -1,4 +1,4 @@
-;;; init-web-mode.el --- el-get init file for package web-mode
+;;; init-web-mode.el --- el-get init file for package web-mode  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

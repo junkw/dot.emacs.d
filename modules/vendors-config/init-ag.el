@@ -1,4 +1,4 @@
-;;; init-ag.el --- el-get init file for package ag
+;;; init-ag.el --- el-get init file for package ag  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

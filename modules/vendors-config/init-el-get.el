@@ -1,4 +1,4 @@
-;;; init-el-get.el --- el-get init file for package el-get
+;;; init-el-get.el --- el-get init file for package el-get  -*- lexical-binding: t; -*-
 
 ;; (C) 2012  Jumpei KAWAMI
 

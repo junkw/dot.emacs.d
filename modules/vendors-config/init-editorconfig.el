@@ -1,4 +1,4 @@
-;;; init-editorconfig.el --- el-get init file for package editorconfig
+;;; init-editorconfig.el --- el-get init file for package editorconfig  -*- lexical-binding: t; -*-
 
 ;; (C) 2016  Jumpei KAWAMI
 

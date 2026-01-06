@@ -1,4 +1,4 @@
-;;; pre-init-environments.el --- Emacs init file
+;;; pre-init-environments.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2017  Jumpei KAWAMI
 

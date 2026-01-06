@@ -1,4 +1,4 @@
-;;; init-mu4e-alert.el --- el-get init file for package mu4e-alert
+;;; init-mu4e-alert.el --- el-get init file for package mu4e-alert  -*- lexical-binding: t; -*-
 
 ;; (C) 2016  Jumpei KAWAMI
 

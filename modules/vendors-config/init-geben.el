@@ -1,4 +1,4 @@
-;;; init-geben.el --- el-get init file for package geben
+;;; init-geben.el --- el-get init file for package geben  -*- lexical-binding: t; -*-
 
 ;; (C) 2014  Jumpei KAWAMI
 

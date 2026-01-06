@@ -1,4 +1,4 @@
-;;; init-undo-tree.el --- el-get init file for package undo-tree
+;;; init-undo-tree.el --- el-get init file for package undo-tree  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

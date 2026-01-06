@@ -1,4 +1,4 @@
-;;; init-ace-isearch.el --- el-get init file for package ace-isearch
+;;; init-ace-isearch.el --- el-get init file for package ace-isearch  -*- lexical-binding: t; -*-
 
 ;; (C) 2014  Jumpei KAWAMI
 

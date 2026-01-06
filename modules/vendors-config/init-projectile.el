@@ -1,4 +1,4 @@
-;;; init-projectile.el --- el-get init file for package projectile
+;;; init-projectile.el --- el-get init file for package projectile  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

@@ -1,4 +1,4 @@
-;;; init-git-gutter.el --- el-get init file for package git-gutter
+;;; init-git-gutter.el --- el-get init file for package git-gutter  -*- lexical-binding: t; -*-
 
 ;; (C) 2018  Jumpei KAWAMI
 

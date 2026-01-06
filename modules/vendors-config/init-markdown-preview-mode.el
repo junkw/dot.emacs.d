@@ -1,4 +1,4 @@
-;;; init-markdown-preview-mode.el --- el-get init file for package markdown-preview-mode
+;;; init-markdown-preview-mode.el --- el-get init file for package markdown-preview-mode  -*- lexical-binding: t; -*-
 
 ;; (C) 2022  Jumpei KAWAMI
 

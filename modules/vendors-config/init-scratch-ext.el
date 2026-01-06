@@ -1,4 +1,4 @@
-;;; init-scratch-ext.el --- el-get init file for package scratch-ext
+;;; init-scratch-ext.el --- el-get init file for package scratch-ext  -*- lexical-binding: t; -*-
 
 ;; (C) 2012  Jumpei KAWAMI
 

@@ -1,4 +1,4 @@
-;;; init-auto-async-byte-compile.el --- el-get init file for package auto-async-byte-compile
+;;; init-auto-async-byte-compile.el --- el-get init file for package auto-async-byte-compile  -*- lexical-binding: t; -*-
 
 ;; (C) 2012  Jumpei KAWAMI
 

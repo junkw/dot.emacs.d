@@ -1,4 +1,4 @@
-;;; init-yasnippet.el --- el-get init file for package yasnippet
+;;; init-yasnippet.el --- el-get init file for package yasnippet  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

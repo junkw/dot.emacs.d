@@ -1,4 +1,4 @@
-;;; init-prescient.el --- el-get init file for package prescient
+;;; init-prescient.el --- el-get init file for package prescient  -*- lexical-binding: t; -*-
 
 ;; (C) 2024  Jumpei KAWAMI
 

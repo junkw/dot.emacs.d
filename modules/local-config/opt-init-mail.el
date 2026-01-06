@@ -1,4 +1,4 @@
-;;; opt-init-mail.el --- Emacs init file
+;;; opt-init-mail.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2017  Jumpei KAWAMI
 

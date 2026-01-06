@@ -1,4 +1,4 @@
-;;; init-cape.el --- el-get init file for package cape
+;;; init-cape.el --- el-get init file for package cape  -*- lexical-binding: t; -*-
 
 ;; (C) 2024  Jumpei KAWAMI
 

@@ -1,4 +1,4 @@
-;;; init-origami.el --- el-get init file for package origami
+;;; init-origami.el --- el-get init file for package origami  -*- lexical-binding: t; -*-
 
 ;; (C) 2015  Jumpei KAWAMI
 

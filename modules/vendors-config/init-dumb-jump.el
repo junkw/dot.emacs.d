@@ -1,4 +1,4 @@
-;;; init-dumb-jump.el --- el-get init file for package dumb-jump
+;;; init-dumb-jump.el --- el-get init file for package dumb-jump  -*- lexical-binding: t; -*-
 
 ;; (C) 2016  Jumpei KAWAMI
 

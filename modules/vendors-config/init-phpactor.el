@@ -1,4 +1,4 @@
-;;; init-phpactor.el --- el-get init file for package phpactor
+;;; init-phpactor.el --- el-get init file for package phpactor  -*- lexical-binding: t; -*-
 
 ;; (C) 2021  Jumpei KAWAMI
 

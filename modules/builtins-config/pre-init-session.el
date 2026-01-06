@@ -1,4 +1,4 @@
-;;; pre-init-session.el --- Emacs init file
+;;; pre-init-session.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2012  Jumpei KAWAMI
 

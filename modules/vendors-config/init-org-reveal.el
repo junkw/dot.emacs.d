@@ -1,4 +1,4 @@
-;;; init-org-reveal.el --- el-get init file for package org-reveal
+;;; init-org-reveal.el --- el-get init file for package org-reveal  -*- lexical-binding: t; -*-
 
 ;; (C) 2015  Jumpei KAWAMI
 

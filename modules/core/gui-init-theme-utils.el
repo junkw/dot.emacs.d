@@ -1,4 +1,4 @@
-;;; gui-init-theme-utils.el --- Emacs init file
+;;; gui-init-theme-utils.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2017  Jumpei KAWAMI
 

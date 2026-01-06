@@ -1,4 +1,4 @@
-;;; opt-init-vendors.el --- Emacs init file
+;;; opt-init-vendors.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2018  Jumpei KAWAMI
 

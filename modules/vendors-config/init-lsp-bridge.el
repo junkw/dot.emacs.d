@@ -1,4 +1,4 @@
-;;; init-lsp-bridge.el --- el-get init file for package lsp-bridge
+;;; init-lsp-bridge.el --- el-get init file for package lsp-bridge  -*- lexical-binding: t; -*-
 
 ;; (C) 2024  Jumpei KAWAMI
 

@@ -1,4 +1,4 @@
-;;; init-expand-region.el --- el-get init file for package expand-region
+;;; init-expand-region.el --- el-get init file for package expand-region  -*- lexical-binding: t; -*-
 
 ;; (C) 2012  Jumpei KAWAMI
 

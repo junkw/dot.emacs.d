@@ -1,4 +1,4 @@
-;;; opt-init-help.el --- Emacs init file
+;;; opt-init-help.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2016  Jumpei KAWAMI
 

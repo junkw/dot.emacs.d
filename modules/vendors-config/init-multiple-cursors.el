@@ -1,4 +1,4 @@
-;;; init-multiple-cursors.el --- el-get init file for package multiple-cursors
+;;; init-multiple-cursors.el --- el-get init file for package multiple-cursors  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

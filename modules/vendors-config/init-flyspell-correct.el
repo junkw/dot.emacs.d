@@ -1,4 +1,4 @@
-;;; init-flyspell-correct.el --- el-get init file for package flyspell-correct
+;;; init-flyspell-correct.el --- el-get init file for package flyspell-correct  -*- lexical-binding: t; -*-
 
 ;; (C) 2016  Jumpei KAWAMI
 

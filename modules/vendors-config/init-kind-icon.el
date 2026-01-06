@@ -1,4 +1,4 @@
-;;; init-kind-icon.el --- el-get init file for package kind-icon
+;;; init-kind-icon.el --- el-get init file for package kind-icon  -*- lexical-binding: t; -*-
 
 ;; (C) 2024  Jumpei KAWAMI
 

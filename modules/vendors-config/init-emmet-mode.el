@@ -1,4 +1,4 @@
-;;; init-emmet-mode.el --- el-get init file for package emmet-mode
+;;; init-emmet-mode.el --- el-get init file for package emmet-mode  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

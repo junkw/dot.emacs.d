@@ -1,4 +1,4 @@
-;;; opt-init-packages.el --- Emacs init file
+;;; opt-init-packages.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2015  Jumpei KAWAMI
 

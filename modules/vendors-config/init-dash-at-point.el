@@ -1,4 +1,4 @@
-;;; init-dash-at-point.el --- el-get init file for package dash-at-point
+;;; init-dash-at-point.el --- el-get init file for package dash-at-point  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

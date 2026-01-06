@@ -1,4 +1,4 @@
-;;; init-popwin.el --- el-get init file for package popwin
+;;; init-popwin.el --- el-get init file for package popwin  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

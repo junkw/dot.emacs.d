@@ -1,4 +1,4 @@
-;;; init-pos-tip.el --- el-get init file for package pos-tip
+;;; init-pos-tip.el --- el-get init file for package pos-tip  -*- lexical-binding: t; -*-
 
 ;; (C) 2017  Jumpei KAWAMI
 

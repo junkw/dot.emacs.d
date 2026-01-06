@@ -1,4 +1,4 @@
-;;; init-ssh-deploy.el --- el-get init file for package ssh-deploy
+;;; init-ssh-deploy.el --- el-get init file for package ssh-deploy  -*- lexical-binding: t; -*-
 
 ;; (C) 2018  Jumpei KAWAMI
 

@@ -1,4 +1,4 @@
-;;; init-smart-newline.el --- el-get init file for package smart-newline
+;;; init-smart-newline.el --- el-get init file for package smart-newline  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

@@ -1,4 +1,4 @@
-;;; init-easy-kill.el --- el-get init file for package easy-kill
+;;; init-easy-kill.el --- el-get init file for package easy-kill  -*- lexical-binding: t; -*-
 
 ;; (C) 2018  Jumpei KAWAMI
 

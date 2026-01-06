@@ -1,4 +1,4 @@
-;;; init-e2wm.el --- el-get init file for package e2wm
+;;; init-e2wm.el --- el-get init file for package e2wm  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

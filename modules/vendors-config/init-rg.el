@@ -1,4 +1,4 @@
-;;; init-rg.el --- el-get init file for package rg
+;;; init-rg.el --- el-get init file for package rg  -*- lexical-binding: t; -*-
 
 ;; (C) 2018  Jumpei KAWAMI
 

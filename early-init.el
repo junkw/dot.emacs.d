@@ -1,4 +1,4 @@
-;;; early-init.el --- Emacs init file
+;;; early-init.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2022  Jumpei KAWAMI
 

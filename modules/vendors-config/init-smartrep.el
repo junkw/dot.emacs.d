@@ -1,4 +1,4 @@
-;;; init-smartrep.el --- el-get init file for package smartrep
+;;; init-smartrep.el --- el-get init file for package smartrep  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

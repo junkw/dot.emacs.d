@@ -1,4 +1,4 @@
-;;; init-sql-indent.el --- el-get init file for package sql-indent
+;;; init-sql-indent.el --- el-get init file for package sql-indent  -*- lexical-binding: t; -*-
 
 ;; (C) 2018  Jumpei KAWAMI
 

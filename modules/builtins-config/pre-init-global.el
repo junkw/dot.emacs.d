@@ -1,4 +1,4 @@
-;;; pre-init-global.el --- Emacs init file
+;;; pre-init-global.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2012  Jumpei KAWAMI
 

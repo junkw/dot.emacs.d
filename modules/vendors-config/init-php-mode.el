@@ -1,4 +1,4 @@
-;;; init-php-mode.el --- el-get init file for package php-mode
+;;; init-php-mode.el --- el-get init file for package php-mode  -*- lexical-binding: t; -*-
 
 ;; (C) 2012  Jumpei KAWAMI
 

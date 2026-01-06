@@ -1,4 +1,4 @@
-;;; init-highlight-defined.el --- el-get init file for package highlight-defined
+;;; init-highlight-defined.el --- el-get init file for package highlight-defined  -*- lexical-binding: t; -*-
 
 ;; (C) 2015  Jumpei KAWAMI
 

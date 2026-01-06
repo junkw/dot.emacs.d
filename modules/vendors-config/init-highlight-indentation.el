@@ -1,4 +1,4 @@
-;;; init-highlight-indentation.el --- el-get init file for package highlight-indentation
+;;; init-highlight-indentation.el --- el-get init file for package highlight-indentation  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

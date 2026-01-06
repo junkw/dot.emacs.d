@@ -1,4 +1,4 @@
-;;; init-markdown-mode.el --- el-get init file for package markdown-mode
+;;; init-markdown-mode.el --- el-get init file for package markdown-mode  -*- lexical-binding: t; -*-
 
 ;; (C) 2017  Jumpei KAWAMI
 

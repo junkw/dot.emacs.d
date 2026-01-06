@@ -1,4 +1,4 @@
-;;; init-magit.el --- el-get init file for package magit
+;;; init-magit.el --- el-get init file for package magit  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

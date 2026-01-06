@@ -1,4 +1,4 @@
-;;; init-highlight-symbol.el --- el-get init file for package highlight-symbol
+;;; init-highlight-symbol.el --- el-get init file for package highlight-symbol  -*- lexical-binding: t; -*-
 
 ;; (C) 2013  Jumpei KAWAMI
 

@@ -1,4 +1,4 @@
-;;; init-avy.el --- el-get init file for package avy
+;;; init-avy.el --- el-get init file for package avy  -*- lexical-binding: t; -*-
 
 ;; (C) 2018  Jumpei KAWAMI
 

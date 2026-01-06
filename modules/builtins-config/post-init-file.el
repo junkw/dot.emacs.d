@@ -1,4 +1,4 @@
-;;; post-init-file.el --- Emacs init file
+;;; post-init-file.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2015  Jumpei KAWAMI
 

@@ -1,4 +1,4 @@
-;;; init-js2-mode.el --- el-get init file for package js2-mode
+;;; init-js2-mode.el --- el-get init file for package js2-mode  -*- lexical-binding: t; -*-
 
 ;; (C) 2012  Jumpei KAWAMI
 

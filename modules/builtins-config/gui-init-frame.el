@@ -1,4 +1,4 @@
-;;; gui-init-frame.el --- Emacs init file
+;;; gui-init-frame.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2013  Jumpei KAWAMI
 

@@ -1,4 +1,4 @@
-;;; init-neotree.el --- el-get init file for package neotree
+;;; init-neotree.el --- el-get init file for package neotree  -*- lexical-binding: t; -*-
 
 ;; (C) 2015  Jumpei KAWAMI
 

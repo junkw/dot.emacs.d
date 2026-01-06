@@ -1,4 +1,4 @@
-;;; init-corfu.el --- el-get init file for package corfu
+;;; init-corfu.el --- el-get init file for package corfu  -*- lexical-binding: t; -*-
 
 ;; (C) 2024  Jumpei KAWAMI
 

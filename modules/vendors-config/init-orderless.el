@@ -1,4 +1,4 @@
-;;; init-orderless.el --- el-get init file for package orderless
+;;; init-orderless.el --- el-get init file for package orderless  -*- lexical-binding: t; -*-
 
 ;; (C) 2023  Jumpei KAWAMI
 

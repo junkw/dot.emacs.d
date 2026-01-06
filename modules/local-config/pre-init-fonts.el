@@ -1,4 +1,4 @@
-;;; pre-init-fonts.el --- Emacs init file
+;;; pre-init-fonts.el --- Emacs init file  -*- lexical-binding: t; -*-
 
 ;; (C) 2015  Jumpei KAWAMI
 
