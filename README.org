@@ -21,9 +21,10 @@ python -m venv ~/.local/share/python/venv
 source ~/.local/share/python/venv/bin/activate
 pip3 install epc orjson sexpdata six setuptools paramiko rapidfuzz
 
-brew tap railwaycat/emacsmacport
-brew install emacs-mac  --with-dbus --with-glib --with-imagemagick --with-librsvg --with-mac-metal --with-native-comp --with-natural-title-bar --with-starter  --with-emacs-sexy-icon
-osascript -e 'tell application "Finder" to make alias file to POSIX file "/opt/homebrew/opt/emacs-mac/Emacs.app" at POSIX file "/Applications"'
+brew tap d12frosted/emacs-plus
+brew install emacs-plus --with-compress-install
+osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus@31/Emacs.app" at posix file "/Applications" with properties {name:"Emacs.app"}'
+npm install -g @emacs-eask/cli
 
 git clone --recursive https://github.com/junkw/dot.emacs.d.git /path/to/local/repo
 cd /path/to/local/repo
@@ -31,7 +32,7 @@ rake install
 open -a Emacs
 
 cd ~/.emacs.d/vendor/hotfuzz
-cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS=-march=native -DEMACS_ROOT=/opt/homebrew/Cellar/emacs-mac/emacs-29.1-mac-10.0/ && cmake --build build
+cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS=-march=native -DEMACS_ROOT=/opt/homebrew/Cellar/emacs-plus@31/31.1/ && cmake --build build
 #+END_SRC
 
 ** Structure
